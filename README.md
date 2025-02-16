@@ -6,7 +6,7 @@ A "smart contract" is simply a program that runs on the Ethereum blockchain. It'
 
 Therefore, smart contracts are the best executors of the principle that code is law.
 
-([Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/), [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c))
+([Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/), [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c),[Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/))
 [Read more...](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
 ## 
 All dApps or dAIpps, by virtue of the nature of smart contracts, have a state variable called "owner" in their code. This variable stores the external account (EOA), commonly known as a wallet address, or a multi-signature address, of the contract's owner. The multi-signature address is also controlled by the wallet addresses of all its members. This address is usually set by the deployer during contract deployment or updated through a specific function during contract operation. Its purpose is to implement the contract's permission control, ensuring that only specific addresses (usually the contract's deployer, manager, a certain team, or even an AI) can execute certain sensitive operations.
