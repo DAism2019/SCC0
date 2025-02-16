@@ -3,7 +3,9 @@ Smart Creative Commons Zero (SCC0) is not only the first public goods license de
 # Background
 ##  Code is law: a brief intro of smart contracts.
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account. This means they have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified but runnable forever by default, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain are executable forever.
+
 Therefore, smart contracts are the best executors of the principle that code is law.
+
 ([Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/), [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c))
 [Read more...](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
 ## 
