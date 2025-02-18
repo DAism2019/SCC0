@@ -26,14 +26,12 @@ We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart
 
 // SPDX-License-Identifier: GPL-3.0-or-later
 ## List of Smart Commons
-[DAism](https://daism.io/zh/workroom/1)
-
-[Enki](https://daism.io/zh/workroom/2)
-
-[Honor Tokens](https://daism.io/zh/workroom/3)
+- [DAism](https://daism.io/zh/workroom/1)
+- [Enki](https://daism.io/zh/workroom/2)
+- [Honor Tokens](https://daism.io/zh/workroom/3)
 ## References
-[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
-[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
-[Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
-[Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
-[For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
+1. [Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
+2. [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
+3. [Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
+4. [Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
+5. [For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
