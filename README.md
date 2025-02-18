@@ -27,7 +27,9 @@ We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart
 // SPDX-License-Identifier: GPL-3.0-or-later
 ## List of Smart Commons
 [DAism](https://daism.io/zh/workroom/1)
+
 [Enki](https://daism.io/zh/workroom/2)
+
 [Honor Tokens](https://daism.io/zh/workroom/3)
 ## References
 [Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
