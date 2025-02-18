@@ -19,20 +19,19 @@ We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart
 # Motivation
 
 // SPDX-License-Identifier: GPL-3.0-or-later
+## References
+1. <a id="r1"></a>[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
+2. <a id="r2"></a>[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
+3. <a id="r3"></a>[Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
+4. <a id="r4"></a>[Multisig contracts](https://ethereum.org/en/developers/docs/smart-contracts/#multisig)
+5. <a id="r5"></a>[The magic behind dapps](https://ethereum.org/en/dapps/#what-are-dapps)
+6. <a id="r6"></a>[Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
+7. <a id="r7"></a>[For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
+
 ## List of Smart Commons
 - [DAism](https://daism.io/zh/workroom/1)
 - [Enki](https://daism.io/zh/workroom/2)
 - [Honor Tokens](https://daism.io/zh/workroom/3)
-## References
-<a id="r1"></a>1. [Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
-<a id="r2"></a>2. [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
-<a id="r3"></a>3. [Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
-<a id="r4"></a>4. [Multisig contracts](https://ethereum.org/en/developers/docs/smart-contracts/#multisig)
-<a id="r5"></a>5. [The magic behind dapps](https://ethereum.org/en/dapps/#what-are-dapps)
-<a id="r6"></a>6. [Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
-<a id="r7"></a>7. [For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
-
-
 
 
 
