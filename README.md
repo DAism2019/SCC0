@@ -5,9 +5,6 @@ Smart Creative Commons Zero (SCC0) is not only the first public goods license de
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
 
 Therefore, smart contracts are the best executors of the principle that code is law.
-
-([Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/), [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c),[Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/))
-[Read more...](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
 ## 
 All dApps or dAIpps, by virtue of the nature of smart contracts, have a state variable called "owner" in their code. This variable stores the Externally Owned Account (EOA, commonly known as a wallet address), or a multi-signature address (also controlled by the wallet addresses of all its members) of the contract's owner.  This address is usually set by the deployer during contract deployment or updated through a specific function during contract operation. Its purpose is to implement the contract's permission control, ensuring that only specific addresses (usually the contract's deployer, manager, a certain team, or even an AI) can execute certain sensitive operations.
 
@@ -26,3 +23,15 @@ We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart
 * **Multi-signature address**: Similarly, a brief explanation of how a multi-signature address works could be helpful.
 
 # Motivation
+
+// SPDX-License-Identifier: GPL-3.0-or-later
+## List of Smart Commons
+[DAism](https://daism.io/zh/workroom/1)
+[Enki](https://daism.io/zh/workroom/2)
+[Honor Tokens](https://daism.io/zh/workroom/3)
+## References
+[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
+[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
+[Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
+[Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
+[For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
