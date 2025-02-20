@@ -18,7 +18,10 @@ We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart
 
 # Motivation
 
-// SPDX-License-Identifier: GPL-3.0-or-later
+# Smart Creative Commons Zero (SCC0)
+
+# EIP
+
 ## References
 1. <a id="r1"></a>[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
 2. <a id="r2"></a>[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
