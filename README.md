@@ -28,11 +28,11 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 
 By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the exclusive governance of this license and thereby becomes a decentralized public application, also known as a Smart Common.
 
-For humans, we all recognize the fact that all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts are entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This anonymity means that within the usage of a dApp/dAIpp, no one can prove whom as the owner of any rights, nor can anyone prove that who bear any responsibilities, or even claim to be a victim of any disaster.
+For humans, we all recognize the fact that all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts are entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This anonymity means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.
 
 ### 1. Governance of the Smart Common
 
-All smart contracts under this Smart Common and their trusted components—such as all contracts and frontends of a dApp/dAIpp, or open-source works associated with a single wallet address—accept governance under this license. This license is one of the components of DAism's Proof-of-Value, with its public governance fund being the Satoshi UTO Fund (contract address: 0xe40b05570d2760102c59bf4ffc9b47f921b67a1f).
+All smart contracts under this Smart Common and their trusted components—such as all contracts and frontends of a dApp/dAIpp, or open-source works associated with a single wallet address—accept governance under this license. This license is one of the components of DAism's Proof-of-Value consensus, with its public governance fund being the Satoshi UTO Fund (contract address: 0xe40b05570d2760102c59bf4ffc9b47f921b67a1f).
 
 ### 2. No Rights Other Than Anonymous Rewards
 
