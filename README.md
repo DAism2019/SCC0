@@ -18,6 +18,12 @@ We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart
 
 # Motivation
 
+To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
+
+- On-chain verification of SCC0 adherence.
+- Automated interaction checks between contracts.
+- A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
+
 # Smart Creative Commons Zero (SCC0)
 
 By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the exclusive governance of this license and thereby becomes a decentralized public application, also known as a Smart Common.
