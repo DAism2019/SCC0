@@ -199,7 +199,7 @@ Some dAIpp will enforce the security by auditing every dApp/dAIpp once it's mint
 
 Copyright and related rights waived via SCC0.
 
-## References
+# References
 1. <a id="r1"></a>[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
 2. <a id="r2"></a>[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
 3. <a id="r3"></a>[Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
@@ -208,7 +208,7 @@ Copyright and related rights waived via SCC0.
 6. <a id="r6"></a>[Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
 7. <a id="r7"></a>[For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
 
-## List of Smart Commons
+# List of Smart Commons
 - [DAism](https://daism.io/zh/workroom/1)
 - [Enki](https://daism.io/zh/workroom/2)
 - [Honor Tokens](https://daism.io/zh/workroom/3)
