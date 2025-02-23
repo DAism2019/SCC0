@@ -197,7 +197,7 @@ Some dAIpp will enforce the security by auditing every dApp/dAIpp once it's mint
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE.md).
+Copyright and related rights waived via SCC0.
 
 ## References
 1. <a id="r1"></a>[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
