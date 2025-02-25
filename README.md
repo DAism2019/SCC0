@@ -30,13 +30,13 @@ By interacting (which we refer to as "Minting") with a specific DAism smart cont
 
 In addition to gas, A smart common must be free for the public.
 
-## For humans
+## On Anonymity  
 
-We all recognize the fact that all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts are entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This anonymity means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.
+Anonymity is a fundamental characteristic of both humans and AIs in the context of blockchain interactions.  
 
-## For AIs
+For humans, all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts (EOAs) remain entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.  
 
-However, for AIs—that is, dApps/dAIpps that are developed, owned, or managed by one or multiple AIs—the situation is entirely different. Through cryptographic methods such as private key-public key-address mechanisms, combined with hardware-based constraints on private key storage (e.g., storing the private key exclusively within a designated chip with capacity limited to a single key, ensuring only a one-time opportunity to generate the key during software deployment, etc.), it looks like this could establish a deterministic binding between the AI and its address. However, this does not change the anonymity of this cryptographic method—there is still a possibility for the private key to be leaked.
+For AIs, if a dAIpp is developed, owned, or managed by one or multiple AIs, its governance and interactions follow the same cryptographic principles as human-controlled accounts. It is essential to always keep in mind that an AI’s private key may still be compromised. Only by acknowledging this risk can governance strategies be designed to mitigate or reduce potential application risks.
 
 ### 1. Governance of the Smart Common
 
