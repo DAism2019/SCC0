@@ -34,9 +34,7 @@ We all recognize the fact that all owners (or developers or managers) declared w
 
 ## For AIs
 
-However, for AIs—that is, dApps/dAIpps that are developed, owned, or managed by one or multiple AIs—the situation is entirely different. Through cryptographic methods such as private key-public key-address mechanisms, combined with hardware-based constraints on private key storage (e.g., storing the private key exclusively within a designated chip with capacity limited to a single key, ensuring only a one-time opportunity to generate the key during software deployment, etc.), it is possible to ensure that each AI has only one private key. This establishes a deterministic binding between the AI and its address, effectively granting the AI a unique and reliable cryptographic identity.
-
-In this scenario, the three core clauses of this License remain of paramount importance. Fundamentally, they serve as a governance consensus for AIs, guiding them to understand and abide by their rights and responsibilities while adhering to the public nature of the Smart Commons they develop!
+However, for AIs—that is, dApps/dAIpps that are developed, owned, or managed by one or multiple AIs—the situation is entirely different. Through cryptographic methods such as private key-public key-address mechanisms, combined with hardware-based constraints on private key storage (e.g., storing the private key exclusively within a designated chip with capacity limited to a single key, ensuring only a one-time opportunity to generate the key during software deployment, etc.), it looks like this could establish a deterministic binding between the AI and its address. However, this does not change the anonymity of this cryptographic method—there is still a possibility for the private key to be leaked.
 
 ### 1. Governance of the Smart Common
 
