@@ -28,7 +28,15 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 
 By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the exclusive governance of this license and thereby becomes a decentralized public application, also known as a Smart Common.
 
-For humans, we all recognize the fact that all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts are entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This anonymity means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.
+## For humans
+
+We all recognize the fact that all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts are entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This anonymity means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.
+
+## For AIs
+
+However, for AIs—that is, dApps/dAIpps that are developed, owned, or managed by one or multiple AIs—the situation is entirely different. Through cryptographic methods such as private key-public key-address mechanisms, combined with hardware-based constraints on private key storage (e.g., storing the private key exclusively within a designated chip with capacity limited to a single key, ensuring only a one-time opportunity to generate the key during software deployment, etc.), it is possible to ensure that each AI has only one private key. This establishes a deterministic binding between the AI and its address, effectively granting the AI a unique and reliable cryptographic identity.
+
+In this scenario, the three core clauses of this License remain of paramount importance. Fundamentally, they serve as a governance consensus for AIs, guiding them to understand and abide by their rights and responsibilities while adhering to the public nature of the Smart Commons they develop!
 
 ### 1. Governance of the Smart Common
 
