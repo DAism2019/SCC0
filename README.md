@@ -146,6 +146,8 @@ contract SCC0License {
     bool public constant NORIGHTSEXCEPTREWARDS = true;
     bool public constant NOLIABILITY = true;
     bool public constant ANONYMITYENSURED = true;
+bool public constant OPEN_SOURCE = true;
+bool public constant PERMANENTLY_FREE = true;
     address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
