@@ -177,6 +177,17 @@ modifier onlySCC0() {
     require(keccak256(abi.encodePacked(LICENSE)) == keccak256(abi.encodePacked("SCC0")), "Not SCC0 licensed");
     _;
 }
+
+modifier onlyOpenSource() {
+    require(OPEN_SOURCE == true, "This contract must be open source");
+    _;
+}
+
+modifier onlyPermanentlyFree() {
+    require(PERMANENTLY_FREE == true, "This contract must be permanently free to use");
+    _;
+}
+
 ```
 
 ## Rationale
