@@ -184,7 +184,7 @@ The reason why neither SSC0 V1 nor SSC0 V2 has introduced "detailed reward rules
 
 ### Compliance Enforcement in Smart Commons
 
-All SCC0-licensed Smart Commons must verify compliance before interacting with another contract. The enforcement mechanism works as follows:
+All **SCC0-licensed Smart Commons** must verify compliance before interacting with another contract. The enforcement mechanism works as follows:
 
 ```solidity
 interface ISCC0License {
