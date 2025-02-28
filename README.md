@@ -82,6 +82,62 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 
 ## Specification
 
+### **SCC0 License Master Contract Implementation**
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SCC0License {
+    address public owner;
+    mapping(uint8 => bool) public validVersions; // Stores supported SCC0 versions
+    mapping(address => bool) public blacklist; // Tracks banned dApps/dAIpps
+    event VersionAdded(uint8 version);
+    event Blacklisted(address indexed dApp);
+    event RemovedFromBlacklist(address indexed dApp);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only owner can perform this action");
+        _;
+    }
+
+    constructor() {
+        owner = msg.sender;
+        validVersions[1] = true; // Initially support SCC0 V1
+        validVersions[2] = true; // Initially support SCC0 V2
+    }
+
+    // Add a new SCC0 license version
+    function addVersion(uint8 version) external onlyOwner {
+        validVersions[version] = true;
+        emit VersionAdded(version);
+    }
+
+    // Deprecate an SCC0 version (mark it as outdated but not deleted)
+    function deprecateVersion(uint8 version) external onlyOwner {
+        validVersions[version] = false;
+    }
+
+    // Add a non-compliant dApp/dAIpp to the blacklist
+    function addToBlacklist(address dApp) external onlyOwner {
+        blacklist[dApp] = true;
+        emit Blacklisted(dApp);
+    }
+
+    // Remove a dApp/dAIpp from the blacklist
+    function removeFromBlacklist(address dApp) external onlyOwner {
+        blacklist[dApp] = false;
+        emit RemovedFromBlacklist(dApp);
+    }
+
+    // Check if a dApp/dAIpp complies with SCC0
+    function isSCC0Compliant(address dApp, uint8 version) external view returns (bool) {
+        return validVersions[version] && !blacklist[dApp];
+    }
+}
+
+```
+
 ### SCC0 v1 Declaration
 
 SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
