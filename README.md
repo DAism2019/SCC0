@@ -94,11 +94,23 @@ address public constant LICENSE = 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe;
 
 2. Interact with DAism's smart contract `0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe`. Or go to [DAism](https://daism.io/zh/smartcommons) to mint a smart common.
 
+3. SCC0 v1 Compliance Contract which is deployed by DAism:
+
 ```solidity
-address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+contract SCC0License {
+    string public constant LICENSENAME = "SCC0";
+    uint8 public constant VERSION = 1;
+    bool public constant SELFISSUEDTOKEN = false;
+    bool public constant NORIGHTSEXCEPTREWARDS = true;
+    bool public constant NOLIABILITY = true;
+    bool public constant ANONYMITYENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
 ```
 
-3. DAism has defined the Smart Common structure:
+4. DAism has defined the Smart Common structure:
 
 ```solidity
 struct SCInfo {
@@ -111,7 +123,7 @@ struct SCInfo {
 }
 ```
 
-Additional mappings and governance structures are included for community interactions:
+5. Additional mappings and governance structures are included for community interactions:
 
 ```solidity
 mapping(address => Object.Member) public memberInfos; // Stores Smart Common members and their dividend ratios
@@ -146,8 +158,8 @@ contract SCC0License {
     bool public constant NORIGHTSEXCEPTREWARDS = true;
     bool public constant NOLIABILITY = true;
     bool public constant ANONYMITYENSURED = true;
-bool public constant OPEN_SOURCE = true;
-bool public constant PERMANENTLY_FREE = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
     address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
