@@ -92,13 +92,13 @@ SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
 address public constant LICENSE = 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe;
 ```
 
-1. Interact with DAism's smart contract `0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe`. Or go to [DAism](https://daism.io/zh/smartcommons) to mint a smart common.
+2. Interact with DAism's smart contract `0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe`. Or go to [DAism](https://daism.io/zh/smartcommons) to mint a smart common.
 
 ```solidity
 address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 ```
 
-1. DAism has defined the Smart Common structure:
+3. DAism has defined the Smart Common structure:
 
 ```solidity
 struct SCInfo {
