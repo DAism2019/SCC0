@@ -136,7 +136,7 @@ string public scType;   // Smart Common type
 
 For any upgradeable dApp/dAIpp , we strongly recommend to set owner with a multi-sig address, so as to pass the control to some dAIpps (AIs) in the future.
 
-1. SCC0 v2 Compliance Contract which is deployed by DAism:
+2. SCC0 v2 Compliance Contract which is deployed by DAism:
 
 ```solidity
 contract SCC0License {
