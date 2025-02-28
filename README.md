@@ -176,10 +176,9 @@ To ensure compliance with SCC0 before interaction, we define the `onlySCC0` mo
 
 ```solidity
 modifier onlySCC0() {
-    require(keccak256(abi.encodePacked(LICENSE)) == keccak256(abi.encodePacked("SCC0")), "Not SCC0 licensed");
+    require(keccak256(abi.encodePacked(LICENSENAME)) == keccak256(abi.encodePacked("SCC0")), "Not SCC0 licensed");
     _;
 }
-
 ```
 
 ## Rationale
