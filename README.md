@@ -182,16 +182,35 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 
 The reason why neither SSC0 V1 nor SSC0 V2 has introduced "detailed reward rules from Satoshi UTO Fund for smart commons" is that we can neither implement such measures through any centralized review panel approach, nor determine reward amounts through community voting using wallet addresses. The latter approach is even worse - it constitutes a pseudo-decentralized method that would only be employed by self-deceivers or even scammers. We expect some dAIpp take this work in the future, from valuation to prize management.
 
-### Modifier for SCC0 Verification
+### Compliance Enforcement in Smart Commons
 
-To ensure compliance with SCC0 before interaction, we define the `onlySCC0` modifier:
+All SCC0-licensed Smart Commons must verify compliance before interacting with another contract. The enforcement mechanism works as follows:
 
 ```solidity
-modifier onlySCC0() {
-    require(keccak256(abi.encodePacked(LICENSENAME)) == keccak256(abi.encodePacked("SCC0")), "Not SCC0 licensed");
-    _;
+interface ISCC0License {
+    function isSCC0Compliant(address dApp, uint8 version) external view returns (bool);
+}
+
+contract SmartCommons {
+    address public constant SCC0_LICENSE_CONTRACT = 0x123456789abcdef; // SCC0 License Master Contract address
+    uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
+
+    modifier onlySCC0(address counterparty) {
+        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
+        require(license.isSCC0Compliant(counterparty, SCC0_VERSION), "Counterparty is not SCC0-compliant");
+        _;
+    }
+
+    function interactWith(address counterparty) external onlySCC0(counterparty) {
+        // Business logic (data exchange, payments, etc.)
+    }
 }
 ```
+- **The `onlySCC0` modifier enforces compliance** by checking:
+    - Whether the `counterparty` has declared an SCC0 license.
+    - Whether the `counterparty` is **not blacklisted**.
+- **Every SCC0-licensed Smart Commons must apply this check before interacting with another dApp/dAIpp.**
+
 
 ## Rationale
 
