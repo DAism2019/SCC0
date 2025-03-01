@@ -85,54 +85,118 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 ### **SCC0 License Master Contract Implementation**
 
 ```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract SCC0License {
-    address public owner;
-    mapping(uint8 => bool) public validVersions; // Stores supported SCC0 versions
+contract SCC0LicenseManager is Ownable {
+    using EnumerableMap for EnumerableMap.UintToAddressMap;
+    using EnumerableSet for EnumerableSet.UintSet;
+
+    EnumerableMap.UintToAddressMap private licenseMap; // Mapping SCC0 version to address
+    EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
     mapping(address => bool) public blacklist; // Tracks banned dApps/dAIpps
-    event VersionAdded(uint8 version);
+    
+    struct VersionProposal {
+        address proposer;
+        address licenseAddr;
+        uint version;
+        bool reviewed;
+    }
+    
+    struct BlacklistProposal {
+        address proposer;
+        address dApp;
+        bool reviewed;
+    }
+    
+    VersionProposal[] public versionProposals;
+    BlacklistProposal[] public blacklistProposals;
+
+    event VersionProposed(address proposer, address license, uint version);
+    event BlacklistProposed(address proposer, address indexed dApp);
+    event VersionAdded(address license, uint version);
+    event UnrecommendedVersionAdded(uint version);
     event Blacklisted(address indexed dApp);
     event RemovedFromBlacklist(address indexed dApp);
 
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner can perform this action");
-        _;
+    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion, address _initOwner) Ownable(_initOwner) {
+        require(_licenseAddr.length > 0 && _licenseAddr.length == _licenseVersion.length, "SCC0LicenseManager: param error");
+        for (uint i = 0; i < _licenseAddr.length; i++) {
+            licenseMap.set(_licenseVersion[i], _licenseAddr[i]);
+        }
     }
 
-    constructor() {
-        owner = msg.sender;
-        validVersions[1] = true; // Initially support SCC0 V1
-        validVersions[2] = true; // Initially support SCC0 V2
+    // Submit a proposal for a new SCC0 version
+    function proposeVersion(address _licenseAddr, uint _licenseVersion) external {
+        require(_licenseAddr != address(0), "SCC0LicenseManager: license address cannot be zero");
+        versionProposals.push(VersionProposal(msg.sender, _licenseAddr, _licenseVersion, false));
+        emit VersionProposed(msg.sender, _licenseAddr, _licenseVersion);
     }
 
-    // Add a new SCC0 license version
-    function addVersion(uint8 version) external onlyOwner {
-        validVersions[version] = true;
-        emit VersionAdded(version);
+    // Submit a proposal to blacklist a dApp
+    function proposeBlacklist(address _dApp) external {
+        require(_dApp != address(0), "SCC0LicenseManager: dApp address cannot be zero");
+        blacklistProposals.push(BlacklistProposal(msg.sender, _dApp, false));
+        emit BlacklistProposed(msg.sender, _dApp);
     }
 
-    // Deprecate an SCC0 version (mark it as outdated but not deleted)
-    function deprecateVersion(uint8 version) external onlyOwner {
-        validVersions[version] = false;
+    // Add a new SCC0 license version after review
+    function addVersion(address _licenseAddr, uint _licenseVersion) external onlyOwner {
+        require(!licenseMap.contains(_licenseVersion) && _licenseAddr != address(0), "SCC0LicenseManager: license version exists or address is zero");
+        licenseMap.set(_licenseVersion, _licenseAddr);
+        emit VersionAdded(_licenseAddr, _licenseVersion);
     }
 
-    // Add a non-compliant dApp/dAIpp to the blacklist
-    function addToBlacklist(address dApp) external onlyOwner {
-        blacklist[dApp] = true;
-        emit Blacklisted(dApp);
+    // Set unrecommended SCC0 version
+    function addUnrecommendedVersion(uint _licenseVersion) external onlyOwner {
+        require(licenseMap.contains(_licenseVersion), "SCC0LicenseManager: license version not exist");
+        unrecommendedSet.add(_licenseVersion);
+        emit UnrecommendedVersionAdded(_licenseVersion);
+    }
+
+    // Add a non-compliant dApp/dAIpp to the blacklist after review
+    function addToBlacklist(address _dApp) external onlyOwner {
+        blacklist[_dApp] = true;
+        emit Blacklisted(_dApp);
     }
 
     // Remove a dApp/dAIpp from the blacklist
-    function removeFromBlacklist(address dApp) external onlyOwner {
-        blacklist[dApp] = false;
-        emit RemovedFromBlacklist(dApp);
+    function removeFromBlacklist(address _dApp) external onlyOwner {
+        blacklist[_dApp] = false;
+        emit RemovedFromBlacklist(_dApp);
     }
 
-    // Check if a dApp/dAIpp complies with SCC0
-    function isSCC0Compliant(address dApp, uint8 version) external view returns (bool) {
-        return validVersions[version] && !blacklist[dApp];
+    // Get license address by version
+    function getLicenseAddress(uint _licenseVersion) external view returns (address) {
+        return licenseMap.get(_licenseVersion);
+    }
+    
+    // List all SCC0 versions
+    function getAllVersion() external view returns (uint[] memory) {
+        return licenseMap.keys();
+    }
+    
+    // List all unrecommended SCC0 versions
+    function getAllUnrecommendedVersion() external view returns (uint[] memory) {
+        return unrecommendedSet.values();
+    }
+    
+    // Check if a dApp is in the blacklist
+    function checkBlacklist(address _dApp) external view returns (bool) {
+        return blacklist[_dApp];
+    }
+    
+    // Retrieve all pending version proposals
+    function getVersionProposals() external view returns (VersionProposal[] memory) {
+        return versionProposals;
+    }
+    
+    // Retrieve all pending blacklist proposals
+    function getBlacklistProposals() external view returns (BlacklistProposal[] memory) {
+        return blacklistProposals;
     }
 }
 
