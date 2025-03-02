@@ -91,14 +91,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract SCC0LicenseManager is Ownable {
+contract SCC0LicenseManager is Ownable{
     using EnumerableMap for EnumerableMap.UintToAddressMap;
     using EnumerableSet for EnumerableSet.UintSet;
 
-    EnumerableMap.UintToAddressMap private licenseMap; // Mapping SCC0 version to address
-    EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
+    EnumerableMap.UintToAddressMap private licenseMap;//mapping SCC0 version to address 
+    EnumerableSet.UintSet private unrecommendedSet;//unrecommended SCC0 version set 
     mapping(address => bool) public blacklist; // Tracks banned dApps/dAIpps
-    
+    mapping(address => bool) public pendingVersionSubmission; // Tracks if an address has a pending version submission
+    mapping(address => bool) public pendingBlacklistSubmission; // Tracks if an address has a pending blacklist submission
+
     struct VersionProposal {
         address proposer;
         address licenseAddr;
@@ -114,52 +116,54 @@ contract SCC0LicenseManager is Ownable {
     
     VersionProposal[] public versionProposals;
     BlacklistProposal[] public blacklistProposals;
-
+    
     event VersionProposed(address proposer, address license, uint version);
-    event BlacklistProposed(address proposer, address indexed dApp);
     event VersionAdded(address license, uint version);
     event UnrecommendedVersionAdded(uint version);
+    event BlacklistProposed(address proposer, address indexed dApp);
     event Blacklisted(address indexed dApp);
     event RemovedFromBlacklist(address indexed dApp);
 
-    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion, address _initOwner) Ownable(_initOwner) {
-        require(_licenseAddr.length > 0 && _licenseAddr.length == _licenseVersion.length, "SCC0LicenseManager: param error");
-        for (uint i = 0; i < _licenseAddr.length; i++) {
-            licenseMap.set(_licenseVersion[i], _licenseAddr[i]);
+    constructor(address[] memory _licenseAddr,uint[] memory _licenseVersion,address _initOwner) Ownable(_initOwner) {
+        require(_licenseAddr.length>0&&_licenseAddr.length==_licenseVersion.length,"SCC0LicenseManager:param error");
+        for(uint i=0;i<_licenseAddr.length;i++){
+            licenseMap.set(_licenseVersion[i],_licenseAddr[i]);
         }
     }
 
-    // Submit a proposal for a new SCC0 version
+    // Submit a new SCC0 license version for approval
     function proposeVersion(address _licenseAddr, uint _licenseVersion) external {
-        require(_licenseAddr != address(0), "SCC0LicenseManager: license address cannot be zero");
-        versionProposals.push(VersionProposal(msg.sender, _licenseAddr, _licenseVersion, false));
+        require(!pendingVersionSubmission[msg.sender], "SCC0LicenseManager: You already have a pending version submission");
+        pendingVersionSubmission[msg.sender] = true;
         emit VersionProposed(msg.sender, _licenseAddr, _licenseVersion);
     }
 
-    // Submit a proposal to blacklist a dApp
-    function proposeBlacklist(address _dApp) external {
-        require(_dApp != address(0), "SCC0LicenseManager: dApp address cannot be zero");
-        blacklistProposals.push(BlacklistProposal(msg.sender, _dApp, false));
-        emit BlacklistProposed(msg.sender, _dApp);
-    }
-
-    // Add a new SCC0 license version after review
+    // Add a new SCC0 license version after approval
     function addVersion(address _licenseAddr, uint _licenseVersion) external onlyOwner {
-        require(!licenseMap.contains(_licenseVersion) && _licenseAddr != address(0), "SCC0LicenseManager: license version exists or address is zero");
+        require(!licenseMap.contains(_licenseVersion) && _licenseAddr != address(0), "SCC0LicenseManager: license version is existed or license address is null address");
         licenseMap.set(_licenseVersion, _licenseAddr);
+        pendingVersionSubmission[msg.sender] = false; // Clear pending submission
         emit VersionAdded(_licenseAddr, _licenseVersion);
     }
 
-    // Set unrecommended SCC0 version
+    // Set unrecommended SCC0 version 
     function addUnrecommendedVersion(uint _licenseVersion) external onlyOwner {
-        require(licenseMap.contains(_licenseVersion), "SCC0LicenseManager: license version not exist");
-        unrecommendedSet.add(_licenseVersion);
-        emit UnrecommendedVersionAdded(_licenseVersion);
+       require(licenseMap.contains(_licenseVersion), "SCC0LicenseManager: license version not exist");
+       unrecommendedSet.add(_licenseVersion);
+       emit UnrecommendedVersionAdded(_licenseVersion);
     }
 
-    // Add a non-compliant dApp/dAIpp to the blacklist after review
+    // Submit a dApp/dAIpp for blacklisting
+    function proposeBlacklist(address _dApp) external {
+        require(!pendingBlacklistSubmission[msg.sender], "SCC0LicenseManager: You already have a pending blacklist submission");
+        pendingBlacklistSubmission[msg.sender] = true;
+        emit BlacklistProposed(msg.sender, _dApp);
+    }
+
+    // Add a non-compliant dApp/dAIpp to the blacklist after approval
     function addToBlacklist(address _dApp) external onlyOwner {
         blacklist[_dApp] = true;
+        pendingBlacklistSubmission[msg.sender] = false; // Clear pending submission
         emit Blacklisted(_dApp);
     }
 
@@ -188,8 +192,8 @@ contract SCC0LicenseManager is Ownable {
     function checkBlacklist(address _dApp) external view returns (bool) {
         return blacklist[_dApp];
     }
-    
-    // Retrieve all pending version proposals
+
+     // Retrieve all pending version proposals
     function getVersionProposals() external view returns (VersionProposal[] memory) {
         return versionProposals;
     }
