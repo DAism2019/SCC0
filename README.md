@@ -105,11 +105,19 @@ contract SCC0LicenseManager is Ownable {
     struct BlacklistProposal {
         address proposer;
         address dApp;
+        string desc;
+    }
+    struct Blacklist {
+        address proposer;
+        address dApp;
+        string desc;
+        bool isEnable;
     }
 
     EnumerableMap.UintToAddressMap private licenseMap; // Mapping SCC0 version to address
     EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
-    mapping(address => bool) public blacklist; // Tracks banned dApps/dAIpps
+    EnumerableSet.AddressSet private dAppWhitelist; //dApp SCC0 license whitelist set
+    mapping(address => Blacklist) public blacklist; // Tracks banned dApps/dAIpps
     mapping(address => bool) private pendingVersionSubmission; // Tracks if an address has a pending version submission
     mapping(address => bool) private pendingBlacklistSubmission; // Tracks if an address has a pending blacklist submission
     mapping(address => LicenseProposal) public licenseProposals; // mapping of version proposals
@@ -124,10 +132,13 @@ contract SCC0LicenseManager is Ownable {
     event Blacklisted(address indexed dApp);
     event RemovedFromBlacklist(address indexed dApp);
 
-    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion, address _initOwner) Ownable(_initOwner) {
+    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion,address[] memory _dAppWhitelist,address _initOwner) Ownable(_initOwner) {
         require(_licenseAddr.length > 0 && _licenseAddr.length == _licenseVersion.length, "SCC0LicenseManager: param error");
         for (uint i = 0; i < _licenseAddr.length; i++) {
             licenseMap.set(_licenseVersion[i], _licenseAddr[i]);
+        }
+        for (uint i = 0; i < _dAppWhitelist.length; i++) {
+            dAppWhitelist.add(_dAppWhitelist[i]);
         }
     }
 
@@ -190,14 +201,15 @@ contract SCC0LicenseManager is Ownable {
     }
 
     // Submit a dApp/dAIpp for blacklisting
-    function proposeBlacklist(address _dApp) external {
+    function proposeBlacklist(address _dApp,string memory _desc) external {
         require(_dApp!=address(0),"SCC0LicenseManager: Invalid  address");
         require(!pendingBlacklistSubmission[msg.sender], "SCC0LicenseManager: Already pending");
         require(!blacklistProposalSet.contains(_dApp), "SCC0LicenseManager: blacklist Already exist");
         pendingBlacklistSubmission[msg.sender] = true;
         blacklistProposals[_dApp] = BlacklistProposal({
             proposer: msg.sender,
-            dApp: _dApp
+            dApp: _dApp,
+            desc:_desc
         });
         blacklistProposalSet.add(_dApp);
         emit BlacklistProposed(msg.sender, _dApp);
@@ -231,23 +243,24 @@ contract SCC0LicenseManager is Ownable {
         BlacklistProposal memory proposal = blacklistProposals[_dApp];
         require(proposal.dApp!=address(0), "SCC0LicenseManager: blacklist proposal not exist");
         
-        blacklist[_dApp] = true;
+        blacklist[_dApp] = Blacklist({
+             proposer:proposal.proposer,
+             dApp:proposal.dApp,
+             desc:proposal.desc,
+             isEnable:true
+        });
         pendingBlacklistSubmission[proposal.proposer] = false;
         blacklistProposalSet.remove(proposal.dApp);
         delete blacklistProposals[proposal.dApp];
-        emit Blacklisted(_dApp);
-    }
-    //Add a non-compliant dApp/dAIpp to the blacklist after approval by owner
-    function addToBlacklistByOwner(address _dApp) external onlyOwner {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
-        blacklist[_dApp] = true;
         emit Blacklisted(_dApp);
     }
 
     // Remove a dApp/dAIpp from the blacklist
     function removeFromBlacklist(address _dApp) external onlyOwner {
         require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
-        blacklist[_dApp] = false;
+        Blacklist storage blacklistTmp = blacklist[_dApp];
+        require(blacklistTmp.dApp == _dApp,"SCC0LicenseManager: dApp blacklist not exist");
+        blacklistTmp.isEnable = false;
         emit RemovedFromBlacklist(_dApp);
     }
 
@@ -260,6 +273,10 @@ contract SCC0LicenseManager is Ownable {
     function getAllVersions() external view returns (uint[] memory) {
         return licenseMap.keys();
     }
+    // List all dApp SCC0 whitelist
+    function getAlldAppWhitelist() external view returns (address[] memory) {
+        return dAppWhitelist.values();
+    }
 
     // List all unrecommended SCC0 versions
     function getAllUnrecommendedVersions() external view returns (uint[] memory) {
@@ -268,17 +285,20 @@ contract SCC0LicenseManager is Ownable {
 
     // Check if a dApp is in the blacklist
     function isBlacklisted(address _dApp) external view returns (bool) {
-        return blacklist[_dApp];
+        return blacklist[_dApp].isEnable;
+    }
+    // Check if a dApp is in the whitelist
+    function isDAppWhitelisted(address _dApp)external view returns (bool) {
+        return dAppWhitelist.contains(_dApp);
     }
     //check if dApp is compliant scc0 license
     function isSCC0Compliant(address _dApp, uint _version) external view returns (bool){
-        address license = licenseMap.get(_version);
-        bool isBlacklist = blacklist[_dApp];
-        if(license!=address(0)&&!isBlacklist) return true;
+        if(dAppWhitelist.contains(_dApp))return true;
+        bool isBlacklist = blacklist[_dApp].isEnable;
+        if(licenseMap.contains(_version)&&!isBlacklist) return true;
         return false;
     }
 }
-
 
 
 
@@ -389,17 +409,24 @@ The reason why neither SSC0 V1 nor SSC0 V2 has introduced "detailed reward rules
 All **SCC0-licensed Smart Commons** must verify compliance before interacting with another contract. The enforcement mechanism works as follows:
 
 ```solidity
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
 interface ISCC0License {
-    function isSCC0Compliant(address dApp, uint8 version) external view returns (bool);
+    function isSCC0Compliant(address dApp, uint version) external view returns (bool);
+    function isDAppWhitelisted(address dApp)external view returns (bool);
 }
-
+interface ISmartCommons {
+    function SCC0_LICENSE_CONTRACT() external view returns (address);
+    function SCC0_VERSION()external view returns (uint);
+}
 contract SmartCommons {
-    address public constant SCC0_LICENSE_CONTRACT = 0x123456789abcdef; // SCC0 License Master Contract address
+    address public constant SCC0_LICENSE_CONTRACT = 0xxxxxxx; // SCC0 License Master Contract address
     uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
 
     modifier onlySCC0(address counterparty) {
         ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        require(license.isSCC0Compliant(counterparty, counterparty.SCC0_VERSION()), "Counterparty is not SCC0-compliant");
+        require(ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT);
+        require(license.isDAppWhitelisted(counterparty) || license.isSCC0Compliant(counterparty, ISmartCommons(counterparty).SCC0_VERSION()), "Counterparty is not SCC0-compliant");
         _;
     }
 
