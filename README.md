@@ -1,5 +1,6 @@
 # What is the Smart Creative Commons Zero (SCC0) license?
 Smart Creative Commons Zero (SCC0) is not only the first public goods license designed for public decentralized applications (Smart Commons), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified when a smart common interacting with another one.
+Anyone can expand SCC0 by creating a new version and submitting it to the SCC0 License Master Contract!
 # Background
 ##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
@@ -470,6 +471,11 @@ Some dAIpp will enforce the security by auditing every dApp/dAIpp once it's mint
 
 Copyright and related rights waived via SCC0.
 
+# List of Smart Commons
+- [DAism](https://daism.io/zh/workroom/1)
+- [Enki](https://daism.io/zh/workroom/2)
+- [Honor Tokens](https://daism.io/zh/workroom/3)
+
 # References
 1. <a id="r1"></a>[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
 2. <a id="r2"></a>[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
@@ -478,16 +484,6 @@ Copyright and related rights waived via SCC0.
 5. <a id="r5"></a>[The magic behind dapps](https://ethereum.org/en/dapps/#what-are-dapps)
 6. <a id="r6"></a>[Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
 7. <a id="r7"></a>[For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
-
-# List of Smart Commons
-- [DAism](https://daism.io/zh/workroom/1)
-- [Enki](https://daism.io/zh/workroom/2)
-- [Honor Tokens](https://daism.io/zh/workroom/3)
-
-
-
-
-
 
 
 
