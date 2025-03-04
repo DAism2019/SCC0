@@ -92,7 +92,9 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-
+interface IDaism {
+    function dappToSC(address dApp) external view returns (uint);
+}
 contract SCC0LicenseManager is Ownable {
     using EnumerableMap for EnumerableMap.UintToAddressMap;
     using EnumerableSet for EnumerableSet.UintSet;
@@ -118,7 +120,6 @@ contract SCC0LicenseManager is Ownable {
 
     EnumerableMap.UintToAddressMap private licenseMap; // Mapping SCC0 version to address
     EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
-    EnumerableSet.AddressSet private dAppWhitelist; //dApp SCC0 license whitelist set
     mapping(address => Blacklist) public blacklist; // Tracks banned dApps/dAIpps
     mapping(address => bool) private pendingVersionSubmission; // Tracks if an address has a pending version submission
     mapping(address => bool) private pendingBlacklistSubmission; // Tracks if an address has a pending blacklist submission
@@ -126,6 +127,7 @@ contract SCC0LicenseManager is Ownable {
     EnumerableSet.AddressSet private licenseProposalSet; //license proposal set
     mapping(address => BlacklistProposal) public blacklistProposals; // mapping of blacklist proposals
     EnumerableSet.AddressSet private blacklistProposalSet; //blacklist proposal set
+    address public daismAddress;
 
     event VersionProposed(address indexed proposer, address license, uint version);
     event VersionAdded(address indexed license, uint version);
@@ -134,14 +136,12 @@ contract SCC0LicenseManager is Ownable {
     event Blacklisted(address indexed dApp);
     event RemovedFromBlacklist(address indexed dApp);
 
-    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion,address[] memory _dAppWhitelist,address _initOwner) Ownable(_initOwner) {
+    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion,address _daismAddress,address _initOwner) Ownable(_initOwner) {
         require(_licenseAddr.length > 0 && _licenseAddr.length == _licenseVersion.length, "SCC0LicenseManager: param error");
         for (uint i = 0; i < _licenseAddr.length; i++) {
             licenseMap.set(_licenseVersion[i], _licenseAddr[i]);
         }
-        for (uint i = 0; i < _dAppWhitelist.length; i++) {
-            dAppWhitelist.add(_dAppWhitelist[i]);
-        }
+        daismAddress = _daismAddress;
     }
 
     // Submit a new SCC0 license version for approval
@@ -275,10 +275,6 @@ contract SCC0LicenseManager is Ownable {
     function getAllVersions() external view returns (uint[] memory) {
         return licenseMap.keys();
     }
-    // List all dApp SCC0 whitelist
-    function getAlldAppWhitelist() external view returns (address[] memory) {
-        return dAppWhitelist.values();
-    }
 
     // List all unrecommended SCC0 versions
     function getAllUnrecommendedVersions() external view returns (uint[] memory) {
@@ -289,18 +285,20 @@ contract SCC0LicenseManager is Ownable {
     function isBlacklisted(address _dApp) external view returns (bool) {
         return blacklist[_dApp].isEnable;
     }
-    // Check if a dApp is in the whitelist
-    function isDAppWhitelisted(address _dApp)external view returns (bool) {
-        return dAppWhitelist.contains(_dApp);
+    // Check if a dApp is idaism dapp(scc0 v1 version)
+    function isDaismSC(address _dApp) external view returns (bool) {
+        bool isBlacklist = blacklist[_dApp].isEnable;
+        if(isBlacklist) return false;
+        return IDaism(daismAddress).dappToSC(_dApp)>0;
     }
     //check if dApp is compliant scc0 license
     function isSCC0Compliant(address _dApp, uint _version) external view returns (bool){
-        if(dAppWhitelist.contains(_dApp))return true;
         bool isBlacklist = blacklist[_dApp].isEnable;
         if(licenseMap.contains(_version)&&!isBlacklist) return true;
         return false;
     }
 }
+
 
 
 
@@ -416,24 +414,52 @@ All **SCC0-licensed Smart Commons** must verify compliance before interacting wi
 pragma solidity ^0.8.20;
 interface ISCC0License {
     function isSCC0Compliant(address dApp, uint version) external view returns (bool);
-    function isDAppWhitelisted(address dApp)external view returns (bool);
+    function isDaismSC(address dApp) external view returns (bool);
 }
 interface ISmartCommons {
     function SCC0_LICENSE_CONTRACT() external view returns (address);
-    function SCC0_VERSION()external view returns (uint);
+    function SCC0_VERSION() external view returns (uint);
+    // the called contract method
+    function otherMethod() external ;
 }
 contract SmartCommons {
     address public constant SCC0_LICENSE_CONTRACT = 0xxxxxxx; // SCC0 License Master Contract address
     uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
+    address public counterparty;
 
-    modifier onlySCC0(address counterparty) {
+    constructor(address _counterparty)  {
+        counterparty = _counterparty;
+    }
+    // If the called contract does not declare the SCC0 License Master Contract address or version
+    function _checkSCC0WithNotDeclare(address _counterparty) internal view returns(bool){
         ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        require(ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT);
-        require(license.isDAppWhitelisted(counterparty) || license.isSCC0Compliant(counterparty, ISmartCommons(counterparty).SCC0_VERSION()), "Counterparty is not SCC0-compliant");
-        _;
+        return license.isDaismSC(_counterparty);
+    }
+    // If the called contract is declare the SCC0 License Master Contract address and version
+    function _checkSCC0WithDeclare(address _counterparty) internal view returns(bool) {
+        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
+        return (ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT && 
+                license.isSCC0Compliant(_counterparty, ISmartCommons(counterparty).SCC0_VERSION()));
     }
 
-    function interactWith(address counterparty) external onlySCC0(counterparty) {
+    // If the called contract is declare the SCC0 License Master Contract address and version
+    modifier onlySCC0(address _sender) {
+        require(_checkSCC0WithNotDeclare(_sender) || _checkSCC0WithDeclare(_sender), "Counterparty is not SCC0-compliant");
+        _; 
+    }
+    // call counterparty contract 
+    function callCounterparty() public {
+        // some logic ...
+
+        // if not declare SCC0
+        require(_checkSCC0WithNotDeclare(counterparty),"Counterparty is not SCC0-compliant");
+        // if declare SCC0
+        //require(_checkSCC0WithDeclare(counterparty),"Counterparty is not SCC0-compliant");
+
+        // some logic ...
+    }
+    // other contract call the method must be compliant SCC0
+    function someFunction() external onlySCC0(msg.sender) {
         // Business logic (data exchange, payments, etc.)
     }
 }
