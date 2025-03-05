@@ -32,6 +32,8 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 
 By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the exclusive governance of this license and thereby becomes a public decentralized application, also known as a Smart Common.
 
+A smart common must be Open Source.
+
 In addition to gas, A smart common must be free for the public.
 
 ## On Anonymity  
