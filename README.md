@@ -4,6 +4,8 @@ Smart Creative Commons Zero (SCC0) is not only the first public goods license de
 SCC0 dApps (Smart Commons) form a "permissioned autonomous network," ensuring that all interactions comply with the SCC0 License!
 
 Anyone can expand SCC0 by creating a new version and submitting it to the SCC0 License Master Contract!
+
+The SCC0 License is a great innovation in the history of human licensing.
 # Background
 ##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
