@@ -5,6 +5,8 @@ SCC0 dApps (Smart Commons) form a "permissioned autonomous network," ensuring th
 
 Anyone can expand SCC0 by creating a new version and submitting it to the SCC0 License Master Contract!
 
+[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) supports the development of all Smart Commons.
+
 The SCC0 License is a great innovation in the history of human licensing.
 # Background
 ##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
