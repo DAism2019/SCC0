@@ -1,9 +1,7 @@
 # What is the Smart Creative Commons Zero (SCC0) license?
-Smart Creative Commons Zero (SCC0) is not only the first public goods license designed for public decentralized applications (Smart Commons), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified when a smart common interacting with another one.
+Smart Creative Commons Zero (SCC0) is not only the first public goods license designed for public decentralized applications (Smart Commons), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified when a smart common interacting with another one. While A smart common must be Open Source, must be free (except for gas)for the public as well.
 
 Anyone can expand SCC0 by creating a new version and submitting it to the SCC0 License Master Contract!
-
-A smart common must be Open Source, must be free (except for gas)for the public as well.
 
 [Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) supports the development of all Smart Commons.
 
