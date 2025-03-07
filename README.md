@@ -113,7 +113,7 @@ For any upgradeable dApp/dAIpp , we strongly recommend to set owner with a mult
 **SCC0 v1**
 SCC0 v1 doesn't have a declaration. You have to read the lists in a specific smart contract of DAism.
 
-### Compliance Contracts of v1 and v2
+### 2. Compliance Contracts of v1 and v2
 
 **SCC0 v1 Compliance Contract**
 
@@ -178,7 +178,7 @@ contract SCC0License {
 }
 ```
 
-### SCC0 License Master Contract Implementation
+### 3. SCC0 License Master Contract Implementation
 The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
 
 - License Version Proposals:
