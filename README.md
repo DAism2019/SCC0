@@ -412,6 +412,30 @@ contract SCC0LicenseManager is Ownable {
 
 ```
 
+### 4. Additional Governance and Operational Parameters of SCC0 V1
+
+Beyond the core license and reference implementation contracts, SCC0 includes further parameters to support decentralized governance and community interaction:
+
+- **Smart Common Structure:**  
+    A predefined structure (`SCInfo`) storing metadata such as the name, symbol, description, manager address, version, and type.
+    
+- **Member and Proposal Management:**  
+    Mappings for recording member details (such as dividend ratios), proposal lifetimes, cooling periods, and decision-making strategies.
+    
+- **Branding and Identity:**  
+    Storage mappings for smart common logos that enhance identity and trust within the ecosystem.
+    
+
+### 5. Interoperability and On-Chain Verification
+
+The SCC0 framework allows any interacting contract to verify compliance by:
+
+- Checking the declared `LICENSE` constant.
+- Querying the License Manager’s functions (e.g., `isSCC0Compliant`).
+- Ensuring that the dApp/dAIpp is not blacklisted.
+
+These mechanisms promote a trustless and automated approach to enforcing the SCC0 license across decentralized applications.
+
 ### Reward Distribution Mechanism
 
 To support SCC0-compliant projects, an upgradeable reward distribution system is introduced by SSC0 V1:
