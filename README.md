@@ -89,8 +89,111 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 - A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
 
 ## Specification
+This section outlines the technical specifications for implementing the Smart Creative Commons Zero (SCC0) license for public decentralized applications (dApps/dAIpps). It defines a standardized on-chain framework that allows smart contracts to declare SCC0 compliance, supports automated verification, and facilitates decentralized governance.
 
-### **SCC0 License Master Contract Implementation**
+### 1. SCC0 License Declaration
+Since V2, every smart contract that intends to operate as a Smart Common under the SCC0 license must declare its license by including a constant variable referencing the relevant SCC0 Compliance Contract. For example:
+
+**SCC0 v2 Declaration (recommended for extended interactions)**
+
+1. SCC0 v2 extends the original standard and requires the following declarations in your dApp/dAIpp:
+
+```solidity
+address public constant LICENSE = 0xaCb910db73473944B2D23D37A0e46F57a43c6a49;
+
+// Recommended declarations for better interaction:
+address public owner;   // Address for rewards
+string public scName;   // Smart Common name
+string public scType;   // Smart Common type
+```
+Declaring the <code>LICENSE</code> constant ensures that any interactions with the smart contract can be automatically verified against the SCC0 standard.
+
+For any upgradeable dApp/dAIpp , we strongly recommend to set owner with a multi-sig address, so as to pass the control to some dAIpps (AIs) in the future.
+
+**SCC0 v1**
+SCC0 v1 doesn't have a declaration. You have to read the lists in a specific smart contract of DAism.
+
+### Compliance Contracts of v1 and v2
+
+**SCC0 v1 Compliance Contract**
+
+SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
+
+1. Interact with DAism's smart contract `0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe`. Or go to [DAism](https://daism.io/zh/smartcommons) to mint a smart common.
+
+2. SCC0 v1 Compliance Contract which is deployed by DAism:
+
+```solidity
+contract SCC0License {
+    string public constant LICENSENAME = "SCC0";
+    uint8 public constant VERSION = 1;
+    bool public constant SELFISSUEDTOKEN = false;
+    bool public constant NORIGHTSEXCEPTREWARDS = true;
+    bool public constant NOLIABILITY = true;
+    bool public constant ANONYMITYENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+
+3. DAism has defined the Smart Common structure:
+
+```solidity
+struct SCInfo {
+    string name;        // Name of the smart common
+    string symbol;      // Symbol of the smart common
+    string desc;        // Description of the smart common
+    address manager;    // Address of the smart common manager
+    uint16 version;     // Version number of the smart common
+    string SCType;      // Type of the smart common
+}
+```
+
+4. Additional mappings and governance structures are included for community interactions:
+
+```solidity
+mapping(address => Object.Member) public memberInfos; // Stores Smart Common members and their dividend ratios
+uint32 public proposalLifetime; // Validity period of Smart Common proposals
+uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposals
+uint16 public strategy; // Pass rate for Smart Common proposals
+mapping(uint => File) public logoStorages; // Storage for Smart Common logos
+```
+
+**SCC0 v2 Compliance Contract**
+
+SCC0 v2 Compliance Contract which is deployed by DAism:
+
+```solidity
+contract SCC0License {
+    string public constant LICENSENAME = "SCC0";
+    uint8 public constant VERSION = 2;
+    bool public constant SELFISSUEDTOKEN = false;
+    bool public constant NORIGHTSEXCEPTREWARDS = true;
+    bool public constant NOLIABILITY = true;
+    bool public constant ANONYMITYENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+
+### SCC0 License Master Contract Implementation
+The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
+
+- License Version Proposals:
+Developers may submit new SCC0 license versions for community approval. Each proposal includes the proposed license address and its version number.
+
+- Version Approval and Registration:
+Once approved by the contract owner, new license versions are recorded, ensuring that updated standards are adopted while maintaining backward compatibility.
+
+- Blacklist Management:
+Non-compliant dApps/dAIpps can be proposed for blacklisting. Approved proposals mark these addresses as non-compliant, preventing further interactions as SCC0 entities.
+
+- On-Chain Verification:
+Functions such as <code>isSCC0Compliant</code> and <code>isBlacklisted</code> enable other contracts and governance mechanisms to verify compliance in real time.
+
+Below is the complete implementation of the SCC0 License Manager contract:
 
 ```solidity
 // SPDX-License-Identifier: scc0
@@ -307,90 +410,6 @@ contract SCC0LicenseManager is Ownable {
 
 
 
-
-
-```
-
-### SCC0 v1 Declaration
-
-SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
-
-1. Include the following declaration:
-
-```solidity
-address public constant LICENSE = 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe;
-```
-
-2. Interact with DAism's smart contract `0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe`. Or go to [DAism](https://daism.io/zh/smartcommons) to mint a smart common.
-
-3. SCC0 v1 Compliance Contract which is deployed by DAism:
-
-```solidity
-contract SCC0License {
-    string public constant LICENSENAME = "SCC0";
-    uint8 public constant VERSION = 1;
-    bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTSEXCEPTREWARDS = true;
-    bool public constant NOLIABILITY = true;
-    bool public constant ANONYMITYENSURED = true;
-    bool public constant OPEN_SOURCE = true;
-    bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
-}
-```
-
-4. DAism has defined the Smart Common structure:
-
-```solidity
-struct SCInfo {
-    string name;        // Name of the smart common
-    string symbol;      // Symbol of the smart common
-    string desc;        // Description of the smart common
-    address manager;    // Address of the smart common manager
-    uint16 version;     // Version number of the smart common
-    string SCType;      // Type of the smart common
-}
-```
-
-5. Additional mappings and governance structures are included for community interactions:
-
-```solidity
-mapping(address => Object.Member) public memberInfos; // Stores Smart Common members and their dividend ratios
-uint32 public proposalLifetime; // Validity period of Smart Common proposals
-uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposals
-uint16 public strategy; // Pass rate for Smart Common proposals
-mapping(uint => File) public logoStorages; // Storage for Smart Common logos
-```
-
-### SCC0 v2 Declaration
-
-1. SCC0 v2 extends the original standard and requires the following declarations in your dApp/dAIpp:
-
-```solidity
-address public constant LICENSE = 0xaCb910db73473944B2D23D37A0e46F57a43c6a49;
-
-// Recommended declarations for better interaction:
-address public owner;   // Address for rewards
-string public scName;   // Smart Common name
-string public scType;   // Smart Common type
-```
-
-For any upgradeable dApp/dAIpp , we strongly recommend to set owner with a multi-sig address, so as to pass the control to some dAIpps (AIs) in the future.
-
-2. SCC0 v2 Compliance Contract which is deployed by DAism:
-
-```solidity
-contract SCC0License {
-    string public constant LICENSENAME = "SCC0";
-    uint8 public constant VERSION = 2;
-    bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTSEXCEPTREWARDS = true;
-    bool public constant NOLIABILITY = true;
-    bool public constant ANONYMITYENSURED = true;
-    bool public constant OPEN_SOURCE = true;
-    bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
-}
 ```
 
 ### Reward Distribution Mechanism
