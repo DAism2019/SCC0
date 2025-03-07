@@ -1,11 +1,11 @@
 # What is the Smart Creative Commons Zero (SCC0) license?
-Smart Creative Commons Zero (SCC0) is not only the first public goods license designed for public decentralized applications (Smart Commons), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified when a smart common interacting with another one. While A smart common must be Open Source, must be free (except for gas)for the public as well.
+**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (Smart Commons), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified when a smart common interacting with another one. Importantly, a Smart Common must be open source and free for the public (except for gas fees).
 
-Anyone can expand SCC0 by creating a new version and submitting it to the SCC0 License Master Contract!
+Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Master Contract**!
 
-[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) supports the development of all Smart Commons.
+The development of all Smart Commons is supported by the **[Satoshi UTO Fund]**(https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) 
 
-Obviously, The SCC0 License is a great innovation in the history of human licensing.
+Clearly, the SCC0 License represents a significant innovation in the history of human licensing.
 # Background
 ##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
