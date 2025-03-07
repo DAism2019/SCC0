@@ -5,7 +5,7 @@ Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0
 
 The development of all Smart Commons is supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO**.
 
-Clearly, the SCC0 License represents a significant innovation in the history of human licensing, buildering a self-governed ecology for the new civilization.
+Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a self-governed ecology for the new civilization.
 # Background
 ##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
