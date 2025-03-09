@@ -24,8 +24,6 @@ Up to this point, essentially, Externally Owned Accounts are all anonymous acco
 
 In terms of development, this anonymity mechanism brings some advantages that real-name mechanisms cannot match. The most prominent aspect is that due to anonymity, in the ongoing development and use of dApps/dAIpps, no one can prove their ownership of any rights related to them, nor can anyone prove who bears any responsibilities associated with them. The most valuable feature of this anonymity is that it allows us to establish the first license for public dapps/dAIpps: Smart Creative Commons Zero (SCC0). In short, adhering to the SCC0 license means that the development and ownership of the dApp or dAIpp will not be linked to anyone's real identity, thus becoming a pure public decentralized application.
 
-We refer to dApps or dAIpps that follow the SCC0 license as Smart Commons. Smart Commons are public decentralized applications, where public means there're open source and free for the public.
-
 **Smart Commons** are decentralized applications (dApps) licensed under SCC0 — a universal public domain-style license that enforces two irreversible rules:
 
 1. **Permanent open-source**: All code must remain public and modifiable forever;
@@ -84,7 +82,9 @@ Category: ERC
 
 ## Abstract
 
-SCC0 (Smart Creative Commons Zero) is the first public goods license tailored for public decentralized applications (Smart Commons), including dApps, dAIpps(AIs). This standard introduces a structured way for smart contracts to declare SCC0 compliance, enabling automated on-chain verification and governance integration.
+SCC0 (Smart Creative Commons Zero) is the first public goods license tailored for public decentralized applications (Smart Commons), including dApps, dAIpps(AIs). Being public goods, Smart Commons are open source and free for anyone to use (except for gas fees).
+
+This standard introduces a structured way for smart contracts to declare SCC0 compliance, enabling automated on-chain verification and governance integration.
 
 Two versions of SCC0 have been deployed by DAism, and anyone can deploy additional versions to further expand its applications. The declaration of any dApp/dAIpp is as simple as:
 
