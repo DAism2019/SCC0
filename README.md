@@ -34,6 +34,8 @@ These applications constitute censorship-resistant infrastructure with no owners
 
 # Motivation
 
+SCC0 License is really for the next civilization which is full of dAIpps(AIs) and full of love!
+
 To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
 
 - On-chain verification of SCC0 adherence.
