@@ -6,11 +6,15 @@ Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0
 The development of all Smart Commons is supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO**.
 
 Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a self-governed ecology for the new civilization.
+
 # Background
 ##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
 
-Therefore, smart contracts are the best executors of the principle that code is law.
+Therefore, smart contracts are the best executors of the principle that code is law. 
+
+Interestingly, the SCC0 License is a law that is written in Solidity code and executed by its smart contract.
+
 ## The Anonymity of dApps and dAIpps
 We know that a dApp refers to a decentralized application that operates autonomously and is powered by smart contracts. We define a dAIpp as a decentralized application that operates autonomously and is powered by smart contracts created by AI(s). All dApps and dAIpps, by virtue of the nature of smart contracts, have a state variable called "owner" in their code. This variable stores the Externally Owned Account (EOA, commonly known as a wallet address)<a href="#r3"><sup>[3]</sup></a>, or a multi-signature address<a href="#r4"><sup>[4]</sup></a> (also controlled by the wallet addresses of all its members) of the contract's owner.  This address is usually set by the deployer during contract deployment or updated through a specific function during contract operation. Its purpose is to implement the contract's permission control, ensuring that only specific addresses (usually the contract's deployer, manager, a certain team, or even an AI) can execute certain sensitive operations.
 
