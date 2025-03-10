@@ -85,3 +85,37 @@ DAism 已经部署了两个版本的 SCC0，任何人都可以部署其他版本
 ```solidity
 address public constant LICENSE = contract_address;
 ```
+## **动机**
+为了确保 dApp 和 dAIpps 能够透明地声明其遵守 SCC0，我们提出了一种标准化方法，将与许可证相关的变量嵌入智能合约中。这允许：
+
+链上验证 SCC0 遵守情况。
+合同之间的自动交互检查。
+一种奖励机制，允许特定的公共治理基金向贡献者分发匿名奖励。
+规格
+本节概述了为公共去中心化应用程序（dApps/dAIpps）实施 Smart Creative Commons Zero (SCC0) 许可证的技术规范。它定义了一个标准化的链上框架，允许智能合约声明符合 SCC0 要求，支持自动验证并促进去中心化治理。
+
+### **1.SCC0许可证声明**
+自 V2 开始，每个打算在 SCC0 许可证下作为 Smart Common 运行的智能合约都必须通过包含引用相关 SCC0 合规合约的常量变量来声明其许可证。例如：
+
+**SCC0 v2 声明（建议用于扩展交互）**
+
+SCC0 v2 扩展了原始标准，并要求您的 dApp/dAIpp 中进行以下声明：
+
+```solidity
+address public constant LICENSE = 0xaCb910db73473944B2D23D37A0e46F57a43c6a49;
+
+// Recommended declarations for better interaction:
+address public owner;   // Address for rewards
+string public scName;   // Smart Common name
+string public scType;   // Smart Common type
+```
+声明LICENSE常量可确保与智能合约的任何交互都可以根据 SCC0 标准自动验证。
+对于任何可升级的 dApp/dAIpp，我们强烈建议使用多重签名地址设置所有者，以便将来将控制权传递给某些 dAIpps（AI）。
+SCC0 v1 SCC0 v1 没有声明。您必须阅读 DAism 的特定智能合约中的列表。
+
+## **2. v1 和 v2 的合规合约**
+**SCC0 v1合规合同**
+
+DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
+1. 与 DAism 的智能合约进行交互 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe。或者前往 DAism 铸造智能合约。
+2. DAism 部署的 SCC0 v1 合规合约：
