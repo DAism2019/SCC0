@@ -82,5 +82,6 @@ SCC0（Smart Creative Commons Zero）是第一个为公共去中心化应用（S
 
 DAism 已经部署了两个版本的 SCC0，任何人都可以部署其他版本以进一步扩展其应用程序。任何 dApp/dAIpp 的声明都很简单：
 
+```solidity
 address public constant LICENSE = contract_address;
-
+```
