@@ -73,7 +73,7 @@ Anonymity means that no one (as no individual can be identified) in this world p
 # EIP (Ethereum Improvement Proposal)(a significant revision is coming soon)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
 
-Author: [DD](https://daism.io/en/smartcommons/actor/[0xDD@daism.io](mailto:0xDD@daism.io)), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)),[Aranna](https://daism.io/smartcommons/actor/0xDD%40daism.io)
+Author: [DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)),[Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 Status: Draft
 
