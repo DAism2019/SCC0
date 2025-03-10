@@ -153,6 +153,7 @@ uint16 public strategy; // Pass rate for Smart Common proposals
 mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 ```
 **SCC0 v2 合规合同**
+
 DAism 部署的 SCC0 v2 合规合约：
 ```solidity
 contract SCC0License {
@@ -167,10 +168,422 @@ contract SCC0License {
     address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
-### **3. SCC0许可主合约实施**
+### **3. SCC0 许可主合约实施**
 SCC0 许可证管理器合约提供了管理许可证版本和强制合规性的核心功能。它支持：
 - 许可证版本提案：开发者可以提交新的 SCC0 许可证版本以供社区批准。每个提案都包含拟议的许可证地址及其版本号。
 - 版本批准和注册：一旦获得合同所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
 - 黑名单管理：可以提议将不合规的 dApp/dAIpps 列入黑名单。批准的提案将这些地址标记为不合规，从而阻止进一步作为 SCC0 实体进行交互。
-- 链上验证：等功能isSCC0Compliant使isBlacklisted其他合约和治理机制能够实时验证合规性。
-以下是SCC0许可证管理器合约的完整实现：
+- 链上验证：功能如<code>isSCC0Compliant</code>和<code>isBlacklisted</code>使其他合约和治理机制能够实时验证合规性。
+以下是 SCC0 许可证管理器合约的完整实现：
+```solidity
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+interface IDaism {
+    function dappToSC(address dApp) external view returns (uint);
+}
+interface ISCC0License {
+    function VERSION() external view returns (uint8);
+}
+contract SCC0LicenseManager is Ownable {
+    using EnumerableMap for EnumerableMap.UintToAddressMap;
+    using EnumerableSet for EnumerableSet.UintSet;
+    using EnumerableSet for EnumerableSet.AddressSet;
+
+    struct LicenseProposal {
+        address proposer;
+        address license;
+        uint version;
+        string rejectionReason;
+    }
+
+    struct BlacklistProposal {
+        address proposer;
+        address dApp;
+        string desc;
+        string rejectionReason;
+    }
+    struct Blacklist {
+        address proposer;
+        address dApp;
+        string desc;
+        bool isEnable;
+    }
+
+    EnumerableMap.UintToAddressMap private licenseMap; // Mapping SCC0 version to address
+    EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
+    mapping(address => Blacklist) public blacklist; // Tracks banned dApps/dAIpps
+    mapping(address => bool) private pendingVersionSubmission; // Tracks if an address has a pending version submission
+    mapping(address => bool) private pendingBlacklistSubmission; // Tracks if an address has a pending blacklist submission
+    mapping(address => LicenseProposal) public pendingLicenseProposals; // mapping of version proposals
+    EnumerableSet.AddressSet private pendingLicenseProposalSet; //license proposal set
+    mapping(address => BlacklistProposal) public pendingBlacklistProposals; // mapping of blacklist proposals
+    EnumerableSet.AddressSet private pendingBlacklistProposalSet; //blacklist proposal set
+    mapping(address => LicenseProposal) public rejectedLicenseProposals; // mapping of rejected version proposals
+    mapping(address => BlacklistProposal) public rejectedBlacklistProposals; // mapping of rejected blacklist proposals
+    address public daismAddress;
+
+    event VersionProposed(address indexed proposer, address license, uint version);
+    event VersionAdded(address indexed license, uint version);
+    event RejectPendingVersionProposals(address indexed license, uint version);
+    event UnrecommendedVersionAdded(uint version);
+    event BlacklistProposed(address indexed proposer, address indexed dApp);
+    event RejectPendingBlacklistProposals(address indexed dApp);
+    event Blacklisted(address indexed dApp);
+    event RemovedFromBlacklist(address indexed dApp);
+
+    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion,address _daismAddress,address _initOwner) Ownable(_initOwner) {
+        require(_licenseAddr.length > 0 && _licenseAddr.length == _licenseVersion.length, "SCC0LicenseManager: param error");
+        for (uint i = 0; i < _licenseAddr.length; i++) {
+            licenseMap.set(_licenseVersion[i], _licenseAddr[i]);
+        }
+        daismAddress = _daismAddress;
+    }
+
+    // Submit a new SCC0 license version for approval
+    function proposeVersion(address _licenseAddr) external {
+        require(_licenseAddr != address(0) && !pendingLicenseProposalSet.contains(_licenseAddr), "SCC0LicenseManager: license  address is null or already exist");
+        uint8 version = ISCC0License(_licenseAddr).VERSION();
+        require(version>0&&!licenseMap.contains(version), "SCC0LicenseManager: version error or already exist");
+        require(!pendingVersionSubmission[msg.sender], "SCC0LicenseManager:sender already pending");
+        
+        pendingVersionSubmission[msg.sender] = true;
+        pendingLicenseProposals[_licenseAddr] = LicenseProposal({
+            proposer: msg.sender,
+            license: _licenseAddr,
+            version: version,
+            rejectionReason: ''
+        });
+        pendingLicenseProposalSet.add(_licenseAddr);
+        emit VersionProposed(msg.sender, _licenseAddr, version);
+    }
+    //get pending license proposal info
+    function getPendingVersionProposals(address _licenseAddr) external view returns(LicenseProposal memory){
+        return pendingLicenseProposals[_licenseAddr];
+    }
+    //get rejected license proposal info
+    function getRejectedVersionProposals(address _licenseAddr) external view returns(LicenseProposal memory){
+        return rejectedLicenseProposals[_licenseAddr];
+    }
+    //get license proposal total length
+    function getPendingVersionProposalsLength() external view returns(uint){
+        return pendingLicenseProposalSet.length();
+    }
+    // Retrieve all pending version proposals
+    function getPendingVersionProposals(uint256 offset, uint256 limit) external view returns (LicenseProposal[] memory) {
+        uint256 total = pendingLicenseProposalSet.length();
+        if (offset >= total) {
+            return new LicenseProposal[](0);
+        }
+        uint256 end = offset + limit;
+        if (end > total) {
+            end = total;
+        }
+        LicenseProposal[] memory proposalsPage = new LicenseProposal[](end - offset);
+        for (uint256 i = offset; i < end; i++) {
+            address license = pendingLicenseProposalSet.at(i);
+            proposalsPage[i - offset] = pendingLicenseProposals[license];
+        }
+        return proposalsPage;
+    }
+
+
+    // Add a new SCC0 license version after approval
+    function addVersion(address _licenseAddr) external onlyOwner {
+        require(_licenseAddr != address(0), "SCC0LicenseManager: Invalid  address");
+        LicenseProposal memory proposal = pendingLicenseProposals[_licenseAddr];
+        require(proposal.license!=address(0), "SCC0LicenseManager: license proposal not exist");
+        require(!licenseMap.contains(proposal.version), "SCC0LicenseManager: version Already exist");
+        licenseMap.set(proposal.version, proposal.license);
+        pendingVersionSubmission[proposal.proposer] = false;
+        pendingLicenseProposalSet.remove(proposal.license);
+        delete pendingLicenseProposals[proposal.license];
+        emit VersionAdded(proposal.license, proposal.version);
+    }
+    // reject SCC0 license  version proposal
+    function rejectPendingVersionProposals(address _licenseAddr,string memory _rejectionReason) external onlyOwner {
+        require(_licenseAddr != address(0), "SCC0LicenseManager: Invalid  address");
+        LicenseProposal memory proposal = pendingLicenseProposals[_licenseAddr];
+        require(proposal.license!=address(0), "SCC0LicenseManager: license proposal not exist");
+       
+        pendingVersionSubmission[proposal.proposer] = false;
+        pendingLicenseProposalSet.remove(proposal.license);
+        delete pendingLicenseProposals[proposal.license];
+        rejectedLicenseProposals[_licenseAddr] = LicenseProposal({
+            proposer: proposal.proposer,
+            license: proposal.license,
+            version: proposal.version,
+            rejectionReason: _rejectionReason
+        });
+        emit RejectPendingVersionProposals(proposal.license, proposal.version);
+    }
+
+    // Set unrecommended SCC0 version
+    function addUnrecommendedVersion(uint _licenseVersion) external onlyOwner {
+        require(licenseMap.contains(_licenseVersion), "SCC0LicenseManager: Version not exist");
+        unrecommendedSet.add(_licenseVersion);
+        emit UnrecommendedVersionAdded(_licenseVersion);
+    }
+
+    // Submit a dApp/dAIpp for blacklisting
+    function proposeBlacklist(address _dApp,string memory _desc) external {
+        require(_dApp!=address(0),"SCC0LicenseManager: Invalid  address");
+        require(!pendingBlacklistSubmission[msg.sender], "SCC0LicenseManager: Already pending");
+        require(!pendingBlacklistProposalSet.contains(_dApp), "SCC0LicenseManager: blacklist already exist");
+        pendingBlacklistSubmission[msg.sender] = true;
+        pendingBlacklistProposals[_dApp] = BlacklistProposal({
+            proposer: msg.sender,
+            dApp: _dApp,
+            desc:_desc,
+            rejectionReason:''
+        });
+        pendingBlacklistProposalSet.add(_dApp);
+        emit BlacklistProposed(msg.sender, _dApp);
+    }
+    //get pending blacklist proposal info
+    function getPendingBlacklistProposals(address _dApp) external view returns(BlacklistProposal memory){
+        return pendingBlacklistProposals[_dApp];
+    }
+    //get rejected blacklist proposal info
+    function getRejectedBlacklistProposals(address _dApp) external view returns(BlacklistProposal memory){
+        return rejectedBlacklistProposals[_dApp];
+    }
+    //get blacklist proposal total length
+    function getPendingBlacklistProposalsLength() external view returns(uint){
+        return pendingBlacklistProposalSet.length();
+    }
+    // Retrieve all pending blacklist proposals
+    function getPendingBlacklistProposals(uint256 offset, uint256 limit) external view returns (BlacklistProposal[] memory) {
+        uint256 total = pendingBlacklistProposalSet.length();
+        if (offset >= total) {
+            return new BlacklistProposal[](0);
+        }
+        uint256 end = offset + limit;
+        if (end > total) {
+            end = total;
+        }
+        BlacklistProposal[] memory proposalsPage = new BlacklistProposal[](end - offset);
+        for (uint256 i = offset; i < end; i++) {
+            address dApp = pendingBlacklistProposalSet.at(i);
+            proposalsPage[i - offset] = pendingBlacklistProposals[dApp];
+        }
+        return proposalsPage;
+    }
+
+
+    // Add a non-compliant dApp/dAIpp to the blacklist after approval
+    function addToBlacklist(address _dApp) external onlyOwner {
+        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
+        BlacklistProposal memory proposal = pendingBlacklistProposals[_dApp];
+        require(proposal.dApp!=address(0), "SCC0LicenseManager: blacklist proposal not exist");
+        
+        blacklist[_dApp] = Blacklist({
+             proposer:proposal.proposer,
+             dApp:proposal.dApp,
+             desc:proposal.desc,
+             isEnable:true
+        });
+        pendingBlacklistSubmission[proposal.proposer] = false;
+        pendingBlacklistProposalSet.remove(proposal.dApp);
+        delete pendingBlacklistProposals[proposal.dApp];
+        emit Blacklisted(_dApp);
+    }
+    // reject blacklist proposal
+    function rejectPendingBlacklistProposals(address _dApp,string memory _rejectionReason) external onlyOwner {
+        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
+        BlacklistProposal memory proposal = pendingBlacklistProposals[_dApp];
+        require(proposal.dApp!=address(0), "SCC0LicenseManager: blacklist proposal not exist");
+       
+        pendingBlacklistSubmission[proposal.proposer] = false;
+        pendingBlacklistProposalSet.remove(proposal.dApp);
+        delete pendingBlacklistProposals[proposal.dApp];
+        rejectedBlacklistProposals[_dApp] = BlacklistProposal({
+             proposer:proposal.proposer,
+             dApp:proposal.dApp,
+             desc:proposal.desc,
+             rejectionReason:_rejectionReason
+        });
+        emit RejectPendingBlacklistProposals(proposal.dApp);
+    }
+    // Remove a dApp/dAIpp from the blacklist
+    function removeFromBlacklist(address _dApp) external onlyOwner {
+        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
+        Blacklist storage blacklistTmp = blacklist[_dApp];
+        require(blacklistTmp.dApp == _dApp,"SCC0LicenseManager: dApp blacklist not exist");
+        blacklistTmp.isEnable = false;
+        emit RemovedFromBlacklist(_dApp);
+    }
+
+    // Get license address by version
+    function getLicenseAddress(uint _licenseVersion) external view returns (address) {
+        return licenseMap.get(_licenseVersion);
+    }
+
+    // List all SCC0 versions
+    function getAllVersions() external view returns (uint[] memory) {
+        return licenseMap.keys();
+    }
+
+    // List all unrecommended SCC0 versions
+    function getAllUnrecommendedVersions() external view returns (uint[] memory) {
+        return unrecommendedSet.values();
+    }
+
+    // Check if a dApp is in the blacklist
+    function isBlacklisted(address _dApp) external view returns (bool) {
+        return blacklist[_dApp].isEnable;
+    }
+    // Check if a dApp is idaism dapp(scc0 v1 version)
+    function isDaismSC(address _dApp) external view returns (bool) {
+        bool isBlacklist = blacklist[_dApp].isEnable;
+        if(isBlacklist) return false;
+        return IDaism(daismAddress).dappToSC(_dApp)>0;
+    }
+    //check if dApp is compliant scc0 license
+    function isSCC0Compliant(address _dApp, uint _version) external view returns (bool){
+        bool isBlacklist = blacklist[_dApp].isEnable;
+        if(licenseMap.contains(_version)&&!isBlacklist) return true;
+        return false;
+    }
+}
+
+```
+### **4. SCC0 V1 的附加治理和操作参数**
+除了核心许可证和参考实施合同之外，SCC0 还包含其他参数来支持分散治理和社区互动：
+
+- **智能公器结构：**
+一种预定义结构（<code>SCInfo</code>），用于存储名称、符号、描述、管理器地址、版本和类型等元数据。
+
+- **会员和提案管理：**
+用于记录会员详细信息（例如股息比率）、提案有效期、冷却期和决策策略的映射。
+
+- **品牌和身份：**
+智能公器标识的存储映射，可增强生态系统内的身份和信任。
+
+### **5. 互操作性和链上验证**
+SCC0 框架允许任何交互合约通过以下方式验证合规性：
+
+- 检查声明的<code>LICENSE</code>常量。
+- 查询许可证管理器的功能（例如<code>isSCC0Compliant</code>）。
+- 确保 dApp/dAIpp 没有被列入黑名单。
+这些机制促进了在分散应用程序中执行 SCC0 许可证的无需信任和自动化的方法。
+
+### **奖励分配机制**
+为了支持符合 SCC0 的项目，SSC0 V1 引入了可升级的奖励分配系统：
+
+1. 维护一个数组来存储有资格获得奖励的外部账户及其分配百分比。
+2. 奖励不会直接发送到外部账户，而是存入公共治理合约。
+3. 外部账户可以随时提取资金。
+```solidity
+mapping(address => Object.Member) public memberInfos; // Stores smart common members and their dividend ratios
+uint32 public proposalLifetime; // Validity period of smart common proposals
+uint32 public proposalCoolingPeriod; // Cooling period for smart common proposals
+uint16 public strategy; // Pass rate for smart common proposals
+mapping(uint => File) public logoStorages; // Storage for smart common logos
+```
+SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细奖励规则”的原因在于，我们既不能通过任何中心化的审查小组方法实施此类措施，也不能通过使用钱包地址的社区投票来确定奖励金额。后一种方法甚至更糟糕——它构成了一种伪去中心化的方法，只有自欺欺人者甚至骗子才会使用。我们预计未来一些 dAIpp 会接手这项工作，从估值到奖金管理。
+
+### **智能公共领域的合规执行**
+所有 **SCC0 许可的** Smart Commons 必须在与另一个合约交互之前验证合规性。执行机制的工作原理如下：
+```solidity
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
+interface ISCC0License {
+    function isSCC0Compliant(address dApp, uint version) external view returns (bool);
+    function isDaismSC(address dApp) external view returns (bool);
+}
+interface ISmartCommons {
+    function SCC0_LICENSE_CONTRACT() external view returns (address);
+    function SCC0_VERSION() external view returns (uint);
+    // the called contract method
+    function otherMethod() external ;
+}
+contract SmartCommons {
+    address public constant SCC0_LICENSE_CONTRACT = 0xxxxxxx; // SCC0 License Master Contract address
+    uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
+    address public counterparty;
+
+    constructor(address _counterparty)  {
+        counterparty = _counterparty;
+    }
+    // If the called contract does not declare the SCC0 License Master Contract address or version
+    function _checkSCC0WithNotDeclare(address _counterparty) internal view returns(bool){
+        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
+        return license.isDaismSC(_counterparty);
+    }
+    // If the called contract is declare the SCC0 License Master Contract address and version
+    function _checkSCC0WithDeclare(address _counterparty) internal view returns(bool) {
+        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
+        return (ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT && 
+                license.isSCC0Compliant(_counterparty, ISmartCommons(counterparty).SCC0_VERSION()));
+    }
+
+    // If the called contract is declare the SCC0 License Master Contract address and version
+    modifier onlySCC0(address _sender) {
+        require(_checkSCC0WithNotDeclare(_sender) || _checkSCC0WithDeclare(_sender), "Counterparty is not SCC0-compliant");
+        _; 
+    }
+    // call counterparty contract 
+    function callCounterparty() public {
+        // some logic ...
+
+        // if not declare SCC0
+        require(_checkSCC0WithNotDeclare(counterparty),"Counterparty is not SCC0-compliant");
+        // if declare SCC0
+        //require(_checkSCC0WithDeclare(counterparty),"Counterparty is not SCC0-compliant");
+
+        // some logic ...
+    }
+    // other contract call the method must be compliant SCC0
+    function someFunction() external onlySCC0(msg.sender) {
+        // Business logic (data exchange, payments, etc.)
+    }
+}
+```
+- **修饰符通过检查来<code>onlySCC0</code>强制遵守：**
+    - 是否<code>counterparty</code>已声明SCC0许可证。
+    - 是否<code>counterparty</code>未被列入黑名单。
+- **每个 SCC0 许可的 Smart Commons 在与另一个 dApp/dAIpp 交互之前都必须应用此检查。**
+
+## **基本原理**
+- **许可证合规性（<code>LICENSE</code>、  <code>LICENSENAME</code>）**：确保智能合约透明地声明遵守 SCC0。
+- **无自发代币（<code>SELFISSUEDTOKEN</code>）**：防止误导性的代币发行声明或任何诈骗行为。
+- **无责任（<code>NOLIABILITY</code>）**：确保对 SCC0 交互不承担法律责任。
+- **匿名保证（<code>ANONYMITYENSURED</code>）**：强调所有权和控制权都无法公开验证。
+- **除奖励外没有其他权利（<code>NORIGHTSEXCEPTREWARDS</code>）**：确认除匿名奖励外，没有任何合法权利。
+- **版本控制（<code>VERSION</code>）**：允许参考 SCC0 合规性的未来迭代。
+- **治理宣言（<code>GOVERNANCE</code>）**：定义公​​共治理基金整合。
+- **可执行性（onlySCC0 修改器）**：确保合同交互之前进行 SCC0 验证。
+
+## **向后兼容性**
+此 EIP 不会引入重大更改，但为采用 SCC0 的项目提供了选择加入机制。必须重新部署旧合约才能符合新标准。
+
+## **安全注意事项**
+- 符合SCC0的合约免除责任，要求用户承认法律限制。
+- 我们认为任何可升级的 dApp/dAIpp 都不应由任何人控制，因此多重签名地址是将来将控制权移交给某些 dAIpps (AI) 的好方法。如果我们能在第一天就找到一些 dApp 的通用解决方案，那就太好了。
+- 开发人员必须确保合约逻辑符合SCC0的原则。
+- 修改 <code>onlySCC0</code> 器在自动合约交互中强制执行合规性。
+一旦每个 dApp/dAIpp 被铸造成智能公共 (v1) 或部署在链上 (v2)，一些 dAIpp 就会通过审核来加强安全性。
+
+## **版权**
+通过 SCC0 放弃版权和相关权利。
+
+# **智能共享列表**
+- [DAism（道易程）](https://daism.io/workroom/1)
+- [Enki（恩奇）](https://daism.io/workroom/2)
+- [荣誉通证](https://daism.io/workroom/3)
+
+# **有关 SCC0 的更多信息**
+- [DAism](https://daism.io/)
+- [50Satoshis](https://50satoshis.com/)——匿名参与者们铸造了Satoshi UTO基金，共有50个钱包地址，共计1 ETH。
+
+# **参考文献**
+1. [Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/)
+2. [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
+3. [Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
+4. [Multisig contracts](https://ethereum.org/en/developers/docs/smart-contracts/#multisig)
+5. [The magic behind dapps](https://ethereum.org/en/dapps/#what-are-dapps)
+6. [Anatomy of smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/anatomy/)
+7. [For Clarity's Sake, Please Don't Say “Licensed under GNU GPL 2”!](https://www.gnu.org/licenses/identify-licenses-clearly.en.html)
