@@ -63,3 +63,14 @@ SCC0许可证确实适用于下一个充满dAIpps（AI）和充满爱的文明�
 
 ### **3. 不承担责任**
 匿名性是指世界上没有任何人（无法识别任何个人）为某个 dApp/dAIpp 或其专属估值代币（若有）提供任何形式的担保，亦没有任何人（无法识别任何个人）承担任何连带责任。任何人在使用或调用本 dApp/dAIpp 或投资本 Smart Common 专属的估值代币时，不得暗示本 Smart Common 或其任何相关方（所有者、开发者或管理者）为其行为背书。
+
+# **EIP（以太坊改进提案）（即将进行重大修订）**
+标题：SCC0 - 面向公共去中心化应用的智能知识共享零许可 
+
+作者：[DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、陈长春、[Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+
+状态：Draft
+
+类型：Standards Track
+
+类别：ERC
