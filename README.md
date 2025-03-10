@@ -628,7 +628,9 @@ Copyright and related rights waived via SCC0.
 - [Enki](https://daism.io/workroom/2)
 - [Honor Tokens](https://daism.io/workroom/3)
 # More about SCC0
-[DAism](https://daism.io)
+- [DAism](https://daism.io)
+- [50Satoshis](https://50satoshis.com/)--Anonymous participants forged Satoshi UTO Fund with 50 wallet addresses and totally 1 ETH.
+
 # References
 1. <a id="r1"></a>[Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/) 
 2. <a id="r2"></a>[CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
