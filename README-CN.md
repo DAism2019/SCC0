@@ -74,3 +74,13 @@ SCC0许可证确实适用于下一个充满dAIpps（AI）和充满爱的文明�
 类型：Standards Track
 
 类别：ERC
+
+## **摘要**
+SCC0（Smart Creative Commons Zero）是第一个为公共去中心化应用（Smart Commons）量身定制的公共产品许可证，包括 dApp、dAIpps（AI）。作为公共产品，Smart Commons 是开源的，任何人都可以免费使用（除了 gas 费用）。
+
+该标准为智能合约声明其符合 SCC0 规定引入了一种结构化方式，从而实现了自动化的链上验证和治理集成。
+
+DAism 已经部署了两个版本的 SCC0，任何人都可以部署其他版本以进一步扩展其应用程序。任何 dApp/dAIpp 的声明都很简单：
+
+address public constant LICENSE = contract_address;
+
