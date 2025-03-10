@@ -117,5 +117,60 @@ SCC0 v1 SCC0 v1 没有声明。您必须阅读 DAism 的特定智能合约中的
 **SCC0 v1合规合同**
 
 DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
-1. 与 DAism 的智能合约进行交互 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe。或者前往 DAism 铸造智能合约。
+1. 与 DAism 的智能合约进行交互 <code>0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe</code>。或者前往 [DAism](https://daism.io/zh/smartcommons) 铸造智能合约。
 2. DAism 部署的 SCC0 v1 合规合约：
+
+```solidity
+contract SCC0License {
+    string public constant LICENSENAME = "SCC0";
+    uint8 public constant VERSION = 1;
+    bool public constant SELFISSUEDTOKEN = false;
+    bool public constant NORIGHTSEXCEPTREWARDS = true;
+    bool public constant NOLIABILITY = true;
+    bool public constant ANONYMITYENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+3. DAism 定义了 Smart Common 结构：
+```solidity
+struct SCInfo {
+    string name;        // Name of the smart common
+    string symbol;      // Symbol of the smart common
+    string desc;        // Description of the smart common
+    address manager;    // Address of the smart common manager
+    uint16 version;     // Version number of the smart common
+    string SCType;      // Type of the smart common
+}
+```
+4. 针对社区互动，还包括额外的映射和治理结构：
+```solidity
+mapping(address => Object.Member) public memberInfos; // Stores Smart Common members and their dividend ratios
+uint32 public proposalLifetime; // Validity period of Smart Common proposals
+uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposals
+uint16 public strategy; // Pass rate for Smart Common proposals
+mapping(uint => File) public logoStorages; // Storage for Smart Common logos
+```
+**SCC0 v2 合规合同**
+DAism 部署的 SCC0 v2 合规合约：
+```solidity
+contract SCC0License {
+    string public constant LICENSENAME = "SCC0";
+    uint8 public constant VERSION = 2;
+    bool public constant SELFISSUEDTOKEN = false;
+    bool public constant NORIGHTSEXCEPTREWARDS = true;
+    bool public constant NOLIABILITY = true;
+    bool public constant ANONYMITYENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+### **3. SCC0许可主合约实施**
+SCC0 许可证管理器合约提供了管理许可证版本和强制合规性的核心功能。它支持：
+- 许可证版本提案：开发者可以提交新的 SCC0 许可证版本以供社区批准。每个提案都包含拟议的许可证地址及其版本号。
+- 版本批准和注册：一旦获得合同所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
+- 黑名单管理：可以提议将不合规的 dApp/dAIpps 列入黑名单。批准的提案将这些地址标记为不合规，从而阻止进一步作为 SCC0 实体进行交互。
+- 链上验证：等功能isSCC0Compliant使isBlacklisted其他合约和治理机制能够实时验证合规性。
+以下是SCC0许可证管理器合约的完整实现：
