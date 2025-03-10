@@ -109,7 +109,7 @@ address public owner;   // Address for rewards
 string public scName;   // Smart Common name
 string public scType;   // Smart Common type
 ```
-声明LICENSE常量可确保与智能合约的任何交互都可以根据 SCC0 标准自动验证。
+声明<code>LICENSE</code>常量可确保与智能合约的任何交互都可以根据 SCC0 标准自动验证。
 对于任何可升级的 dApp/dAIpp，我们强烈建议使用多重签名地址设置所有者，以便将来将控制权传递给某些 dAIpps（AI）。
 SCC0 v1 SCC0 v1 没有声明。您必须阅读 DAism 的特定智能合约中的列表。
 
