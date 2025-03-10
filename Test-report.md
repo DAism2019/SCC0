@@ -4,15 +4,18 @@ Time: 20250310
 code:
 ```js
 
+
 const { ethers } = require('hardhat')
+const hre=require('hardhat')
 
 var manager0,accounts;
+
 async function main(){
     await hre.run('compile');
     accounts = await ethers.getSigners()
 
-    //发布合约
-    await delopy()
+    //提案协议
+    let scc01= await daism_deploy(accounts[0],'SCC0License1', []);
 
     try {
       await proposeVersion(await scc01.getAddress())
