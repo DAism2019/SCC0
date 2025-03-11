@@ -5,7 +5,7 @@ Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0
 
 The development of all Smart Commons is supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO**.
 
-Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a self-governed ecology for the new open civilization.
+Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a **self-governed** ecology for the new open civilization.
 
 # Background
 ##  Code is Law: A Brief Intro to Smart Contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
