@@ -1,5 +1,5 @@
 # **什么是 Smart Creative Commons Zero (SCC0) 许可证？**
-Smart Creative Commons Zero (SCC0)不仅是第一个为公共去中心化应用（我们称之为 Smart Commons，即“智能公器”）设计的公共产品许可证，其中包括 dApps [5]和 dAIpps（去中心化 AI 应用），也是第一个可以在智能公器与另一个智能公器交互时进行验证的许可证。重要的是，智能公器必须是开源的，并且对公众免费（gas 费用除外）。
+Smart Creative Commons Zero (SCC0)不仅是第一个为公共去中心化应用（我们称之为 Smart Commons，即“智能公器”）设计的公共产品许可证，其中包括 dApps <sup>[5]</sup>和 dAIpps（去中心化 AI 应用），也是第一个可以在智能公器与另一个智能公器交互时进行验证和自管理的许可证。重要的是，智能公器必须是开源的，并且对公众免费（gas 费用除外）。
 
 任何人都可以通过创建新版本并将其提交给**SCC0 许可主合约**来扩展 SCC0 ！
 
