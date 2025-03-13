@@ -1,4 +1,4 @@
-([Here's the Chinese Version](https://github.com/DAism2019/SCC0/blob/main/README-CN.md))
+([Chinese Version](https://github.com/DAism2019/SCC0/blob/main/README-CN.md))
 # What is the Smart Creative Commons Zero (SCC0) license?
 **Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons", known as "智能公器"in Chinese), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified and self-governed when a smart common interacting with another one. Importantly, a Smart Common must be open source and free for the public (except for gas fees).
 
