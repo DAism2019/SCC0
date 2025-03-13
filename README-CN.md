@@ -647,7 +647,7 @@ contract SmartCommons {
 ## **版权**
 通过 SCC0 放弃版权和相关权利。
 
-# **智能共享列表**
+# **智能公器列表**
 - [DAism（道易程）](https://daism.io/workroom/1)
 - [Enki（恩奇）](https://daism.io/workroom/2)
 - [荣誉通证](https://daism.io/workroom/3)
