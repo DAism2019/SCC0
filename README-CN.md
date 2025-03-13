@@ -633,7 +633,6 @@ contract SmartCommons {
 - **开源（<code>OPEN_SOURCE</code>）**：合约必须是开源的。
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公开项目，永久免费。
 - **可执行性（onlySCC0 修改器）**：确保合同交互之前进行 SCC0 验证。
-- 
 
 ## **向后兼容性**
 此 EIP 不会引入重大更改，但为采用 SCC0 的项目提供了选择加入机制。必须重新部署旧合约才能符合新标准。
