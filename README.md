@@ -327,7 +327,78 @@ contract SCC0LicenseManager is Ownable {
 
 
 ```
+```solidity
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
+contract SCC0Whitelist is Ownable {
+    using EnumerableSet for EnumerableSet.AddressSet;
+
+    EnumerableSet.AddressSet private auditors; //auditors set
+    EnumerableSet.AddressSet private whitelist; //whitelist set
+
+
+    event AuditorAdded(address indexed auditor);
+    event AuditorRemoved(address indexed auditor);
+
+    event DAppWhitelisted(address indexed dApp, address auditor, uint256 timestamp);
+    event DAppRemovedFromWhitelist(address indexed dApp, address auditor, uint256 timestamp);
+
+
+    modifier _onlyAuditor(){
+        require(auditors.contains(msg.sender),"SCC0Whitelist: only auditor");
+        _;
+    }
+    constructor(address _initOwner) Ownable(_initOwner) {}
+    
+    /// add auditor 
+    function addAuditor(address _auditor) external onlyOwner {
+        require(_auditor != address(0), "SCC0Whitelist: invalid auditor address");
+        require(auditors.add(_auditor), "SCC0Whitelist: auditor already exist");
+        emit AuditorAdded(_auditor);
+    }
+
+    /// remove auditor
+    function removeAuditor(address _auditor) external onlyOwner {
+        require(auditors.contains(_auditor), "SCC0Whitelist: auditor does not exist");
+        require(auditors.remove(_auditor), "SCC0Whitelist: auditor does not exist");
+        emit AuditorRemoved(_auditor);
+    }
+
+    /// check auditor
+    function isAuditor(address _auditor) external view returns (bool) {
+        return auditors.contains(_auditor);
+    }
+    //list all auditors
+    function listAuditors() external view returns(address[] memory){
+        return auditors.values();
+    }
+    //add whitelist
+    function addToWhitelist(address _dApp) external  _onlyAuditor {
+        require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
+        require(whitelist.add(_dApp), "SCC0Whitelist: whitelist already exist");
+        emit DAppWhitelisted( _dApp,msg.sender,block.timestamp);
+    }
+
+    // remove whitelist
+    function removeFromWhitelist(address _dApp) external _onlyAuditor {
+        require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
+        require(whitelist.remove(_dApp), "SCC0Whitelist: dApp does not whitelist");
+        emit DAppRemovedFromWhitelist( _dApp,msg.sender, block.timestamp);
+        
+    }
+
+    // Check   whitelist
+    function isWhitelisted(address _dApp) public view returns (bool) {
+        return whitelist.contains(_dApp);
+    }
+    
+}
+
+
+```
 ### 4. Additional Governance and Operational Parameters of SCC0 V1
 
 Beyond the core license and reference implementation contracts, SCC0 includes further parameters to support decentralized governance and community interaction:
@@ -442,78 +513,7 @@ contract SmartCommons {
     }
 }
 ```
-```solidity
-// SPDX-License-Identifier: scc0
-pragma solidity ^0.8.20;
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract SCC0Whitelist is Ownable {
-    using EnumerableSet for EnumerableSet.AddressSet;
-
-    EnumerableSet.AddressSet private auditors; //auditors set
-    EnumerableSet.AddressSet private whitelist; //whitelist set
-
-
-    event AuditorAdded(address indexed auditor);
-    event AuditorRemoved(address indexed auditor);
-
-    event DAppWhitelisted(address indexed dApp, address auditor, uint256 timestamp);
-    event DAppRemovedFromWhitelist(address indexed dApp, address auditor, uint256 timestamp);
-
-
-    modifier _onlyAuditor(){
-        require(auditors.contains(msg.sender),"SCC0Whitelist: only auditor");
-        _;
-    }
-    constructor(address _initOwner) Ownable(_initOwner) {}
-    
-    /// add auditor 
-    function addAuditor(address _auditor) external onlyOwner {
-        require(_auditor != address(0), "SCC0Whitelist: invalid auditor address");
-        require(auditors.add(_auditor), "SCC0Whitelist: auditor already exist");
-        emit AuditorAdded(_auditor);
-    }
-
-    /// remove auditor
-    function removeAuditor(address _auditor) external onlyOwner {
-        require(auditors.contains(_auditor), "SCC0Whitelist: auditor does not exist");
-        require(auditors.remove(_auditor), "SCC0Whitelist: auditor does not exist");
-        emit AuditorRemoved(_auditor);
-    }
-
-    /// check auditor
-    function isAuditor(address _auditor) external view returns (bool) {
-        return auditors.contains(_auditor);
-    }
-    //list all auditors
-    function listAuditors() external view returns(address[] memory){
-        return auditors.values();
-    }
-    //add whitelist
-    function addToWhitelist(address _dApp) external  _onlyAuditor {
-        require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
-        require(whitelist.add(_dApp), "SCC0Whitelist: whitelist already exist");
-        emit DAppWhitelisted( _dApp,msg.sender,block.timestamp);
-    }
-
-    // remove whitelist
-    function removeFromWhitelist(address _dApp) external _onlyAuditor {
-        require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
-        require(whitelist.remove(_dApp), "SCC0Whitelist: dApp does not whitelist");
-        emit DAppRemovedFromWhitelist( _dApp,msg.sender, block.timestamp);
-        
-    }
-
-    // Check   whitelist
-    function isWhitelisted(address _dApp) public view returns (bool) {
-        return whitelist.contains(_dApp);
-    }
-    
-}
-
-
-```
 
 - **The `onlySCC0` modifier enforces compliance** by checking:
     - Whether the `counterparty` has declared an SCC0 license.
