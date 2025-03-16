@@ -242,32 +242,15 @@ contract SCC0LicenseManager is Ownable {
         uint8 version; //SCC0 license version
         string desc; // description or reason
     }
-
-    struct BlacklistProposal {
-        address proposer; //blacklist proposer
-        address dApp; // dApp address
-        string desc; // description or reason
-        uint8 status;//blacklist proposal 1 submit 2 cancel   3 reject  4 add 
-                     //blacklist appeal   1 submit 2 cancel   3 reject  4 remove
-        string rejectionReason; // the proposal rejected reason
-    }
-    struct Blacklist {
-        address proposer; //blacklist proposer
-        address dApp; // dApp address
-        string desc; // description or reason
-        bool isEnable; //blacklist whether enable
-    }
     address public daismAddress;
     mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
     uint8[] public licenseVersions;// all license versions
     EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
-    mapping(address => Blacklist) public blacklist; // dApp blacklist => struct Blacklist
     mapping(address => LicenseProposal) public pendingLicenseProposals; // license proposal address => struct LicenseProposal
     EnumerableSet.AddressSet private pendingLicenseProposalSet; //license proposal set
     mapping(address => LicenseProposal) public rejectedLicenseProposals; // rejected license proposal address => struct LicenseProposal
-    mapping(address => mapping(address => BlacklistProposal)) public blacklistProposals; //blacklist proposal address => proposer => struct BlacklistProposal
-    mapping(address => address[]) public blacklistProposers;//blacklist proposal address => proposer array
-    mapping(address => mapping(address => BlacklistProposal)) public blacklistAppealProposals; // appeal blacklist proposal address => proposer => struct BlacklistProposal
+    EnumerableSet.AddressSet private auditors; //auditors set
+    EnumerableSet.AddressSet private whitelist; //whitelist set
 
     event VersionProposed(address indexed proposer, address license, uint version);
     event VersionAdded(address indexed license, uint version);
@@ -275,18 +258,17 @@ contract SCC0LicenseManager is Ownable {
     event RejectPendingVersionProposals(address indexed license, uint version);
     event CancelPendingVersionProposals(address indexed license, uint version);
 
-    event BlacklistProposed(address indexed proposer, address indexed dApp);
-    event Blacklisted(address indexed proposer,address indexed dApp);
-    event CancelBlacklistProposals(address indexed proposer,address indexed dApp);
-    event RejectBlacklistProposals(address indexed proposer,address indexed dApp);
+    event AuditorAdded(address indexed auditor);
+    event AuditorRemoved(address indexed auditor);
 
-    event BlacklistAppealProposed(address indexed proposer, address indexed dApp);
-    event RemovedBlacklistByAppeal(address indexed proposer,address indexed dApp);
-    event CancelBlacklistAppealProposals(address indexed proposer,address indexed dApp);
-    event RejectBlacklistAppealProposals(address indexed proposer,address indexed dApp);
+    event DAppWhitelisted(address indexed dApp, address auditor, uint256 timestamp);
+    event DAppRemovedFromWhitelist(address indexed dApp, address auditor, uint256 timestamp);
 
-    event RemovedFromBlacklist(address indexed dApp);
-    
+
+    modifier _onlyAuditor(){
+        require(auditors.contains(msg.sender),"SCC0LicenseManager: only auditor");
+        _;
+    }
     constructor(License[] memory _licenseList,address _daismAddress,address _initOwner) Ownable(_initOwner) {
         for (uint8 i = 0; i < _licenseList.length; i++) {
             uint8 version = _licenseList[i].version;
@@ -295,17 +277,13 @@ contract SCC0LicenseManager is Ownable {
         }
         daismAddress = _daismAddress;
     }
-    function _isLicenseVersion(uint8 _version) internal view returns(bool){
-        License memory licenseTmp = licenseMap[_version];
-        if(licenseTmp.license != address(0))return true;
-        return false;
-    }
+    
     // Submit a new SCC0 license version for approval
     function proposeVersion(address _licenseAddr,string memory _desc) external {
         require(_licenseAddr != address(0) && bytes(_desc).length>0 && !pendingLicenseProposalSet.contains(_licenseAddr), "SCC0LicenseManager: params error or already exist");
         uint8 version = ISCC0License(_licenseAddr).VERSION();
         require(version>0, "SCC0LicenseManager: version error");
-        require(!_isLicenseVersion(version), "SCC0LicenseManager: version  already exist");
+        require(!isLicenseVersion(version), "SCC0LicenseManager: version  already exist");
         pendingLicenseProposals[_licenseAddr] = LicenseProposal({
             proposer: msg.sender,
             license: _licenseAddr,
@@ -352,7 +330,7 @@ contract SCC0LicenseManager is Ownable {
         require(_licenseAddr != address(0), "SCC0LicenseManager: Invalid address");
         LicenseProposal memory proposal = pendingLicenseProposals[_licenseAddr];
         require(proposal.license!=address(0), "SCC0LicenseManager: license proposal not exist");
-        require(!_isLicenseVersion(proposal.version), "SCC0LicenseManager: version  already exist");
+        require(!isLicenseVersion(proposal.version), "SCC0LicenseManager: version  already exist");
         licenseMap[proposal.version] = License({
                  proposer : proposal.proposer,
                  license : proposal.license,
@@ -394,127 +372,52 @@ contract SCC0LicenseManager is Ownable {
     }
     // Set unrecommended SCC0 version
     function addUnrecommendedVersion(uint8 _licenseVersion) external onlyOwner {
-        require(_isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
+        require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
         unrecommendedSet.add(_licenseVersion);
         emit UnrecommendedVersionAdded(_licenseVersion);
     }
+    /// add auditor 
+    function addAuditor(address _auditor) external onlyOwner {
+        require(_auditor != address(0), "SCC0LicenseManager: invalid auditor address");
+        auditors.add(_auditor);
+        emit AuditorAdded(_auditor);
+    }
 
-    // Submit a dApp/dAIpp for blacklisting
-    function proposeBlacklist(address _dApp,string memory _desc) external {
-        require(_dApp!=address(0) && bytes(_desc).length>0,"SCC0LicenseManager: Invalid address or desc is null");
-        require(!isBlacklisted(_dApp),"SCC0LicenseManager: the dApp blacklist already exist");
-        blacklistProposals[_dApp][msg.sender] = BlacklistProposal({
-            proposer: msg.sender,
-            dApp: _dApp,
-            desc:_desc,
-            status:1,
-            rejectionReason:''
-        });
-        blacklistProposers[_dApp].push(msg.sender);
-        emit BlacklistProposed(msg.sender, _dApp);
+    /// remove auditor
+    function removeAuditor(address _auditor) external onlyOwner {
+        require(auditors.contains(_auditor), "SCC0LicenseManager: auditor does not exist");
+        auditors.remove(_auditor);
+        emit AuditorRemoved(_auditor);
     }
-    //get  blacklist proposal info
-    function getBlacklistProposals(address _dApp,address _proposer) external view returns(BlacklistProposal memory){
-        return blacklistProposals[_dApp][_proposer];
+
+    /// check auditor
+    function isAuditor(address _auditor) external view returns (bool) {
+        return auditors.contains(_auditor);
     }
-    //get  blacklist proposers by dApp
-    function getBlacklistProposers(address _dApp) external view returns(address[] memory){
-        return blacklistProposers[_dApp];
+    //list all auditors
+    function listAuditors() external view returns(address[] memory){
+        return auditors.values();
     }
-    //get all blacklist proposal info by dApp
-    function getBlacklistProposalsByDApp(address _dApp) external view returns(BlacklistProposal[] memory){
-        address[] memory proposers = blacklistProposers[_dApp];
-        uint count = proposers.length;
-        BlacklistProposal[] memory proposals = new BlacklistProposal[](count);
-        for (uint256 i = 0;i<count; i++) {
-            proposals[i] = blacklistProposals[_dApp][proposers[i]];
-        }
-        return proposals;
+    //add whitelist
+    function addToWhitelist(address _dApp) external  _onlyAuditor {
+        require(!whitelist.contains(_dApp),"SCC0LicenseManager: whitelist already exist");
+        whitelist.add(_dApp);
+        emit DAppWhitelisted( _dApp,msg.sender,block.timestamp);
     }
-    
-    // Add a non-compliant dApp/dAIpp to the blacklist after approval
-    function addToBlacklist(address _dApp,address _proposer) external onlyOwner {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid address");
-        BlacklistProposal storage proposal = blacklistProposals[_dApp][_proposer];
-        require(proposal.status==1, "SCC0LicenseManager: blacklist proposal not exist or status not submit ");
+
+    // remove whitelist
+    function removeFromWhitelist(address _dApp) external _onlyAuditor {
+        require(whitelist.contains(_dApp),"SCC0LicenseManager: whitelist not exist");
+        whitelist.remove(_dApp);
+        emit DAppRemovedFromWhitelist( _dApp,msg.sender, block.timestamp);
         
-        blacklist[_dApp] = Blacklist({
-             proposer:proposal.proposer,
-             dApp:proposal.dApp,
-             desc:proposal.desc,
-             isEnable:true
-        });
-        proposal.status=4;
-        emit Blacklisted(_proposer,_dApp);
     }
-    // reject blacklist proposal
-    function rejectBlacklistProposals(address _dApp,address _proposer,string memory _rejectionReason) external onlyOwner {
-        require(_dApp != address(0) && bytes(_rejectionReason).length>0, "SCC0LicenseManager: Invalid address or rejectionReason is null");
-        BlacklistProposal storage proposal = blacklistProposals[_dApp][_proposer];
-        require(proposal.status==1, "SCC0LicenseManager: blacklist proposal not exist or status not submit");
-        proposal.rejectionReason = _rejectionReason;
-        proposal.status=3;
-        emit RejectBlacklistProposals(_proposer,proposal.dApp);
+    //check version 
+    function isLicenseVersion(uint8 _version) public view returns(bool){
+        License memory licenseTmp = licenseMap[_version];
+        if(licenseTmp.license != address(0))return true;
+        return false;
     }
-     // cancel blacklist proposal
-    function cancelBlacklistProposals(address _dApp) external {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid address");
-        BlacklistProposal storage proposal = blacklistProposals[_dApp][msg.sender];
-        require(proposal.status==1, "SCC0LicenseManager: blacklist proposal not exist or status not submit");
-        proposal.status = 2;
-        emit CancelBlacklistProposals(proposal.proposer,proposal.dApp);
-    }
-    // Submit a appeal dApp/dAIpp for blacklisting
-    function proposeBlacklistAppeal(address _dApp,string memory _desc) external {
-        require(_dApp!=address(0) && bytes(_desc).length>0,"SCC0LicenseManager: Invalid address or desc is null");
-        require(isBlacklisted(_dApp),"SCC0LicenseManager: the dApp blacklist not exist");
-        blacklistAppealProposals[_dApp][msg.sender] = BlacklistProposal({
-            proposer: msg.sender,
-            dApp: _dApp,
-            desc:_desc,
-            status:1,
-            rejectionReason:''
-        });
-        emit BlacklistAppealProposed(msg.sender, _dApp);
-    }
-    //get  blacklist proposal info
-    function getBlacklistAppealProposals(address _dApp,address _proposer) external view returns(BlacklistProposal memory){
-        return blacklistAppealProposals[_dApp][_proposer];
-    }
-    // cancel a appeal dApp/dAIpp for blacklist
-    function cancelBlacklistAppeal(address _dApp) external {
-        require(_dApp!=address(0) ,"SCC0LicenseManager: Invalid address");
-        BlacklistProposal storage proposal = blacklistAppealProposals[_dApp][msg.sender];
-        require(proposal.status==1, "SCC0LicenseManager: appeal blacklist proposal not exist or status not submit");
-        proposal.status = 2;
-        emit CancelBlacklistAppealProposals(proposal.proposer,proposal.dApp);
-    }
-    // reject appeal blacklist proposal
-    function rejectBlacklistAppealProposals(address _dApp,address _proposer,string memory _rejectionReason) external onlyOwner {
-        require(_dApp != address(0) && bytes(_rejectionReason).length>0, "SCC0LicenseManager: Invalid address or rejectionReason is null");
-        BlacklistProposal storage proposal = blacklistAppealProposals[_dApp][_proposer];
-        require(proposal.status==1, "SCC0LicenseManager: appeal blacklist proposal not exist or status not submit");
-        proposal.rejectionReason = _rejectionReason;
-        proposal.status=3;
-        emit RejectBlacklistAppealProposals(_proposer,proposal.dApp);
-    }
-    // Remove a dApp/dAIpp from the appeal blacklist
-    function removeBlacklistByAppeal(address _dApp,address _proposer) external onlyOwner {
-        BlacklistProposal storage proposal = blacklistAppealProposals[_dApp][_proposer];
-        require(proposal.status==1, "SCC0LicenseManager: appeal blacklist proposal not exist or status not submit");
-        removeFromBlacklist(_dApp);
-        proposal.status = 4;
-        emit RemovedBlacklistByAppeal(_proposer,_dApp);
-    }
-    // Remove a dApp/dAIpp from the blacklist
-    function removeFromBlacklist(address _dApp) public onlyOwner {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid address");
-        Blacklist storage blacklistTmp = blacklist[_dApp];
-        require(blacklistTmp.dApp == _dApp,"SCC0LicenseManager: dApp blacklist not exist");
-        blacklistTmp.isEnable = false;
-        emit RemovedFromBlacklist(_dApp);
-    }
-    
     // Get license address by version
     function getLicense(uint8 _licenseVersion) external view returns (License memory) {
         return licenseMap[_licenseVersion];
@@ -530,18 +433,18 @@ contract SCC0LicenseManager is Ownable {
         return unrecommendedSet.values();
     }
 
-    // Check if a dApp is in the blacklist
-    function isBlacklisted(address _dApp) public view returns (bool) {
-        return blacklist[_dApp].isEnable;
+    // Check if a dApp is in the whitelist
+    function isWhitelisted(address _dApp) public view returns (bool) {
+        return whitelist.contains(_dApp);
     }
     // Check if a dApp is idaism dapp(scc0 v1 version)
     function isDaismSC(address _dApp) external view returns (bool) {
-        if(isBlacklisted(_dApp)) return false;
+        if(isWhitelisted(_dApp)) return true;
         return IDaism(daismAddress).dappToSC(_dApp)>0;
     }
     //check if dApp is compliant scc0 license
     function isSCC0Compliant(address _dApp, uint8 _version) external view returns (bool){
-        if(!isBlacklisted(_dApp)&&_isLicenseVersion(_version)) return true;
+        if(isWhitelisted(_dApp)&&isLicenseVersion(_version)) return true;
         return false;
     }
 }
