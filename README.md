@@ -174,7 +174,7 @@ uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposal
 uint16 public strategy; // Pass rate for Smart Common proposals
 mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 ```
-5.Verify if it is scc0 v1 version using the following methods
+ 5.Verify if it is scc0 v1 version using the following methods:
 ```solidity
 interface IDaism {
     //check the address whether daism sc type of dapp
