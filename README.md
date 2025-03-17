@@ -488,7 +488,7 @@ contract SmartCommons {
     }
     // other contract call the method must be compliant SCC0
     function someFunction() external onlySCC0() {
-        // Business logic (data exchange, payments, etc.)
+        // logic for data exchange, payments, etc.
     }
 }
 ```
