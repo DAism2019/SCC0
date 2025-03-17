@@ -38,11 +38,11 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 为了确保 dApp 和 dAIpps 能够透明地声明其遵守 SCC0，我们提出了一种标准化方法，将与许可证相关的变量嵌入智能合约中。这允许：
 
 - 链上验证 SCC0 遵守情况。
-- 合同之间的自动交互检查。
+- 合约之间的自动交互检查。
 - 一种奖励机制，允许特定的公共治理基金向贡献者分发匿名奖励。
 
 # **智能知识共享零（SCC0）**
-通过使用智能合约或外部拥有账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），或者直接在智能合约代码中声明 SCC0 许可证（合约地址：0xaCb910db73473944B2D23D37A0e46F57a43c6a49），智能合约或外部拥有账户及其整体可信组件将接受该许可证的独家治理，从而成为一个公共的去中心化应用程序，也称为“智能公器（Smart Common）”。
+通过使用智能合约或外部拥有账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），或者直接在智能合约代码中声明 SCC0 许可证（合约地址：0xaCb910db73473944B2D23D37A0e46F57a43c6a49），智能合约或外部拥有账户及其整体可信组件将接受该许可证的强制治理，从而成为一个公共的去中心化应用程序，也称为“智能公器（Smart Common）”。
 
 智能公器必须是开源的。
 
@@ -89,7 +89,7 @@ address public constant LICENSE = contract_address;
 为了确保 dApp 和 dAIpps 能够透明地声明其遵守 SCC0，我们提出了一种标准化方法，将与许可证相关的变量嵌入智能合约中。这允许：
 
 链上验证 SCC0 遵守情况。
-合同之间的自动交互检查。
+合约之间的自动交互检查。
 一种奖励机制，允许特定的公共治理基金向贡献者分发匿名奖励。
 规格
 本节概述了为公共去中心化应用程序（dApps/dAIpps）实施 Smart Creative Commons Zero (SCC0) 许可证的技术规范。它定义了一个标准化的链上框架，允许智能合约声明符合 SCC0 要求，支持自动验证并促进去中心化治理。
@@ -114,7 +114,7 @@ string public scType;   // Smart Common type
 SCC0 v1 SCC0 v1 没有声明。您必须阅读 DAism 的特定智能合约中的列表。
 
 ## **2. v1 和 v2 的合规合约**
-**SCC0 v1合规合同**
+**SCC0 v1合规合约**
 
 DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
 1. 与 DAism 的智能合约进行交互 <code>0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe</code>。或者前往 [DAism](https://daism.io/zh/smartcommons) 铸造智能合约。
@@ -152,7 +152,7 @@ uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposal
 uint16 public strategy; // Pass rate for Smart Common proposals
 mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 ```
-**SCC0 v2 合规合同**
+**SCC0 v2 合规合约**
 
 DAism 部署的 SCC0 v2 合规合约：
 ```solidity
@@ -171,7 +171,7 @@ contract SCC0License {
 ### **3. SCC0 许可主合约实施**
 SCC0 许可证管理器合约提供了管理许可证版本和强制合规性的核心功能。它支持：
 - 许可证版本提案：开发者可以提交新的 SCC0 许可证版本以供社区批准。每个提案都包含拟议的许可证地址及其版本号。
-- 版本批准和注册：一旦获得合同所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
+- 版本批准和注册：一旦获得合约所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
 - 黑名单管理：可以提议将不合规的 dApp/dAIpps 列入黑名单。批准的提案将这些地址标记为不合规，从而阻止进一步作为 SCC0 实体进行交互。
 - 链上验证：功能如<code>isSCC0Compliant</code>和<code>isBlacklisted</code>使其他合约和治理机制能够实时验证合规性。
 以下是 SCC0 许可证管理器合约的完整实现：
@@ -513,7 +513,7 @@ contract SCC0LicenseManager is Ownable {
 
 ```
 ### **4. SCC0 V1 的附加治理和操作参数**
-除了核心许可证和参考实施合同之外，SCC0 还包含其他参数来支持分散治理和社区互动：
+除了核心许可证和参考实施合约之外，SCC0 还包含其他参数来支持分散治理和社区互动：
 
 - **智能公器结构：**
 一种预定义结构（<code>SCInfo</code>），用于存储名称、符号、描述、管理器地址、版本和类型等元数据。
@@ -632,7 +632,7 @@ contract SmartCommons {
 - **治理宣言（<code>GOVERNANCE</code>）**：定义公​​共治理基金整合。
 - **开源（<code>OPEN_SOURCE</code>）**：合约必须是开源的。
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公开项目，永久免费。
-- **可执行性（onlySCC0 修改器）**：确保合同交互之前进行 SCC0 验证。
+- **可执行性（onlySCC0 修改器）**：确保合约交互之前进行 SCC0 验证。
 
 ## **向后兼容性**
 此 EIP 不会引入重大更改，但为采用 SCC0 的项目提供了选择加入机制。必须重新部署旧合约才能符合新标准。
