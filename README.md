@@ -78,10 +78,10 @@ Anonymity implies that the developed smart contract and its trusted components a
 
 Anonymity means that no one (as no individual can be identified) in this world provides any form of guarantee for a dApp/dAIpp or its dedicated valuation token (if any), nor does anyone (as no individual can be identified) bear any joint liability. When using or invoking this dApp/dAIpp or investing in the valuation token exclusive to this Smart Common, no one shall imply that this Smart Common or any of its related parties (owners, developers, or managers) endorse their actions.
 
-# EIP (Ethereum Improvement Proposal)(a significant revision is coming soon)
+# EIP (Ethereum Improvement Proposal)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
 
-Author: [DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)),[Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+Author: [DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)),[GYM](https://daism.io/smartcommons/actor/0xgym%40daism.io),[Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 Status: Draft
 
