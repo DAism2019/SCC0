@@ -74,7 +74,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 # **EIP（以太坊改进提案）（即将进行重大修订）**
 标题：SCC0 - 面向公共去中心化应用的智能知识共享零许可 
 
-作者：[DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、陈长春、[Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈长春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 状态：Draft
 
