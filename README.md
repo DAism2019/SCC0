@@ -8,7 +8,7 @@ The uniqueness of the SCC0 License lies in the fact that it was not originally d
 
 Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Master Contract**!
 
-The development of all Smart Commons is supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO**.
+The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO**.
 
 Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a **self-governed**(by dApps and dAIpps) ecology for the new civilization.
 
