@@ -205,7 +205,7 @@ contract SCC0License {
 }
 ```
 
-### 3. SCC0 License Master Contract Implementation
+### 3. SCC0 License Master Contract and SCC0 Whitelist contract Implementation
 The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
 
 - License Version Proposals:
