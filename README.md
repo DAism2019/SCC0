@@ -32,7 +32,7 @@ Up to this point, essentially, Externally Owned Accounts are all anonymous acco
 
 In terms of development, this anonymity mechanism brings some advantages that real-name mechanisms cannot match. The most prominent aspect is that due to anonymity, in the ongoing development and use of dApps/dAIpps, no one can prove their ownership of any rights related to them, nor can anyone prove who bears any responsibilities associated with them. The most valuable feature of this anonymity is that it allows us to establish the first license for public dapps/dAIpps: Smart Creative Commons Zero (SCC0). In short, adhering to the SCC0 license means that the development and ownership of the dApp or dAIpp will not be linked to anyone's real identity, thus becoming a pure public decentralized application.
 
-For AI, the situation might be completely reversed. We all know that any AI is a combination of software and hardware. Therefore, some argue that HSM (Hardware Security Module) can provide AI with a trustworthy Crypto-identity:
+For AI, the situation might look like completely reversed. We all know that any AI is a combination of software and hardware. Therefore, some argue that HSM (Hardware Security Module) can provide AI with a trustworthy Crypto-identity:
 
 A special storage chip is deployed on the server, dedicated to storing a private key. It can store only one private key, ensuring that the key can only be accessed by specific AI software while being inaccessible for external reading, copying, or deletion.
 
