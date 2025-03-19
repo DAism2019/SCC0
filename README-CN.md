@@ -59,10 +59,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 
 直接使用智能合约代码接受 SCC0 Whitelist Contract（合约地址：）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
 
-通过使用智能合约或外部拥有账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），智能合约或外部帐户（EOA）及其整体可信组件将接受该许可证的强制治理
-
-智能公器拒绝与非智能公器交互。
-
+通过使用智能合约或外部账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），智能合约或外部帐户（EOA）及其整体可信组件将接受该许可证的强制治理。
 
 ## **关于匿名**
 在区块链交互的背景下，匿名性是人类和人工智能的基本特征。
@@ -73,19 +70,15 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 
 ### **1. 智能公器的治理**
 本许可对智能公器强制执行且无可违背的治理细则有：
-- 拒绝与非智能公器交互。
-- 不得私发代币
+- 拒绝与非智能公器交互；
+- 不得私发代币；
+- 无任何权利；
+- 不承担任何责任；
+- 于人而言，智能公器具有匿名性；
 - 代码开源：所有 dAIpps/dApps 的代码必须公开；
-- 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本。
-- 
-    bool public constant REJECT_ISSUED_TOKEN = false;
-    bool public constant SELF_ISSUED_TOKEN = false;
-    bool public constant NO_RIGHTS_EXCEPTR_EWARDS = true;
-    bool public constant NO_LIABILITY = true;
-    bool public constant ANONYMITY_ENSURED = true;
-    bool public constant OPEN_SOURCE = true;
-    bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+- 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本；
+- 其治理基金为 Satoshi UTO Fund （合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1F），该基金为智能公器的发展承担成本，提供奖励。
+
 本 Smart Common 下的所有智能合约及其受信任组件（例如 dApp/dAIpp 的所有合约和前端，或与单个钱包地址关联的开源作品）均接受本许可下的治理。此许可是 DAism 价值证明共识的组成部分之一，其公共治理基金为 Satoshi UTO 基金（合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1f）。
 
 ### **2. 除匿名奖励外无其他权利**
@@ -154,8 +147,9 @@ DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
 contract SCC0License {
     string public constant LICENSENAME = "SCC0";
     uint8 public constant VERSION = 1;
+    bool public constant REJECT_PRIVATE_APP = true;
     bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTSEXCEPTREWARDS = true;
+    bool public constant NORIGHTS = true;
     bool public constant NOLIABILITY = true;
     bool public constant ANONYMITYENSURED = true;
     bool public constant OPEN_SOURCE = true;
