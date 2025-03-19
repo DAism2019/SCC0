@@ -41,7 +41,7 @@ Based on certain collaborative requirements, AI might be able to manage itself i
 At our current stage, it is rational for humans to remain agnostic about where the private key actually resides: we trust the anonymity of AI.
 
 ## Smart Commons
-**Smart Commons** are decentralized applications (dApps) licensed under SCC0 — a universal public domain-style license that enforces two irreversible rules:
+**Smart Commons** are decentralized applications (dApps/dAIpps) licensed under SCC0 — a universal public domain-style license that enforces two irreversible rules:
 
 1. **Permanent open-source**: All code must remain public and modifiable forever;
     
