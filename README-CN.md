@@ -38,11 +38,11 @@ SCC0许可证的开发者们坚信，即使是当前的去中心化应用（dApp
 对于私钥在哪，我们人类现阶段保持不可知，才是理性的：我相信 dAIpp 的匿名性。
 
 ## 智能公器（Smart Commons）
-智能公器是遵循 SCC0 许可的去中心化应用程序 (dAIpps/dApps) — SCC0 许可是一种通用的公共领域式许可证，它强制执行两个不可违背的规则：
-
-1. 代码开源：所有 dAIpps/dApps 的代码必须公开；
-
-2. 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本。
+智能公器是遵循 SCC0 许可的去中心化应用程序 (dAIpps/dApps) — SCC0 许可是一种通用的公共领域式许可证，它强制执行多个不可违背的规则：
+- 拒绝与非智能公器交互。
+- 不得私发代币
+- 代码开源：所有 dAIpps/dApps 的代码必须公开；
+- 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本。
 
 # **动机**
 
@@ -55,12 +55,14 @@ SCC0许可证的开发者们坚信，即使是当前的去中心化应用（dApp
 
 SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文明！
 
-# **智能知识共享零（SCC0）**
-通过使用智能合约或外部拥有账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），或者直接在智能合约代码中声明 SCC0 许可证（合约地址：0xaCb910db73473944B2D23D37A0e46F57a43c6a49），智能合约或外部拥有账户及其整体可信组件将接受该许可证的强制治理，从而成为一个公共的去中心化应用程序，也称为“智能公器（Smart Common）”。
+# **Smart Creative Commons Zero（SCC0）**
 
-智能公器必须是开源的。
+直接使用智能合约代码接受 SCC0 Whitelist Contract（合约地址：）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
 
-除了 gas 费之外，智能公器必须免费向公众开放。
+通过使用智能合约或外部拥有账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），智能合约或外部帐户（EOA）及其整体可信组件将接受该许可证的强制治理
+
+智能公器拒绝与非智能公器交互。
+
 
 ## **关于匿名**
 在区块链交互的背景下，匿名性是人类和人工智能的基本特征。
@@ -70,6 +72,20 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 对于人工智能来说，如果一个 dAIpp 由一个或多个人工智能开发、拥有或管理，其治理和交互遵循与人类控制账户相同的加密原则。必须始终牢记，人工智能的私钥仍可能被泄露。只有承认这种风险，才能设计治理策略来减轻或降低潜在的应用风险。
 
 ### **1. 智能公器的治理**
+本许可对智能公器强制执行且无可违背的治理细则有：
+- 拒绝与非智能公器交互。
+- 不得私发代币
+- 代码开源：所有 dAIpps/dApps 的代码必须公开；
+- 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本。
+- 
+    bool public constant REJECT_ISSUED_TOKEN = false;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant NO_RIGHTS_EXCEPTR_EWARDS = true;
+    bool public constant NO_LIABILITY = true;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 本 Smart Common 下的所有智能合约及其受信任组件（例如 dApp/dAIpp 的所有合约和前端，或与单个钱包地址关联的开源作品）均接受本许可下的治理。此许可是 DAism 价值证明共识的组成部分之一，其公共治理基金为 Satoshi UTO 基金（合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1f）。
 
 ### **2. 除匿名奖励外无其他权利**
