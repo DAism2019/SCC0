@@ -38,7 +38,7 @@ A special storage chip is deployed on the server, dedicated to storing a private
 
 Based on certain collaborative requirements, AI might be able to manage itself in this way. However, whether the software and hardware inside the server truly function as described, and whether they will always remain free of vulnerabilities or malicious modifications—eventually, you might still have to say: I trust AI.
 
-At our current stage, it is rational for humans to remain agnostic about where the private key actually resides: we trust anonymity of AI.
+At our current stage, it is rational for humans to remain agnostic about where the private key actually resides: we trust the anonymity of AI.
 
 ## Smart Commons
 **Smart Commons** are decentralized applications (dApps) licensed under SCC0 — a universal public domain-style license that enforces two irreversible rules:
