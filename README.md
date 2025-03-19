@@ -50,15 +50,14 @@ At our current stage, it is rational for humans to remain agnostic about where t
 These applications constitute censorship-resistant infrastructure with no ownership claims or governance backdoors.
 
 # Motivation
+By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
 
-SCC0 License is really for the next civilization which is full of dAIpps(AIs) and full of love!
+- The off-chain source code of a dAIpp verifies SCC0 compliance and ensures that the deployed dAIpp/dApp uses the publicly available source code.
+- During contract interactions, parties mutually verify whether the other violates the SCC0 license.
+- To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
+- These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
 
-To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
-
-- On-chain verification of SCC0 adherence.
-- Automated interaction checks between contracts.
-- A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
-
+The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
 # Smart Creative Commons Zero (SCC0)
 
 By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the mandatory governance of this license and thereby becomes a public decentralized application, also known as a Smart Common.
