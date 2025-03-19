@@ -41,13 +41,10 @@ Based on certain collaborative requirements, AI might be able to manage itself i
 At our current stage, it is rational for humans to remain agnostic about where the private key actually resides: we trust the anonymity of dAIpp.
 
 ## Smart Commons
-**Smart Commons** are decentralized applications (dApps/dAIpps) licensed under SCC0 — a universal public domain-style license that enforces two irreversible rules:
+**Smart Commons** are decentralized applications (dAIpps/dApps) that comply with the SCC0 license—a universal public-domain-style license that enforces two fundamental, non-negotiable rules:
 
-1. **Permanent open-source**: All code must remain public and modifiable forever;
-    
-2. **Absolute free access**: No usage costs exist beyond unavoidable blockchain gas fees.
-
-These applications constitute censorship-resistant infrastructure with no ownership claims or governance backdoors.
+- **Open-source**: All dAIpps/dApps must have publicly available source code.
+- **Permanently free access**: There are no usage costs other than unavoidable public blockchain gas fees..
 
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
