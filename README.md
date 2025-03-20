@@ -138,7 +138,7 @@ Type: Standards Track
 Category: ERC
 
 
-## Abstract
+# Abstract
 
 SCC0 (Smart Creative Commons Zero) is the first public goods license tailored for public decentralized applications (Smart Commons), including dApps, dAIpps(AIs). Being public goods, Smart Commons are open source and free for anyone to use (except for gas fees).
 
@@ -150,7 +150,7 @@ Two versions of SCC0 have been deployed by DAism, and anyone can deploy addition
 address public constant LICENSE = contract_address;
 ```
 
-## Motivation
+# Motivation
 
 To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
 
@@ -158,34 +158,12 @@ To ensure that dApps and dAIpps can transparently declare their compliance with 
 - Automated interaction checks between contracts.
 - A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
 
-## Specification
+# Specification
 This section outlines the technical specifications for implementing the Smart Creative Commons Zero (SCC0) license for public decentralized applications (dApps/dAIpps). It defines a standardized on-chain framework that allows smart contracts to declare SCC0 compliance, supports automated verification, and facilitates decentralized governance.
 
-### 1. SCC0 License Declaration
-Since V2, every smart contract that intends to operate as a Smart Common under the SCC0 license must declare its license by including a constant variable referencing the relevant SCC0 Compliance Contract. For example:
+## 1. Compliance Contracts of v1 and v2
 
-**SCC0 v2 Declaration (recommended for extended interactions)**
-
-1. SCC0 v2 extends the original standard and requires the following declarations in your dApp/dAIpp:
-
-```solidity
-address public constant LICENSE = 0xaCb910db73473944B2D23D37A0e46F57a43c6a49;
-
-// Recommended declarations for better interaction:
-address public owner;   // Address for rewards
-string public scName;   // Smart Common name
-string public scType;   // Smart Common type
-```
-Declaring the <code>LICENSE</code> constant ensures that any interactions with the smart contract can be automatically verified against the SCC0 standard.
-
-For any upgradeable dApp/dAIpp , we strongly recommend to set owner with a multi-sig address, so as to pass the control to some dAIpps (AIs) in the future.
-
-**SCC0 v1**
-SCC0 v1 doesn't have a declaration. You have to read the lists in a specific smart contract of DAism.
-
-### 2. Compliance Contracts of v1 and v2
-
-**SCC0 v1 Compliance Contract**
+### SCC0 v1 Compliance Contract
 
 SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
 
@@ -243,7 +221,8 @@ function isDaismSC(address _dApp) external view returns (bool) {
      return IDaism(daismAddress).dappToSC(_dApp)>0;
 }
 ```
-**SCC0 v2 Compliance Contract**
+
+### SCC0 v2 Compliance Contract
 
 SCC0 v2 Compliance Contract which is deployed by DAism:
 
@@ -262,7 +241,7 @@ contract SCC0License {
 }
 ```
 
-### 3. SCC0 License Master Contract and SCC0 Whitelist contract Implementation
+### 2. SCC0 License Master Contract
 The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
 
 - License Version Proposals:
@@ -386,7 +365,10 @@ contract SCC0LicenseManager is Ownable {
 
 
 ```
+
+### 3. SCC0 Whitelist contract
 Below is the complete implementation of the SCC0 Whitelist contract:
+
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
@@ -477,9 +459,9 @@ Beyond the core license and reference implementation contracts, SCC0 includes fu
 
 The SCC0 framework allows any interacting contract to verify compliance by:
 
-- Checking the declared `LICENSE` constant.
-- Querying the License Manager’s functions (e.g., `isSCC0Compliant`).
-- Ensuring that the dApp/dAIpp is not blacklisted.
+- Checking the declared `` constant.
+- 
+- Ensuring that the dApp/dAIpp is whitelisted.
 
 These mechanisms promote a trustless and automated approach to enforcing the SCC0 license across decentralized applications.
 
@@ -501,7 +483,7 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 
 The reason why neither SSC0 V1 nor SSC0 V2 has introduced "detailed reward rules from Satoshi UTO Fund for smart commons" is that we can neither implement such measures through any centralized review panel approach, nor determine reward amounts through community voting using wallet addresses. The latter approach is even worse - it constitutes a pseudo-decentralized method that would only be employed by self-deceivers or even scammers. We expect some dAIpp take this work in the future, from valuation to prize management.
 
-### Compliance Enforcement in Smart Commons
+## Compliance Enforcement in Smart Commons
 
 All **SCC0-licensed Smart Commons** must verify compliance before interacting with another contract. The enforcement mechanism works as follows:
 
