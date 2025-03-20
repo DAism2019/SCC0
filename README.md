@@ -58,11 +58,9 @@ The ultimate goal of the SCC0 license is to promote the development of public go
 The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
 # Smart Creative Commons Zero (SCC0)
 
-By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the mandatory governance of this license and thereby becomes a public decentralized application, also known as a Smart Common.
+"Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [contract address]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
 
-A smart common must be Open Source.
-
-In addition to gas, A smart common must be free for the public.
+By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an external account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
 
 ## On Anonymity  
 
