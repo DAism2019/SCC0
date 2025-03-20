@@ -50,7 +50,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 
 # **Smart Creative Commons Zero（SCC0）**
 
-直接使用智能合约代码接受 SCC0 Whitelist Contract（合约地址：）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
+直接通过智能合约代码接受 SCC0 Whitelist Contract（合约地址：）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
 
 通过使用智能合约或外部账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），智能合约或外部帐户（EOA）及其整体可信组件也作为智能公器接受该许可证的治理。
 
