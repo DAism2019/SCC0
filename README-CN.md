@@ -131,15 +131,57 @@ contract SCC0License {
 ## **摘要**
 SCC0（Smart Creative Commons Zero）是第一个为公共去中心化应用（Smart Commons）量身定制的公共产品许可证，包括 dApp、dAIpps（AI）。作为公共产品，Smart Commons 是开源的，任何人都可以免费使用（除了 gas 费用）。
 
-该标准为智能合约声明其符合 SCC0 规定引入了一种结构化方式，从而实现了自动化的链上验证和治理集成。
+该标准为 SCC0 License 对智能合约的治理引入了一种合约化方式，从而实现了自动化的链上验证和治理集成。
 
-DAism 已经部署了两个版本的 SCC0，任何人都可以部署其他版本以进一步扩展其应用程序。任何 dApp/dAIpp 的声明都很简单：
+DAism 已经部署了两个版本的 SCC0，任何人都可以部署其他版本以进一步扩展其应用程序。任何 dApp/dAIpp 要适用 SCC0 License 都很简单，只要在其主合约中加入对任何其他  dApp/dAIpp 正式交互前的“身份”检查：
 
-```solidity
-address public constant LICENSE = contract_address;
 ```
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
+interface ISCC0Whitelist {
+    //SCC0Whitelist contract method
+    function isWhitelisted(address dApp) external view returns (bool);
+}
+interface ISmartCommons {
+    // the called contract method
+    function otherMethod() external ;
+}
+contract SmartCommons {
+    address public counterparty;
+    address public scc0WhitelistAddress;
+
+    constructor(address _counterparty,address _scc0WhitelistAddress)  {
+        counterparty = _counterparty;
+        scc0WhitelistAddress = _scc0WhitelistAddress;
+    }
+    // check SCC0 whitelist
+    function _checkSCC0Whitelist(address _counterparty) internal view returns(bool){
+        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_counterparty);
+    }
+
+    // If the called contract is SCC0 whitelist
+    modifier onlySCC0() {
+        require(_checkSCC0Whitelist(msg.sender),"need SCC0 whitelist");
+        _;
+    }
+    // call counterparty contract 
+    function callCounterparty() public {
+        // some logic ...
+
+        require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
+
+        // some logic ...
+        ISmartCommons(counterparty).otherMethod();
+    }
+    // other contract call the method must be compliant SCC0
+    function someFunction() external onlySCC0() {
+        // logic for data exchange, payments, etc.
+    }
+}
+```
+
 ## **动机**
-为了确保 dApp 和 dAIpps 能够透明地声明其遵守 SCC0，我们提出了一种标准化方法，将与许可证相关的变量嵌入智能合约中。这允许：
+为了确保 dApp 和 dAIpps 能够百分百遵守 SCC0 许可，我们基于智能合约的特色提出了一种标准化方法，。这允许：
 
 链上验证 SCC0 遵守情况。
 合约之间的自动交互检查。
