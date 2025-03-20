@@ -175,16 +175,16 @@ DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
 
 ```solidity
 contract SCC0License {
-    string public constant LICENSENAME = "SCC0";
+    string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = 1;
     bool public constant REJECT_PRIVATE_APP = true;
-    bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTS = true;
-    bool public constant NOLIABILITY = true;
-    bool public constant ANONYMITYENSURED = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
     bool public constant OPEN_SOURCE = true;
     bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
 3. DAism 定义了 Smart Common 结构：
@@ -211,15 +211,16 @@ mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 DAism 部署的 SCC0 v2 合规合约：
 ```solidity
 contract SCC0License {
-    string public constant LICENSENAME = "SCC0";
+    string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = 2;
-    bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTSEXCEPTREWARDS = true;
-    bool public constant NOLIABILITY = true;
-    bool public constant ANONYMITYENSURED = true;
+    bool public constant REJECT_PRIVATE_APP = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
     bool public constant OPEN_SOURCE = true;
     bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
 ### **3. SCC0 许可主合约实施**
