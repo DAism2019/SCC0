@@ -117,7 +117,8 @@ contract SCC0License {
 - Satoshi UTO Fund 将在特定的智能公器（dAIpp）的评估和管理下，对智能公器的人类开发者进行奖励。
 
 # 附件
-** EIP（以太坊改进提案）**
+**EIP（以太坊改进提案）**
+
 标题：SCC0 - Smart Creative Commons Zero License for Smart Commons
 
 作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈长春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
