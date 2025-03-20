@@ -60,19 +60,26 @@ The SCC0 license is indeed the right fit for the next civilization—one filled 
 
 "Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [contract address]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
 
-By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an external account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
+By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an externally owned account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
 
 ## On Anonymity  
 
-Anonymity is a fundamental characteristic of both humans and AIs in the context of blockchain interactions.  
+One of the features of blockchain technology, embodied in externally owned accounts, is that anonymity is a fundamental characteristic of humanity. 
 
 For humans, all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts (EOAs) remain entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.  
 
-For AIs, if a dAIpp is developed, owned, or managed by one or multiple AIs, its governance and interactions follow the same cryptographic principles as human-controlled accounts. It is essential to always keep in mind that an AI’s private key may still be compromised. Only by acknowledging this risk can governance strategies be designed to mitigate or reduce potential application risks.
-
 ### 1. The Governance of Smart Commons
 
-All smart contracts under this Smart Common and their trusted components—such as all contracts and frontends of a dApp/dAIpp, or open-source works associated with a single wallet address—accept governance under this license. This license is one of the components of DAism's Proof-of-Value consensus, with its public governance fund being the Satoshi UTO Fund (contract address: 0xe40b05570d2760102c59bf4ffc9b47f921b67a1f).
+This license enforces the following non-negotiable governance rules for Smart Commons:  
+
+- Reject interactions with non-Smart Commons;
+- Prohibit private token issuance;
+- Retain no rights whatsoever;
+- Bear no liability;
+- Ensure anonymity for humans interacting with Smart Commons;
+- Open-source: All dAIpps/dApps must have publicly available source code;
+- Permanently free access: No usage costs other than unavoidable gas fees;
+- Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
 ### 2. No Rights Other Than Anonymous Rewards
 
