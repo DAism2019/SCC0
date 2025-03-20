@@ -451,9 +451,9 @@ contract SCC0Whitelist is Ownable {
 ### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
-- 检查声明的<code>LICENSE</code>常量。
-- 查询许可证管理器的功能（例如<code>isSCC0Compliant</code>）。
-- 确保 dApp/dAIpp 没有被列入黑名单。
+- 检查<code></code>常量。
+- 查询。
+- 确保 dApp/dAIpp 被列入白名单。
 这些机制促进了在分散应用程序中执行 SCC0 许可证的无需信任和自动化的方法。
 
 ### 6. 奖励分配机制
