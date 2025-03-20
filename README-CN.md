@@ -54,12 +54,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 
 通过使用智能合约或外部账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），智能合约或外部帐户（EOA）及其整体可信组件也作为智能公器接受该许可证的治理。
 
-## **关于匿名**
-区块链技术的特点之一，体现在外部帐户上，即匿名性是人类的基本特征。
-
-对于人类来说，智能合约中声明的全部所有者（或开发者或管理者）、与之交互的用户以及外部拥有账户（EOA）的所有者都是完全匿名的——以太坊账户无法以可验证的方式唯一地链接到任何现实世界的身份。这意味着在 dApp/dAIpp 的使用过程中，没有人能够证明谁是任何权利的所有者，也没有人能够证明谁承担任何责任，甚至声称自己是任何灾难的受害者。
-
-### **1. 智能公器的治理**
+## **智能公器的治理**
 本许可对智能公器强制执行且无可违背的治理细则有：
 - 拒绝与非智能公器交互；
 - 不得私发代币；
@@ -77,22 +72,45 @@ contract SCC0License {
     uint8 public constant VERSION = a number;
     bool public constant REJECT_PRIVATE_APP = true;
     bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant ANONYMITY_ENSURED = true;
     bool public constant OPEN_SOURCE = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
+### **许可名称和版本**
+在智能合约中，我们使用 SCC0 作为本许可的名称。
+通过去中心化的版本协作，保留本许可证的改进空间。
 
-### **2. 除享受公共基金的治理外无其他权利**
+### **拒绝与私有应用交互**
+智能公器会通过规范的合约代码，拒绝一切未经认证为智能公器的应用的交互请求。
+
+### **不得私发代币**
+智能公器不得发行自己的代币。
+
+### **匿名**
+区块链技术的特点之一，体现在外部帐户上，即匿名性是人类的基本特征。
+
+对于人类来说，智能合约中声明的全部所有者（或开发者或管理者）、与之交互的用户以及外部拥有账户（EOA）的所有者都是完全匿名的——以太坊账户无法以可验证的方式唯一地链接到任何现实世界的身份。这意味着在 dApp/dAIpp 的使用过程中，没有人能够证明谁是任何权利的所有者，也没有人能够证明谁承担任何责任，甚至声称自己是任何灾难的受害者。
+
+### **除享受公共基金的治理外无其他权利**
 匿名性意味着开发的智能合约及其可信组件完全贡献给公共领域，从而属于智能公器，因此获得价值证明共识提供的公共基金 Satoshi UTO Fund 在成本和奖励方面的支持。其实施管理交由智能公器（dAIpp）执行。
 
 开发人员完全放弃所有权利，包括所有相关和相邻权利。
 
-### **3. 不承担责任**
+### **不承担责任**
 匿名性是指世界上没有任何人（无法识别任何个人）为某个 dApp/dAIpp 或其专属估值代币（若有的话）提供任何形式的担保，亦没有任何人（无法识别任何个人）承担任何连带责任。任何人在使用或调用此 dApp/dAIpp 或投资此智能公器专属的估值代币时，不得暗示此智能公器或其任何相关方（所有者、开发者或管理者）为其行为背书。
+
+### **开放源代码**
+智能公器必须将自己的代码开源。
+
+### **永远免费**
+智能公器必须永远免费。
+
+### **接受 Satoshi UTO Fund 的治理**
+接受 Satoshi UTO Fund 的治理，意味着 Satoshi UTO Fund 会根据共识“价值证明（Proof-of-Value）”，在必要时为其提供成本和奖励方面的支持。Satoshi UTO Fund 将交由智能公器（dAIpp）管理。
 
 # **EIP（以太坊改进提案）（即将进行重大修订）**
 标题：SCC0 - 面向公共去中心化应用的智能知识共享零许可 
