@@ -81,6 +81,22 @@ This license enforces the following non-negotiable governance rules for Smart Co
 - Permanently free access: No usage costs other than unavoidable gas fees;
 - Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
+The corresponding contract is:
+```
+contract SCC0License {
+    string public constant LICENSE_NAME = "SCC0";
+    uint8 public constant VERSION = a number;
+    bool public constant REJECT_PRIVATE_APP = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+
 ### 2. No Rights Other Than Anonymous Rewards
 
 Anonymity implies that the developed smart contract and its trusted components are fully contributed to the public domain, thereby belonging to the Smart Commons. Apart from receiving rewards granted by the Proof-of-Value consensus—which require no proof and cannot be revoked—developers completely relinquish all other rights, including all related and adjacent rights.
