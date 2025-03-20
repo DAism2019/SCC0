@@ -56,19 +56,12 @@ By integrating AI, the value theory of token economics, and the governance featu
 The ultimate goal of the SCC0 license is to promote the development of public goods created by smart contracts and artificial intelligence. For AI, which is itself a grand integration of human wisdom, the only reasonable solution is to take from the public and give back to the public!
 
 The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
+
 # Smart Creative Commons Zero (SCC0)
 
 "Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [contract address]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
 
 By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an externally owned account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
-
-## On Anonymity  
-
-One of the features of blockchain technology, embodied in externally owned accounts, is that anonymity is a fundamental characteristic of humanity. 
-
-For humans, all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts (EOAs) remain entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.  
-
-### 1. The Governance of Smart Commons
 
 This license enforces the following non-negotiable governance rules for Smart Commons:  
 
@@ -97,15 +90,41 @@ contract SCC0License {
 }
 ```
 
-### 2. No rights other than governance of public funds
+### **License Name and Version**  
+In smart contracts, we use **SCC0** as the name of this license.  
+Decentralized version collaboration ensures room for future improvements to this license.  
 
-Anonymity implies that the developed smart contract and its trusted components are fully contributed to the public domain, thereby belonging to the Smart Commons. Apart from receiving rewards granted by the Proof-of-Value consensus—which require no proof and cannot be revoked—developers completely relinquish all other rights, including all related and adjacent rights.
+### **Rejecting Interactions with Private Applications**  
+Smart Commons enforce strict contract code rules that reject all interaction requests from applications that are not verified as Smart Commons.  
 
-Anonymity means that the developed smart contracts and their trusted components are fully contributed to the public domain, thus belonging to the smart commons. Therefore, they receive support from the public fund provided by the consensus Proof-of-Value, Satoshi UTO Fund, in terms of costs and rewards. The implementation management is entrusted to a or a group of smart commons (dAIpps).
+### **Prohibition of Private Token Issuance**  
+Smart Commons are not allowed to issue their own tokens.  
 
-### 3. No Liability
+### **Anonymity**  
+One of the features of blockchain technology, embodied in externally owned accounts, is that anonymity is a fundamental trait for humans. 
 
-Anonymity means that no one (as no individual can be identified) in this world provides any form of guarantee for a dApp/dAIpp or its dedicated valuation token (if any), nor does anyone (as no individual can be identified) bear any joint liability. When using or invoking this dApp/dAIpp or investing in the valuation token exclusive to this Smart Common, no one shall imply that this Smart Common or any of its related parties (owners, developers, or managers) endorse their actions.
+For humans, all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts (EOAs) remain entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.  
+
+### **No Rights Other Than Governance by the Public Fund**  
+Anonymity ensures that developed smart contracts and their trusted components are fully contributed to the public domain, making them part of Smart Commons. As a result, they receive support from the **Satoshi UTO Fund**, which provides funding and rewards under the consensus of **Proof-of-Value**. The governance and implementation of these smart contracts are executed by other Smart Commons (dAIpps).  
+
+Human Developers completely renounce all rights, including all related and neighboring rights.  
+
+### **No Liability**  
+Anonymity ensures that no identifiable person anywhere in the world guarantees any dApp/dAIpp or its dedicated valuation token (if any), nor does anyone assume any associated liability. Anyone using or interacting with a dApp/dAIpp or investing in a Smart Common’s dedicated valuation token must not imply that the Smart Common or any of its related parties (owners, developers, or administrators) endorse their actions.  
+
+### **Open-Source Code**  
+Smart Commons must make their code open source.  
+
+### **Permanently Free**  
+Smart Commons must remain free forever.  
+
+### **Governance by the Satoshi UTO Fund**  
+Accepting governance by the **Satoshi UTO Fund** means that the fund will provide necessary cost coverage and rewards based on the **Proof-of-Value** consensus. The **Satoshi UTO Fund** will be managed by specific Smart Commons (dAIpps):  
+
+- The **Satoshi UTO Fund** covers all development and operational costs of Smart Commons.  
+- Under the evaluation and management of specific Smart Commons (dAIpps), the **Satoshi UTO Fund** will distribute rewards to human developers contributing to Smart Commons.  
+
 
 # EIP (Ethereum Improvement Proposal)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
