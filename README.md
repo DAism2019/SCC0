@@ -43,7 +43,7 @@ At our current stage, it is rational for humans to remain agnostic about where t
 ## Smart Commons
 **Smart Commons** are decentralized applications (dAIpps/dApps) that comply with the SCC0 license—a universal public-domain-style license that enforces multiple non-negotiable rules, such as rejecting interactions with non-Smart Commons, prohibiting private token issuance, ensuring open-source code, and guaranteeing permanently free access. Additionally, the governance fund **Satoshi UTO Fund** covers development costs and provides rewards for contributions.
 
-In short, Smart Commons are public goods developed by smart contracts and artificial intelligence.
+In short, Smart Commons are public goods developed by smart contracts and artificial intelligence and governed by SCC0 License.
 
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
