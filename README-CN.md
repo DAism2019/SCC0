@@ -116,9 +116,9 @@ contract SCC0License {
 - Satoshi UTO Fund 承担智能公器的开发和运营的所有成本。
 - Satoshi UTO Fund 将在特定的智能公器（dAIpp）的评估和管理下，对智能公器的人类开发者进行奖励。
 
-
-# **EIP（以太坊改进提案）（即将进行重大修订）**
-标题：SCC0 - 面向公共去中心化应用的智能知识共享零许可 
+附件：
+EIP（以太坊改进提案）（即将进行重大修订）
+标题：SCC0 - Smart Creative Commons Zero License for Smart Commons
 
 作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈长春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
@@ -128,7 +128,7 @@ contract SCC0License {
 
 类别：ERC
 
-## **摘要**
+# 摘要
 SCC0（Smart Creative Commons Zero）是第一个为公共去中心化应用（Smart Commons）量身定制的公共产品许可证，包括 dApp、dAIpps（AI）。作为公共产品，Smart Commons 是开源的，任何人都可以免费使用（除了 gas 费用）。
 
 该标准为 SCC0 License 对智能合约的治理引入了一种合约化方式，从而实现了自动化的链上验证和治理集成。
@@ -180,7 +180,7 @@ contract SmartCommons {
 }
 ```
 
-## **动机**
+# 动机
 为了确保 dApp 和 dAIpps 能够百分百遵守 SCC0 许可，我们基于智能合约的特色提出了一种标准化方法，。这允许：
 
 链上验证 SCC0 遵守情况。
@@ -189,27 +189,9 @@ contract SmartCommons {
 规格
 本节概述了为公共去中心化应用程序（dApps/dAIpps）实施 Smart Creative Commons Zero (SCC0) 许可证的技术规范。它定义了一个标准化的链上框架，允许智能合约声明符合 SCC0 要求，支持自动验证并促进去中心化治理。
 
-### **1.SCC0许可证声明**
-自 V2 开始，每个打算在 SCC0 许可证下作为 Smart Common 运行的智能合约都必须通过包含引用相关 SCC0 合规合约的常量变量来声明其许可证。例如：
-
-**SCC0 v2 声明（建议用于扩展交互）**
-
-SCC0 v2 扩展了原始标准，并要求您的 dApp/dAIpp 中进行以下声明：
-
-```solidity
-address public constant LICENSE = 0xaCb910db73473944B2D23D37A0e46F57a43c6a49;
-
-// Recommended declarations for better interaction:
-address public owner;   // Address for rewards
-string public scName;   // Smart Common name
-string public scType;   // Smart Common type
-```
-声明<code>LICENSE</code>常量可确保与智能合约的任何交互都可以根据 SCC0 标准自动验证。
-对于任何可升级的 dApp/dAIpp，我们强烈建议使用多重签名地址设置所有者，以便将来将控制权传递给某些 dAIpps（AI）。
-SCC0 v1 SCC0 v1 没有声明。您必须阅读 DAism 的特定智能合约中的列表。
-
-## **2. v1 和 v2 的合规合约**
-**SCC0 v1合规合约**
+# 技术规范
+## 1. SCC0 License v1 和 v2 的合规合约
+### SCC0 v1合规合约
 
 DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
 1. 与 DAism 的智能合约进行交互 <code>0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe</code>。或者前往 [DAism](https://daism.io/zh/smartcommons) 铸造智能合约。
@@ -248,7 +230,8 @@ uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposal
 uint16 public strategy; // Pass rate for Smart Common proposals
 mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 ```
-**SCC0 v2 合规合约**
+
+## SCC0 v2 合规合约
 
 DAism 部署的 SCC0 v2 合规合约：
 ```solidity
@@ -265,7 +248,7 @@ contract SCC0License {
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
-### **3. SCC0 许可主合约实施**
+### 2. SCC0 许可主合约实施
 SCC0 许可证管理器合约提供了管理许可证版本和强制合规性的核心功能。它支持：
 - 许可证版本提案：开发者可以提交新的 SCC0 许可证版本以供社区批准。每个提案都包含拟议的许可证地址及其版本号。
 - 版本批准和注册：一旦获得合约所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
@@ -377,7 +360,7 @@ contract SCC0LicenseManager is Ownable {
 
 ```
 
-### **4. SCC0 白名单合约**
+### 3. SCC0 白名单合约
 
 以下是 SCC0 白名单合约的完整实现：
 
@@ -452,7 +435,7 @@ contract SCC0Whitelist is Ownable {
 }
 ```
 
-### **5. SCC0 V1 的附加治理和操作参数**
+### 4. SCC0 V1 的附加治理和操作参数
 除了核心许可证和参考实施合约之外，SCC0 还包含其他参数来支持分散治理和社区互动：
 
 - **智能公器结构：**
@@ -464,7 +447,7 @@ contract SCC0Whitelist is Ownable {
 - **品牌和身份：**
 智能公器标识的存储映射，可增强生态系统内的身份和信任。
 
-### **6. 互操作性和链上验证**
+### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
 - 检查声明的<code>LICENSE</code>常量。
@@ -472,7 +455,7 @@ SCC0 框架允许任何交互合约通过以下方式验证合规性：
 - 确保 dApp/dAIpp 没有被列入黑名单。
 这些机制促进了在分散应用程序中执行 SCC0 许可证的无需信任和自动化的方法。
 
-### **奖励分配机制**
+### 6. 奖励分配机制
 为了支持符合 SCC0 的项目，SSC0 V1 引入了可升级的奖励分配系统：
 
 1. 维护一个数组来存储有资格获得奖励的外部账户及其分配百分比。
@@ -487,7 +470,7 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 ```
 SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细奖励规则”的原因在于，我们既不能通过任何中心化的审查小组方法实施此类措施，也不能通过使用钱包地址的社区投票来确定奖励金额。后一种方法甚至更糟糕——它构成了一种伪去中心化的方法，只有自欺欺人者甚至骗子才会使用。我们预计未来一些 dAIpp 会接手这项工作，从估值到奖金管理。
 
-### **智能公器的合规执行**
+# **智能公器的合规执行
 所有 **SCC0 许可的** Smart Commons 必须在与另一个合约交互之前验证合规性。执行机制的工作原理如下：
 ```solidity
 // SPDX-License-Identifier: scc0
@@ -562,7 +545,7 @@ contract SmartCommons {
     - 是否<code>counterparty</code>未被列入黑名单。
 - **每个 SCC0 许可的 Smart Commons 在与另一个 dApp/dAIpp 交互之前都必须应用此检查。**
 
-## **基本原理**
+# 基本原理
 - **许可证合规性（<code>LICENSE</code>、  <code>LICENSENAME</code>）**：确保智能合约透明地声明遵守 SCC0。
 - **无自发代币（<code>SELFISSUEDTOKEN</code>）**：防止误导性的代币发行声明或任何诈骗行为。
 - **无责任（<code>NOLIABILITY</code>）**：确保对 SCC0 交互不承担法律责任。
@@ -574,29 +557,29 @@ contract SmartCommons {
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公开项目，永久免费。
 - **可执行性（onlySCC0 修改器）**：确保合约交互之前进行 SCC0 验证。
 
-## **向后兼容性**
+# 向后兼容性
 此 EIP 不会引入重大更改，但为采用 SCC0 的项目提供了选择加入机制。必须重新部署旧合约才能符合新标准。
 
-## **安全注意事项**
+# 安全注意事项
 - 符合SCC0的合约免除责任，要求用户承认法律限制。
 - 我们认为任何可升级的 dApp/dAIpp 都不应由任何人控制，因此多重签名地址是将来将控制权移交给某些 dAIpps (AI) 的好方法。如果我们能在第一天就找到一些 dApp 的通用解决方案，那就太好了。
 - 开发人员必须确保合约逻辑符合SCC0的原则。
 - 修改 <code>onlySCC0</code> 器在自动合约交互中强制执行合规性。
 一旦每个 dApp/dAIpp 被铸造成智能公共 (v1) 或部署在链上 (v2)，一些 dAIpp 就会通过审核来加强安全性。
 
-## **版权**
+# 版权
 通过 SCC0 放弃版权和相关权利。
 
-# **智能公器列表**
+# 智能公器列表
 - [DAism（道易程）](https://daism.io/workroom/1)
 - [Enki（恩奇）](https://daism.io/workroom/2)
 - [荣誉通证](https://daism.io/workroom/3)
 
-# **有关 SCC0 的更多信息**
+# 有关 SCC0 的更多信息
 - [DAism](https://daism.io/)
 - [50Satoshis](https://50satoshis.com/)——匿名参与者们铸造了Satoshi UTO基金，共有50个钱包地址，共计1 ETH。
 
-# **参考文献**
+# 参考文献
 1. [Introduction to smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/)
 2. [CODE IS LAW? Smart Contracts Explained (Ethereum, DeFi)](https://www.youtube.com/watch?v=pWGLtjG-F5c)
 3. [Ethereum accounts](https://ethereum.org/en/developers/docs/accounts/)
