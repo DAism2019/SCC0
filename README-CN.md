@@ -70,6 +70,22 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 - 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本；
 - 其治理基金为 Satoshi UTO Fund （合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1F），该基金为智能公器的发展承担成本，提供奖励。
 
+其对应的合约代码为
+```
+contract SCC0License {
+    string public constant LICENSE_NAME = "SCC0";
+    uint8 public constant VERSION = a number;
+    bool public constant REJECT_PRIVATE_APP = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+
 ### **2. 除匿名奖励外无其他权利**
 匿名性意味着开发的智能合约及其可信组件完全贡献给公共领域，从而属于智能公器。除了获得价值证明共识授予的奖励（无需证明且不可撤销）外，开发人员完全放弃所有其他权利，包括所有相关和相邻权利。
 
