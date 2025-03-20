@@ -97,9 +97,11 @@ contract SCC0License {
 }
 ```
 
-### 2. No Rights Other Than Anonymous Rewards
+### 2. No rights other than governance of public funds
 
 Anonymity implies that the developed smart contract and its trusted components are fully contributed to the public domain, thereby belonging to the Smart Commons. Apart from receiving rewards granted by the Proof-of-Value consensus—which require no proof and cannot be revoked—developers completely relinquish all other rights, including all related and adjacent rights.
+
+Anonymity means that the developed smart contracts and their trusted components are fully contributed to the public domain, thus belonging to the smart commons. Therefore, they receive support from the public fund provided by the consensus Proof-of-Value, Satoshi UTO Fund, in terms of costs and rewards. The implementation management is entrusted to a or a group of smart commons (dAIpps).
 
 ### 3. No Liability
 
