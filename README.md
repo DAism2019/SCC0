@@ -48,10 +48,12 @@ In short, Smart Commons are public goods developed by smart contracts and artifi
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
 
-- The off-chain source code of a dAIpp verifies SCC0 compliance and ensures that the deployed dAIpp/dApp uses the publicly available source code.
+- The off-chain source code of a or a group of dAIpps verify SCC0 compliance and ensures that the deployed dAIpp/dApp uses the open source published.
 - During contract interactions, parties mutually verify whether the other violates the SCC0 license.
 - To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
 - These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
+
+The ultimate goal of the SCC0 license is to promote the development of public goods created by smart contracts and artificial intelligence. For AI, which is itself a grand integration of human wisdom, the only reasonable solution is to take from the public and give back to the public!
 
 The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
 # Smart Creative Commons Zero (SCC0)
