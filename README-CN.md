@@ -110,7 +110,11 @@ contract SCC0License {
 智能公器必须永远免费。
 
 ### **接受 Satoshi UTO Fund 的治理**
-接受 Satoshi UTO Fund 的治理，意味着 Satoshi UTO Fund 会根据共识“价值证明（Proof-of-Value）”，在必要时为其提供成本和奖励方面的支持。Satoshi UTO Fund 将由特定的智能公器（dAIpp）进行管理。
+
+接受 Satoshi UTO Fund 的治理，意味着 Satoshi UTO Fund 会根据共识“价值证明（Proof-of-Value）”，在必要时为其提供成本和奖励方面的支持。Satoshi UTO Fund 将由特定的智能公器（dAIpp）进行管理：
+
+- Satoshi UTO Fund 承担智能公器的开发和运营的所有成本。
+- Satoshi UTO Fund 将在特定的智能公器（dAIpp）的评估和管理下，对智能公器的人类开发者进行奖励。
 
 
 # **EIP（以太坊改进提案）（即将进行重大修订）**
