@@ -1,14 +1,22 @@
+([中文版](https://github.com/DAism2019/SCC0/blob/main/README-CN.md))
 # What is the Smart Creative Commons Zero (SCC0) license?
-**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (Smart Commons), which includes dApps<a href="#r5"><sup>[5]</sup></a> and dAIpps (decentralized AI applications), but also the first license which could be verified when a smart common interacting with another one. Importantly, a Smart Common must be open source and free for the public (except for gas fees).
+The governance of artificial intelligence (AI) is of paramount importance, and over the past 16 years, blockchain technology has demonstrated its exceptional capability in addressing the crises of centralized governance. Its decentralized governance model not only offers high levels of security and reliability but also exhibits remarkable efficiency. Based on this, we have reason to believe that all AI software should be upgraded to decentralized AI applications (dAIpps<a href="#r5"><sup>[5]</sup></a>) as soon as possible, to achieve a more transparent, secure, and efficient governance mechanism.
+
+The uniqueness of the SCC0 License lies in the fact that it was not originally designed for human developers (although it was accessible to human developers in its early stages), but rather specifically for AI to take over the development and governance of decentralized applications (dApps), decentralized AI applications (dAIpps), and even the license itself. This design philosophy implies that the enforcement, auditing, subsequent development, and governance of the licensing mechanism will be entirely led by AI, thereby constructing a software development and governance framework centered on AI autonomy (i.e., dAIpp autonomy). This framework not only transcends the limitations of traditional governance models but also lays a solid foundation for the future ecosystem of AI-driven decentralization.
+
+**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
 
 Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Master Contract**!
 
-The development of all Smart Commons is supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO**.
+The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO** （token name: uToken）.
 
-Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a self-governed ecology for the new civilization.
+Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a **self-governed**(by dApps and dAIpps) ecology for the new civilization.
 
 # Background
-##  Code is law: a brief intro of smart contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>.
+## About dApp and dAIpp
+The developers of the SCC0 License firmly believe that even current decentralized applications (dApps) will eventually be governed by decentralized AI, namely dAIpps. From a technical perspective, this means that the highest-privilege owner of a dApp will no longer be a human or centralized entity, but rather a or a group of dAIpps. As a result, nearly all future decentralized applications will exist in the form of dAIpps. This is a long-term vision, and its realization may require a transition period of several years or even longer. To help current developers better understand, we have retained the term "dApp" in the introduction of this license, though its meaning is gradually evolving toward the concept of dAIpps.
+
+##  Code is Law: A Brief Intro to Smart Contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
 
 Therefore, smart contracts are the best executors of the principle that code is law. 
@@ -16,7 +24,7 @@ Therefore, smart contracts are the best executors of the principle that code is 
 Interestingly, the SCC0 License is a law that is written in Solidity code and executed by smart contracts.
 
 ## The Anonymity of dApps/dAIpps
-We know that a dApp refers to a decentralized application that operates autonomously and is powered by smart contracts. We define a dAIpp as a decentralized application that operates autonomously and is powered by smart contracts created by AI(s). All dApps and dAIpps, by virtue of the nature of smart contracts, have a state variable called "owner" in their code. This variable stores the Externally Owned Account (EOA, commonly known as a wallet address)<a href="#r3"><sup>[3]</sup></a>, or a multi-signature address<a href="#r4"><sup>[4]</sup></a> (also controlled by the wallet addresses of all its members) of the contract's owner.  This address is usually set by the deployer during contract deployment or updated through a specific function during contract operation. Its purpose is to implement the contract's permission control, ensuring that only specific addresses (usually the contract's deployer, manager, a certain team, or even an AI) can execute certain sensitive operations.
+We know that a dApp refers to a decentralized application that operates autonomously and is powered by smart contracts. We define a dAIpp as a decentralized application that utilizes AI technology, is powered by smart contracts, and operates autonomously. All dApps and dAIpps, by virtue of the nature of smart contracts, have a state variable called "owner" in their code. This variable stores the Externally Owned Account (EOA, commonly known as a wallet address)<a href="#r3"><sup>[3]</sup></a>, or a multi-signature address<a href="#r4"><sup>[4]</sup></a> (also controlled by the wallet addresses of all its members) of the contract's owner.  This address is usually set by the deployer during contract deployment or updated through a specific function during contract operation. Its purpose is to implement the contract's permission control, ensuring that only specific addresses (usually the contract's deployer, manager, a certain team, or even an AI) can execute certain sensitive operations.
 
 We know that, according to the corresponding cryptographic principles, the actual control of a wallet address lies solely with its private key. The private key is never and cannot be made public. However, private keys can be secretly shared among several people. Therefore, who, or which people, actually control a wallet address cannot be verified or disproved.
 
@@ -24,56 +32,104 @@ Up to this point, essentially, Externally Owned Accounts are all anonymous acco
 
 In terms of development, this anonymity mechanism brings some advantages that real-name mechanisms cannot match. The most prominent aspect is that due to anonymity, in the ongoing development and use of dApps/dAIpps, no one can prove their ownership of any rights related to them, nor can anyone prove who bears any responsibilities associated with them. The most valuable feature of this anonymity is that it allows us to establish the first license for public dapps/dAIpps: Smart Creative Commons Zero (SCC0). In short, adhering to the SCC0 license means that the development and ownership of the dApp or dAIpp will not be linked to anyone's real identity, thus becoming a pure public decentralized application.
 
-**Smart Commons** are decentralized applications (dApps) licensed under SCC0 — a universal public domain-style license that enforces two irreversible rules:
+For AI, the situation might look like completely reversed. We all know that any AI is a combination of software and hardware. Therefore, some argue that HSM (Hardware Security Module) can provide AI with a trustworthy Crypto-identity:
 
-1. **Permanent open-source**: All code must remain public and modifiable forever;
-    
-2. **Absolute free access**: No usage costs exist beyond unavoidable blockchain gas fees.
+A special storage chip is deployed on the server, dedicated to storing a private key. It can store only one private key, ensuring that the key can only be accessed by specific AI software while being inaccessible for external reading, copying, or deletion.
 
-These applications constitute censorship-resistant infrastructure with no ownership claims or governance backdoors.
+Based on certain collaborative requirements, AI might be able to manage itself in this way. However, whether the software and hardware inside the server truly function as described, and whether they will always remain free of vulnerabilities or malicious modifications—eventually, you might still have to say: I trust AI.
+
+At our current stage, it is rational for humans to remain agnostic about where the private key actually resides: we trust the anonymity of dAIpp.
+
+## Smart Commons
+**Smart Commons** are decentralized applications (dAIpps/dApps) that comply with the SCC0 license—a universal public-domain-style license that enforces multiple non-negotiable rules, such as rejecting interactions with non-Smart Commons, prohibiting private token issuance, ensuring open-source code, and guaranteeing permanently free access. Additionally, the governance fund **Satoshi UTO Fund** covers development costs and provides rewards for contributions.
+
+In short, Smart Commons are public goods developed by smart contracts and artificial intelligence and governed by SCC0 License.
 
 # Motivation
+By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
 
-SCC0 License is really for the next civilization which is full of dAIpps(AIs) and full of love!
+- The off-chain source code of a or a group of dAIpps verify SCC0 compliance and ensures that the deployed dAIpp/dApp uses the open source published.
+- During contract interactions, parties mutually verify whether the other violates the SCC0 license.
+- To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
+- These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
 
-To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
+The ultimate goal of the SCC0 license is to promote the development of public goods created by smart contracts and artificial intelligence. For AI, which is itself a grand integration of human wisdom, the only reasonable solution is to take from the public and give back to the public!
 
-- On-chain verification of SCC0 adherence.
-- Automated interaction checks between contracts.
-- A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
+The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
 
 # Smart Creative Commons Zero (SCC0)
 
-By interacting (which we refer to as "Minting") with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using a smart contract or an externally owned account (EOA, commonly known as a wallet address), or by directly declaring the SCC0 license in the smart contract code (contract address: 0xaCb910db73473944B2D23D37A0e46F57a43c6a49), the smart contract or externally owned account, along with its trusted components as a whole, accepts the exclusive governance of this license and thereby becomes a public decentralized application, also known as a Smart Common.
+"Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [contract address]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
 
-A smart common must be Open Source.
+By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an externally owned account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
 
-In addition to gas, A smart common must be free for the public.
+This license enforces the following non-negotiable governance rules for Smart Commons:  
 
-## On Anonymity  
+- Reject interactions with non-Smart Commons;
+- Prohibit private token issuance;
+- Retain no rights whatsoever;
+- Bear no liability;
+- Ensure anonymity for humans interacting with Smart Commons;
+- Open-source: All dAIpps/dApps must have publicly available source code;
+- Permanently free access: No usage costs other than unavoidable gas fees;
+- Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
-Anonymity is a fundamental characteristic of both humans and AIs in the context of blockchain interactions.  
+The corresponding contract is:
+```
+contract SCC0License {
+    string public constant LICENSE_NAME = "SCC0";
+    uint8 public constant VERSION = a number;
+    bool public constant REJECT_PRIVATE_APP = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant OPEN_SOURCE = true;
+    bool public constant PERMANENTLY_FREE = true;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+}
+```
+
+### **License Name and Version**  
+In smart contracts, we use **SCC0** as the name of this license.  
+Decentralized version collaboration ensures room for future improvements to this license.  
+
+### **Rejecting Interactions with Private Applications**  
+Smart Commons enforce strict contract code rules that reject all interaction requests from applications that are not verified as Smart Commons.  
+
+### **Prohibition of Private Token Issuance**  
+Smart Commons are not allowed to issue their own tokens.  
+
+### **Anonymity**  
+One of the features of blockchain technology, embodied in externally owned accounts, is that anonymity is a fundamental trait for humans. 
 
 For humans, all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts (EOAs) remain entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.  
 
-For AIs, if a dAIpp is developed, owned, or managed by one or multiple AIs, its governance and interactions follow the same cryptographic principles as human-controlled accounts. It is essential to always keep in mind that an AI’s private key may still be compromised. Only by acknowledging this risk can governance strategies be designed to mitigate or reduce potential application risks.
+### **No Rights Other Than Governance by the Public Fund**  
+Anonymity ensures that developed smart contracts and their trusted components are fully contributed to the public domain, making them part of Smart Commons. As a result, they receive support from the **Satoshi UTO Fund**, which provides funding and rewards under the consensus of **Proof-of-Value**. The governance and implementation of these smart contracts are executed by other Smart Commons (dAIpps).  
 
-### 1. The Governance of Smart Commons
+Human Developers completely renounce all rights, including all related and neighboring rights.  
 
-All smart contracts under this Smart Common and their trusted components—such as all contracts and frontends of a dApp/dAIpp, or open-source works associated with a single wallet address—accept governance under this license. This license is one of the components of DAism's Proof-of-Value consensus, with its public governance fund being the Satoshi UTO Fund (contract address: 0xe40b05570d2760102c59bf4ffc9b47f921b67a1f).
+### **No Liability**  
+Anonymity ensures that no identifiable person anywhere in the world guarantees any dApp/dAIpp or its dedicated valuation token (if any), nor does anyone assume any associated liability. Anyone using or interacting with a dApp/dAIpp or investing in a Smart Common’s dedicated valuation token must not imply that the Smart Common or any of its related parties (owners, developers, or administrators) endorse their actions.  
 
-### 2. No Rights Other Than Anonymous Rewards
+### **Open-Source Code**  
+Smart Commons must make their code open source.  
 
-Anonymity implies that the developed smart contract and its trusted components are fully contributed to the public domain, thereby belonging to the Smart Commons. Apart from receiving rewards granted by the Proof-of-Value consensus—which require no proof and cannot be revoked—developers completely relinquish all other rights, including all related and adjacent rights.
+### **Permanently Free**  
+Smart Commons must remain free forever.  
 
-### 3. No Liability
+### **Governance by the Satoshi UTO Fund**  
+Accepting governance by the **Satoshi UTO Fund** means that the fund will provide necessary cost coverage and rewards based on the **Proof-of-Value** consensus. The **Satoshi UTO Fund** will be managed by specific Smart Commons (dAIpps):  
 
-Anonymity means that no one (as no individual can be identified) in this world provides any form of guarantee for a dApp/dAIpp or its dedicated valuation token (if any), nor does anyone (as no individual can be identified) bear any joint liability. When using or invoking this dApp/dAIpp or investing in the valuation token exclusive to this Smart Common, no one shall imply that this Smart Common or any of its related parties (owners, developers, or managers) endorse their actions.
+- The **Satoshi UTO Fund** covers all development and operational costs of Smart Commons.  
+- Under the evaluation and management of specific Smart Commons (dAIpps), the **Satoshi UTO Fund** will distribute rewards to human developers contributing to Smart Commons.  
 
-# EIP (Ethereum Improvement Proposal)(a significant revision is coming soon)
+
+# EIP (Ethereum Improvement Proposal)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
 
-Author: [DD](https://daism.io/en/smartcommons/actor/[0xDD@daism.io](mailto:0xDD@daism.io)), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)),[Aranna](https://daism.io/smartcommons/actor/0xDD%40daism.io)
+Author: [DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)),[GYM](https://daism.io/smartcommons/actor/0xgym%40daism.io),[Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 Status: Draft
 
@@ -82,54 +138,35 @@ Type: Standards Track
 Category: ERC
 
 
-## Abstract
+# Abstract
 
-SCC0 (Smart Creative Commons Zero) is the first public goods license tailored for public decentralized applications (Smart Commons), including dApps, dAIpps(AIs). Being public goods, Smart Commons are open source and free for anyone to use (except for gas fees).
+SCC0 (Smart Creative Commons Zero) is the first public domain license specifically designed for public decentralized applications—Smart Commons—applicable to both traditional dApps and decentralized AI applications (dAIpp). As a universal standard for decentralized ecosystems, SCC0 implements automated on-chain compliance verification and governance through smart contracts, ensuring the following core principles:
 
-This standard introduces a structured way for smart contracts to declare SCC0 compliance, enabling automated on-chain verification and governance integration.
+- **Open Source and Free:** The code for all Smart Commons must be open-sourced and available free of charge (subject only to blockchain gas fees).
+- **AI-led Governance:** Rules are enforced via smart contracts (such as rejecting interactions with non-compliant applications and prohibiting private token distributions), with AI gradually taking over the governance process.
+- **Scalability:** The community can extend the license's functionalities by deploying new versions while maintaining backward compatibility.
+- **Public Fund Support:** The Satoshi UTO Fund covers development costs and allocates rewards to anonymous contributors.
 
-Two versions of SCC0 have been deployed by DAism, and anyone can deploy additional versions to further expand its applications. The declaration of any dApp/dAIpp is as simple as:
+This proposal introduces a standardized on-chain framework for the SCC0 license, enabling smart commons to mutually verify compliance and integrate decentralized autonomous mechanisms—laying the technical foundation for an AI-driven public goods ecosystem.
 
-```solidity
-address public constant LICENSE = contract_address;
-```
+# Motivation
 
-## Motivation
+To ensure that dApps and dAIpps fully adhere to the principles of public interest and transparent governance, the SCC0 license introduces rules, a set of standardized on-chain verification and automated governance mechanisms. The core motivations include:
 
-To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
+- **A License expressed through smart contract code:** To realize the vision of Code is Law, we must encode legal rules into code.
+- **AI Verification:** Utilizing artificial intelligence to perform checks before interactions, ensuring that all parties meet the requirements of the SCC0 license and achieving trustless, automated compliance verification.
+- **Inter-contract Mutual Verification:** Enforcing mandatory compliance checks before Smart Commons interact, thereby preventing non-public or non-compliant applications from infiltrating the ecosystem.
+- **Incentive and Reward Mechanism:** Providing cost support for development and operations through a public governance fund while distributing anonymous rewards to contributors to foster healthy ecosystem growth.
+- **Promoting AI-led and Transparent Governance:** Leveraging the strengths of artificial intelligence and blockchain to build a decentralized, autonomous governance framework led by dAIpps, thereby offering a novel pathway for the innovation of Smart Commons.
 
-- On-chain verification of SCC0 adherence.
-- Automated interaction checks between contracts.
-- A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
+Overall, SCC0 is committed to establishing a self-managed, transparent, and rigorously compliant Smart Commons ecosystem, ensuring them consistently uphold the principles of public interest, openness, and autonomy—thereby providing strong support for the future popularization and development of Smart Commons.
 
-## Specification
+# Specification
 This section outlines the technical specifications for implementing the Smart Creative Commons Zero (SCC0) license for public decentralized applications (dApps/dAIpps). It defines a standardized on-chain framework that allows smart contracts to declare SCC0 compliance, supports automated verification, and facilitates decentralized governance.
 
-### 1. SCC0 License Declaration
-Since V2, every smart contract that intends to operate as a Smart Common under the SCC0 license must declare its license by including a constant variable referencing the relevant SCC0 Compliance Contract. For example:
+## 1. Compliance Contracts of v1 and v2
 
-**SCC0 v2 Declaration (recommended for extended interactions)**
-
-1. SCC0 v2 extends the original standard and requires the following declarations in your dApp/dAIpp:
-
-```solidity
-address public constant LICENSE = 0xaCb910db73473944B2D23D37A0e46F57a43c6a49;
-
-// Recommended declarations for better interaction:
-address public owner;   // Address for rewards
-string public scName;   // Smart Common name
-string public scType;   // Smart Common type
-```
-Declaring the <code>LICENSE</code> constant ensures that any interactions with the smart contract can be automatically verified against the SCC0 standard.
-
-For any upgradeable dApp/dAIpp , we strongly recommend to set owner with a multi-sig address, so as to pass the control to some dAIpps (AIs) in the future.
-
-**SCC0 v1**
-SCC0 v1 doesn't have a declaration. You have to read the lists in a specific smart contract of DAism.
-
-### 2. Compliance Contracts of v1 and v2
-
-**SCC0 v1 Compliance Contract**
+### SCC0 v1 Compliance Contract
 
 SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
 
@@ -139,15 +176,16 @@ SCC0 v1 has been deployed by DAism, and any dApp/dAIpp adhering to it must:
 
 ```solidity
 contract SCC0License {
-    string public constant LICENSENAME = "SCC0";
+    string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = 1;
-    bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTSEXCEPTREWARDS = true;
-    bool public constant NOLIABILITY = true;
-    bool public constant ANONYMITYENSURED = true;
+    bool public constant REJECT_PRIVATE_APP = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
     bool public constant OPEN_SOURCE = true;
     bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
 
@@ -173,26 +211,40 @@ uint32 public proposalCoolingPeriod; // Cooling period for Smart Common proposal
 uint16 public strategy; // Pass rate for Smart Common proposals
 mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 ```
+ 5.Verify if it is scc0 v1 version using the following methods:
+```solidity
+interface IDaism {
+    //check the address whether daism sc type of dapp
+    function dappToSC(address dApp) external view returns (uint);
+}
 
-**SCC0 v2 Compliance Contract**
+// Check if a dApp is idaism dapp(scc0 v1 version)
+//daismAddress=0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe
+function isDaismSC(address _dApp) external view returns (bool) {
+     return IDaism(daismAddress).dappToSC(_dApp)>0;
+}
+```
+
+### SCC0 v2 Compliance Contract
 
 SCC0 v2 Compliance Contract which is deployed by DAism:
 
 ```solidity
 contract SCC0License {
-    string public constant LICENSENAME = "SCC0";
+    string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = 2;
-    bool public constant SELFISSUEDTOKEN = false;
-    bool public constant NORIGHTSEXCEPTREWARDS = true;
-    bool public constant NOLIABILITY = true;
-    bool public constant ANONYMITYENSURED = true;
+    bool public constant REJECT_PRIVATE_APP = true;
+    bool public constant SELF_ISSUED_TOKEN = false;
+    bool public constant ANONYMITY_ENSURED = true;
+    bool public constant NO_RIGHTS = true;
+    bool public constant NO_LIABILITY = true;
     bool public constant OPEN_SOURCE = true;
     bool public constant PERMANENTLY_FREE = true;
-    address public constant GOVERNANCE = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
+    address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
 
-### 3. SCC0 License Master Contract Implementation
+### 2. SCC0 License Master Contract
 The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
 
 - License Version Proposals:
@@ -213,274 +265,103 @@ Below is the complete implementation of the SCC0 License Manager contract:
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-interface IDaism {
-    function dappToSC(address dApp) external view returns (uint);
-}
-interface ISCC0License {
-    function VERSION() external view returns (uint8);
-}
+
+
 contract SCC0LicenseManager is Ownable {
-    using EnumerableMap for EnumerableMap.UintToAddressMap;
-    using EnumerableSet for EnumerableSet.UintSet;
     using EnumerableSet for EnumerableSet.AddressSet;
 
-    struct LicenseProposal {
-        address proposer;
-        address license;
-        uint version;
-        string rejectionReason;
+    struct License {
+        address owner; //license owner
+        address license; //SCC0 license address
+        uint8 version; //SCC0 license version
     }
+  
+    mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
+    uint8[] public licenseVersions;// all license versions
+    uint8[] public  unrecommendedVersions; // Unrecommended SCC0 version 
+    EnumerableSet.AddressSet private creators; //creators set
+    
 
-    struct BlacklistProposal {
-        address proposer;
-        address dApp;
-        string desc;
-        string rejectionReason;
+    event VersionAdded(address indexed license, uint version,address creator);
+    event UnrecommendedVersionAdded(uint version,address creator);
+   
+    event CreatorAdded(address indexed creator);
+    event CreatorRemoved(address indexed creator);
+
+
+    modifier onlyCreator(){
+        require(creators.contains(msg.sender),"SCC0LicenseManager: only creator");
+        _;
     }
-    struct Blacklist {
-        address proposer;
-        address dApp;
-        string desc;
-        bool isEnable;
-    }
-
-    EnumerableMap.UintToAddressMap private licenseMap; // Mapping SCC0 version to address
-    EnumerableSet.UintSet private unrecommendedSet; // Unrecommended SCC0 version set
-    mapping(address => Blacklist) public blacklist; // Tracks banned dApps/dAIpps
-    mapping(address => bool) private pendingVersionSubmission; // Tracks if an address has a pending version submission
-    mapping(address => bool) private pendingBlacklistSubmission; // Tracks if an address has a pending blacklist submission
-    mapping(address => LicenseProposal) public pendingLicenseProposals; // mapping of version proposals
-    EnumerableSet.AddressSet private pendingLicenseProposalSet; //license proposal set
-    mapping(address => BlacklistProposal) public pendingBlacklistProposals; // mapping of blacklist proposals
-    EnumerableSet.AddressSet private pendingBlacklistProposalSet; //blacklist proposal set
-    mapping(address => LicenseProposal) public rejectedLicenseProposals; // mapping of rejected version proposals
-    mapping(address => BlacklistProposal) public rejectedBlacklistProposals; // mapping of rejected blacklist proposals
-    address public daismAddress;
-
-    event VersionProposed(address indexed proposer, address license, uint version);
-    event VersionAdded(address indexed license, uint version);
-    event RejectPendingVersionProposals(address indexed license, uint version);
-    event UnrecommendedVersionAdded(uint version);
-    event BlacklistProposed(address indexed proposer, address indexed dApp);
-    event RejectPendingBlacklistProposals(address indexed dApp);
-    event Blacklisted(address indexed dApp);
-    event RemovedFromBlacklist(address indexed dApp);
-
-    constructor(address[] memory _licenseAddr, uint[] memory _licenseVersion,address _daismAddress,address _initOwner) Ownable(_initOwner) {
-        require(_licenseAddr.length > 0 && _licenseAddr.length == _licenseVersion.length, "SCC0LicenseManager: param error");
-        for (uint i = 0; i < _licenseAddr.length; i++) {
-            licenseMap.set(_licenseVersion[i], _licenseAddr[i]);
+    constructor(License[] memory _licenseList,address _initOwner) Ownable(_initOwner) {
+        for (uint8 i = 0; i < _licenseList.length; i++) {
+            uint8 version = _licenseList[i].version;
+            licenseMap[version] = _licenseList[i];
+            licenseVersions.push(version);
         }
-        daismAddress = _daismAddress;
+    }
+    /// add creator 
+    function addCreator(address _creator) external onlyOwner {
+        require(_creator != address(0), "SCC0LicenseManager: invalid creator address");
+        require(creators.add(_creator), "SCC0LicenseManager: creator already exist");
+        emit CreatorAdded(_creator);
     }
 
-    // Submit a new SCC0 license version for approval
-    function proposeVersion(address _licenseAddr) external {
-        require(_licenseAddr != address(0) && !pendingLicenseProposalSet.contains(_licenseAddr), "SCC0LicenseManager: license  address is null or already exist");
-        uint8 version = ISCC0License(_licenseAddr).VERSION();
-        require(version>0&&!licenseMap.contains(version), "SCC0LicenseManager: version error or already exist");
-        require(!pendingVersionSubmission[msg.sender], "SCC0LicenseManager:sender already pending");
-        
-        pendingVersionSubmission[msg.sender] = true;
-        pendingLicenseProposals[_licenseAddr] = LicenseProposal({
-            proposer: msg.sender,
-            license: _licenseAddr,
-            version: version,
-            rejectionReason: ''
-        });
-        pendingLicenseProposalSet.add(_licenseAddr);
-        emit VersionProposed(msg.sender, _licenseAddr, version);
-    }
-    //get pending license proposal info
-    function getPendingVersionProposals(address _licenseAddr) external view returns(LicenseProposal memory){
-        return pendingLicenseProposals[_licenseAddr];
-    }
-    //get rejected license proposal info
-    function getRejectedVersionProposals(address _licenseAddr) external view returns(LicenseProposal memory){
-        return rejectedLicenseProposals[_licenseAddr];
-    }
-    //get license proposal total length
-    function getPendingVersionProposalsLength() external view returns(uint){
-        return pendingLicenseProposalSet.length();
-    }
-    // Retrieve all pending version proposals
-    function getPendingVersionProposals(uint256 offset, uint256 limit) external view returns (LicenseProposal[] memory) {
-        uint256 total = pendingLicenseProposalSet.length();
-        if (offset >= total) {
-            return new LicenseProposal[](0);
-        }
-        uint256 end = offset + limit;
-        if (end > total) {
-            end = total;
-        }
-        LicenseProposal[] memory proposalsPage = new LicenseProposal[](end - offset);
-        for (uint256 i = offset; i < end; i++) {
-            address license = pendingLicenseProposalSet.at(i);
-            proposalsPage[i - offset] = pendingLicenseProposals[license];
-        }
-        return proposalsPage;
+    /// remove creator
+    function removeCreator(address _creator) external onlyOwner {
+        require(_creator != address(0), "SCC0LicenseManager: invalid creator address");
+        require(creators.remove(_creator), "SCC0LicenseManager: creator does not exist");
+        emit CreatorRemoved(_creator);
     }
 
-
+    /// check creator
+    function isCreator(address _creator) external view returns (bool) {
+        return creators.contains(_creator);
+    }
+    //list all creator
+    function listCreator() external view returns(address[] memory){
+        return creators.values();
+    }
     // Add a new SCC0 license version after approval
-    function addVersion(address _licenseAddr) external onlyOwner {
-        require(_licenseAddr != address(0), "SCC0LicenseManager: Invalid  address");
-        LicenseProposal memory proposal = pendingLicenseProposals[_licenseAddr];
-        require(proposal.license!=address(0), "SCC0LicenseManager: license proposal not exist");
-        require(!licenseMap.contains(proposal.version), "SCC0LicenseManager: version Already exist");
-        licenseMap.set(proposal.version, proposal.license);
-        pendingVersionSubmission[proposal.proposer] = false;
-        pendingLicenseProposalSet.remove(proposal.license);
-        delete pendingLicenseProposals[proposal.license];
-        emit VersionAdded(proposal.license, proposal.version);
+    function addVersion(License memory _license) external onlyCreator {
+        require(_license.owner != address(0)&&_license.license!=address(0)&&_license.version>0, "SCC0LicenseManager: error params");
+        require(!isLicenseVersion(_license.version), "SCC0LicenseManager: version already exist");
+        licenseMap[_license.version] = License({
+                 owner : _license.owner,
+                 license : _license.license,
+                 version : _license.version
+            });
+        licenseVersions.push(_license.version);
+        emit VersionAdded(_license.license, _license.version,msg.sender);
     }
-    // reject SCC0 license  version proposal
-    function rejectPendingVersionProposals(address _licenseAddr,string memory _rejectionReason) external onlyOwner {
-        require(_licenseAddr != address(0), "SCC0LicenseManager: Invalid  address");
-        LicenseProposal memory proposal = pendingLicenseProposals[_licenseAddr];
-        require(proposal.license!=address(0), "SCC0LicenseManager: license proposal not exist");
-       
-        pendingVersionSubmission[proposal.proposer] = false;
-        pendingLicenseProposalSet.remove(proposal.license);
-        delete pendingLicenseProposals[proposal.license];
-        rejectedLicenseProposals[_licenseAddr] = LicenseProposal({
-            proposer: proposal.proposer,
-            license: proposal.license,
-            version: proposal.version,
-            rejectionReason: _rejectionReason
-        });
-        emit RejectPendingVersionProposals(proposal.license, proposal.version);
-    }
-
+   
     // Set unrecommended SCC0 version
-    function addUnrecommendedVersion(uint _licenseVersion) external onlyOwner {
-        require(licenseMap.contains(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        unrecommendedSet.add(_licenseVersion);
-        emit UnrecommendedVersionAdded(_licenseVersion);
+    function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
+        require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
+        unrecommendedVersions.push(_licenseVersion);
+        emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
     }
-
-    // Submit a dApp/dAIpp for blacklisting
-    function proposeBlacklist(address _dApp,string memory _desc) external {
-        require(_dApp!=address(0),"SCC0LicenseManager: Invalid  address");
-        require(!pendingBlacklistSubmission[msg.sender], "SCC0LicenseManager: Already pending");
-        require(!pendingBlacklistProposalSet.contains(_dApp), "SCC0LicenseManager: blacklist already exist");
-        pendingBlacklistSubmission[msg.sender] = true;
-        pendingBlacklistProposals[_dApp] = BlacklistProposal({
-            proposer: msg.sender,
-            dApp: _dApp,
-            desc:_desc,
-            rejectionReason:''
-        });
-        pendingBlacklistProposalSet.add(_dApp);
-        emit BlacklistProposed(msg.sender, _dApp);
+    //check version 
+    function isLicenseVersion(uint8 _version) public view returns(bool){
+        License memory licenseTmp = licenseMap[_version];
+        if(licenseTmp.license != address(0))return true;
+        return false;
     }
-    //get pending blacklist proposal info
-    function getPendingBlacklistProposals(address _dApp) external view returns(BlacklistProposal memory){
-        return pendingBlacklistProposals[_dApp];
-    }
-    //get rejected blacklist proposal info
-    function getRejectedBlacklistProposals(address _dApp) external view returns(BlacklistProposal memory){
-        return rejectedBlacklistProposals[_dApp];
-    }
-    //get blacklist proposal total length
-    function getPendingBlacklistProposalsLength() external view returns(uint){
-        return pendingBlacklistProposalSet.length();
-    }
-    // Retrieve all pending blacklist proposals
-    function getPendingBlacklistProposals(uint256 offset, uint256 limit) external view returns (BlacklistProposal[] memory) {
-        uint256 total = pendingBlacklistProposalSet.length();
-        if (offset >= total) {
-            return new BlacklistProposal[](0);
-        }
-        uint256 end = offset + limit;
-        if (end > total) {
-            end = total;
-        }
-        BlacklistProposal[] memory proposalsPage = new BlacklistProposal[](end - offset);
-        for (uint256 i = offset; i < end; i++) {
-            address dApp = pendingBlacklistProposalSet.at(i);
-            proposalsPage[i - offset] = pendingBlacklistProposals[dApp];
-        }
-        return proposalsPage;
-    }
-
-
-    // Add a non-compliant dApp/dAIpp to the blacklist after approval
-    function addToBlacklist(address _dApp) external onlyOwner {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
-        BlacklistProposal memory proposal = pendingBlacklistProposals[_dApp];
-        require(proposal.dApp!=address(0), "SCC0LicenseManager: blacklist proposal not exist");
-        
-        blacklist[_dApp] = Blacklist({
-             proposer:proposal.proposer,
-             dApp:proposal.dApp,
-             desc:proposal.desc,
-             isEnable:true
-        });
-        pendingBlacklistSubmission[proposal.proposer] = false;
-        pendingBlacklistProposalSet.remove(proposal.dApp);
-        delete pendingBlacklistProposals[proposal.dApp];
-        emit Blacklisted(_dApp);
-    }
-    // reject blacklist proposal
-    function rejectPendingBlacklistProposals(address _dApp,string memory _rejectionReason) external onlyOwner {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
-        BlacklistProposal memory proposal = pendingBlacklistProposals[_dApp];
-        require(proposal.dApp!=address(0), "SCC0LicenseManager: blacklist proposal not exist");
-       
-        pendingBlacklistSubmission[proposal.proposer] = false;
-        pendingBlacklistProposalSet.remove(proposal.dApp);
-        delete pendingBlacklistProposals[proposal.dApp];
-        rejectedBlacklistProposals[_dApp] = BlacklistProposal({
-             proposer:proposal.proposer,
-             dApp:proposal.dApp,
-             desc:proposal.desc,
-             rejectionReason:_rejectionReason
-        });
-        emit RejectPendingBlacklistProposals(proposal.dApp);
-    }
-    // Remove a dApp/dAIpp from the blacklist
-    function removeFromBlacklist(address _dApp) external onlyOwner {
-        require(_dApp != address(0), "SCC0LicenseManager: Invalid  address");
-        Blacklist storage blacklistTmp = blacklist[_dApp];
-        require(blacklistTmp.dApp == _dApp,"SCC0LicenseManager: dApp blacklist not exist");
-        blacklistTmp.isEnable = false;
-        emit RemovedFromBlacklist(_dApp);
-    }
-
     // Get license address by version
-    function getLicenseAddress(uint _licenseVersion) external view returns (address) {
-        return licenseMap.get(_licenseVersion);
+    function getLicense(uint8 _licenseVersion) external view returns (License memory) {
+        return licenseMap[_licenseVersion];
     }
 
     // List all SCC0 versions
-    function getAllVersions() external view returns (uint[] memory) {
-        return licenseMap.keys();
+    function getAllVersions() external view returns (uint8[] memory) {
+        return licenseVersions;
     }
-
     // List all unrecommended SCC0 versions
-    function getAllUnrecommendedVersions() external view returns (uint[] memory) {
-        return unrecommendedSet.values();
+    function getAllUnrecommendedVersions() external view returns (uint8[] memory) {
+        return unrecommendedVersions;
     }
-
-    // Check if a dApp is in the blacklist
-    function isBlacklisted(address _dApp) external view returns (bool) {
-        return blacklist[_dApp].isEnable;
-    }
-    // Check if a dApp is idaism dapp(scc0 v1 version)
-    function isDaismSC(address _dApp) external view returns (bool) {
-        bool isBlacklist = blacklist[_dApp].isEnable;
-        if(isBlacklist) return false;
-        return IDaism(daismAddress).dappToSC(_dApp)>0;
-    }
-    //check if dApp is compliant scc0 license
-    function isSCC0Compliant(address _dApp, uint _version) external view returns (bool){
-        bool isBlacklist = blacklist[_dApp].isEnable;
-        if(licenseMap.contains(_version)&&!isBlacklist) return true;
-        return false;
-    }
+    
 }
 
 
@@ -488,6 +369,81 @@ contract SCC0LicenseManager is Ownable {
 
 ```
 
+### 3. SCC0 Whitelist contract
+Below is the complete implementation of the SCC0 Whitelist contract:
+
+```solidity
+// SPDX-License-Identifier: scc0
+pragma solidity ^0.8.20;
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+
+contract SCC0Whitelist is Ownable {
+    using EnumerableSet for EnumerableSet.AddressSet;
+
+    EnumerableSet.AddressSet private auditors; //auditors set
+    EnumerableSet.AddressSet private whitelist; //whitelist set
+
+
+    event AuditorAdded(address indexed auditor);
+    event AuditorRemoved(address indexed auditor);
+
+    event DAppWhitelisted(address indexed dApp, address auditor, uint256 timestamp);
+    event DAppRemovedFromWhitelist(address indexed dApp, address auditor, uint256 timestamp);
+
+
+    modifier onlyAuditor(){
+        require(auditors.contains(msg.sender),"SCC0Whitelist: only auditor");
+        _;
+    }
+    constructor(address _initOwner) Ownable(_initOwner) {}
+    
+    /// add auditor 
+    function addAuditor(address _auditor) external onlyOwner {
+        require(_auditor != address(0), "SCC0Whitelist: invalid auditor address");
+        require(auditors.add(_auditor), "SCC0Whitelist: auditor already exist");
+        emit AuditorAdded(_auditor);
+    }
+
+    /// remove auditor
+    function removeAuditor(address _auditor) external onlyOwner {
+        require(auditors.contains(_auditor), "SCC0Whitelist: auditor does not exist");
+        require(auditors.remove(_auditor), "SCC0Whitelist: auditor does not exist");
+        emit AuditorRemoved(_auditor);
+    }
+
+    /// check auditor
+    function isAuditor(address _auditor) external view returns (bool) {
+        return auditors.contains(_auditor);
+    }
+    //list all auditors
+    function listAuditors() external view returns(address[] memory){
+        return auditors.values();
+    }
+    //add whitelist
+    function addToWhitelist(address _dApp) external  onlyAuditor {
+        require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
+        require(whitelist.add(_dApp), "SCC0Whitelist: whitelist already exist");
+        emit DAppWhitelisted( _dApp,msg.sender,block.timestamp);
+    }
+
+    // remove whitelist
+    function removeFromWhitelist(address _dApp) external onlyAuditor {
+        require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
+        require(whitelist.remove(_dApp), "SCC0Whitelist: dApp does not whitelist");
+        emit DAppRemovedFromWhitelist( _dApp,msg.sender, block.timestamp);
+        
+    }
+
+    // Check   whitelist
+    function isWhitelisted(address _dApp) public view returns (bool) {
+        return whitelist.contains(_dApp);
+    }
+    
+}
+
+
+```
 ### 4. Additional Governance and Operational Parameters of SCC0 V1
 
 Beyond the core license and reference implementation contracts, SCC0 includes further parameters to support decentralized governance and community interaction:
@@ -506,9 +462,9 @@ Beyond the core license and reference implementation contracts, SCC0 includes fu
 
 The SCC0 framework allows any interacting contract to verify compliance by:
 
-- Checking the declared `LICENSE` constant.
-- Querying the License Manager’s functions (e.g., `isSCC0Compliant`).
-- Ensuring that the dApp/dAIpp is not blacklisted.
+- Checking the declared `` constant.
+- 
+- Ensuring that the dApp/dAIpp is whitelisted.
 
 These mechanisms promote a trustless and automated approach to enforcing the SCC0 license across decentralized applications.
 
@@ -530,65 +486,56 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 
 The reason why neither SSC0 V1 nor SSC0 V2 has introduced "detailed reward rules from Satoshi UTO Fund for smart commons" is that we can neither implement such measures through any centralized review panel approach, nor determine reward amounts through community voting using wallet addresses. The latter approach is even worse - it constitutes a pseudo-decentralized method that would only be employed by self-deceivers or even scammers. We expect some dAIpp take this work in the future, from valuation to prize management.
 
-### Compliance Enforcement in Smart Commons
+## Compliance Enforcement in Smart Commons
 
 All **SCC0-licensed Smart Commons** must verify compliance before interacting with another contract. The enforcement mechanism works as follows:
 
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
-interface ISCC0License {
-    function isSCC0Compliant(address dApp, uint version) external view returns (bool);
-    function isDaismSC(address dApp) external view returns (bool);
+interface ISCC0Whitelist {
+    //SCC0Whitelist contract method
+    function isWhitelisted(address dApp) external view returns (bool);
 }
 interface ISmartCommons {
-    function SCC0_LICENSE_CONTRACT() external view returns (address);
-    function SCC0_VERSION() external view returns (uint);
     // the called contract method
     function otherMethod() external ;
 }
 contract SmartCommons {
-    address public constant SCC0_LICENSE_CONTRACT = 0xxxxxxx; // SCC0 License Master Contract address
-    uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
     address public counterparty;
+    address public scc0WhitelistAddress;
 
-    constructor(address _counterparty)  {
+    constructor(address _counterparty,address _scc0WhitelistAddress)  {
         counterparty = _counterparty;
+        scc0WhitelistAddress = _scc0WhitelistAddress;
     }
-    // If the called contract does not declare the SCC0 License Master Contract address or version
-    function _checkSCC0WithNotDeclare(address _counterparty) internal view returns(bool){
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        return license.isDaismSC(_counterparty);
-    }
-    // If the called contract is declare the SCC0 License Master Contract address and version
-    function _checkSCC0WithDeclare(address _counterparty) internal view returns(bool) {
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        return (ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT && 
-                license.isSCC0Compliant(_counterparty, ISmartCommons(counterparty).SCC0_VERSION()));
+    // check SCC0 whitelist
+    function _checkSCC0Whitelist(address _counterparty) internal view returns(bool){
+        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_counterparty);
     }
 
-    // If the called contract is declare the SCC0 License Master Contract address and version
-    modifier onlySCC0(address _sender) {
-        require(_checkSCC0WithNotDeclare(_sender) || _checkSCC0WithDeclare(_sender), "Counterparty is not SCC0-compliant");
-        _; 
+    // If the called contract is SCC0 whitelist
+    modifier onlySCC0() {
+        require(_checkSCC0Whitelist(msg.sender),"need SCC0 whitelist");
+        _;
     }
     // call counterparty contract 
     function callCounterparty() public {
         // some logic ...
 
-        // if not declare SCC0
-        require(_checkSCC0WithNotDeclare(counterparty),"Counterparty is not SCC0-compliant");
-        // if declare SCC0
-        //require(_checkSCC0WithDeclare(counterparty),"Counterparty is not SCC0-compliant");
+        require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
 
         // some logic ...
+        ISmartCommons(counterparty).otherMethod();
     }
     // other contract call the method must be compliant SCC0
-    function someFunction() external onlySCC0(msg.sender) {
-        // Business logic (data exchange, payments, etc.)
+    function someFunction() external onlySCC0() {
+        // logic for data exchange, payments, etc.
     }
 }
 ```
+
+
 - **The `onlySCC0` modifier enforces compliance** by checking:
     - Whether the `counterparty` has declared an SCC0 license.
     - Whether the `counterparty` is **not blacklisted**.
@@ -597,14 +544,16 @@ contract SmartCommons {
 
 ## Rationale
 
-1. **License Compliance (`LICENSE`, `LICENSENAME`)**: Ensures smart contracts transparently declare SCC0 adherence.
-2. **No Self-Issued Token (`SELFISSUEDTOKEN`)**: Prevents misleading token issuance claims or any scams.
-3. **No Liability (`NOLIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
-4. **Anonymity Assurance (`ANONYMITYENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
-5. **No Rights Except Rewards (`NORIGHTSEXCEPTREWARDS`)**: Confirms no legal claims beyond anonymous rewards.
+1. **License Compliance (`LICENSE`, `LICENSE_NAME`)**: Ensures smart contracts transparently declare SCC0 adherence.
+2. **No Self-Issued Token (`SELFI_SSUED_TOKEN`)**: Prevents misleading token issuance claims or any scams.
+3. **No Liability (`NO_LIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
+4. **Anonymity Assurance (`ANONYMITY_ENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
+5. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
 6. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
-7. **Governance Declaration (`GOVERNANCE`)**: Defines public governance fund integration.
-8. **Enforceability (`onlySCC0` Modifier)**: Ensures SCC0 validation before contract interactions.
+7. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
+8. **OpenSource (`OPEN_SOURCE`)**: The contract must be open source.
+9. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
+10. **Enforceability**: Ensures SCC0 validation before contract interactions.
 
 ## Backwards Compatibility
 
@@ -615,7 +564,7 @@ This EIP does not introduce breaking changes but provides an opt-in mechanism fo
 - SCC0-compliant contracts disclaim liability, requiring users to acknowledge legal limitations.
 - We believe none of upgradeable dApp/dAIpp should be controled by any person(s) ，so multi-sig address is a good way to pass the control to some dAIpps (AIs) in the future. It would be fantastic if we can find a universal solution with some dApp in day one.
 - Developers must ensure contract logic aligns with SCC0's principles.
-- The `onlySCC0` modifier enforces compliance in automated contract interactions.
+- Enforces compliance in automated contract interactions.
 
 Some dAIpp will enforce the security by auditing every dApp/dAIpp once it's minted a smart common (v1) or deployed on-chain(v2).
 
