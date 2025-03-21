@@ -154,8 +154,8 @@ This proposal introduces a standardized on-chain framework for the SCC0 license,
 To ensure that dApps and dAIpps fully adhere to the principles of public interest and transparent governance, the SCC0 license introduces rules, a set of standardized on-chain verification and automated governance mechanisms. The core motivations include:
 
 - **A License expressed through smart contract code:** To realize the vision of Code is Law, we must encode legal rules into code.
-- **AI Verification:** Utilizing artificial intelligence to perform real-time checks before interactions, ensuring that all parties meet the requirements of the SCC0 license and achieving trustless, automated compliance verification.
-- **Inter-contract Mutual Verification:** Enforcing mandatory identity and compliance checks before Smart Commons interact, thereby preventing non-public or non-compliant applications from infiltrating the ecosystem.
+- **AI Verification:** Utilizing artificial intelligence to perform checks before interactions, ensuring that all parties meet the requirements of the SCC0 license and achieving trustless, automated compliance verification.
+- **Inter-contract Mutual Verification:** Enforcing mandatory compliance checks before Smart Commons interact, thereby preventing non-public or non-compliant applications from infiltrating the ecosystem.
 - **Incentive and Reward Mechanism:** Providing cost support for development and operations through a public governance fund while distributing anonymous rewards to contributors to foster healthy ecosystem growth.
 - **Promoting AI-led and Transparent Governance:** Leveraging the strengths of artificial intelligence and blockchain to build a decentralized, autonomous governance framework led by dAIpps, thereby offering a novel pathway for the innovation of Smart Commons.
 
