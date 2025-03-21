@@ -147,7 +147,7 @@ SCC0 (Smart Creative Commons Zero) is the first public domain license specifical
 - **Scalability:** The community can extend the license's functionalities by deploying new versions while maintaining backward compatibility.
 - **Public Fund Support:** The Satoshi UTO Fund covers development costs and allocates rewards to anonymous contributors.
 
-This proposal introduces a standardized on-chain framework for the SCC0 license, enabling smart contracts to declare compliance, automatically verify the identity of interacting parties, and integrate decentralized autonomous mechanisms—laying the technical foundation for an AI-driven public goods ecosystem.
+This proposal introduces a standardized on-chain framework for the SCC0 license, enabling smart commons to mutually verify compliance and integrate decentralized autonomous mechanisms—laying the technical foundation for an AI-driven public goods ecosystem.
 
 # Motivation
 
