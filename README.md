@@ -140,23 +140,25 @@ Category: ERC
 
 # Abstract
 
-SCC0 (Smart Creative Commons Zero) is the first public goods license tailored for public decentralized applications (Smart Commons), including dApps, dAIpps(AIs). Being public goods, Smart Commons are open source and free for anyone to use (except for gas fees).
+SCC0 (Smart Creative Commons Zero) is the first public domain license specifically designed for public decentralized applications—Smart Commons—applicable to both traditional dApps and decentralized AI applications (dAIpp). As a universal standard for decentralized ecosystems, SCC0 implements automated on-chain compliance verification and governance through smart contracts, ensuring the following core principles:
 
-This standard introduces a structured way for smart contracts to declare SCC0 compliance, enabling automated on-chain verification and governance integration.
+- **Open Source and Free:** The code for all Smart Commons must be open-sourced and available free of charge (subject only to blockchain gas fees).
+- **AI-led Governance:** Rules are enforced via smart contracts (such as rejecting interactions with non-compliant applications and prohibiting private token distributions), with AI gradually taking over the governance process.
+- **Scalability:** The community can extend the license's functionalities by deploying new versions while maintaining backward compatibility.
+- **Public Fund Support:** The Satoshi UTO Fund covers development costs and allocates rewards to anonymous contributors.
 
-Two versions of SCC0 have been deployed by DAism, and anyone can deploy additional versions to further expand its applications. The declaration of any dApp/dAIpp is as simple as:
-
-```solidity
-address public constant LICENSE = contract_address;
-```
+This proposal introduces a standardized on-chain framework for the SCC0 license, enabling smart contracts to declare compliance, automatically verify the identity of interacting parties, and integrate decentralized autonomous mechanisms—laying the technical foundation for an AI-driven public goods ecosystem.
 
 # Motivation
 
-To ensure that dApps and dAIpps can transparently declare their compliance with SCC0, we propose a standardized way to embed license-related variables in smart contracts. This allows for:
+To ensure that dApps and dAIpps fully adhere to the principles of public interest and transparent governance, the SCC0 license introduces a comprehensive set of standardized on-chain verification and automated governance mechanisms. The core motivations include:
 
-- On-chain verification of SCC0 adherence.
-- Automated interaction checks between contracts.
-- A reward mechanism that enables a specific public governance fund to distribute anonymous rewards to contributors.
+- **AI Verification:** Utilizing artificial intelligence to perform real-time checks before interactions, ensuring that all parties meet the requirements of the SCC0 license and achieving trustless, automated compliance verification.
+- **Inter-contract Mutual Verification:** Enforcing mandatory identity and compliance checks before Smart Commons interact, thereby preventing non-public or non-compliant applications from infiltrating the ecosystem.
+- **Incentive and Reward Mechanism:** Providing cost support for development and operations through a public governance fund while distributing anonymous rewards to contributors to foster healthy ecosystem growth.
+- **Promoting AI-led and Transparent Governance:** Leveraging the strengths of artificial intelligence and blockchain to build a decentralized, autonomous governance framework led by dAIpps, thereby offering a novel pathway for the innovation of Smart Commons.
+
+Overall, SCC0 is committed to establishing a self-managed, transparent, and rigorously compliant decentralized application ecosystem, ensuring that public decentralized applications consistently uphold the principles of public interest, openness, and autonomy—thereby providing strong support for the future popularization and development of Smart Commons.
 
 # Specification
 This section outlines the technical specifications for implementing the Smart Creative Commons Zero (SCC0) license for public decentralized applications (dApps/dAIpps). It defines a standardized on-chain framework that allows smart contracts to declare SCC0 compliance, supports automated verification, and facilitates decentralized governance.
