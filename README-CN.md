@@ -547,16 +547,16 @@ contract SmartCommons {
 - **每个 SCC0 许可的 Smart Commons 在与另一个 dApp/dAIpp 交互之前都必须应用此检查。**
 
 # 基本原理
-- **许可证合规性（<code>LICENSE</code>、  <code>LICENSENAME</code>）**：确保智能合约透明地声明遵守 SCC0。
-- **无自发代币（<code>SELFISSUEDTOKEN</code>）**：防止误导性的代币发行声明或任何诈骗行为。
-- **无责任（<code>NOLIABILITY</code>）**：确保对 SCC0 交互不承担法律责任。
-- **匿名保证（<code>ANONYMITYENSURED</code>）**：强调所有权和控制权都无法公开验证。
-- **除奖励外没有其他权利（<code>NORIGHTSEXCEPTREWARDS</code>）**：确认除匿名奖励外，没有任何合法权利。
+- **许可证合规性（<code>LICENSE</code>、  <code>LICENSENAME</code>）**：确保智能合约透明地标识许可证名称，即 SCC0。
+- **无自发代币（<code>SELFI_SSUED_TOKEN</code>）**：防止误导性的代币发行声明或任何诈骗行为。
+- **无责任（<code>NO_LIABILITY</code>）**：确保对 SCC0 交互不承担法律责任。
+- **匿名保证（<code>ANONYMITY_ENSURED</code>）**：强调所有权和控制权都无法公开验证。
+- **除奖励外没有其他权利（<code>NO_RIGHTS</code>）**：确认没有任何权利。
 - **版本控制（<code>VERSION</code>）**：允许参考 SCC0 合规性的未来迭代。
-- **治理宣言（<code>GOVERNANCE</code>）**：定义公​​共治理基金整合。
-- **开源（<code>OPEN_SOURCE</code>）**：合约必须是开源的。
-- **永久免费（<code>PERMANENTLY_FREE</code>）**：公开项目，永久免费。
-- **可执行性（onlySCC0 修改器）**：确保合约交互之前进行 SCC0 验证。
+- **治理基金（<code>PUBLIC_GOVERNANCE_FUND</code>）**：定义公​​共治理基金整合。
+- **开源（<code>OPEN_SOURCE</code>）**：代码必须是开源的。
+- **永久免费（<code>PERMANENTLY_FREE</code>）**：公共项目，永久免费。
+- **强制性**：确保合约交互之前进行 SCC0 验证。
 
 # 向后兼容性
 此 EIP 不会引入重大更改，但为采用 SCC0 的项目提供了选择加入机制。必须重新部署旧合约才能符合新标准。
