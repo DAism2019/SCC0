@@ -130,56 +130,19 @@ contract SCC0License {
 类别：ERC
 
 # 摘要
-SCC0（Smart Creative Commons Zero）是第一个为公共去中心化应用（Smart Commons）量身定制的公共产品许可证，包括 dApp、dAIpps（AI）。作为公共产品，Smart Commons 是开源的，任何人都可以免费使用（除了 gas 费用）。
 
-该标准为 SCC0 License 对智能合约的治理引入了一种合约化方式，从而实现了自动化的链上验证和治理集成。
+SCC0（Smart Creative Commons Zero）是首个专为公共的去中心化应用，即智能公器（Smart Commons），设计的公共领域许可证，适用于传统 dApp 以及去中心化的人工智能应用 dAIpp。作为去中心化生态的通用标准，SCC0 通过智能合约实现链上自动化合规验证与治理，确保以下核心原则：
 
-DAism 已经部署了两个版本的 SCC0，任何人都可以部署其他版本以进一步扩展其应用程序。任何 dApp/dAIpp 要适用 SCC0 License 都很简单，只要在其主合约中加入对任何其他  dApp/dAIpp 正式交互前的“身份”检查：
+- **开源与免费**：所有智能公器的代码必须开源，并永久免费使用（仅需支付公链 gas 费用）。
+    
+- **AI 主导治理**：通过智能合约强制执行规则（如拒绝与非合规应用交互、禁止私发代币），并由 AI 逐步接管治理流程。
+    
+- **可扩展性**：社区可通过部署新版本扩展许可证功能，同时保持向后兼容性。
+    
+- **公共基金支持**：由 Satoshi UTO Fund 承担开发成本并向匿名贡献者分配奖励。
+    
 
-```
-// SPDX-License-Identifier: scc0
-pragma solidity ^0.8.20;
-interface ISCC0Whitelist {
-    //SCC0Whitelist contract method
-    function isWhitelisted(address dApp) external view returns (bool);
-}
-interface ISmartCommons {
-    // the called contract method
-    function otherMethod() external ;
-}
-contract SmartCommons {
-    address public counterparty;
-    address public scc0WhitelistAddress;
-
-    constructor(address _counterparty,address _scc0WhitelistAddress)  {
-        counterparty = _counterparty;
-        scc0WhitelistAddress = _scc0WhitelistAddress;
-    }
-    // check SCC0 whitelist
-    function _checkSCC0Whitelist(address _counterparty) internal view returns(bool){
-        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_counterparty);
-    }
-
-    // If the called contract is SCC0 whitelist
-    modifier onlySCC0() {
-        require(_checkSCC0Whitelist(msg.sender),"need SCC0 whitelist");
-        _;
-    }
-    // call counterparty contract 
-    function callCounterparty() public {
-        // some logic ...
-
-        require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
-
-        // some logic ...
-        ISmartCommons(counterparty).otherMethod();
-    }
-    // other contract call the method must be compliant SCC0
-    function someFunction() external onlySCC0() {
-        // logic for data exchange, payments, etc.
-    }
-}
-```
+本提案为 SCC0 许可引入标准化的链上框架，使智能合约能声明合规性、自动验证交互对象身份，并集成去中心化自治机制，为 AI 驱动的公共品生态奠定技术基础。
 
 # 动机
 为了确保 dApp 和 dAIpps 能够百分百遵守 SCC0 许可，我们基于智能合约的特色提出了一种标准化方法，。这允许：
