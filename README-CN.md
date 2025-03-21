@@ -223,7 +223,7 @@ struct SCInfo {
     string SCType;      // Type of the smart common
 }
 ```
-4. 针对社区互动，还包括额外的映射和治理结构：
+4. 针对智能公器协作团队的管理，还包括额外的映射和治理结构：
 ```solidity
 mapping(address => Object.Member) public memberInfos; // Stores Smart Common members and their dividend ratios
 uint32 public proposalLifetime; // Validity period of Smart Common proposals
