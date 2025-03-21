@@ -545,9 +545,9 @@ contract SmartCommons {
 2. **No Self-Issued Token (`SELFI_SSUED_TOKEN`)**: Prevents misleading token issuance claims or any scams.
 3. **No Liability (`NO_LIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
 4. **Anonymity Assurance (`ANONYMITY_ENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
-5. **No Rights Except Rewards (`NO_RIGHTS_EXCEPT_REWARDS`)**: Confirms no legal claims beyond anonymous rewards.
+5. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
 6. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
-7. **Governance Declaration (`GOVERNANCE`)**: Defines public governance fund integration.
+7. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
 8. **OpenSource (`OPEN_SOURCE`)**: The contract must be open source.
 9. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
 10. **Enforceability**: Ensures SCC0 validation before contract interactions.
