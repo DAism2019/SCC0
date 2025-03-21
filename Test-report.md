@@ -8,98 +8,259 @@ code:
 const { ethers } = require('hardhat')
 const hre=require('hardhat')
 
-var manager0,accounts;
-
 async function main(){
     await hre.run('compile');
-    accounts = await ethers.getSigners()
+    const accounts = await ethers.getSigners();
 
-    //提案协议
-    let scc01= await daism_deploy(accounts[0],'SCC0License1', []);
+    const singer0=accounts[0];
+    const _owner0=accounts[0].address;
+    const singer1=accounts[1];
+    const _owner1=accounts[1].address;
 
+    await SCC0LicenseManager_test(singer0,singer1,_owner0,_owner1);
+    await SCC0Whitelist_test(singer0,singer1,_owner0,_owner1);
+
+}
+
+async function SCC0Whitelist_test(singer0,singer1,_owner0,_owner1){
+  
+    //1发布合约
+    const manager0= await daism_deploy(singer0,'SCC0Whitelist', [_owner0]);
+   
+    //发布dapp
+    const forSCRegister0 = await daism_deploy(singer0,'ThreeDapp', []);
+    const forSCRegister1 = await daism_deploy(singer1,'ThreeDapp', []);
+
+     //另一个合约对象
+   const manager1=geneContract('SCC0Whitelist', await manager0.getAddress(),singer1);
+
+
+    //2. 添加审计员
+    let res;
     try {
-      await proposeVersion(await scc01.getAddress())
-      console.log("2、提交版本提案",await scc01.VERSION())
-      console.log("3、获取版本提案数量:",await manager0.getPendingVersionProposalsLength())
-      res=await manager0.getPendingVersionProposals(0,3);
-      console.log("4、分页获取版本提案信息:",res);
-      res=await manager0.getPendingVersionProposals1(await scc01.getAddress());
-      console.log("分页1:",res);
-      let tx=await manager0.addVersion(await scc01.getAddress());
-      await tx.wait();
-      console.log(" 审核添加版本号:hash:",tx.hash)
+      res=await manager0.addAuditor(_owner0);
+      await res.wait();
+      console.log('addAuditor0 is ok hash: '+res.hash);
+      res=await manager0.addAuditor(_owner1);
+      await res.wait();
+      console.log('addAuditor1 is ok hash: '+res.hash);
     } catch (error) {
       console.error(error)
+    }
+   
+    //3 删除审计员
+    try {
+      res=await manager0.removeAuditor(_owner0);
+      await res.wait();
+      console.error('removeAuditor is ok hash: '+res.hash);
+
+      res=await manager0.addAuditor(_owner0);
+      await res.wait();
+      console.log('重新addAuditor0 is ok hash: '+res.hash);
+
+    } catch (error) {
+      console.error(error)
+    }
+
+  //4. 检查是否为审计员
+    res=await manager0.isAuditor(_owner0);
+    console.log(`${_owner0}:${res}`);
+    res=await manager0.isAuditor(_owner1);
+    console.log(`${_owner1}:${res}`);
+    res=await manager0.isAuditor('0x90659d3eE9C954F4f540E9c21610abbeE920bB81');
+    console.log(`0x90659d3eE9C954F4f540E9c21610abbeE920bB81:${res}`);
+
+    //5. 获取所有审计员
+    res=await manager0.listAuditors();
+    console.log(res);
+
+    //6. 添加 dApp 到白名单
+      try {
+        res=await manager0.addToWhitelist(await forSCRegister0.getAddress());
+        await res.wait();
+        console.log('addToWhitelist is ok: '+res.hash);
+       
+        res=await manager0.addToWhitelist('0x90659d3eE9C954F4f540E9c21610abbeE920bB81');
+        await res.wait();
+        console.log('addToWhitelist is ok: '+res.hash);
+
+      } catch (error) {
+        console.log("非法dapp地址")
+      }
+
+  //7. 从白名单中移除 dApp
+  try {
+    res=await manager0.removeFromWhitelist(await forSCRegister0.getAddress());
+    await res.wait();
+    console.log('removeFromWhitelist is ok: '+res.hash);
+
+    res=await manager0.addToWhitelist(await forSCRegister0.getAddress());
+    await res.wait();
+    console.log('重新addToWhitelist is ok: '+res.hash);
+   
+  } catch (error) {
+    console.error(error)
+  }
+
+  try {
+    res=await manager1.addToWhitelist(await forSCRegister1.getAddress());
+    await res.wait();
+    console.log('addToWhitelist is ok: '+res.hash);
+   
+  } catch (error) {
+    console.error("非owner 调用")
+  }
+
+   //8. 检查 dApp 是否在白名单中
+   res=await manager0.isWhitelisted(await forSCRegister0.getAddress());
+   console.log("forSCRegister0:",res);
+   res=await manager0.isWhitelisted(await forSCRegister1.getAddress());
+   console.log("forSCRegister1",res);
+  
+   
+}
+
+async function SCC0LicenseManager_test(singer0,singer1,_owner0,_owner1){
+  
+  //1发布合约
+  const scc0= await daism_deploy(singer0,'SCC0License', []);
+  const manager0=await daism_deploy(singer0,'SCC0LicenseManager',
+     [ 
+       [
+         {owner:_owner0,license:await scc0.getAddress(),version:2}
+       ],
+       _owner0
+     ]
+   );
+
+  //另一个合约对象
+   const manager1=geneContract('SCC0LicenseManager', await manager0.getAddress(),singer1);
+
+  //新增提案协议
+  const scc01= await daism_deploy(singer0,'SCC0License1', []);
+  const scc02= await daism_deploy(singer1,'SCC0License1', []);
+
+  const scc03= await daism_deploy(singer0,'SCC0License2', []);
+  const scc04= await daism_deploy(singer1,'SCC0License2', []);
+
+  //2添加创作者
+  let res;
+  try {
+    res=await manager0.addCreator(_owner0);
+    await res.wait();
+    console.log('addCreator0 is ok hash: '+res.hash);
+    res=await manager0.addCreator(_owner1);
+    await res.wait();
+    console.log('addCreator1 is ok hash: '+res.hash);
+  } catch (error) {
+    console.error(error)
+  }
+ 
+  try {
+    res=await manager1.addCreator('0x43d1146D70bCcB003F056D1cCde21ffF5902B7D8');
+    await res.wait();
+    console.log('addCreator0 is ok hash: '+res.hash);
+  } catch (error) {
+    console.error("非管理员调用!")
+  }
+  //3删除作者
+  try {
+    res=await manager0.removeCreator(_owner0);
+    await res.wait();
+    console.error('removeCreator is ok hash: '+res.hash);
+
+    res=await manager0.addCreator(_owner0);
+    await res.wait();
+    console.log('重新addCreator0 is ok hash: '+res.hash);
+
+  } catch (error) {
+    console.error(error)
+  }
+
+  
+  try {
+    res=await manager1.removeCreator(_owner0);
+    await res.wait();
+    console.log('removeCreator is ok hash: '+res.hash);
+  } catch (error) {
+    console.error("非管理员调用!")
+  }
+//4. 检查是否为创作者
+  res=await manager0.isCreator(_owner0);
+  console.log(`${_owner0}:${res}`);
+  res=await manager0.isCreator(_owner1);
+  console.log(`${_owner1}:${res}`);
+  res=await manager0.isCreator('0x90659d3eE9C954F4f540E9c21610abbeE920bB81');
+  console.log(`0x90659d3eE9C954F4f540E9c21610abbeE920bB81:${res}`);
+
+  //5. 获取所有创作者
+  res=await manager0.listCreator();
+  console.log(res);
+
+  //6. 添加新的正式许可证版本
+    try {
+      res=await manager0.addVersion([_owner0,await scc01.getAddress(),5]);
+      await res.wait();
+      console.log('version5 is ok: '+res.hash);
+      res=await manager0.addVersion([_owner0,await scc03.getAddress(),6]);
+      await res.wait();
+      console.log('version6 is ok: '+res.hash);
+
+      res=await manager0.addVersion([_owner1,await scc02.getAddress(),5]);
+      await res.wait();
+      console.log('version5 is ok: '+res.hash);
+      res=await manager0.addVersion([_owner1,await scc04.getAddress(),6]);
+      await res.wait();
+      console.log('version6 is ok: '+res.hash);
+    } catch (error) {
       console.log("版本号冲突")
     }
 
-    //增加不推荐的scc0协议版本
-    let tx= await manager0.addUnrecommendedVersion(4);
-    await tx.wait();
-    console.log("增加不推荐的scc0协议版本 is ok")
-
-    //7、提交黑名单提案
-    tx=await manager0.proposeBlacklist("0x358E42042bD7E111960bB71331724c03fA11eea0","测试")
-    await tx.wait();
-    console.log("7、提交黑名单提案 is ok")
-    
-    console.log('8、获取黑名单提案数量:',await manager0.getPendingBlacklistProposalsLength());
-    console.log('9、分页获取黑名单提案信息',await manager0.getPendingBlacklistProposals(0,3));
-
-    //审核添加黑名单
-    tx= await manager0.addToBlacklist('0x85AC4C3221c3a69E7142b59B2C349EdA131cf445');
-    await tx.wait();
-    console.log("审核添加黑名单 is ok")
-
-    //11、删除黑名单
-    tx= await manager0.removeFromBlacklist('0x85AC4C3221c3a69E7142b59B2C349EdA131cf445');
-    await tx.wait();
-    console.log("11、删除黑名单 is ok")
-    console.log('12、通过版本号获取协议地址',await manager0.getLicenseAddress(2));
-    console.log('13、获取所有的正式协议版本号a',await manager0.getAllVersions());
-    console.log('14、获取所有不推荐的版本号',await manager0.getAllUnrecommendedVersions())
-    console.log("15,是否黑名单：",await manager0.isBlacklisted('0x358E42042bD7E111960bB71331724c03fA11eea0'))
-    console.log("16,是否道易程公器",await manager0.isDaismSC("0xE80fE2cb7e9E4930723dFebBB0c66ffFE34e2D2e"))
-    console.log("17,是否遵守了scc0协议:",await manager0.isSCC0Compliant('0xE80fE2cb7e9E4930723dFebBB0c66ffFE34e2D2e',2))
-    console.log('18、获取版本提案信息',await manager0.getPendingVersionProposals1(await scc01.getAddress()))
-
-    //拒绝协议版本提案
-    tx= await manager0.rejectPendingVersionProposals('0x358E42042bD7E111960bB71331724c03fA11eea0','备注');
-    await tx.wait();
-    console.log("拒绝协议版本提案 is ok")
-
-    //拒绝黑名单提案
-    tx= await manager0.rejectPendingBlacklistProposals('0x358E42042bD7E111960bB71331724c03fA11eea0','备注');
-    await tx.wait();
-    console.log("拒绝协议版本提案 is ok")
-
-    console.log('19、获取被拒绝的协议版本提案信息',await manager0.getRejectedVersionProposals('0xaAC8Fc4EA361f09351c3d4d214779AeE2c2a66B8'))
-    console.log('21、获取黑名单提案信息',await manager0.getPendingBlacklistProposals1('0x85AC4C3221c3a69E7142b59B2C349EdA131cf445'));
-    console.log('22、获取被拒绝的黑名单提案信息',await manager0.getRejectedBlacklistProposals('0xD418b735a4BcB72C2296dAdb3ab45b290bF94073'));
-
-    
-}
-//发布
-async function delopy() {
-   let scc0= await daism_deploy(accounts[0],'SCC0License', []);
-   manager0=await daism_deploy(accounts[0],'SCC0LicenseManager',[
-    [await scc0.getAddress()],
-    [2],
-    '0xE80fE2cb7e9E4930723dFebBB0c66ffFE34e2D2e',
-    accounts[0].address
-  ]);
-
-    console.log("scc0:",await scc0.getAddress())
-    console.log('manager:',await manager0.getAddress())
-} 
-
-//版本提案
-async function proposeVersion(_addr) {
-  let res=await manager0.proposeVersion(_addr);
+//7. 添加不推荐的协议版本（去重）
+try {
+  res=await manager0.addUnrecommendedVersion(5);
   await res.wait();
-  console.log('proposeVersion hash: '+res.hash);
+  console.log('addUnrecommendedVersion is ok: '+res.hash);
+ 
+} catch (error) {
+  console.error(error)
 }
-  
+
+try {
+  res=await manager1.addUnrecommendedVersion(6);
+  await res.wait();
+  console.log('addUnrecommendedVersion is ok: '+res.hash);
+ 
+} catch (error) {
+  console.error("非owner 调用")
+}
+
+ //8. 检查协议版本是否存在
+ res=await manager0.isLicenseVersion(5);
+ console.log("version5:",res);
+ res=await manager0.isLicenseVersion(6);
+ console.log("version6",res);
+
+  //9. 获取指定版本的正式许可证信息
+  res=await manager0.getLicense(6);
+  console.log(res);
+
+  //10. 获取所有正式许可证版本号
+  res=await manager0.getAllVersions();
+  console.log(res);
+
+  //11. 获取所有不推荐的协议版本号
+  res=await manager0.getAllUnrecommendedVersions();
+  console.log(res);
+}
+
+function geneContract(name,address,singer)
+{
+  let cabi = artifacts.readArtifactSync(name);
+  let cur=new ethers.Contract(address,cabi.abi,singer)
+  return cur
+
+}
 
 
 //发布合约
@@ -113,7 +274,6 @@ async function daism_deploy(signer,contractName,paras){
 }
 
 main();
-
 
 ```
 
