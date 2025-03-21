@@ -159,7 +159,7 @@ To ensure that dApps and dAIpps fully adhere to the principles of public interes
 - **Incentive and Reward Mechanism:** Providing cost support for development and operations through a public governance fund while distributing anonymous rewards to contributors to foster healthy ecosystem growth.
 - **Promoting AI-led and Transparent Governance:** Leveraging the strengths of artificial intelligence and blockchain to build a decentralized, autonomous governance framework led by dAIpps, thereby offering a novel pathway for the innovation of Smart Commons.
 
-Overall, SCC0 is committed to establishing a self-managed, transparent, and rigorously compliant decentralized application ecosystem, ensuring that public decentralized applications consistently uphold the principles of public interest, openness, and autonomy—thereby providing strong support for the future popularization and development of Smart Commons.
+Overall, SCC0 is committed to establishing a self-managed, transparent, and rigorously compliant Smart Commons ecosystem, ensuring them consistently uphold the principles of public interest, openness, and autonomy—thereby providing strong support for the future popularization and development of Smart Commons.
 
 # Specification
 This section outlines the technical specifications for implementing the Smart Creative Commons Zero (SCC0) license for public decentralized applications (dApps/dAIpps). It defines a standardized on-chain framework that allows smart contracts to declare SCC0 compliance, supports automated verification, and facilitates decentralized governance.
