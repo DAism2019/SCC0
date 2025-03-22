@@ -330,7 +330,7 @@ contract SCC0LicenseManager is Ownable {
 
 以下是 SCC0 白名单合约的完整实现：
 
-```
+```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
