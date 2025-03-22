@@ -228,6 +228,7 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 contract SCC0LicenseManager is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
+    using EnumerableSet for EnumerableSet.UintSet;
 
     struct License {
         address owner; //license owner
@@ -237,7 +238,7 @@ contract SCC0LicenseManager is Ownable {
   
     mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
     uint8[] public licenseVersions;// all license versions
-    uint8[] public  unrecommendedVersions; // Unrecommended SCC0 version 
+    EnumerableSet.UintSet private  unrecommendedVersions; // Unrecommended SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
 
@@ -297,7 +298,7 @@ contract SCC0LicenseManager is Ownable {
     // Set unrecommended SCC0 version
     function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
         require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        unrecommendedVersions.push(_licenseVersion);
+        require(unrecommendedVersions.add(_licenseVersion),"SCC0LicenseManager: unrecommended version already exist");
         emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
@@ -316,11 +317,12 @@ contract SCC0LicenseManager is Ownable {
         return licenseVersions;
     }
     // List all unrecommended SCC0 versions
-    function getAllUnrecommendedVersions() external view returns (uint8[] memory) {
-        return unrecommendedVersions;
+    function getAllUnrecommendedVersions() external view returns (uint[] memory) {
+        return unrecommendedVersions.values();
     }
     
 }
+
 
 ```
 
