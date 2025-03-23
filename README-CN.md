@@ -38,7 +38,7 @@ SCC0许可证的开发者们坚信，即使是当前的去中心化应用（dApp
 # 动机
 将 AI、通证经济的价值理论、智能合约的治理特色等综合到一起，为确保 dApp 和 dAIpps 能够透明地声明并遵守 SCC0 许可，我们提出了一套标准化方法：
 
-- 由 dAIpp 承担的链下源代码验证 SCC0 合规情况，并校验部署 dAIpp/dApp 使用的就是公开的源代码。
+- 由 dAIpp 承担源代码验证 SCC0 合规情况，即每个 dAIpp/dApp 的所有代码的审计和已部署合约源代码的校验。
 - 合约交互时，互相校验对方是否 SCC0 合规。
 - 为智能公器的发展提供基金支持，由特定的公共治理基金（Satoshi UTO Fund）承担开发和运营成本，并向各种贡献者分发匿名奖励。
 - 这些应用程序构成了抗审查的基础设施，没有所有权主张或治理后门。
@@ -74,7 +74,8 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
+    bool public constant CODE_AUDITED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -102,8 +103,11 @@ contract SCC0License {
 ### 不承担责任
 匿名性是指世界上没有任何人（无法识别任何个人）为某个 dApp/dAIpp 或其专属估值代币（若有的话）提供任何形式的担保，亦没有任何人（无法识别任何个人）承担任何连带责任。任何人在使用或调用此 dApp/dAIpp 或投资此智能公器专属的估值代币时，不得暗示此智能公器或其任何相关方（所有者、开发者或管理者）为其行为背书。
 
-### 开放源代码
-智能公器必须将自己的代码开源。
+### 源代码的校验和公开发布
+智能公器必须将自己的合约代码公开发布，完成校验以确保其与链上已部署合约的一致性。
+
+### 代码已通过审计
+智能公器所有的代码都已经通过相关的审计。
 
 ### 永远免费
 智能公器必须永远免费。
@@ -132,7 +136,7 @@ contract SCC0License {
 
 SCC0（Smart Creative Commons Zero）是首个专为公共的去中心化应用，即智能公器（Smart Commons），设计的公共领域许可证，适用于传统 dApp 以及去中心化的人工智能应用 dAIpp。作为去中心化生态的通用标准，SCC0 通过智能合约实现链上自动化合规验证与治理，确保以下核心原则：
 
-- **开源与免费**：所有智能公器的代码必须开源，并永久免费使用（仅需支付公链 gas 费用）。
+- **开源与免费**：所有智能公器的代码必须公开发布源代码，完成链上链下一致性校验，所有代码都通过了审计，并永久免费使用（仅需支付公链 gas 费用）。
     
 - **AI 主导治理**：通过智能合约强制执行规则（如拒绝与非合规应用交互、禁止私发代币），并由 AI 逐步接管治理流程。
     
@@ -170,7 +174,8 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
+    bool public constant CODE_AUDITED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -207,7 +212,8 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
+    bool public constant CODE_AUDITED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -495,7 +501,8 @@ contract SmartCommons {
 - **除奖励外没有其他权利（<code>NO_RIGHTS</code>）**：确认没有任何权利。
 - **版本控制（<code>VERSION</code>）**：允许参考 SCC0 合规性的未来迭代。
 - **治理基金（<code>PUBLIC_GOVERNANCE_FUND</code>）**：定义公​​共治理基金整合。
-- **开源（<code>OPEN_SOURCE</code>）**：代码必须是开源的。
+- **开源（<code>SMART_CONTRACTS_VERIFIED_AND_PUBLISHED</code>）**：代码开源并通过校验。
+- **代码审计通过（<code>CODE_AUDITED</code>）**：所有代码都审计通过。
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公共项目，永久免费。
 - **强制性**：确保合约交互之前进行 SCC0 验证。
 
