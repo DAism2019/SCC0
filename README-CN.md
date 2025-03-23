@@ -60,8 +60,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 - 不保留任何权利；
 - 不承担任何责任；
 - 于人而言，智能公器具有匿名性；
-- 合约代码开源和校验：智能公器必须将自己的合约代码公开发布，完成校验以确保其与链上已部署合约的一致性。
-- 代码已审计：智能公器所有的代码都已经通过相关的审计。
+- 代码已审计、公布和校验：所有的代码都已经通过相关的审计，代码已公开发布，已完成校验以确保其与链上已部署合约，以及用户所使用的应用前端的一致性。
 - 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本；
 - 其治理基金为 Satoshi UTO Fund （合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1F），该基金为智能公器的发展承担成本，提供奖励。
 
@@ -75,8 +74,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
-    bool public constant CODE_AUDITED = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -175,8 +173,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
-    bool public constant CODE_AUDITED = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -213,8 +210,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
-    bool public constant CODE_AUDITED = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
