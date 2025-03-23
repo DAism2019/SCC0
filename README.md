@@ -84,7 +84,8 @@ contract SCC0License {
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
     bool public constant ANONYMITY_ENSURED = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
+    bool public constant CODE_AUDITED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -183,7 +184,8 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
+    bool public constant CODE_AUDITED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
