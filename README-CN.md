@@ -24,7 +24,7 @@ SCC0许可证的开发者们坚信，即使是当前的去中心化应用（dApp
 有趣的是，SCC0 许可证是用 Solidity 代码编写，并由智能合约执行的法律。
 
 ## dApps/dAIpps 的匿名性
-我们知道，dApp 是指由智能合约驱动、自主运行的去中心化应用。我们将 dAIpp 定义为使用了 AI 技术、由智能合约驱动并自主运行的去中心化应用。所有 dApp 和 dAIpp，由于其智能合约的性质，在代码中都有一个状态变量，叫做“owner”。这个变量中存储着合约所有者的外部账户（EOA，俗称钱包地址）<a href="#r3"><sup>[3]</sup></a>，或者多重签名地址<a href="#r4"><sup>[4]</sup></a>（也由其所有成员的钱包地址控制）。这个地址通常是由部署者在合约部署时设置，或者在合约运行时通过特定函数更新。其目的是实现合约的权限控制，确保只有特定的地址（通常是合约的部署者、管理员、某个团队，甚至是 AI）才能执行某些敏感操作。
+我们知道，dApp 是指由智能合约驱动、自主运行的去中心化应用。我们将 dAIpp 定义为使用了 AI 技术、由智能合约驱动并自主运行的去中心化应用。所有 dApp 和 dAIpp，由于其智能合约的性质，在代码中可以定义一个状态变量，叫做“owner”。这个变量中存储着合约所有者的外部账户（EOA，俗称钱包地址）<a href="#r3"><sup>[3]</sup></a>，或者多重签名地址<a href="#r4"><sup>[4]</sup></a>（也由其所有成员的钱包地址控制）。这个地址通常是由部署者在合约部署时设置，或者在合约运行时通过特定函数更新。其目的是实现合约的权限控制，确保只有特定的地址（通常是合约的部署者、管理员、某个团队，甚至是 AI）才能执行某些敏感操作。
 
 我们知道，根据相应的密码学原理，钱包地址的实际控制权完全掌握在私钥手中，私钥永远不会公开，也无法公开，但私钥可以秘密地在几个人之间共享，因此，究竟谁或哪些人实际控制着钱包地址，是无法验证或证伪的。
 
@@ -120,7 +120,7 @@ contract SCC0License {
 
 标题：SCC0 - Smart Creative Commons Zero License for Smart Commons
 
-作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈长春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈昌春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 状态：Draft
 
@@ -441,68 +441,44 @@ SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
-interface ISCC0License {
-    function isSCC0Compliant(address dApp, uint version) external view returns (bool);
-    function isDaismSC(address dApp) external view returns (bool);
-    function proposeBlacklist(address dApp,string memory desc) external;
+interface ISCC0Whitelist {
+    //SCC0Whitelist contract method
+    function isWhitelisted(address dApp) external view returns (bool);
 }
 interface ISmartCommons {
-    function SCC0_LICENSE_CONTRACT() external view returns (address);
-    function SCC0_VERSION() external view returns (uint);
     // the called contract method
     function otherMethod() external ;
 }
 contract SmartCommons {
-    address public constant SCC0_LICENSE_CONTRACT = 0xxxxxxx; // SCC0 License Master Contract address
-    uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
     address public counterparty;
+    address public scc0WhitelistAddress;
 
-    constructor(address _counterparty)  {
+    constructor(address _counterparty,address _scc0WhitelistAddress)  {
         counterparty = _counterparty;
+        scc0WhitelistAddress = _scc0WhitelistAddress;
     }
-    // If the called contract does not declare the SCC0 License Master Contract address or version
-    function _checkSCC0WithNotDeclare(address _counterparty) internal view returns(bool){
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        return license.isDaismSC(_counterparty);
-    }
-    // If the called contract is declare the SCC0 License Master Contract address and version
-    function _checkSCC0WithDeclare(address _counterparty) internal view returns(bool) {
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        return (ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT && 
-                license.isSCC0Compliant(_counterparty, ISmartCommons(counterparty).SCC0_VERSION()));
-    }
-    function _submitBlacklist(address _counterparty) internal {
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        license.proposeBlacklist(_counterparty,'Counterparty is not SCC0-compliant');
+    // check SCC0 whitelist
+    function _checkSCC0Whitelist(address _counterparty) internal view returns(bool){
+        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_counterparty);
     }
 
-    // If the called contract is declare the SCC0 License Master Contract address and version
-    modifier onlySCC0(address _sender) {
-        bool flag = _checkSCC0WithNotDeclare(_sender) || _checkSCC0WithDeclare(_sender);
-        if(!flag) _submitBlacklist(_sender);
-        else _; 
+    // If the called contract is SCC0 whitelist
+    modifier onlySCC0() {
+        require(_checkSCC0Whitelist(msg.sender),"need SCC0 whitelist");
+        _;
     }
     // call counterparty contract 
     function callCounterparty() public {
         // some logic ...
 
-        // if not declare SCC0
-        if(!_checkSCC0WithNotDeclare(counterparty)){
-            _submitBlacklist(counterparty);
-            return;
-        }
-        // if declare SCC0
-        //if(!_checkSCC0WithDeclare(counterparty)){
-        //    _submitBlacklist(counterparty);
-        //   return;
-        //}
+        require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
 
         // some logic ...
         ISmartCommons(counterparty).otherMethod();
     }
     // other contract call the method must be compliant SCC0
-    function someFunction() external onlySCC0(msg.sender) {
-        // Business logic (data exchange, payments, etc.)
+    function someFunction() external onlySCC0() {
+        // logic for data exchange, payments, etc.
     }
 }
 ```
