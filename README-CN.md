@@ -214,8 +214,10 @@ contract SCC0License {
 ```
 ### 2. SCC0 许可证管理合约
 SCC0 许可证管理合约提供了管理许可证版本和强制合规性的核心功能。它支持：
+- 专职dAIpp(s)管理:专职的dAIpp(s) 需要owner(多签、合约管理团队)进行添加或者移除.
 - 许可证管理：专职 dAIpp(s) 可以对 SCC0 许可证版本的增加、不推荐使用等进行管理。
-- 许可证查验：
+- 许可证查验：查验许可证是否在SCC0许可证管理合约列表中.
+  
 以下是 SCC0 许可证管理器合约的完整实现：
 ```solidity
 // SPDX-License-Identifier: scc0
@@ -325,7 +327,11 @@ contract SCC0LicenseManager is Ownable {
 ```
 
 ### 3. SCC0 白名单合约
-
+SCC0 白名单合约保持着遵循SCC0标准的第三方dApp。它支持：
+- 专职dAIpp(s)管理:专职的dAIpp(s) 需要owner(多签、合约管理团队)进行添加或者移除.
+- 白名单管理：专职 dAIpp(s) 可以对 SCC0 白名单的增加、移除。
+- 白名单查验：查验第三方dApp是否遵循SCC0标准,交互时可以通过查验白名单再与之交互.
+  
 以下是 SCC0 白名单合约的完整实现：
 
 ```solidity
