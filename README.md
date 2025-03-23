@@ -553,7 +553,7 @@ contract SmartCommons {
 5. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
 6. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
 7. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
-8. **OpenSource (`CODE_AUDITED_VERIFIED_PUBLISHED`)**: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
+8. **Source has been audited, verified and published (`CODE_AUDITED_VERIFIED_PUBLISHED`)**: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
 9. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
 10. **Enforceability**: Ensures SCC0 validation before contract interactions.
 
