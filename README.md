@@ -70,8 +70,7 @@ This license enforces the following non-negotiable governance rules for Smart Co
 - Retain no rights whatsoever;
 - Bear no liability;
 - Ensure anonymity for humans interacting with Smart Commons;
-- Contracts code verified and published: Smart Commons must publicly release their smart contract code and complete verification to ensure consistency with the deployed on-chain contracts.
-- Audited: All code of Smart Commons has undergone the necessary auditing.
+- code audited, verified, and published: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
 - Permanently free access: No usage costs other than unavoidable gas fees;
 - Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
