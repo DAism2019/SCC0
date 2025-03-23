@@ -115,7 +115,7 @@ Human Developers completely renounce all rights, including all related and neigh
 Anonymity ensures that no identifiable person anywhere in the world guarantees any dApp/dAIpp or its dedicated valuation token (if any), nor does anyone assume any associated liability. Anyone using or interacting with a dApp/dAIpp or investing in a Smart Common’s dedicated valuation token must not imply that the Smart Common or any of its related parties (owners, developers, or administrators) endorse their actions.  
 
 ### **Source code audited, verified and published**  
-code has been audited and published, code consistency with the deployed on-chain contracts verified.
+code has been audited and published, code consistency with the deployed on-chain contracts as well as the application frontend used by users verified.
 
 ### **Permanently Free**  
 Smart Commons must remain free forever.  
@@ -554,7 +554,7 @@ contract SmartCommons {
 5. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
 6. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
 7. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
-8. **OpenSource (`OPEN_SOURCE`)**: The contract must be open source.
+8. **OpenSource (`CODE_AUDITED_VERIFIED_PUBLISHED`)**: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
 9. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
 10. **Enforceability**: Ensures SCC0 validation before contract interactions.
 
