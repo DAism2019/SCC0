@@ -212,12 +212,10 @@ contract SCC0License {
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
-### 2. SCC0 许可主合约实施
-SCC0 许可证管理器合约提供了管理许可证版本和强制合规性的核心功能。它支持：
-- 许可证版本提案：开发者可以提交新的 SCC0 许可证版本以供社区批准。每个提案都包含拟议的许可证地址及其版本号。
-- 版本批准和注册：一旦获得合约所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
-- 黑名单管理：可以提议将不合规的 dApp/dAIpps 列入黑名单。批准的提案将这些地址标记为不合规，从而阻止进一步作为 SCC0 实体进行交互。
-- 链上验证：功能如<code>isSCC0Compliant</code>和<code>isBlacklisted</code>使其他合约和治理机制能够实时验证合规性。
+### 2. SCC0 许可证管理合约
+SCC0 许可证管理合约提供了管理许可证版本和强制合规性的核心功能。它支持：
+- 许可证管理：专职 dAIpp(s) 可以对 SCC0 许可证版本的增加、不推荐使用等进行管理。
+- 许可证查验：
 以下是 SCC0 许可证管理器合约的完整实现：
 ```solidity
 // SPDX-License-Identifier: scc0
