@@ -246,19 +246,12 @@ contract SCC0License {
 ```
 
 ### 2. SCC0 License Master Contract
-The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
 
-- License Version Proposals:
-Developers may submit new SCC0 license versions for community approval. Each proposal includes the proposed license address and its version number.
+The SCC0 License Management Contract provides license administrator management, license version management, and version verification functionalities. It supports:  
 
-- Version Approval and Registration:
-Once approved by the contract owner, new license versions are recorded, ensuring that updated standards are adopted while maintaining backward compatibility.
-
-- Blacklist Management:
-Non-compliant dApps/dAIpps can be proposed for blacklisting. Approved proposals mark these addresses as non-compliant, preventing further interactions as SCC0 entities.
-
-- On-Chain Verification:
-Functions such as <code>isSCC0Compliant</code> and <code>isBlacklisted</code> enable other contracts and governance mechanisms to verify compliance in real time.
+- **License Administrator Management**: The contract owner (which might represent a multi-signature address managed by the contract’s administrative team) manages the license version administrators （similar to the contract owner）. The owner can add or remove license version administrators. 
+- **License Version Management**: License version administrators can manage SCC0 license versions, including adding new versions and marking versions as deprecated.  
+- **License Version Verification**: This allows checking whether a specific license version is included in the list and whether its current status is marked as deprecated.  
 
 Below is the complete implementation of the SCC0 License Manager contract:
 
@@ -281,7 +274,7 @@ contract SCC0LicenseManager is Ownable {
   
     mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
     uint8[] public licenseVersions;// all license versions
-    EnumerableSet.UintSet private  unrecommendedVersions; // Unrecommended SCC0 version 
+    EnumerableSet.UintSet private  deprecatedVersions; // deprecated SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
 
@@ -341,7 +334,7 @@ contract SCC0LicenseManager is Ownable {
     // Set unrecommended SCC0 version
     function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
         require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        require(unrecommendedVersions.add(_licenseVersion),"SCC0LicenseManager: unrecommended version already exist");
+        require(unrecommendedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
         emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
