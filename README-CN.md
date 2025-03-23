@@ -483,8 +483,8 @@ contract SmartCommons {
 }
 ```
 - **修饰符通过检查来<code>onlySCC0</code>强制遵守：**
-    - 是否<code>counterparty</code>已声明SCC0许可证。
-    - 是否<code>counterparty</code>未被列入黑名单。
+    - 要求<code>counterparty</code>是SCC0白名单。
+    - 要求<code>SmartCommons</code>的函数调用者是SCC0白名单。
 - **每个 SCC0 许可的 Smart Commons 在与另一个 dApp/dAIpp 交互之前都必须应用此检查。**
 
 # 基本原理
