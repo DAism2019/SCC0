@@ -215,8 +215,8 @@ contract SCC0License {
 ### 2. SCC0 许可证版本管理合约
 SCC0 许可证管理合约提供了许可证管理员管理，许可证版本管理和版本查验功能。它支持：
 - 许可证版本管理员管理：本合约 owner（代表的是本合约管理团队的一个多签地址）管理许可证版本管理员，即 owner 可以添加或者移除许可证版本管理员。
-- 许可证版本管理：许可证版本管理员可以对 SCC0 许可证版本进行增加、不推荐使用等管理。
-- 许可证版本查验：查验某许可证版本是否在列表中，以及它当前的状态是否为不推荐使用。
+- 许可证版本管理：许可证版本管理员可以对 SCC0 许可证版本进行增加、已弃用等管理。
+- 许可证版本查验：查验某许可证版本是否在列表中，以及它当前的状态是否为已弃用。
   
 以下是 SCC0 许可证管理器合约的完整实现：
 ```solidity
@@ -238,7 +238,7 @@ contract SCC0LicenseManager is Ownable {
   
     mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
     uint8[] public licenseVersions;// all license versions
-    EnumerableSet.UintSet private  unrecommendedVersions; // Unrecommended SCC0 version 
+    EnumerableSet.UintSet private  deprecatedVersions; // deprecated SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
 
@@ -298,7 +298,7 @@ contract SCC0LicenseManager is Ownable {
     // Set unrecommended SCC0 version
     function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
         require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        require(unrecommendedVersions.add(_licenseVersion),"SCC0LicenseManager: unrecommended version already exist");
+        require(unrecommendedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
         emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
