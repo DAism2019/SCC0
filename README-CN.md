@@ -498,8 +498,7 @@ contract SmartCommons {
 - **除奖励外没有其他权利（<code>NO_RIGHTS</code>）**：确认没有任何权利。
 - **版本控制（<code>VERSION</code>）**：允许参考 SCC0 合规性的未来迭代。
 - **治理基金（<code>PUBLIC_GOVERNANCE_FUND</code>）**：定义公​​共治理基金整合。
-- **开源（<code>SMART_CONTRACTS_VERIFIED_AND_PUBLISHED</code>）**：代码开源并通过校验。
-- **代码审计通过（<code>CODE_AUDITED</code>）**：所有代码都审计通过。
+- **代码审计通过（<code>CODE_AUDITED_VERIFIED_PUBLISHED</code>）**：所有的代码都已经通过相关的审计，代码已公开发布，已完成校验以确保其与链上已部署合约，以及用户所使用的应用前端的一致性。
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公共项目，永久免费。
 - **强制性**：确保合约交互之前进行 SCC0 验证。
 
