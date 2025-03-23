@@ -279,7 +279,7 @@ contract SCC0LicenseManager is Ownable {
     
 
     event VersionAdded(address indexed license, uint version,address creator);
-    event UnrecommendedVersionAdded(uint version,address creator);
+    event DeprecatedVersionAdded(uint version,address creator);
    
     event CreatorAdded(address indexed creator);
     event CreatorRemoved(address indexed creator);
@@ -331,11 +331,11 @@ contract SCC0LicenseManager is Ownable {
         emit VersionAdded(_license.license, _license.version,msg.sender);
     }
    
-    // Set unrecommended SCC0 version
-    function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
+    // Set Deprecated SCC0 version
+    function addDeprecatedVersion(uint8 _licenseVersion) external onlyCreator {
         require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        require(unrecommendedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
-        emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
+        require(deprecatedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
+        emit DeprecatedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
     function isLicenseVersion(uint8 _version) public view returns(bool){
@@ -352,14 +352,12 @@ contract SCC0LicenseManager is Ownable {
     function getAllVersions() external view returns (uint8[] memory) {
         return licenseVersions;
     }
-    // List all unrecommended SCC0 versions
-    function getAllUnrecommendedVersions() external view returns (uint[] memory) {
-        return unrecommendedVersions.values();
+    // List all deprecated SCC0 versions
+    function getAllDeprecatedVersions() external view returns (uint[] memory) {
+        return deprecatedVersions.values();
     }
     
 }
-
-
 
 
 ```
@@ -516,16 +514,16 @@ contract SmartCommons {
     }
     // call counterparty contract 
     function callCounterparty() public {
-        // some logic ...
+        // the code logic ...
 
         require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
 
-        // some logic ...
+        // the code logic ...
         ISmartCommons(counterparty).otherMethod();
     }
     // other contract call the method must be compliant SCC0
     function someFunction() external onlySCC0() {
-        // logic for data exchange, payments, etc.
+        // the code logic ...
     }
 }
 ```
