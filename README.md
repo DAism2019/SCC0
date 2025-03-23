@@ -48,7 +48,7 @@ In short, Smart Commons are public goods developed by smart contracts and artifi
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
 
-- The verification of SCC0 compliance for source code is carried out by dAIpps, ensuring that all code for each dAIpp/dApp has been audited and its smart contract code matches the deployed contract source code.  
+- The audit, verification of SCC0 compliance for source code is carried out by dAIpps, ensuring that all code for each dAIpp/dApp has been audited and its code matches the deployed contract source code and the application frontend used by users. 
 - During contract interactions, parties mutually verify whether the other violates the SCC0 license.
 - To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
 - These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
