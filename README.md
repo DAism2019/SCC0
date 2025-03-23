@@ -48,7 +48,7 @@ In short, Smart Commons are public goods developed by smart contracts and artifi
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
 
-- The off-chain source code of a or a group of dAIpps verify SCC0 compliance and ensures that the deployed dAIpp/dApp uses the open source published.
+- The verification of SCC0 compliance for source code is carried out by dAIpps, ensuring that all code for each dAIpp/dApp has been audited and its smart contract code matches the deployed contract source code.  
 - During contract interactions, parties mutually verify whether the other violates the SCC0 license.
 - To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
 - These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
@@ -70,7 +70,8 @@ This license enforces the following non-negotiable governance rules for Smart Co
 - Retain no rights whatsoever;
 - Bear no liability;
 - Ensure anonymity for humans interacting with Smart Commons;
-- Open-source: All dAIpps/dApps must have publicly available source code;
+- Contracts code verified and published: Smart Commons must publicly release their smart contract code and complete verification to ensure consistency with the deployed on-chain contracts.
+- Audited: All code of Smart Commons has undergone the necessary auditing.
 - Permanently free access: No usage costs other than unavoidable gas fees;
 - Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
@@ -84,8 +85,7 @@ contract SCC0License {
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
     bool public constant ANONYMITY_ENSURED = true;
-    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
-    bool public constant CODE_AUDITED = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -114,8 +114,8 @@ Human Developers completely renounce all rights, including all related and neigh
 ### **No Liability**  
 Anonymity ensures that no identifiable person anywhere in the world guarantees any dApp/dAIpp or its dedicated valuation token (if any), nor does anyone assume any associated liability. Anyone using or interacting with a dApp/dAIpp or investing in a Smart Common’s dedicated valuation token must not imply that the Smart Common or any of its related parties (owners, developers, or administrators) endorse their actions.  
 
-### **Open-Source Code**  
-Smart Commons must make their code open source.  
+### **Source code audited, verified and published**  
+code has been audited and published, code consistency with the deployed on-chain contracts verified.
 
 ### **Permanently Free**  
 Smart Commons must remain free forever.  
@@ -143,7 +143,8 @@ Category: ERC
 
 SCC0 (Smart Creative Commons Zero) is the first public domain license specifically designed for public decentralized applications—Smart Commons—applicable to both traditional dApps and decentralized AI applications (dAIpp). As a universal standard for decentralized ecosystems, SCC0 implements automated on-chain compliance verification and governance through smart contracts, ensuring the following core principles:
 
-- **Open Source and Free:** The code for all Smart Commons must be open-sourced and available free of charge (subject only to blockchain gas fees).
+- **Open Source and Free**: All Smart Commons must publicly release their source code, complete both on-chain and off-chain consistency verification, undergo thorough auditing, and be permanently free to use (only requiring payment for blockchain gas fees).
+
 - **AI-led Governance:** Rules are enforced via smart contracts (such as rejecting interactions with non-compliant applications and prohibiting private token distributions), with AI gradually taking over the governance process.
 - **Scalability:** The community can extend the license's functionalities by deploying new versions while maintaining backward compatibility.
 - **Public Fund Support:** The Satoshi UTO Fund covers development costs and allocates rewards to anonymous contributors.
@@ -184,8 +185,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant SMART_CONTRACTS_VERIFIED_AND_PUBLISHED = true;
-    bool public constant CODE_AUDITED = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -240,7 +240,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
