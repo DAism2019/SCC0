@@ -535,12 +535,13 @@ contract SmartCommons {
 }
 ```
 
+- **Contract Invocation Restriction:** Only dApps/dAIpps that are on the **SCC0 whitelist** can invoke restricted functions within `SmartCommons` (such as `someFunction()`).
+    
+- **Contract Interaction Restriction:** `SmartCommons` can only interact with contracts that are on the whitelist (`callCounterparty()` is restricted to calling a compliant `counterparty`).
+    
+- **SCC0 License Enforcement:** By leveraging the `SCC0Whitelist` contract, compliance checks are performed automatically to ensure that all interactions adhere to the SCC0 license.
 
-- **The `onlySCC0` modifier enforces compliance** by checking:
-    - Whether the `counterparty` has declared an SCC0 license.
-    - Whether the `counterparty` is **not blacklisted**.
-- **Every SCC0-licensed Smart Commons must apply this check before interacting with another dApp/dAIpp.**
-
+This mechanism guarantees **decentralization, fairness, and compliance** within the **SCC0 ecosystem**, preventing non-public dApps/dAIpps from entering the Smart Commons network.
 
 ## Rationale
 
