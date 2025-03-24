@@ -442,7 +442,7 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细奖励规则”的原因在于，我们既不能通过任何中心化的审查小组方法实施此类措施，也不能通过使用钱包地址的社区投票来确定奖励金额。后一种方法甚至更糟糕——它构成了一种伪去中心化的方法，只有自欺欺人者甚至骗子才会使用。我们预计未来一些 dAIpp 会接手这项工作，从估值到奖金管理。
 
 # 智能公器的合规执行
-所有遵循 **SCC0 许可**的 Smart Commons 必须在与另一个合约交互之前验证合规性。执行机制的工作原理如下：
+这个合约使得智能公器能够通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。执行机制的工作原理如下：
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
@@ -487,6 +487,13 @@ contract SmartCommons {
     }
 }
 ```
+
+- **合约调用限制：** 只有在 **SCC0 白名单** 上的 dApps/dAIpps（即智能公器）才能调用 `SmartCommons` 内的受限函数 (`someFunction()`)。
+- **合约交互限制：** `SmartCommons` 只能调用白名单上的合约 (`callCounterparty()` 仅允许调用合规的 `counterparty`)。
+- **SCC0 许可证强制执行：** 通过 `SCC0Whitelist` 合约，全程自动校验合约合规性，确保所有交互符合 SCC0 许可。
+
+这确保了 **SCC0 生态系统的去中心化、公平性和合规性**，防止非公共 dApps/dAIpps 进入智能公器网络。
+
 - **修饰符通过检查来<code>onlySCC0</code>强制遵守：**
     - 要求<code>counterparty</code>是SCC0白名单。
     - 要求<code>SmartCommons</code>的函数调用者是SCC0白名单。
