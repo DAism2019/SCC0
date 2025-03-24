@@ -6,7 +6,7 @@ The uniqueness of the SCC0 License lies in the fact that it was not originally d
 
 **Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
 
-Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Master Contract**!
+Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Version Management Contract**!
 
 The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO** （token name: uToken）.
 
@@ -245,7 +245,7 @@ contract SCC0License {
 }
 ```
 
-### 2. SCC0 License Master Contract
+### 2. SCC0 License Version Management Contract
 
 The SCC0 License Management Contract provides license administrator management, license version management, and version verification functionalities. It supports:  
 
@@ -253,7 +253,7 @@ The SCC0 License Management Contract provides license administrator management, 
 - **License Version Management**: License version administrators can manage SCC0 license versions, including adding new versions and marking versions as deprecated.  
 - **License Version Verification**: This allows checking whether a specific license version is included in the list and whether its current status is marked as deprecated.  
 
-Below is the complete implementation of the SCC0 License Manager contract:
+Below is the complete implementation of the SCC0 License Management contract:
 
 ```solidity
 // SPDX-License-Identifier: scc0
