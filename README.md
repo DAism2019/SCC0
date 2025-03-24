@@ -75,7 +75,7 @@ This license enforces the following non-negotiable governance rules for Smart Co
 - Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
 The corresponding contract is:
-```
+```solidity
 contract SCC0License {
     string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = a number;
