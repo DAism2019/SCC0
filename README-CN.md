@@ -65,7 +65,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 - 其治理基金为 Satoshi UTO Fund （合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1F），该基金为智能公器的发展承担成本，提供奖励。
 
 其对应的合约代码为
-```
+```solidity
 contract SCC0License {
     string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = a number;
@@ -421,9 +421,9 @@ contract SCC0Whitelist is Ownable {
 ### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
-- 检查<code></code>常量。
-- 查询。
-- 确保 dApp/dAIpp 被列入白名单。
+- 与“智能公器”交互之前,检查被交互合约是否在合约SCC0Whitelist[合约地址:]的白名单[方法:isWhitelisted(address dApp)]中.
+- 合约中提供的功能方法限制必须“智能公器”才能调用[校验调用者必须是SCC0Whitelist合约中的白名单].
+
 这些机制促进了在分散应用程序中执行 SCC0 许可证的无需信任和自动化的方法。
 
 ### 6. 奖励分配机制
