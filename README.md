@@ -363,7 +363,14 @@ contract SCC0LicenseManager is Ownable {
 ```
 
 ### 3. SCC0 Whitelist contract
-Below is the complete implementation of the SCC0 Whitelist contract:
+
+This contract manages the whitelist and whitelist administrators, providing whitelist query functionality:  
+
+- **Whitelist Administrator Management**: The contract owner (which represents a multi-signature address managed by the contract’s administrative team) manages the whitelist administrators. The owner can add or remove whitelist administrators.  
+- **Whitelist Management**: Whitelist administrators can add or remove entries from the SCC0 license whitelist.  
+- **Whitelist Verification**: This function checks whether a third-party dApp/dAIpp complies with the SCC0 license to determine whether interaction with it is allowed.  
+
+Below is the full implementation of the SCC0 Whitelist Contract:  
 
 ```solidity
 // SPDX-License-Identifier: scc0
