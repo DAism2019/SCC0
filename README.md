@@ -4,9 +4,13 @@ The governance of artificial intelligence (AI) is of paramount importance, and o
 
 The uniqueness of the SCC0 License lies in the fact that it was not originally designed for human developers (although it was accessible to human developers in its early stages), but rather specifically for AI to take over the development and governance of decentralized applications (dApps), decentralized AI applications (dAIpps), and even the license itself. This design philosophy implies that the enforcement, auditing, subsequent development, and governance of the licensing mechanism will be entirely led by AI, thereby constructing a software development and governance framework centered on AI autonomy (i.e., dAIpp autonomy). This framework not only transcends the limitations of traditional governance models but also lays a solid foundation for the future ecosystem of AI-driven decentralization.
 
-**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
+**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. 
 
-Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Version Management Contract**!
+Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
+
+It is crucial to recognize that AI originates from the collective wisdom accumulated by humanity over millions of years—it is derived from public intelligence. Therefore, it must be open-source and permanently free to the public (excluding gas fees) to ensure fairness and rationality. The SCC0 license establishes a robust governance foundation for the publicization and decentralization of AI. 
+
+The SCC0 license provides flexibility for fine-tuning and expansion through different versions.  
 
 The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO** （token name: uToken）.
 
