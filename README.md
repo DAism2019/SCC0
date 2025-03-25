@@ -464,13 +464,12 @@ Beyond the core license and reference implementation contracts, SCC0 includes fu
 
 ### 5. Interoperability and On-Chain Verification
 
-The SCC0 framework allows any interacting contract to verify compliance by:
+The SCC0 framework allows any interacting contract to verify compliance through the following methods:  
 
-- Checking the declared `` constant.
-- 
-- Ensuring that the dApp/dAIpp is whitelisted.
+- Before interacting with a dApp/dAIpp, check whether the target contract is on the whitelist of the `SCC0Whitelist` contract ([Contract Address](https://github.com/DAism2019/SCC0/blob/main)) using the method [`isWhitelisted(address dApp)`].  
+- Restrict contract functions so that only **Smart Commons** can invoke them, ensuring that callers must be on the whitelist of the `SCC0Whitelist` contract.  
 
-These mechanisms promote a trustless and automated approach to enforcing the SCC0 license across decentralized applications.
+These mutual verification mechanisms facilitate a **trustless and automated approach** to enforcing the SCC0 license within dApps and dAIpps.  
 
 ### Reward Distribution Mechanism
 
@@ -550,15 +549,16 @@ This mechanism guarantees **decentralization, fairness, and compliance** within 
 ## Rationale
 
 1. **License Compliance (`LICENSE`, `LICENSE_NAME`)**: Ensures smart contracts transparently declare SCC0 adherence.
-2. **No Self-Issued Token (`SELFI_SSUED_TOKEN`)**: Prevents misleading token issuance claims or any scams.
-3. **No Liability (`NO_LIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
-4. **Anonymity Assurance (`ANONYMITY_ENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
-5. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
-6. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
-7. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
-8. **Source has been audited, verified and published (`CODE_AUDITED_VERIFIED_PUBLISHED`)**: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
-9. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
-10. **Enforceability**: Ensures SCC0 validation before contract interactions.
+2. **Reject Interaction with Private Apps (`REJECT_PRIVATE_APP`)**: Prevents private applications from exploiting public resources.  
+3. **No Self-Issued Token (`SELFI_SSUED_TOKEN`)**: Prevents misleading token issuance claims or any scams.
+4. **No Liability (`NO_LIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
+5. **Anonymity Assurance (`ANONYMITY_ENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
+6. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
+7. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
+8. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
+9. **Source has been audited, verified and published (`CODE_AUDITED_VERIFIED_PUBLISHED`)**: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
+10. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
+11. **Enforceability**: Ensures SCC0 validation before contract interactions.
 
 ## Backwards Compatibility
 
