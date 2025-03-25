@@ -4,7 +4,6 @@ Time: 20250310
 code:
 ```js
 
-
 const { ethers } = require('hardhat')
 const hre=require('hardhat')
 
@@ -216,20 +215,20 @@ async function SCC0LicenseManager_test(singer0,singer1,_owner0,_owner1){
       console.log("版本号冲突")
     }
 
-//7. 添加不推荐的协议版本（去重）
+// 7. 添加废弃的协议版本（去重））
 try {
-  res=await manager0.addUnrecommendedVersion(5);
+  res=await manager0.addDeprecatedVersion(5);
   await res.wait();
-  console.log('addUnrecommendedVersion is ok: '+res.hash);
+  console.log('addDeprecatedVersion is ok: '+res.hash);
  
 } catch (error) {
   console.error(error)
 }
 
 try {
-  res=await manager1.addUnrecommendedVersion(6);
+  res=await manager1.addDeprecatedVersion(6);
   await res.wait();
-  console.log('addUnrecommendedVersion is ok: '+res.hash);
+  console.log('addDeprecatedVersion is ok: '+res.hash);
  
 } catch (error) {
   console.error("非owner 调用")
@@ -249,8 +248,8 @@ try {
   res=await manager0.getAllVersions();
   console.log(res);
 
-  //11. 获取所有不推荐的协议版本号
-  res=await manager0.getAllUnrecommendedVersions();
+  //11. 获取所有废弃的协议版本号
+  res=await manager0.getAllDeprecatedVersions();
   console.log(res);
 }
 
@@ -274,6 +273,7 @@ async function daism_deploy(signer,contractName,paras){
 }
 
 main();
+
 
 ```
 
