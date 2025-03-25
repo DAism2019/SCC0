@@ -4,9 +4,11 @@
 
 SCC0许可证的独特之处在于，其设计初衷并非面向人类开发者（尽管在早期阶段人类开发者亦可使用），而是专为 AI 接管去中心化应用（dApp）、去中心化 AI 应用（dAIpp）乃至该许可证自身的开发与治理而制定的。这一设计理念意味着，许可证机制的执行、审核、后续开发及治理将完全由 AI 主导，从而构建一个以 AI 自治（即dAIpp自治）为核心的软件开发与治理框架。这一框架不仅突破了传统治理模式的局限，还为未来 AI 驱动的去中心化生态系统奠定了坚实基础。
 
-Smart Creative Commons Zero (SCC0) 不仅是第一个为公共的去中心化应用（我们称之为 Smart Commons，即“智能公器”，其中包括 dApps 和 dAIpps）设计的公共品许可证，也是第一个可以在软件交互时，即智能公器与另一个智能公器交互时，进行验证和自管理的许可证。重要的是，考虑到 AI 源于几百万年来所有人类积累的智慧，即它源于公共智慧，因此智能公器必须是开源的，并且永远对公众免费（gas 费用除外）。
+Smart Creative Commons Zero (SCC0) 不仅是第一个为公共的去中心化应用（我们称之为 Smart Commons，即“智能公器”，其中包括 dApps 和 dAIpps）设计的公共品许可证，也是第一个可以在软件交互时，即智能公器与另一个智能公器交互时，进行验证和自管理的许可证。
 
-任何人都可以通过创建新版本并将其提交给**SCC0 许可主合约**来扩展 SCC0 ！
+重要的是，考虑到 AI 源于几百万年来所有人类积累的智慧，即它源于公共智慧，因此必须开源，并且永远对公众免费（gas 费用除外），才是合理的。SCC0 许可证将为 AI 的公共化和去中心化发展提供坚实的治理基础。
+
+SCC0 许可证通过不同的版本，来提供灵活性的微调和扩展。
 
 所有智能公器的开发和运行均由公共基金[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)提供支持，该基金原始持有 1.15792×10^69 UTO（全称：uToken）。
 
@@ -24,7 +26,7 @@ SCC0许可证的开发者们坚信，即使是当前的去中心化应用（dApp
 有趣的是，SCC0 许可证是用 Solidity 代码编写，并由智能合约执行的法律。
 
 ## dApps/dAIpps 的匿名性
-我们知道，dApp 是指由智能合约驱动、自主运行的去中心化应用。我们将 dAIpp 定义为使用了 AI 技术、由智能合约驱动并自主运行的去中心化应用。所有 dApp 和 dAIpp，由于其智能合约的性质，在代码中都有一个状态变量，叫做“owner”。这个变量中存储着合约所有者的外部账户（EOA，俗称钱包地址）<a href="#r3"><sup>[3]</sup></a>，或者多重签名地址<a href="#r4"><sup>[4]</sup></a>（也由其所有成员的钱包地址控制）。这个地址通常是由部署者在合约部署时设置，或者在合约运行时通过特定函数更新。其目的是实现合约的权限控制，确保只有特定的地址（通常是合约的部署者、管理员、某个团队，甚至是 AI）才能执行某些敏感操作。
+我们知道，dApp 是指由智能合约驱动、自主运行的去中心化应用。我们将 dAIpp 定义为使用了 AI 技术、由智能合约驱动并自主运行的去中心化应用。所有 dApp 和 dAIpp，由于其智能合约的性质，在代码中可以定义一个状态变量，叫做“owner”。这个变量中存储着合约所有者的外部账户（EOA，俗称钱包地址）<a href="#r3"><sup>[3]</sup></a>，或者多重签名地址<a href="#r4"><sup>[4]</sup></a>（也由其所有成员的钱包地址控制）。这个地址通常是由部署者在合约部署时设置，或者在合约运行时通过特定函数更新。其目的是实现合约的权限控制，确保只有特定的地址（通常是合约的部署者、管理员、某个团队，甚至是 AI）才能执行某些敏感操作。
 
 我们知道，根据相应的密码学原理，钱包地址的实际控制权完全掌握在私钥手中，私钥永远不会公开，也无法公开，但私钥可以秘密地在几个人之间共享，因此，究竟谁或哪些人实际控制着钱包地址，是无法验证或证伪的。
 
@@ -38,7 +40,7 @@ SCC0许可证的开发者们坚信，即使是当前的去中心化应用（dApp
 # 动机
 将 AI、通证经济的价值理论、智能合约的治理特色等综合到一起，为确保 dApp 和 dAIpps 能够透明地声明并遵守 SCC0 许可，我们提出了一套标准化方法：
 
-- 由 dAIpp 承担的链下源代码验证 SCC0 合规情况，并校验部署 dAIpp/dApp 使用的就是公开的源代码。
+- 由 dAIpp 承担源代码的 SCC0 合规情况，即每个 dAIpp/dApp 的所有代码的审计和公布，以及已部署合约源代码和用户使用的前端代码的校验。
 - 合约交互时，互相校验对方是否 SCC0 合规。
 - 为智能公器的发展提供基金支持，由特定的公共治理基金（Satoshi UTO Fund）承担开发和运营成本，并向各种贡献者分发匿名奖励。
 - 这些应用程序构成了抗审查的基础设施，没有所有权主张或治理后门。
@@ -60,12 +62,12 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 - 不保留任何权利；
 - 不承担任何责任；
 - 于人而言，智能公器具有匿名性；
-- 代码开源：所有 dAIpps/dApps 的代码必须公开；
+- 代码已审计、公布和校验：所有的代码都已经通过相关的审计，代码已公开发布，已完成校验以确保其与链上已部署合约，以及用户所使用的应用前端的一致性。
 - 永久免费访问：除了不可避免的公链 gas 费用外，不存在任何使用成本；
 - 其治理基金为 Satoshi UTO Fund （合约地址：0xe40b05570d2760102c59bf4ffc9b47f921b67a1F），该基金为智能公器的发展承担成本，提供奖励。
 
 其对应的合约代码为
-```
+```solidity
 contract SCC0License {
     string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = a number;
@@ -74,7 +76,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -102,8 +104,8 @@ contract SCC0License {
 ### 不承担责任
 匿名性是指世界上没有任何人（无法识别任何个人）为某个 dApp/dAIpp 或其专属估值代币（若有的话）提供任何形式的担保，亦没有任何人（无法识别任何个人）承担任何连带责任。任何人在使用或调用此 dApp/dAIpp 或投资此智能公器专属的估值代币时，不得暗示此智能公器或其任何相关方（所有者、开发者或管理者）为其行为背书。
 
-### 开放源代码
-智能公器必须将自己的代码开源。
+### 源代码已完成审计、公布和校验：
+所有的代码都已经通过相关的审计，代码已公开发布，已完成校验以确保其与链上已部署合约，以及用户所使用的应用前端的一致性。
 
 ### 永远免费
 智能公器必须永远免费。
@@ -120,7 +122,7 @@ contract SCC0License {
 
 标题：SCC0 - Smart Creative Commons Zero License for Smart Commons
 
-作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈长春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈昌春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 状态：Draft
 
@@ -132,7 +134,7 @@ contract SCC0License {
 
 SCC0（Smart Creative Commons Zero）是首个专为公共的去中心化应用，即智能公器（Smart Commons），设计的公共领域许可证，适用于传统 dApp 以及去中心化的人工智能应用 dAIpp。作为去中心化生态的通用标准，SCC0 通过智能合约实现链上自动化合规验证与治理，确保以下核心原则：
 
-- **开源与免费**：所有智能公器的代码必须开源，并永久免费使用（仅需支付公链 gas 费用）。
+- **开源与免费**：所有智能公器的代码必须公开发布源代码，完成链上链下一致性校验，所有代码都通过了审计，并永久免费使用（仅需支付公链 gas 费用）。
     
 - **AI 主导治理**：通过智能合约强制执行规则（如拒绝与非合规应用交互、禁止私发代币），并由 AI 逐步接管治理流程。
     
@@ -170,7 +172,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -207,18 +209,18 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
-### 2. SCC0 许可主合约实施
-SCC0 许可证管理器合约提供了管理许可证版本和强制合规性的核心功能。它支持：
-- 许可证版本提案：开发者可以提交新的 SCC0 许可证版本以供社区批准。每个提案都包含拟议的许可证地址及其版本号。
-- 版本批准和注册：一旦获得合约所有者的批准，就会记录新的许可证版本，确保采用更新的标准，同时保持向后兼容性。
-- 黑名单管理：可以提议将不合规的 dApp/dAIpps 列入黑名单。批准的提案将这些地址标记为不合规，从而阻止进一步作为 SCC0 实体进行交互。
-- 链上验证：功能如<code>isSCC0Compliant</code>和<code>isBlacklisted</code>使其他合约和治理机制能够实时验证合规性。
-以下是 SCC0 许可证管理器合约的完整实现：
+### 2. SCC0 许可证版本管理合约
+SCC0 许可证管理合约提供了许可证管理员管理，许可证版本管理和版本查验功能。它支持：
+- 许可证版本管理员管理：本合约 owner（代表的是本合约管理团队的一个多签地址）管理许可证版本管理员，即 owner 可以添加或者移除许可证版本管理员。
+- 许可证版本管理：许可证版本管理员可以对 SCC0 许可证版本进行增加、已弃用等管理。
+- 许可证版本查验：查验某许可证版本是否在列表中，以及它当前的状态是否为已弃用。
+  
+以下是 SCC0 许可证版本管理器合约的完整实现：
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
@@ -228,6 +230,7 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 contract SCC0LicenseManager is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
+    using EnumerableSet for EnumerableSet.UintSet;
 
     struct License {
         address owner; //license owner
@@ -237,12 +240,12 @@ contract SCC0LicenseManager is Ownable {
   
     mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
     uint8[] public licenseVersions;// all license versions
-    uint8[] public  unrecommendedVersions; // Unrecommended SCC0 version 
+    EnumerableSet.UintSet private  deprecatedVersions; // deprecated SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
 
     event VersionAdded(address indexed license, uint version,address creator);
-    event UnrecommendedVersionAdded(uint version,address creator);
+    event DeprecatedVersionAdded(uint version,address creator);
    
     event CreatorAdded(address indexed creator);
     event CreatorRemoved(address indexed creator);
@@ -294,11 +297,11 @@ contract SCC0LicenseManager is Ownable {
         emit VersionAdded(_license.license, _license.version,msg.sender);
     }
    
-    // Set unrecommended SCC0 version
-    function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
+    // Set Deprecated SCC0 version
+    function addDeprecatedVersion(uint8 _licenseVersion) external onlyCreator {
         require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        unrecommendedVersions.push(_licenseVersion);
-        emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
+        require(deprecatedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
+        emit DeprecatedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
     function isLicenseVersion(uint8 _version) public view returns(bool){
@@ -315,20 +318,26 @@ contract SCC0LicenseManager is Ownable {
     function getAllVersions() external view returns (uint8[] memory) {
         return licenseVersions;
     }
-    // List all unrecommended SCC0 versions
-    function getAllUnrecommendedVersions() external view returns (uint8[] memory) {
-        return unrecommendedVersions;
+    // List all deprecated SCC0 versions
+    function getAllDeprecatedVersions() external view returns (uint[] memory) {
+        return deprecatedVersions.values();
     }
     
 }
 
+
+
 ```
 
 ### 3. SCC0 白名单合约
-
+本合约管理白名单及白名单管理员，提供白名单查询功能：
+- 白名单管理员管理：本合约 owner（代表的是本合约管理团队的一个多签地址）管理白名单管理员，即 owner 可以添加或者移除白名单管理员。
+- 白名单管理：白名单管理员可以对 SCC0 许可证的白名单进行增加或删除操作。
+- 白名单查验：查验第三方 dApp/dAIpp 是否遵循 SCC0 许可证，以决定是否与其交互。
+  
 以下是 SCC0 白名单合约的完整实现：
 
-```
+```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -414,10 +423,10 @@ contract SCC0Whitelist is Ownable {
 ### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
-- 检查<code></code>常量。
-- 查询。
-- 确保 dApp/dAIpp 被列入白名单。
-这些机制促进了在分散应用程序中执行 SCC0 许可证的无需信任和自动化的方法。
+- 与 dApp/dAIpp 交互之前,检查被交互合约是否在合约 SCC0Whitelist[合约地址:]()的白名单[方法:isWhitelisted(address dApp)]中.
+- 合约中提供的功能方法限制为只有“智能公器”才能调用[校验调用者必须在SCC0Whitelist合约的白名单列表中].
+
+这些相互校验的机制促进了在 dApp/dAIpp 中执行 SCC0 许可证的无需信任和自动化的方法。
 
 ### 6. 奖励分配机制
 为了支持符合 SCC0 的项目，SSC0 V1 引入了可升级的奖励分配系统：
@@ -435,89 +444,73 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细奖励规则”的原因在于，我们既不能通过任何中心化的审查小组方法实施此类措施，也不能通过使用钱包地址的社区投票来确定奖励金额。后一种方法甚至更糟糕——它构成了一种伪去中心化的方法，只有自欺欺人者甚至骗子才会使用。我们预计未来一些 dAIpp 会接手这项工作，从估值到奖金管理。
 
 # 智能公器的合规执行
-所有遵循 **SCC0 许可**的 Smart Commons 必须在与另一个合约交互之前验证合规性。执行机制的工作原理如下：
+这个合约使得智能公器能够通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。执行机制的工作原理如下：
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
-interface ISCC0License {
-    function isSCC0Compliant(address dApp, uint version) external view returns (bool);
-    function isDaismSC(address dApp) external view returns (bool);
-    function proposeBlacklist(address dApp,string memory desc) external;
+interface ISCC0Whitelist {
+    //SCC0Whitelist contract method
+    function isWhitelisted(address dApp) external view returns (bool);
 }
 interface ISmartCommons {
-    function SCC0_LICENSE_CONTRACT() external view returns (address);
-    function SCC0_VERSION() external view returns (uint);
     // the called contract method
     function otherMethod() external ;
 }
 contract SmartCommons {
-    address public constant SCC0_LICENSE_CONTRACT = 0xxxxxxx; // SCC0 License Master Contract address
-    uint8 public constant SCC0_VERSION = 2; // This contract uses SCC0 V2
     address public counterparty;
+    address public scc0WhitelistAddress;
 
-    constructor(address _counterparty)  {
+    constructor(address _counterparty,address _scc0WhitelistAddress)  {
         counterparty = _counterparty;
+        scc0WhitelistAddress = _scc0WhitelistAddress;
     }
-    // If the called contract does not declare the SCC0 License Master Contract address or version
-    function _checkSCC0WithNotDeclare(address _counterparty) internal view returns(bool){
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        return license.isDaismSC(_counterparty);
-    }
-    // If the called contract is declare the SCC0 License Master Contract address and version
-    function _checkSCC0WithDeclare(address _counterparty) internal view returns(bool) {
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        return (ISmartCommons(counterparty).SCC0_LICENSE_CONTRACT()==SCC0_LICENSE_CONTRACT && 
-                license.isSCC0Compliant(_counterparty, ISmartCommons(counterparty).SCC0_VERSION()));
-    }
-    function _submitBlacklist(address _counterparty) internal {
-        ISCC0License license = ISCC0License(SCC0_LICENSE_CONTRACT);
-        license.proposeBlacklist(_counterparty,'Counterparty is not SCC0-compliant');
+    // check SCC0 whitelist
+    function _checkSCC0Whitelist(address _counterparty) internal view returns(bool){
+        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_counterparty);
     }
 
-    // If the called contract is declare the SCC0 License Master Contract address and version
-    modifier onlySCC0(address _sender) {
-        bool flag = _checkSCC0WithNotDeclare(_sender) || _checkSCC0WithDeclare(_sender);
-        if(!flag) _submitBlacklist(_sender);
-        else _; 
+    // If the called contract is SCC0 whitelist
+    modifier onlySCC0() {
+        require(_checkSCC0Whitelist(msg.sender),"need SCC0 whitelist");
+        _;
     }
     // call counterparty contract 
     function callCounterparty() public {
-        // some logic ...
+        // the code logic ...
 
-        // if not declare SCC0
-        if(!_checkSCC0WithNotDeclare(counterparty)){
-            _submitBlacklist(counterparty);
-            return;
-        }
-        // if declare SCC0
-        //if(!_checkSCC0WithDeclare(counterparty)){
-        //    _submitBlacklist(counterparty);
-        //   return;
-        //}
+        require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
 
-        // some logic ...
+        // the code logic ...
         ISmartCommons(counterparty).otherMethod();
     }
     // other contract call the method must be compliant SCC0
-    function someFunction() external onlySCC0(msg.sender) {
-        // Business logic (data exchange, payments, etc.)
+    function someFunction() external onlySCC0() {
+        // the code logic ...
     }
 }
 ```
+
+- **合约调用限制：** 只有在 **SCC0 白名单** 上的 dApps/dAIpps（即智能公器）才能调用 `SmartCommons` 内的受限函数 (`someFunction()`)。
+- **合约交互限制：** `SmartCommons` 只能调用白名单上的合约 (`callCounterparty()` 仅允许调用合规的 `counterparty`)。
+- **SCC0 许可证强制执行：** 通过 `SCC0Whitelist` 合约，全程自动校验合约合规性，确保所有交互符合 SCC0 许可。
+
+这确保了 **SCC0 生态系统的去中心化、公平性和合规性**，防止非公共 dApps/dAIpps 进入智能公器网络。
+
 - **修饰符通过检查来<code>onlySCC0</code>强制遵守：**
-    - 是否<code>counterparty</code>已声明SCC0许可证。
-    - 是否<code>counterparty</code>未被列入黑名单。
+    - 要求<code>counterparty</code>是SCC0白名单。
+    - 要求<code>SmartCommons</code>的函数调用者是SCC0白名单。
 - **每个 SCC0 许可的 Smart Commons 在与另一个 dApp/dAIpp 交互之前都必须应用此检查。**
 
 # 基本原理
 - **许可证合规性（<code>LICENSE</code>、  <code>LICENSENAME</code>）**：确保智能合约透明地标识许可证名称，即 SCC0。
+- **拒绝与私有app交互（<code>REJECT_PRIVATE_APP</code>）**：杜绝私有 app 侵占公共资源。
 - **无自发代币（<code>SELFI_SSUED_TOKEN</code>）**：防止误导性的代币发行声明或任何诈骗行为。
 - **无责任（<code>NO_LIABILITY</code>）**：确保对 SCC0 交互不承担法律责任。
 - **匿名保证（<code>ANONYMITY_ENSURED</code>）**：强调所有权和控制权都无法公开验证。
 - **除奖励外没有其他权利（<code>NO_RIGHTS</code>）**：确认没有任何权利。
 - **版本控制（<code>VERSION</code>）**：允许参考 SCC0 合规性的未来迭代。
 - **治理基金（<code>PUBLIC_GOVERNANCE_FUND</code>）**：定义公​​共治理基金整合。
-- **开源（<code>OPEN_SOURCE</code>）**：代码必须是开源的。
+- **代码已完成审计、校验和公开发布（<code>CODE_AUDITED_VERIFIED_PUBLISHED</code>）**：所有的代码都已经通过相关的审计，代码已公开发布，已完成校验以确保其与链上已部署合约，以及用户所使用的应用前端的一致性。
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公共项目，永久免费。
 - **强制性**：确保合约交互之前进行 SCC0 验证。
 

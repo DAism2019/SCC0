@@ -4,9 +4,13 @@ The governance of artificial intelligence (AI) is of paramount importance, and o
 
 The uniqueness of the SCC0 License lies in the fact that it was not originally designed for human developers (although it was accessible to human developers in its early stages), but rather specifically for AI to take over the development and governance of decentralized applications (dApps), decentralized AI applications (dAIpps), and even the license itself. This design philosophy implies that the enforcement, auditing, subsequent development, and governance of the licensing mechanism will be entirely led by AI, thereby constructing a software development and governance framework centered on AI autonomy (i.e., dAIpp autonomy). This framework not only transcends the limitations of traditional governance models but also lays a solid foundation for the future ecosystem of AI-driven decentralization.
 
-**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
+**Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. 
 
-Anyone can expand SCC0 by creating a new version and submitting it to the **SCC0 License Master Contract**!
+Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
+
+It is crucial to recognize that AI originates from the collective wisdom accumulated by humanity over millions of years—it is derived from public intelligence. Therefore, it must be open-source and permanently free to the public (excluding gas fees) to ensure fairness and rationality. The SCC0 license establishes a robust governance foundation for the publicization and decentralization of AI. 
+
+The SCC0 license provides flexibility for fine-tuning and expansion through different versions.  
 
 The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO** （token name: uToken）.
 
@@ -48,7 +52,7 @@ In short, Smart Commons are public goods developed by smart contracts and artifi
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
 
-- The off-chain source code of a or a group of dAIpps verify SCC0 compliance and ensures that the deployed dAIpp/dApp uses the open source published.
+- The audit, verification of SCC0 compliance for source code is carried out by dAIpps, ensuring that all code for each dAIpp/dApp has been audited and its code matches the deployed contract source code and the application frontend used by users. 
 - During contract interactions, parties mutually verify whether the other violates the SCC0 license.
 - To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
 - These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
@@ -70,12 +74,12 @@ This license enforces the following non-negotiable governance rules for Smart Co
 - Retain no rights whatsoever;
 - Bear no liability;
 - Ensure anonymity for humans interacting with Smart Commons;
-- Open-source: All dAIpps/dApps must have publicly available source code;
+- code audited, verified, and published: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
 - Permanently free access: No usage costs other than unavoidable gas fees;
 - Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
 The corresponding contract is:
-```
+```solidity
 contract SCC0License {
     string public constant LICENSE_NAME = "SCC0";
     uint8 public constant VERSION = a number;
@@ -84,7 +88,7 @@ contract SCC0License {
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
     bool public constant ANONYMITY_ENSURED = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -113,8 +117,8 @@ Human Developers completely renounce all rights, including all related and neigh
 ### **No Liability**  
 Anonymity ensures that no identifiable person anywhere in the world guarantees any dApp/dAIpp or its dedicated valuation token (if any), nor does anyone assume any associated liability. Anyone using or interacting with a dApp/dAIpp or investing in a Smart Common’s dedicated valuation token must not imply that the Smart Common or any of its related parties (owners, developers, or administrators) endorse their actions.  
 
-### **Open-Source Code**  
-Smart Commons must make their code open source.  
+### **Source code audited, verified and published**  
+code has been audited and published, code consistency with the deployed on-chain contracts as well as the application frontend used by users verified.
 
 ### **Permanently Free**  
 Smart Commons must remain free forever.  
@@ -142,7 +146,8 @@ Category: ERC
 
 SCC0 (Smart Creative Commons Zero) is the first public domain license specifically designed for public decentralized applications—Smart Commons—applicable to both traditional dApps and decentralized AI applications (dAIpp). As a universal standard for decentralized ecosystems, SCC0 implements automated on-chain compliance verification and governance through smart contracts, ensuring the following core principles:
 
-- **Open Source and Free:** The code for all Smart Commons must be open-sourced and available free of charge (subject only to blockchain gas fees).
+- **Open Source and Free**: All Smart Commons must publicly release their source code, complete both on-chain and off-chain consistency verification, undergo thorough auditing, and be permanently free to use (only requiring payment for blockchain gas fees).
+
 - **AI-led Governance:** Rules are enforced via smart contracts (such as rejecting interactions with non-compliant applications and prohibiting private token distributions), with AI gradually taking over the governance process.
 - **Scalability:** The community can extend the license's functionalities by deploying new versions while maintaining backward compatibility.
 - **Public Fund Support:** The Satoshi UTO Fund covers development costs and allocates rewards to anonymous contributors.
@@ -183,7 +188,7 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
@@ -238,28 +243,21 @@ contract SCC0License {
     bool public constant ANONYMITY_ENSURED = true;
     bool public constant NO_RIGHTS = true;
     bool public constant NO_LIABILITY = true;
-    bool public constant OPEN_SOURCE = true;
+    bool public constant CODE_AUDITED_VERIFIED_PUBLISHED = true;
     bool public constant PERMANENTLY_FREE = true;
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
 
-### 2. SCC0 License Master Contract
-The SCC0 License Manager contract provides the core functionalities for managing license versions and enforcing compliance. It supports:
+### 2. SCC0 License Version Management Contract
 
-- License Version Proposals:
-Developers may submit new SCC0 license versions for community approval. Each proposal includes the proposed license address and its version number.
+The SCC0 License Management Contract provides license administrator management, license version management, and version verification functionalities. It supports:  
 
-- Version Approval and Registration:
-Once approved by the contract owner, new license versions are recorded, ensuring that updated standards are adopted while maintaining backward compatibility.
+- **License Administrator Management**: The contract owner (which might represent a multi-signature address managed by the contract’s administrative team) manages the license version administrators （similar to the contract owner）. The owner can add or remove license version administrators. 
+- **License Version Management**: License version administrators can manage SCC0 license versions, including adding new versions and marking versions as deprecated.  
+- **License Version Verification**: This allows checking whether a specific license version is included in the list and whether its current status is marked as deprecated.  
 
-- Blacklist Management:
-Non-compliant dApps/dAIpps can be proposed for blacklisting. Approved proposals mark these addresses as non-compliant, preventing further interactions as SCC0 entities.
-
-- On-Chain Verification:
-Functions such as <code>isSCC0Compliant</code> and <code>isBlacklisted</code> enable other contracts and governance mechanisms to verify compliance in real time.
-
-Below is the complete implementation of the SCC0 License Manager contract:
+Below is the complete implementation of the SCC0 License Management contract:
 
 ```solidity
 // SPDX-License-Identifier: scc0
@@ -270,6 +268,7 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 contract SCC0LicenseManager is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
+    using EnumerableSet for EnumerableSet.UintSet;
 
     struct License {
         address owner; //license owner
@@ -279,12 +278,12 @@ contract SCC0LicenseManager is Ownable {
   
     mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
     uint8[] public licenseVersions;// all license versions
-    uint8[] public  unrecommendedVersions; // Unrecommended SCC0 version 
+    EnumerableSet.UintSet private  deprecatedVersions; // deprecated SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
 
     event VersionAdded(address indexed license, uint version,address creator);
-    event UnrecommendedVersionAdded(uint version,address creator);
+    event DeprecatedVersionAdded(uint version,address creator);
    
     event CreatorAdded(address indexed creator);
     event CreatorRemoved(address indexed creator);
@@ -336,11 +335,11 @@ contract SCC0LicenseManager is Ownable {
         emit VersionAdded(_license.license, _license.version,msg.sender);
     }
    
-    // Set unrecommended SCC0 version
-    function addUnrecommendedVersion(uint8 _licenseVersion) external onlyCreator {
+    // Set Deprecated SCC0 version
+    function addDeprecatedVersion(uint8 _licenseVersion) external onlyCreator {
         require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
-        unrecommendedVersions.push(_licenseVersion);
-        emit UnrecommendedVersionAdded(_licenseVersion,msg.sender);
+        require(deprecatedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
+        emit DeprecatedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
     function isLicenseVersion(uint8 _version) public view returns(bool){
@@ -357,20 +356,25 @@ contract SCC0LicenseManager is Ownable {
     function getAllVersions() external view returns (uint8[] memory) {
         return licenseVersions;
     }
-    // List all unrecommended SCC0 versions
-    function getAllUnrecommendedVersions() external view returns (uint8[] memory) {
-        return unrecommendedVersions;
+    // List all deprecated SCC0 versions
+    function getAllDeprecatedVersions() external view returns (uint[] memory) {
+        return deprecatedVersions.values();
     }
     
 }
 
 
-
-
 ```
 
 ### 3. SCC0 Whitelist contract
-Below is the complete implementation of the SCC0 Whitelist contract:
+
+This contract manages the whitelist and whitelist administrators, providing whitelist query functionality:  
+
+- **Whitelist Administrator Management**: The contract owner (which represents a multi-signature address managed by the contract’s administrative team) manages the whitelist administrators. The owner can add or remove whitelist administrators.  
+- **Whitelist Management**: Whitelist administrators can add or remove entries from the SCC0 license whitelist.  
+- **Whitelist Verification**: This function checks whether a third-party dApp/dAIpp complies with the SCC0 license to determine whether interaction with it is allowed.  
+
+Below is the full implementation of the SCC0 Whitelist Contract:  
 
 ```solidity
 // SPDX-License-Identifier: scc0
@@ -460,13 +464,12 @@ Beyond the core license and reference implementation contracts, SCC0 includes fu
 
 ### 5. Interoperability and On-Chain Verification
 
-The SCC0 framework allows any interacting contract to verify compliance by:
+The SCC0 framework allows any interacting contract to verify compliance through the following methods:  
 
-- Checking the declared `` constant.
-- 
-- Ensuring that the dApp/dAIpp is whitelisted.
+- Before interacting with a dApp/dAIpp, check whether the target contract is on the whitelist of the `SCC0Whitelist` contract ([Contract Address](https://github.com/DAism2019/SCC0/blob/main)) using the method [`isWhitelisted(address dApp)`].  
+- Restrict contract functions so that only **Smart Commons** can invoke them, ensuring that callers must be on the whitelist of the `SCC0Whitelist` contract.  
 
-These mechanisms promote a trustless and automated approach to enforcing the SCC0 license across decentralized applications.
+These mutual verification mechanisms facilitate a **trustless and automated approach** to enforcing the SCC0 license within dApps and dAIpps.  
 
 ### Reward Distribution Mechanism
 
@@ -521,39 +524,41 @@ contract SmartCommons {
     }
     // call counterparty contract 
     function callCounterparty() public {
-        // some logic ...
+        // the code logic ...
 
         require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
 
-        // some logic ...
+        // the code logic ...
         ISmartCommons(counterparty).otherMethod();
     }
     // other contract call the method must be compliant SCC0
     function someFunction() external onlySCC0() {
-        // logic for data exchange, payments, etc.
+        // the code logic ...
     }
 }
 ```
 
+- **Contract Invocation Restriction:** Only dApps/dAIpps that are on the **SCC0 whitelist** can invoke restricted functions within `SmartCommons` (such as `someFunction()`).
+    
+- **Contract Interaction Restriction:** `SmartCommons` can only interact with contracts that are on the whitelist (`callCounterparty()` is restricted to calling a compliant `counterparty`).
+    
+- **SCC0 License Enforcement:** By leveraging the `SCC0Whitelist` contract, compliance checks are performed automatically to ensure that all interactions adhere to the SCC0 license.
 
-- **The `onlySCC0` modifier enforces compliance** by checking:
-    - Whether the `counterparty` has declared an SCC0 license.
-    - Whether the `counterparty` is **not blacklisted**.
-- **Every SCC0-licensed Smart Commons must apply this check before interacting with another dApp/dAIpp.**
-
+This mechanism guarantees **decentralization, fairness, and compliance** within the **SCC0 ecosystem**, preventing non-public dApps/dAIpps from entering the Smart Commons network.
 
 ## Rationale
 
 1. **License Compliance (`LICENSE`, `LICENSE_NAME`)**: Ensures smart contracts transparently declare SCC0 adherence.
-2. **No Self-Issued Token (`SELFI_SSUED_TOKEN`)**: Prevents misleading token issuance claims or any scams.
-3. **No Liability (`NO_LIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
-4. **Anonymity Assurance (`ANONYMITY_ENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
-5. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
-6. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
-7. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
-8. **OpenSource (`OPEN_SOURCE`)**: The contract must be open source.
-9. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
-10. **Enforceability**: Ensures SCC0 validation before contract interactions.
+2. **Reject Interaction with Private Apps (`REJECT_PRIVATE_APP`)**: Prevents private applications from exploiting public resources.  
+3. **No Self-Issued Token (`SELFI_SSUED_TOKEN`)**: Prevents misleading token issuance claims or any scams.
+4. **No Liability (`NO_LIABILITY`)**: Ensures no legal responsibility for SCC0 interactions.
+5. **Anonymity Assurance (`ANONYMITY_ENSURED`)**: Reinforces that neither ownership nor control can be publicly verified.
+6. **No Rights Except Rewards (`NO_RIGHTS`)**: Confirms no legal claims beyond anonymous rewards.
+7. **Version Control (`VERSION`)**: Allows future iterations of SCC0 compliance to be referenced.
+8. **Governance Declaration (`PUBLIC_GOVERNANCE_FUND`)**: Defines public governance fund integration.
+9. **Source has been audited, verified and published (`CODE_AUDITED_VERIFIED_PUBLISHED`)**: All code has undergone the necessary auditing, has been publicly released, and has completed verification to ensure consistency with the deployed on-chain contracts as well as the application frontend used by users.
+10. **Permanently Free (`PERMANENTLY_FREE`)**: Public project, free forever.
+11. **Enforceability**: Ensures SCC0 validation before contract interactions.
 
 ## Backwards Compatibility
 
