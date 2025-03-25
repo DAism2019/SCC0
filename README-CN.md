@@ -423,7 +423,7 @@ contract SCC0Whitelist is Ownable {
 ### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
-- 与“智能公器”交互之前,检查被交互合约是否在合约 SCC0Whitelist[合约地址:]()的白名单[方法:isWhitelisted(address dApp)]中.
+- 与 dApp/dAIpp 交互之前,检查被交互合约是否在合约 SCC0Whitelist[合约地址:]()的白名单[方法:isWhitelisted(address dApp)]中.
 - 合约中提供的功能方法限制为只有“智能公器”才能调用[校验调用者必须在SCC0Whitelist合约的白名单列表中].
 
 这些相互校验的机制促进了在 dApp/dAIpp 中执行 SCC0 许可证的无需信任和自动化的方法。
