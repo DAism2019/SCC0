@@ -218,7 +218,9 @@ contract SCC0License {
 SCC0 许可证管理合约提供了许可证管理员管理，许可证版本管理和查验所有废弃版本功能。它支持：
 - 许可证版本管理员管理：本合约 owner（代表的是本合约管理团队的一个多签地址）管理许可证版本管理员，即 owner 可以添加或者移除许可证版本管理员。
 - 许可证版本管理：许可证版本管理员可以对 SCC0 许可证版本进行增加、已弃用等管理。
-- 废弃版本查验：查询所有废弃版本列表。
+- 许可证版本查验: 查询所有协议版本列表、通过版本号或者协议地址查询许可证版本是否在版本列表中.
+- 废弃版本查验：查询所有废弃版本列表,通过版本号或者协议地址查询SCC0协议详情并校验协议版本是否废弃。
+- 有效版本查验: 查询所有有效的版本列表,通过版本号或者协议地址查询SCC0协议详情并校验协议版本是否有效.
   
 以下是 SCC0 许可证版本管理器合约的完整实现：
 ```solidity
@@ -236,19 +238,19 @@ contract SCC0LicenseManager is Ownable {
     struct License {
         address owner; //license owner
         address license; //SCC0 license address
-        uint version; //SCC0 license version
+        uint256 version; //SCC0 license version
         bool isActived; //actived or deprecated
     }
   
-    mapping(uint => License) private licenseMap; // Mapping all SCC0 version => struct License
+    mapping(uint256 => License) private licenseMap; // Mapping all SCC0 version => struct License
     EnumerableMap.AddressToUintMap private licenseToVersion; //mapping all SCC0 address => version
     EnumerableSet.AddressSet private activedVersions;// actived SCC0  versions
     EnumerableSet.AddressSet private  deprecatedVersions; // deprecated SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
 
-    event VersionAdded(address indexed license, uint version,address creator);
-    event DeprecatedVersionAdded(address indexed license, uint version,address creator);
+    event VersionAdded(address indexed license, uint256 version,address creator);
+    event DeprecatedVersionAdded(address indexed license, uint256 version,address creator);
    
     event CreatorAdded(address indexed creator);
     event CreatorRemoved(address indexed creator);
@@ -259,9 +261,9 @@ contract SCC0LicenseManager is Ownable {
         _;
     }
     constructor(License[] memory _licenseList,address _initOwner) Ownable(_initOwner) {
-        for (uint i = 0; i < _licenseList.length; i++) {
+        for (uint256 i = 0; i < _licenseList.length; i++) {
             address license = _licenseList[i].license;
-            uint version = _licenseList[i].version;
+            uint256 version = _licenseList[i].version;
             licenseMap[version] = _licenseList[i];
             licenseToVersion.set(license, version);
             activedVersions.add(license);
@@ -309,13 +311,13 @@ contract SCC0LicenseManager is Ownable {
         require(activedVersions.contains(_license), "SCC0LicenseManager: version not exist or already deprecated");
         require(deprecatedVersions.add(_license),"SCC0LicenseManager: deprecated version already exist");
         require(activedVersions.remove(_license),"SCC0LicenseManager: deprecated version add fail");
-        uint version = licenseToVersion.get(_license);
+        uint256 version = licenseToVersion.get(_license);
         require(version>0,"SCC0LicenseManager: version not exist");
         licenseMap[version].isActived = false;
         emit DeprecatedVersionAdded(_license,version,msg.sender);
     }
     //check SCC0 by version 
-    function isSCC0Version(uint _version) public view returns(bool){
+    function isSCC0Version(uint256 _version) public view returns(bool){
         License memory licenseTmp = licenseMap[_version];
         if(licenseTmp.license != address(0))return true;
         return false;
@@ -326,7 +328,7 @@ contract SCC0LicenseManager is Ownable {
         return result;
     }
     // Get license info by version
-    function getSCC0Info(uint _version) external view returns (License memory) {
+    function getSCC0Info(uint256 _version) external view returns (License memory) {
         return licenseMap[_version];
     }
     // Get license info by license address
@@ -337,7 +339,7 @@ contract SCC0LicenseManager is Ownable {
     function getAllSCC0Versions() external view returns (address[] memory) {
         return licenseToVersion.keys();
     }
-    // List all license  versions
+    // List all actived  versions
     function getAllActivedVersions() external view returns (address[] memory) {
         return activedVersions.values();
     }
@@ -347,6 +349,7 @@ contract SCC0LicenseManager is Ownable {
     }
     
 }
+
 
 
 ```
