@@ -238,8 +238,8 @@ contract SCC0LicenseManager is Ownable {
         uint8 version; //SCC0 license version
     }
   
-    mapping(uint8 => License) private licenseMap; // Mapping SCC0 version => struct License
-    uint8[] public licenseVersions;// all license versions
+    mapping(uint8 => License) private licenseMap; // Mapping all SCC0 version => struct License
+    EnumerableSet.UintSet private licenseVersions;// SCC0 license versions
     EnumerableSet.UintSet private  deprecatedVersions; // deprecated SCC0 version 
     EnumerableSet.AddressSet private creators; //creators set
     
@@ -259,7 +259,7 @@ contract SCC0LicenseManager is Ownable {
         for (uint8 i = 0; i < _licenseList.length; i++) {
             uint8 version = _licenseList[i].version;
             licenseMap[version] = _licenseList[i];
-            licenseVersions.push(version);
+            licenseVersions.add(version);
         }
     }
     /// add creator 
@@ -287,24 +287,25 @@ contract SCC0LicenseManager is Ownable {
     // Add a new SCC0 license version after approval
     function addVersion(License memory _license) external onlyCreator {
         require(_license.owner != address(0)&&_license.license!=address(0)&&_license.version>0, "SCC0LicenseManager: error params");
-        require(!isLicenseVersion(_license.version), "SCC0LicenseManager: version already exist");
+        require(!isSCC0Version(_license.version), "SCC0LicenseManager: version already exist");
         licenseMap[_license.version] = License({
                  owner : _license.owner,
                  license : _license.license,
                  version : _license.version
             });
-        licenseVersions.push(_license.version);
+        licenseVersions.add(_license.version);
         emit VersionAdded(_license.license, _license.version,msg.sender);
     }
    
-    // Set Deprecated SCC0 version
+    // add Deprecated SCC0 version
     function addDeprecatedVersion(uint8 _licenseVersion) external onlyCreator {
-        require(isLicenseVersion(_licenseVersion), "SCC0LicenseManager: Version not exist");
+        require(licenseVersions.contains(_licenseVersion), "SCC0LicenseManager: Version not exist or already deprecated");
         require(deprecatedVersions.add(_licenseVersion),"SCC0LicenseManager: deprecated version already exist");
+        require(licenseVersions.remove(_licenseVersion),"SCC0LicenseManager: deprecated version add fail");
         emit DeprecatedVersionAdded(_licenseVersion,msg.sender);
     }
     //check version 
-    function isLicenseVersion(uint8 _version) public view returns(bool){
+    function isSCC0Version(uint8 _version) public view returns(bool){
         License memory licenseTmp = licenseMap[_version];
         if(licenseTmp.license != address(0))return true;
         return false;
@@ -315,8 +316,23 @@ contract SCC0LicenseManager is Ownable {
     }
 
     // List all SCC0 versions
-    function getAllVersions() external view returns (uint8[] memory) {
-        return licenseVersions;
+    function getAllVersions() external view returns (uint[] memory) {
+        uint[] memory licenseVersionsTmp = licenseVersions.values();
+        uint[] memory deprecatedVersionsTmp = deprecatedVersions.values();
+        uint totalLength = licenseVersionsTmp.length + deprecatedVersionsTmp.length;
+        uint[] memory versions = new uint[](totalLength);
+        for (uint i = 0; i < licenseVersionsTmp.length; i++) {
+            versions[i] = licenseVersionsTmp[i];
+        }
+        
+        for (uint j = 0; j < deprecatedVersionsTmp.length; j++) {
+            versions[licenseVersionsTmp.length + j] = deprecatedVersionsTmp[j];
+        }
+        return versions;
+    }
+    // List all license  versions
+    function getAllLicenseVersions() external view returns (uint[] memory) {
+        return licenseVersions.values();
     }
     // List all deprecated SCC0 versions
     function getAllDeprecatedVersions() external view returns (uint[] memory) {
