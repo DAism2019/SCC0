@@ -235,31 +235,43 @@ contract SCC0LicenseManager is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
     using EnumerableMap for EnumerableMap.AddressToUintMap;
 
+    /// @notice Represents an SCC0 License.
     struct License {
-        address owner; //license owner
-        address license; //SCC0 license address
-        uint256 version; //SCC0 license version
-        bool isActived; //actived or deprecated
+        address owner; //License owner's address
+        address license; //SCC0 license contract address
+        uint256 version; //SCC0 license version number
+        bool isActived; //Activation status: true if active, false if deprecated
     }
   
-    mapping(uint256 => License) private licenseMap; // Mapping all SCC0 version => struct License
-    EnumerableMap.AddressToUintMap private licenseToVersion; //mapping all SCC0 address => version
-    EnumerableSet.AddressSet private activedVersions;// actived SCC0  versions
-    EnumerableSet.AddressSet private  deprecatedVersions; // deprecated SCC0 version 
-    EnumerableSet.AddressSet private creators; //creators set
+    // Mapping from license version number to License struct.
+    mapping(uint256 => License) private licenseMap;
+    // Mapping from SCC0 license address to its version number.
+    EnumerableMap.AddressToUintMap private licenseToVersion;
+    // Set of active SCC0 license addresses.
+    EnumerableSet.AddressSet private activedVersions;
+    // Set of deprecated SCC0 license addresses.
+    EnumerableSet.AddressSet private deprecatedVersions;
+    // Set of creator addresses authorized to add licenses.
+    EnumerableSet.AddressSet private creators;
     
-
-    event VersionAdded(address indexed license, uint256 version,address creator);
-    event DeprecatedVersionAdded(address indexed license, uint256 version,address creator);
+    // Emitted when a new SCC0 license version is added.
+    event VersionAdded(address indexed license, uint256 version, address creator);
+    // Emitted when an SCC0 license is marked as deprecated.
+    event DeprecatedVersionAdded(address indexed license, uint256 version, address creator);
    
+    // Emitted when a new creator is added.
     event CreatorAdded(address indexed creator);
+    // Emitted when a creator is removed.
     event CreatorRemoved(address indexed creator);
 
-
+    /// @dev Restricts function access to addresses in the creators set.
     modifier onlyCreator(){
         require(creators.contains(msg.sender),"SCC0LicenseManager: only creator");
         _;
     }
+    /// @notice Constructor to initialize the SCC0LicenseManager.
+    /// @param _licenseList An array of License structs representing approved SCC0 licenses.
+    /// @param _initOwner The initial owner (admin) address.
     constructor(License[] memory _licenseList,address _initOwner) Ownable(_initOwner) {
         for (uint256 i = 0; i < _licenseList.length; i++) {
             address license = _licenseList[i].license;
@@ -269,29 +281,41 @@ contract SCC0LicenseManager is Ownable {
             activedVersions.add(license);
         }
     }
-    /// add creator 
+    
+    /// @notice Adds a new creator authorized to add licenses.
+    /// @param _creator The creator address to add.
     function addCreator(address _creator) external onlyOwner {
         require(_creator != address(0), "SCC0LicenseManager: invalid creator address");
         require(creators.add(_creator), "SCC0LicenseManager: creator already exist");
         emit CreatorAdded(_creator);
     }
 
-    /// remove creator
+    /// @notice Removes a creator from the authorized list.
+    /// @param _creator The creator address to remove.
     function removeCreator(address _creator) external onlyOwner {
         require(_creator != address(0), "SCC0LicenseManager: invalid creator address");
         require(creators.remove(_creator), "SCC0LicenseManager: creator does not exist");
         emit CreatorRemoved(_creator);
     }
 
-    /// check creator
+    /// @notice Checks whether a given address is a creator.
+    /// @param _creator The address to check.
+    /// @return True if the address is a creator; otherwise, false.
     function isCreator(address _creator) external view returns (bool) {
         return creators.contains(_creator);
     }
-    //list all creator
+    /// @notice Returns a list of all creator addresses.
+    /// @return An array of creator addresses.
     function listCreator() external view returns(address[] memory){
         return creators.values();
     }
-    // Add a new SCC0 license version after approval
+    /// @notice Adds a new SCC0 license version after approval.
+    /// @param _license The License struct containing:
+    ///        - owner: License owner's address.
+    ///        - license: SCC0 license contract address.
+    ///        - version: SCC0 license version number.
+    ///        - isActived: Should be true.
+    /// Only a creator can call this function.
     function addSCC0Version(License memory _license) external onlyCreator {
         require(_license.owner != address(0)&&_license.license!=address(0)&&_license.version>0, "SCC0LicenseManager: error params");
         require(!isSCC0Version(_license.version), "SCC0LicenseManager: version already exist");
@@ -306,7 +330,9 @@ contract SCC0LicenseManager is Ownable {
         emit VersionAdded(_license.license, _license.version,msg.sender);
     }
    
-    // add Deprecated SCC0 version
+    /// @notice Marks an active SCC0 license as deprecated.
+    /// @param _license The SCC0 license contract address to deprecate.
+    /// Only a creator can call this function.
     function addDeprecatedVersion(address _license) external onlyCreator {
         require(activedVersions.contains(_license), "SCC0LicenseManager: version not exist or already deprecated");
         require(deprecatedVersions.add(_license),"SCC0LicenseManager: deprecated version already exist");
@@ -316,40 +342,55 @@ contract SCC0LicenseManager is Ownable {
         licenseMap[version].isActived = false;
         emit DeprecatedVersionAdded(_license,version,msg.sender);
     }
-    //check SCC0 by version 
+    /// @notice Checks if a given SCC0 license version exists.
+    /// @param _version The license version number.
+    /// @return True if the license exists; otherwise, false.
     function isSCC0Version(uint256 _version) public view returns(bool){
         License memory licenseTmp = licenseMap[_version];
         if(licenseTmp.license != address(0))return true;
         return false;
     }
-    //check SCC0 by license address
+    /// @notice Checks if a given SCC0 license address is registered.
+    /// @param _license The SCC0 license contract address.
+    /// @return True if the license address is registered; otherwise, false.
     function isSCC0Version(address _license) public view returns(bool){
         (bool result,) = licenseToVersion.tryGet(_license);
         return result;
     }
-    // Get license info by version
+    /// @notice Returns the License struct associated with a given version.
+    /// @param _version The license version number.
+    /// @return The License struct.
     function getSCC0Info(uint256 _version) external view returns (License memory) {
         return licenseMap[_version];
     }
-    // Get license info by license address
+
+    /// @notice Returns the License struct associated with a given license address.
+    /// @param _license The SCC0 license contract address.
+    /// @return The License struct.
     function getSCC0Info(address _license) external view returns (License memory) {
-        return licenseMap[licenseToVersion.get(_license)];
+        (,uint256 version) = licenseToVersion.tryGet(_license);
+        return licenseMap[version];
     }
-    // List all SCC0 versions
+
+    /// @notice Returns all SCC0 license addresses registered in the system.
+    /// @return An array of SCC0 license addresses.
     function getAllSCC0Versions() external view returns (address[] memory) {
         return licenseToVersion.keys();
     }
-    // List all actived  versions
+
+    /// @notice Returns all active SCC0 license addresses.
+    /// @return An array of active SCC0 license addresses.
     function getAllActivedVersions() external view returns (address[] memory) {
         return activedVersions.values();
     }
-    // List all deprecated SCC0 versions
+
+    /// @notice Returns all deprecated SCC0 license addresses.
+    /// @return An array of deprecated SCC0 license addresses.
     function getAllDeprecatedVersions() external view returns (address[] memory) {
         return deprecatedVersions.values();
     }
     
 }
-
 
 
 ```
@@ -371,53 +412,71 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 contract SCC0Whitelist is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
 
-    EnumerableSet.AddressSet private auditors; //auditors set
-    EnumerableSet.AddressSet private whitelist; //whitelist set
+    // Set of auditor addresses authorized to manage the whitelist.
+    EnumerableSet.AddressSet private auditors;
+    // Set of dApp addresses that are whitelisted.
+    EnumerableSet.AddressSet private whitelist;
 
-
+    // Emitted when a new auditor is added.
     event AuditorAdded(address indexed auditor);
+    // Emitted when an auditor is removed.
     event AuditorRemoved(address indexed auditor);
 
+    // Emitted when a dApp is added to the whitelist.
     event DAppWhitelisted(address indexed dApp, address auditor, uint256 timestamp);
+    // Emitted when a dApp is removed from the whitelist.
     event DAppRemovedFromWhitelist(address indexed dApp, address auditor, uint256 timestamp);
 
-
+	/// @dev Modifier to restrict access to auditors only.
     modifier onlyAuditor(){
         require(auditors.contains(msg.sender),"SCC0Whitelist: only auditor");
         _;
     }
+
+    /// @notice Constructor: sets the initial owner.
+    /// @param _initOwner The address that will be set as the contract owner.
     constructor(address _initOwner) Ownable(_initOwner) {}
-    
-    /// add auditor 
+
+    /// @notice Adds a new auditor.
+    /// @param _auditor The address to be added as an auditor.
     function addAuditor(address _auditor) external onlyOwner {
         require(_auditor != address(0), "SCC0Whitelist: invalid auditor address");
         require(auditors.add(_auditor), "SCC0Whitelist: auditor already exist");
         emit AuditorAdded(_auditor);
     }
 
-    /// remove auditor
+    /// @notice Removes an existing auditor.
+    /// @param _auditor The address of the auditor to remove.
     function removeAuditor(address _auditor) external onlyOwner {
         require(auditors.contains(_auditor), "SCC0Whitelist: auditor does not exist");
         require(auditors.remove(_auditor), "SCC0Whitelist: auditor does not exist");
         emit AuditorRemoved(_auditor);
     }
 
-    /// check auditor
+    /// @notice Checks if the given address is an auditor.
+    /// @param _auditor The address to check.
+    /// @return True if the address is an auditor; otherwise, false.
     function isAuditor(address _auditor) external view returns (bool) {
         return auditors.contains(_auditor);
     }
-    //list all auditors
-    function listAuditors() external view returns(address[] memory){
+
+    /// @notice Returns a list of all auditor addresses.
+    /// @return An array of auditor addresses.
+    function listAuditors() external view returns (address[] memory) {
         return auditors.values();
     }
-    //add whitelist
+    /// @notice Adds a dApp to the whitelist.
+    /// @param _dApp The dApp address to add to the whitelist.
+    /// @dev Only an auditor can call this function.
     function addToWhitelist(address _dApp) external  onlyAuditor {
         require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
         require(whitelist.add(_dApp), "SCC0Whitelist: whitelist already exist");
         emit DAppWhitelisted( _dApp,msg.sender,block.timestamp);
     }
 
-    // remove whitelist
+    /// @notice Removes a dApp from the whitelist.
+    /// @param _dApp The dApp address to remove from the whitelist.
+    /// @dev Only an auditor can call this function.
     function removeFromWhitelist(address _dApp) external onlyAuditor {
         require(_dApp != address(0), "SCC0Whitelist: invalid dApp address");
         require(whitelist.remove(_dApp), "SCC0Whitelist: dApp does not whitelist");
@@ -425,12 +484,16 @@ contract SCC0Whitelist is Ownable {
         
     }
 
-    // Check   whitelist
+    /// @notice Checks if a dApp is whitelisted.
+    /// @param _dApp The dApp address to check.
+    /// @return True if the dApp is in the whitelist; otherwise, false.
     function isWhitelisted(address _dApp) public view returns (bool) {
         return whitelist.contains(_dApp);
     }
     
 }
+
+
 ```
 
 ### 4. SCC0 V1 的附加治理和操作参数
@@ -473,44 +536,66 @@ SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
+
+/// @notice Interface for the SCC0Whitelist contract.
 interface ISCC0Whitelist {
-    //SCC0Whitelist contract method
+    /// @notice Checks if a given dApp address is whitelisted.
+    /// @param dApp The address of the dApp to check.
+    /// @return True if the dApp is whitelisted, otherwise false.
     function isWhitelisted(address dApp) external view returns (bool);
 }
+
+/// @notice Interface for the SmartCommons contract (or any contract that implements otherMethod).
 interface ISmartCommons {
-    // the called contract method
-    function otherMethod() external ;
+    /// @notice An example method that can be called on the contract.
+    function otherMethod() external;
 }
+
+/// @notice The SmartCommons contract demonstrates interaction with SCC0Whitelist and a counterparty contract.
 contract SmartCommons {
+    /// @notice Address of the counterparty contract.
     address public counterparty;
+    /// @notice Address of the SCC0Whitelist contract.
     address public scc0WhitelistAddress;
 
-    constructor(address _counterparty,address _scc0WhitelistAddress)  {
+    /// @notice Constructor to initialize the SmartCommons contract.
+    /// @param _counterparty The address of the counterparty contract.
+    /// @param _scc0WhitelistAddress The address of the SCC0Whitelist contract.
+    constructor(address _counterparty, address _scc0WhitelistAddress) {
         counterparty = _counterparty;
         scc0WhitelistAddress = _scc0WhitelistAddress;
     }
-    // check SCC0 whitelist
-    function _checkSCC0Whitelist(address _counterparty) internal view returns(bool){
-        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_counterparty);
+    /// @notice Internal function to check if a given address is whitelisted by the SCC0Whitelist contract.
+    /// @param _addr The address to check.
+    /// @return True if the address is whitelisted, otherwise false.
+    function _checkSCC0Whitelist(address _addr) internal view returns (bool) {
+        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_addr);
     }
 
-    // If the called contract is SCC0 whitelist
+    /// @notice Modifier to restrict function access to only whitelisted addresses.
     modifier onlySCC0() {
-        require(_checkSCC0Whitelist(msg.sender),"need SCC0 whitelist");
+        require(_checkSCC0Whitelist(msg.sender), "Need SCC0 whitelist");
         _;
     }
-    // call counterparty contract 
+
+    /// @notice Calls a method on the counterparty contract after verifying that the counterparty is whitelisted.
     function callCounterparty() public {
-        // the code logic ...
+ 		// Insert  logic code here...
 
-        require(_checkSCC0Whitelist(counterparty),"need SCC0 whitelist");
+        // Ensure that the counterparty address is whitelisted.
+        require(_checkSCC0Whitelist(counterparty), "Need SCC0 whitelist");
+        
+	    // Insert  logic code here...
 
-        // the code logic ...
+        // Proceed to call the counterparty's otherMethod.
         ISmartCommons(counterparty).otherMethod();
+
+ 	   // Insert  logic code here...
     }
-    // other contract call the method must be compliant SCC0
-    function someFunction() external onlySCC0() {
-        // the code logic ...
+
+    /// @notice Example function that can only be called by addresses whitelisted by the SCC0Whitelist contract.
+    function someFunction() external onlySCC0 {
+        // Insert  logic code here...
     }
 }
 ```
