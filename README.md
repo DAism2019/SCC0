@@ -251,11 +251,13 @@ contract SCC0License {
 
 ### 2. SCC0 License Version Management Contract
 
-The SCC0 License Management Contract provides license administrator management, license version management, and version verification functionalities. It supports:  
+The SCC0 License Management Contract provides functionalities for managing license administrators, license versions, and checking all active or deprecated versions. It supports:  
 
-- **License Administrator Management**: The contract owner (which might represent a multi-signature address managed by the contract’s administrative team) manages the license version administrators （similar to the contract owner）. The owner can add or remove license version administrators. 
-- **License Version Management**: License version administrators can manage SCC0 license versions, including adding new versions and marking versions as deprecated.  
-- **License Version Verification**: This allows checking whether a specific license version is included in the list and whether its current status is marked as deprecated.  
+- **License Administrator Management**: The contract owner (a multisig address representing the contract management team) manages license version administrators, meaning the owner can add or remove license version administrators.  
+- **License Version Management**: License version administrators can add new SCC0 license versions or mark anyone as deprecated.
+- **License Version Query**: Retrieve the complete list of license versions, or check whether a specific license version (by version number or license contract address) is included in the version list.  
+- **Deprecated Version Query**: Retrieve the full list of deprecated versions, or check the details of an SCC0 license by version number or license contract address to verify whether the protocol version has been deprecated.  
+- **Valid Version Query**: Retrieve the complete list of valid(active) versions, or check the details of an SCC0 license by version number or license contract address to verify whether the license version is still valid(active).  
 
 Below is the complete implementation of the SCC0 License Management contract:
 
