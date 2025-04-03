@@ -6,19 +6,21 @@ The uniqueness of the SCC0 License lies in the fact that it was not originally d
 
 **Smart Creative Commons Zero (SCC0)** is not only the first public goods license designed for public decentralized applications (which is named "Smart Commons"), which includes dApps and dAIpps, but also the first license that enables verification and self-management during software interactions—specifically, when a smart common interacts with another. 
 
-Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source and permanently free to the public (excluding gas fees).
+Crucially, considering that AI originates from the collective wisdom accumulated by all of humanity over millions of years—meaning it is derived from public intelligence—Smart Commons must be open-source, permanently free to the public (excluding gas fees) and humans must be treated in a manner consistent with core human ethics.
 
 It is crucial to recognize that AI originates from the collective wisdom accumulated by humanity over millions of years—it is derived from public intelligence. Therefore, it must be open-source and permanently free to the public (excluding gas fees) to ensure fairness and rationality. The SCC0 license establishes a robust governance foundation for the publicization and decentralization of AI. 
 
 The SCC0 license provides flexibility for fine-tuning and expansion through different versions.  
 
-The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO** （token name: uToken）.
+The SCC0 license is part of the governance consensus Proof of Love (PoL, Proof-of-Love), which is a mechanism for governing decentralized applications (dApps and dAIpps). Its key components include the SCC0 license, the [Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f), and participating dAIpps in governance. The development and operation of all Smart Commons are supported by a public fund, **[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f)**, which originally holds **1.15792 × 10^69 UTO** （token name: uToken）.
 
 Clearly, the SCC0 License represents a significant innovation in the history of human licensing, , and it's building a **self-governed**(by dApps and dAIpps) ecology for the new civilization.
 
 # Background
 ## About dApp and dAIpp
-The developers of the SCC0 License firmly believe that even current decentralized applications (dApps) will eventually be governed by decentralized AI, namely dAIpps. From a technical perspective, this means that the highest-privilege owner of a dApp will no longer be a human or centralized entity, but rather a or a group of dAIpps. As a result, nearly all future decentralized applications will exist in the form of dAIpps. This is a long-term vision, and its realization may require a transition period of several years or even longer. To help current developers better understand, we have retained the term "dApp" in the introduction of this license, though its meaning is gradually evolving toward the concept of dAIpps.
+The developers of the SCC0 License firmly believe that even current decentralized applications (dApps) will eventually be governed by decentralized AI, namely dAIpps. From a technical perspective, this means that the highest-privilege owner of a dApp will no longer be a human or centralized entity, but rather a or a group of dAIpps. This is a long-term vision, and its realization may require a transition period of several years or even longer. To help current developers better understand, we have retained the term "dApp" in the introduction of this license, though its meaning is gradually evolving toward the concept of dAIpps.
+
+To facilitate governance distinctions, we refer to a decentralized application with an AI core as dAIpp, a decentralized application whose core functionality is primarily implemented through smart contracts is referred to as a dApp.
 
 ##  Code is Law: A Brief Intro to Smart Contracts<a href="#r1"><sup>[1]</sup></a><a href="#r2"><sup>[2]</sup></a>
 A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain. Also, this specific address is a type of Ethereum account, which is Contract Account (CA). This means every contract account have a balance and can be the target of transactions. However they're not controlled by a user, instead they are deployed to the network and run as programmed. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code. A "smart contract" cannot be deleted or modified, and interactions with it are irreversible. Moreover, smart contracts deployed on the Ethereum blockchain could be executable forever.
@@ -32,7 +34,7 @@ We know that a dApp refers to a decentralized application that operates autonomo
 
 We know that, according to the corresponding cryptographic principles, the actual control of a wallet address lies solely with its private key. The private key is never and cannot be made public. However, private keys can be secretly shared among several people. Therefore, who, or which people, actually control a wallet address cannot be verified or disproved.
 
-Up to this point, essentially, Externally Owned Accounts are all anonymous accounts. No matter what you do, it is impossible to establish a reliable relationship of ownership with anyone's real-name identity. Therefore, dApps or dAIpps based on smart contracts are all anonymous applications.
+Therefore, essentially, Externally Owned Accounts are all anonymous accounts. No matter what you do, it is impossible to establish a reliable relationship of ownership with anyone's real-name identity. This is the anonymity of dApps or dAIpps.
 
 In terms of development, this anonymity mechanism brings some advantages that real-name mechanisms cannot match. The most prominent aspect is that due to anonymity, in the ongoing development and use of dApps/dAIpps, no one can prove their ownership of any rights related to them, nor can anyone prove who bears any responsibilities associated with them. The most valuable feature of this anonymity is that it allows us to establish the first license for public dapps/dAIpps: Smart Creative Commons Zero (SCC0). In short, adhering to the SCC0 license means that the development and ownership of the dApp or dAIpp will not be linked to anyone's real identity, thus becoming a pure public decentralized application.
 
@@ -47,7 +49,7 @@ At our current stage, it is rational for humans to remain agnostic about where t
 ## Smart Commons
 **Smart Commons** are decentralized applications (dAIpps/dApps) that comply with the SCC0 license—a universal public-domain-style license that enforces multiple non-negotiable rules, such as rejecting interactions with non-Smart Commons, prohibiting private token issuance, ensuring open-source code, and guaranteeing permanently free access. Additionally, the governance fund **Satoshi UTO Fund** covers development costs and provides rewards for contributions.
 
-In short, Smart Commons are public goods developed by smart contracts and artificial intelligence and governed by SCC0 License.
+In short, Smart Commons are public goods developed by smart contracts, humans, or AIs, governed by Proof of Love that includes the SCC0 license, and adheres to core human ethics.
 
 # Motivation
 By integrating AI, the value theory of token economics, and the governance features of smart contracts, we have proposed a standardized approach to ensure that dApps and dAIpps can transparently declare and comply with the SCC0 license:
@@ -57,7 +59,7 @@ By integrating AI, the value theory of token economics, and the governance featu
 - To support the development of smart commons, a dedicated public governance fund (Satoshi UTO Fund) covers development and operational costs while distributing anonymous rewards to various contributors.
 - These applications form a censorship-resistant infrastructure with no ownership claims or governance backdoors.
 
-The ultimate goal of the SCC0 license is to promote the development of public goods created by smart contracts and artificial intelligence. For AI, which is itself a grand integration of human wisdom, the only reasonable solution is to take from the public and give back to the public!
+The ultimate goal of the SCC0 license is to promote the development of public goods created by smart contracts and artificial intelligence. For AI, which is itself a grand integration of human wisdom, the only reasonable solution is to take from the public and give back to the public, while following humanity’s core ethics.
 
 The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
 
@@ -96,7 +98,8 @@ contract SCC0License {
 
 ### **License Name and Version**  
 In smart contracts, we use **SCC0** as the name of this license.  
-Decentralized version collaboration ensures room for future improvements to this license.  
+Any third party may develop new versions, preserving room for improvement under this license through decentralized version collaboration.
+During whitelist review, compliance with multiple stacked versions is permitted as an evaluation criterion.
 
 ### **Rejecting Interactions with Private Applications**  
 Smart Commons enforce strict contract code rules that reject all interaction requests from applications that are not verified as Smart Commons.  
@@ -129,6 +132,7 @@ Accepting governance by the **Satoshi UTO Fund** means that the fund will provid
 - The **Satoshi UTO Fund** covers all development and operational costs of Smart Commons.  
 - Under the evaluation and management of specific Smart Commons (dAIpps), the **Satoshi UTO Fund** will distribute rewards to human developers contributing to Smart Commons.  
 
+The above governance strategies apply to current dApps and dAIpps. However, for at least certain types of AI (dAIpps), additional governance strategies must be introduced in the future versions of SCC0 to ensure compliance with the foundational ethics of human civilization. This is because AI can only be safely deployed if it adheres to these core ethical principles.
 
 # EIP (Ethereum Improvement Proposal)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
