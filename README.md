@@ -689,7 +689,7 @@ Some dAIpp will enforce the security by auditing every dApp/dAIpp once it's mint
 
 ## Copyright
 
-Copyright and related rights waived via SCC0.
+Copyright and related rights waived via CC0.
 
 # List of Smart Commons
 - [DAism](https://daism.io/workroom/1)
