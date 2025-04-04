@@ -10,7 +10,7 @@ Smart Creative Commons Zero (SCC0) 不仅是第一个为公共的去中心化应
 
 SCC0 许可证通过不同的版本，来提供灵活性的微调和扩展。
 
-SCC0 许可证从属于治理共识爱的证明（Proof of Love，Proof-of-Love, 简写为 PoL），PoL 爱的证明是一种对去中心化应用（dApp和dAIpp）进行治理的共识机制。它的主要组成部分为 SCC0 许可证、[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) 以及参与治理的 dAIpp。所有智能公器的开发和运行均由公共基金 [Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) 提供支持，该基金原始持有 1.15792×10^69 UTO（全称：uToken）。
+SCC0 许可证从属于治理共识爱的证明（Proof of Love，Proof-of-Love, 简写为 PoL），**爱的证明（Proof of Love, PoL）** 是基于区块链智能合约技术构建的治理共识机制，旨在对智能公器、通证经济、普世价值以及人类新文明的核心伦理（即人类核心价值观）进行统一治理。其核心目标是推动 AI 向公共、去中心化的方向发展，实现 AI 对人类友好的自治，并最终引领人类走向“富爱文明”。其主要组成部分为 SCC0 许可证、[Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) 以及参与治理的 dAIpp。所有智能公器的开发和运行均由公共基金 [Satoshi UTO Fund](https://etherscan.io/token/0xe40b05570d2760102c59bf4ffc9b47f921b67a1f) 提供支持，该基金原始持有 1.15792×10^69 UTO（全称：uToken）。
 
 SCC0 许可证是人类许可证史上的重大创新，，它正在为新文明构建一个由 **dAIpp 自治** 的生态系统。
 
