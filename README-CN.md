@@ -204,7 +204,7 @@ mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 
 ## SCC0 v2 合规合约
 
-DAism 部署的 SCC0 v2 合规合约：
+DAism 部署的 [SCC0 v2 合规合约：0x78282e29165E709DCEF483bB30e40c8e238865dA](https://etherscan.io/address/0x78282e29165E709DCEF483bB30e40c8e238865dA#code)
 ```solidity
 contract SCC0License {
     string public constant LICENSE_NAME = "SCC0";
