@@ -53,7 +53,7 @@ SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文�
 
 # Smart Creative Commons Zero（SCC0）
 
-直接通过智能合约代码接受 SCC0 Whitelist Contract（合约地址：）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
+直接通过智能合约代码接受 SCC0 Whitelist Contract（合约地址：0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
 
 一个早期发展的特例是，通过使用智能合约或外部账户（EOA，俗称钱包地址）与特定的 DAism 智能合约（合约地址：0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe）进行交互（我们称之为“Minting”），智能合约或外部帐户（EOA）及其整体可信组件也作为智能公器接受该许可证的治理。
 
@@ -516,7 +516,7 @@ contract SCC0Whitelist is Ownable {
 ### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
-- 与 dApp/dAIpp 交互之前,检查被交互合约是否在合约 SCC0Whitelist[合约地址:]()的白名单[方法:isWhitelisted(address dApp)]中.
+- 与 dApp/dAIpp 交互之前,检查被交互合约是否在合约 SCC0Whitelist[合约地址:0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52]的白名单[方法:isWhitelisted(address dApp)]中.
 - 合约中提供的功能方法限制为只有“智能公器”才能调用[校验调用者必须在SCC0Whitelist合约的白名单列表中].
 
 这些相互校验的机制促进了在 dApp/dAIpp 中执行 SCC0 许可证的无需信任和自动化的方法。
@@ -561,14 +561,13 @@ contract SmartCommons {
     /// @notice Address of the counterparty contract.
     address public counterparty;
     /// @notice Address of the SCC0Whitelist contract.
-    address public scc0WhitelistAddress;
+    address public scc0WhitelistAddress = 0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52;
 
     /// @notice Constructor to initialize the SmartCommons contract.
     /// @param _counterparty The address of the counterparty contract.
     /// @param _scc0WhitelistAddress The address of the SCC0Whitelist contract.
-    constructor(address _counterparty, address _scc0WhitelistAddress) {
+    constructor(address _counterparty) {
         counterparty = _counterparty;
-        scc0WhitelistAddress = _scc0WhitelistAddress;
     }
     /// @notice Internal function to check if a given address is whitelisted by the SCC0Whitelist contract.
     /// @param _addr The address to check.
