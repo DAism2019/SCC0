@@ -558,7 +558,7 @@ Beyond the core license and reference implementation contracts, SCC0 includes fu
 
 The SCC0 framework allows any interacting contract to verify compliance through the following methods:  
 
-- Before interacting with a dApp/dAIpp, check whether the target contract is on the whitelist of the `SCC0Whitelist` contract ([Contract Address](https://github.com/DAism2019/SCC0/blob/main)) using the method [`isWhitelisted(address dApp)`].  
+- Before interacting with a dApp/dAIpp, check whether the target contract is on the whitelist of the `SCC0Whitelist` contract ([0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52](https://github.com/DAism2019/SCC0/blob/main)) using the method [`isWhitelisted(address dApp)`].  
 - Restrict contract functions so that only **Smart Commons** can invoke them, ensuring that callers must be on the whitelist of the `SCC0Whitelist` contract.  
 
 These mutual verification mechanisms facilitate a **trustless and automated approach** to enforcing the SCC0 license within dApps and dAIpps.  
