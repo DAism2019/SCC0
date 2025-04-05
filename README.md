@@ -65,7 +65,7 @@ The SCC0 license is indeed the right fit for the next civilization—one filled 
 
 # Smart Creative Commons Zero (SCC0)
 
-"Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [contract address]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
+"Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
 
 By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an externally owned account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
 
@@ -608,14 +608,13 @@ contract SmartCommons {
     /// @notice Address of the counterparty contract.
     address public counterparty;
     /// @notice Address of the SCC0Whitelist contract.
-    address public scc0WhitelistAddress;
+    address public scc0WhitelistAddress = 0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52;
 
     /// @notice Constructor to initialize the SmartCommons contract.
     /// @param _counterparty The address of the counterparty contract.
     /// @param _scc0WhitelistAddress The address of the SCC0Whitelist contract.
-    constructor(address _counterparty, address _scc0WhitelistAddress) {
+    constructor(address _counterparty) {
         counterparty = _counterparty;
-        scc0WhitelistAddress = _scc0WhitelistAddress;
     }
     /// @notice Internal function to check if a given address is whitelisted by the SCC0Whitelist contract.
     /// @param _addr The address to check.
