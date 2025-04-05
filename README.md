@@ -236,7 +236,7 @@ function isDaismSC(address _dApp) external view returns (bool) {
 
 ### SCC0 v2 Compliance Contract
 
-SCC0 v2 Compliance Contract which is deployed by DAism:
+[SCC0 v2 Compliance Contract: 0x78282e29165E709DCEF483bB30e40c8e238865dA](https://etherscan.io/address/0x78282e29165E709DCEF483bB30e40c8e238865dA#code) which is deployed by DAism:
 
 ```solidity
 contract SCC0License {
@@ -263,7 +263,7 @@ The SCC0 License Management Contract provides functionalities for managing licen
 - **Deprecated Version Query**: Retrieve the full list of deprecated versions, or check the details of an SCC0 license by version number or license contract address to verify whether the protocol version has been deprecated.  
 - **Valid Version Query**: Retrieve the complete list of valid(active) versions, or check the details of an SCC0 license by version number or license contract address to verify whether the license version is still valid(active).  
 
-Below is the complete implementation of the SCC0 License Management contract:
+Below is the complete implementation of the [SCC0 License Management contract: 0xebBd6AB9655F6fC4064a4D1000dB2654C72243fD](https://etherscan.io/address/0xebBd6AB9655F6fC4064a4D1000dB2654C72243fD#code):
 
 ```solidity
 // SPDX-License-Identifier: scc0
@@ -446,7 +446,7 @@ This contract manages the whitelist and whitelist administrators, providing whit
 - **Whitelist Management**: Whitelist administrators can add or remove entries from the SCC0 license whitelist.  
 - **Whitelist Verification**: This function checks whether a third-party dApp/dAIpp complies with the SCC0 license to determine whether interaction with it is allowed.  
 
-Below is the full implementation of the SCC0 Whitelist Contract:  
+Below is the full implementation of the [SCC0 Whitelist Contract: 0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52](https://etherscan.io/address/0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52#code):  
 
 ```solidity
 // SPDX-License-Identifier: scc0
