@@ -227,7 +227,7 @@ SCC0 许可证管理合约提供了许可证管理员管理，许可证版本管
 - 废弃版本查验：查询所有废弃版本列表，通过版本号或者许可证合约地址查询 SCC0 许可证详情并校验协议版本是否废弃。
 - 有效版本查验: 查询所有有效的版本列表，通过版本号或者许可证合约地址查询 SCC0 许可证详情并校验许可证版本是否有效。
   
-以下是 SCC0 许可证版本管理器合约的完整实现：
+以下是 [SCC0 许可证版本管理器合约：0xebBd6AB9655F6fC4064a4D1000dB2654C72243fD](https://etherscan.io/address/0xebBd6AB9655F6fC4064a4D1000dB2654C72243fD#code)的完整实现：
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
@@ -406,7 +406,7 @@ contract SCC0LicenseManager is Ownable {
 - 白名单管理：白名单管理员可以对 SCC0 许可证的白名单进行增加或删除操作。
 - 白名单查验：查验第三方 dApp/dAIpp 是否遵循 SCC0 许可证，以决定是否与其交互。
   
-以下是 SCC0 白名单合约的完整实现：
+以下是 [SCC0 白名单合约：0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52](https://etherscan.io/address/0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52#code)的完整实现：
 
 ```solidity
 // SPDX-License-Identifier: scc0
