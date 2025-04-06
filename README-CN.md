@@ -124,6 +124,21 @@ contract SCC0License {
 
 以上是现有版本中的治理策略，它同时适用于当前的 dApps 和 dAIpps。对于至少某些类型的 AI（dAIpps），未来必须为确保其遵守人类新文明的基础伦理补充新的治理策略。这是因为只有 AI 遵循人类新文明的基础伦理，它才能被安全地被使用。
 
+## SCC0 License 的治理逻辑
+
+1. **Owner**  
+   在 SCC0 License Version Management Contract 中，Owner 负责管理 Manager 的名单。
+
+2. **Manager**  
+   Manager 是版本管理者，专注于管理 SCC0 License 的版本清单和版本状态（有效或已废除）。
+
+3. **Auditor**  
+   Auditor 负责管理智能公器（dApps 和 dAIpps）的白名单。
+
+**注意：**  
+1. 废除某个版本，不等于说之前以该版本为依据而开发的 dApps 和 dAIpps 都会被从白名单中移除。相关细节将在后续逐步完善。  
+2. 当前 SCC0 License 治理中并不涵盖版本提交、版本审核以及智能公器合规性审核等流程，这些部分将在 dAIpp 进一步发展后补充完善。即所有治理角色均由去中心化的 AI（dAIpps）担任，确保整个系统在区块链智能合约技术支持下实现开放、透明、去中心化的治理。
+
 # 附件
 **EIP（以太坊改进提案）**
 
