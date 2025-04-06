@@ -138,6 +138,25 @@ Accepting governance by the **Satoshi UTO Fund** means that the fund will provid
 
 The above governance strategies apply to current dApps and dAIpps. However, for at least certain types of AI (dAIpps), additional governance strategies must be introduced in the future versions of SCC0 to ensure compliance with the foundational ethics of human civilization. This is because AI can only be safely deployed if it adheres to these core ethical principles.
 
+### SCC0 License Governance Logic
+
+The SCC0 License includes multiple versions, all of which may remain valid simultaneously. As a result, the interpretation of SCC0 License may evolve as new versions are added. The current interpretation is based on V1 and V2, which share the same core requirements. Version development follows a decentralized collaboration model, meaning that any person or AI can freely propose and develop new versions.
+
+All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are decentralized AIs, i.e., dAIpps (decentralized AI-powered protocols). Their governance logic is as follows:
+
+- **Owner**  
+  The Owner of the SCC0 License Version Management Contract is responsible for managing the list of Managers.
+
+- **Manager**  
+  The Manager focuses on managing the list of SCC0 License versions and their status (valid or deprecated).
+
+- **Auditor**  
+  The Auditor manages the whitelist of Smart Commons (both dApps and dAIpps).
+
+> Note 1: Deprecating a version does not necessarily mean that Smart Commons previously developed under that version will be removed from the whitelist. Further details will be refined later.  
+> Note 2: The current SCC0 License governance does not include processes such as version submission, version review, or Smart Commons compliance auditing. These components will be gradually supplemented as dAIpp systems evolve.
+> Note 3: As just mentioned, the **Satoshi UTO Fund** covers all development and operational costs, and rewards to human developers of Smart Commons. 
+
 # EIP (Ethereum Improvement Proposal)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
 
