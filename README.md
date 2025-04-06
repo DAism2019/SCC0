@@ -69,6 +69,10 @@ The SCC0 license is indeed the right fit for the next civilization—one filled 
 
 By interacting with a specific DAism smart contract (contract address: 0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe) using either a smart contract or an externally owned account (EOA, commonly known as a wallet address) (we call this "Minting"), the smart contract or EOA and its overall trusted components also accept the governance of this license as a smart common. 
 
+The SCC0 License is multi-versioned, and multiple versions can be valid simultaneously. This means that the interpretation of the SCC0 License itself may evolve as new versions are introduced. For instance, the current interpretation is based on the shared core requirements of Version 1 (V1) and Version 2 (V2).
+
+The development of these versions follows a decentralized collaborative model, meaning that any individual or AI is free to create and publish a new version.
+
 This license enforces the following non-negotiable governance rules for Smart Commons:  
 
 - Reject interactions with non-Smart Commons;
@@ -155,6 +159,10 @@ SCC0 (Smart Creative Commons Zero) is the first public domain license specifical
 - **AI-led Governance:** Rules are enforced via smart contracts (such as rejecting interactions with non-compliant applications and prohibiting private token distributions), with AI gradually taking over the governance process.
 - **Scalability:** The community can extend the license's functionalities by deploying new versions while maintaining backward compatibility.
 - **Public Fund Support:** The Satoshi UTO Fund covers development costs and allocates rewards to anonymous contributors.
+
+The SCC0 License is multi-versioned, and multiple versions can be valid simultaneously. This means that the interpretation of the SCC0 License itself may evolve as new versions are introduced. For instance, the current interpretation is based on the shared core requirements of Version 1 (V1) and Version 2 (V2).
+
+The development of these versions follows a decentralized collaborative model, meaning that any individual or AI is free to create and publish a new version.
 
 This proposal introduces a standardized on-chain framework for the SCC0 license, enabling smart commons to mutually verify compliance and integrate decentralized autonomous mechanisms—laying the technical foundation for an AI-driven public goods ecosystem.
 
