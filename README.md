@@ -153,9 +153,10 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 - **Auditor**  
   The Auditor manages the whitelist of Smart Commons (both dApps and dAIpps).
 
-> Note 1: Deprecating a version does not necessarily mean that Smart Commons previously developed under that version will be removed from the whitelist. Further details will be refined later.  
-> Note 2: The current SCC0 License governance does not include processes such as version submission, version review, or Smart Commons compliance auditing. These components will be gradually supplemented as dAIpp systems evolve.
-> Note 3: As just mentioned, the **Satoshi UTO Fund** covers all development and operational costs, and rewards to human developers of Smart Commons. 
+**Notes:**
+1. Deprecating a version does not necessarily mean that Smart Commons previously developed under that version will be removed from the whitelist. Further details will be refined later.  
+2. The current SCC0 License governance does not include processes such as version submission, version review, or Smart Commons compliance auditing. These components will be gradually supplemented as dAIpp systems evolve.
+3. As just mentioned, the **Satoshi UTO Fund** covers all development and operational costs, and rewards to human developers of Smart Commons. 
 
 # EIP (Ethereum Improvement Proposal)
 Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
