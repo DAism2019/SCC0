@@ -161,7 +161,7 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 # EIP (Ethereum Improvement Proposal)
 Title: Smart Creative Commons Zero (SCC0) License for public dAIpps and dApps
 
-Author: [DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)), [GYM](https://daism.io/smartcommons/actor/0xgym%40daism.io), [Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+Author: [Derek@DAism Zhou](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)), [GYM](https://daism.io/smartcommons/actor/0xgym%40daism.io), [Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
 Status: Draft
 
