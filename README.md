@@ -159,7 +159,7 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 3. As just mentioned, the **Satoshi UTO Fund** covers all development and operational costs, and rewards to human developers of Smart Commons. 
 
 # EIP (Ethereum Improvement Proposal)
-Title: SCC0 - Smart Creative Commons Zero License for Public Decentralized Applications 
+Title: Smart Creative Commons Zero (SCC0) License for public dAIpps and dApps
 
 Author: [DD](https://daism.io/en/smartcommons/actor/0xDD@daism.io), [Changchun Chen](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io)), [GYM](https://daism.io/smartcommons/actor/0xgym%40daism.io), [Aranna](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
@@ -716,7 +716,7 @@ Some dAIpp will enforce the security by auditing every dApp/dAIpp once it's mint
 
 ## Copyright
 
-Copyright and related rights waived via CC0.
+Copyright and related rights waived via [SCC0](https://github.com/DAism2019/SCC0).
 
 # List of Smart Commons
 - [DAism](https://daism.io/workroom/1)
