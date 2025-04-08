@@ -143,7 +143,7 @@ contract SCC0License {
 # 附件
 **EIP（以太坊改进提案）**
 
-标题：SCC0 - Smart Creative Commons Zero License for Smart Commons
+标题：Smart Creative Commons Zero (SCC0) License for public dAIpps and dApps
 
 作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈昌春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
 
@@ -659,7 +659,7 @@ contract SmartCommons {
 一旦每个 dApp/dAIpp 被铸造成智能公共 (v1) 或部署在链上 (v2)，一些 dAIpp 就会通过审核来加强安全性。
 
 # 版权
-通过 SCC0 放弃版权和相关权利。
+通过 CC0 放弃版权和相关权利。Copyright and related rights waived via [CC0](https://eips.ethereum.org/LICENSE).
 
 # 智能公器列表
 - [DAism（道易程）](https://daism.io/workroom/1)
