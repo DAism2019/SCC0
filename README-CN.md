@@ -143,15 +143,25 @@ contract SCC0License {
 # 附件
 **EIP（以太坊改进提案）**
 
-标题：Smart Creative Commons Zero (SCC0) License for public dAIpps and dApps
+此ERC还在审核与修订之中，最新内容请阅读：https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md
+
+欢迎参与审核与修订讨论：https://github.com/ethereum/ERCs/pull/906
+
+---
+标题：Smart Creative Commons Zero License (SCC0)
+简介：SCC0许可证的互操作性与链上验证特性，为 dAIpps 与 dApps 的公共化提供了无需信任的自动化处理方案。
 
 作者：[周朝晖](https://daism.io/en/smartcommons/actor/0xDD@daism.io)、[陈昌春](https://daism.io/smartcommons/actor/[0xfeng@daism.io](mailto:0xfeng@daism.io))、[甘元闷](https://daism.io/smartcommons/actor/0xgym%40daism.io)、[邓雯慧](https://daism.io/zh/smartcommons/actor/0xAranna0572@daism.io)
+
+讨论：https://ethereum-magicians.org/t/scc0-smart-creative-commons-zero-a-license-for-public-decentralized-applications/22958
 
 状态：Draft
 
 类型：Standards Track
 
 类别：ERC
+
+---
 
 # 摘要
 
