@@ -164,6 +164,8 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 
 This ERC is still under review and revision. For the latest content, please refer to: https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md
 
+Review: https://github.com/ethereum/ERCs/pull/906
+
 ---
 eip: 7914
 
