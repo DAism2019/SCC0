@@ -165,15 +165,22 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 This ERC is still under review and revision. For the latest content, please refer to: https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md
 
 ---
-
 eip: 7914
+
 title: Smart Creative Commons Zero License (SCC0)
+
 description: This standard introduces a structured way for smart contracts to declare SCC0 compliance, enabling automated on-chain verification and governance integration.
+
 author: DD Zhou (https://daism.io/en/smartcommons/actor/0xDD@daism.io), Changchun Chen (https://daism.io/smartcommons/actor/0xfeng@daism.io), Aranna (https://daism.io/smartcommons/actor/0xDD%40daism.io)
+
 discussions-to: https://ethereum-magicians.org/t/scc0-smart-creative-commons-zero-a-license-for-public-decentralized-applications/22958
+
 status: Draft
+
 type: Standards Track
+
 category: ERC
+
 created: 2025-02-22
 
 ---
