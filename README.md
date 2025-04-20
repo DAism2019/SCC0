@@ -1,6 +1,7 @@
-（<a href="/blob/main/README-CN.md">这是中文版</a>)
-
 # Table of contents
+
+（<a href="/blob/main/README-CN.md">中文版请点击此处</a>)
+
 <ol>
 	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0">What is the Smart Creative Commons Zero license (SCC0)?</a></li>
 	<li><a href="#background">Background
@@ -10,7 +11,7 @@
 			<li><a href="#the-anonymity-of-dapps-daipps">The Anonymity of dApps/dAIpps</a></li>
 			<li><a href="#smart-commons">Smart Commons</a></li>
 		</ul>
-	<li>
+	</li>
 	<li><a href="#motivation">Motivation</a></li>
 	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a>
 		<ul>
@@ -51,6 +52,7 @@
 			<li><a href="#security-considerations">Security Considerations</a></li>
 			<li><a href="#copyright">Copyright</a></li>
 		</ul>
+	</li>
 	<li><a href="#list-of-smart-commons">List of Smart Commons</a></li>
 	<li><a href="#more-about-scc0">More about SCC0</a></li>
 	<li><a href="#references">References</a></li>
