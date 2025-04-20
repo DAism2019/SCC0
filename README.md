@@ -1,58 +1,59 @@
 <ul><li>(<a href="/blob/main/README-CN.md">中文版</a>)</li></ul>
 <ol>
-	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0"><h1>What is the Smart Creative Commons Zero license (SCC0)?</h1></a></li>
-	<li><a href="#background"><h1>Background</h1>
+	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0">What is the Smart Creative Commons Zero license (SCC0)?</a></li>
+	<li><a href="#background">Background
 		<ul>
-			<li><a href="#about-dapp-and-daipp"><h2>About dApp and dAIpp</h2></a></li>
-			<li><a href="#code-is-law-a-brief-intro-to-smart-contracts12"><h2>Code is Law: A Brief Intro to Smart Contracts</a></h2></a></li>
-			<li><a href="#the-anonymity-of-dapps-daipps"><h2>The Anonymity of dApps/dAIpps</h2></a></li>
-			<li><a href="#smart-commons"><h2>Smart Commons</h2></a></li>
+			<li><a href="#about-dapp-and-daipp">About dApp and dAIpp</a></li>
+			<li><a href="#code-is-law-a-brief-intro-to-smart-contracts12">Code is Law: A Brief Intro to Smart Contracts</a></a></li>
+			<li><a href="#the-anonymity-of-dapps-daipps">The Anonymity of dApps/dAIpps</a></li>
+			<li><a href="#smart-commons">Smart Commons</a></li>
 		</ul>
 	<li>
-	<li><a href="#motivation"><h1>Motivation</h1></a></li>
-	<li><a href="#smart-creative-commons-zero-scc0"><h1>Smart Creative Commons Zero (SCC0)</h1></a>
+	<li><a href="#motivation">Motivation</a></li>
+	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a>
 		<ul>
-			<li><a href="#license-name-and-version"><h3>License Name and Version</h3></a></li>
-			<li><a href="#rejecting-interactions-with-private-applications"><h3>Rejecting Interactions with Private Applications</h3></a></li>
-			<li><a href="#prohibition-of-private-token-issuance"><h3>Prohibition of Private Token Issuance</h3></a></li>
-			<li><a href="#anonymity"><h3>Anonymity</h3></a></li>
-			<li><a href="#no-rights-other-than-governance-by-the-public-fund"><h3>No Rights Other Than Governance by the Public Fund</h3></a></li>
-			<li><a href="#no-liability"><h3>No Liability</h3></a></li>
-			<li><a href="#source-code-audited-verified-and-published"><h3>Source code audited, verified and published</h3></a></li>
-			<li><a href="#permanently-free"><h3>Permanently Free</h3></a></li>
-			<li><a href="#governance-by-the-satoshi-uto-fund"><h3>Governance by the Satoshi UTO Fund</h3></a></li>
-			<li><a href="#scc0-license-governance-logic"><h3>SCC0 License Governance Logic</h3></a></li>
+			<li><a href="#license-name-and-version">License Name and Version</a></li>
+			<li><a href="#rejecting-interactions-with-private-applications">Rejecting Interactions with Private Applications</a></li>
+			<li><a href="#prohibition-of-private-token-issuance">Prohibition of Private Token Issuance</a></li>
+			<li><a href="#anonymity">Anonymity</a></li>
+			<li><a href="#no-rights-other-than-governance-by-the-public-fund">No Rights Other Than Governance by the Public Fund</a></li>
+			<li><a href="#no-liability">No Liability</a></li>
+			<li><a href="#source-code-audited-verified-and-published">Source code audited, verified and published</a></li>
+			<li><a href="#permanently-free">Permanently Free</a></li>
+			<li><a href="#governance-by-the-satoshi-uto-fund">Governance by the Satoshi UTO Fund</a></li>
+			<li><a href="#scc0-license-governance-logic">SCC0 License Governance Logic</a></li>
 		</ul>
 	</li>
-	<li><a href="#eip-ethereum-improvement-proposal"><h1>EIP (Ethereum Improvement Proposal)</h1></a>
+	<li><a href="#eip-ethereum-improvement-proposal">EIP (Ethereum Improvement Proposal)</a>
 		<ul>
-			<li><a href="#abstract"><h2>Abstract</h2></a></li>
-			<li><a href="#motivation"><h2>Motivation</h2></a></li>
-			<li><a href="#specification"><h2>Specification</h2></a>
+			<li><a href="#abstract">Abstract</a></li>
+			<li><a href="#motivation">Motivation</a></li>
+			<li><a href="#specification">Specification</a>
 				<ul>
-					<li><a href="#1-compliance-contracts-of-v1-and-v2"><h3>1. Compliance Contracts of v1 and v2</h3></a>
+					<li><a href="#1-compliance-contracts-of-v1-and-v2">1. Compliance Contracts of v1 and v2</a>
 						<ul>
-							<li><a href="#scc0-v1-compliance-contract"><h4>SCC0 v1 Compliance Contract</h4></a></li>
-							<li><a href="#scc0-v2-compliance-contract"><h4>SCC0 v2 Compliance Contract</h4></a></li>
+							<li><a href="#scc0-v1-compliance-contract">SCC0 v1 Compliance Contract</a></li>
+							<li><a href="#scc0-v2-compliance-contract">SCC0 v2 Compliance Contract</a></li>
 						</ul>
 					</li>
-					<li><a href="#2-scc0-license-version-management-contract"><h3>2. SCC0 License Version Management Contract</h3></a></li>
-					<li><a href="#3-scc0-whitelist-contract"><h3>3. SCC0 Whitelist contract</h3></a></li>
-					<li><a href="#4-additional-governance-and-operational-parameters-of-scc0-v1"><h3>4. Additional Governance and Operational Parameters of SCC0 V1</h3></a></li>
-					<li><a href="#5-interoperability-and-on-chain-verification"><h3>5. Interoperability and On-Chain Verification</h3></a></li>
-					<li><a href="#reward-distribution-mechanism"><h3>Reward Distribution Mechanism</h3></a></li>
+					<li><a href="#2-scc0-license-version-management-contract">2. SCC0 License Version Management Contract</a></li>
+					<li><a href="#3-scc0-whitelist-contract">3. SCC0 Whitelist contract</a></li>
+					<li><a href="#4-additional-governance-and-operational-parameters-of-scc0-v1">4. Additional Governance and Operational Parameters of SCC0 V1</a></li>
+					<li><a href="#5-interoperability-and-on-chain-verification">5. Interoperability and On-Chain Verification</a></li>
+					<li><a href="#reward-distribution-mechanism">Reward Distribution Mechanism</a></li>
 				</ul>
 			</li>
-			<li><a href="#compliance-enforcement-in-smart-commons"><h2>Compliance Enforcement in Smart Commons</h2></a></li>
-			<li><a href="#rationale"><h2>Rationale</h2></a></li>
-			<li><a href="#backwards-compatibility"><h2>Backwards Compatibility</h2></a></li>
-			<li><a href="#security-considerations"><h2>Security Considerations</h2></a></li>
-			<li><a href="#copyright"><h2>Copyright</h2></a></li>
+			<li><a href="#compliance-enforcement-in-smart-commons">Compliance Enforcement in Smart Commons</a></li>
+			<li><a href="#rationale">Rationale</a></li>
+			<li><a href="#backwards-compatibility">Backwards Compatibility</a></li>
+			<li><a href="#security-considerations">Security Considerations</a></li>
+			<li><a href="#copyright">Copyright</a></li>
 		</ul>
-	<li><a href="#list-of-smart-commons"><h1>List of Smart Commons</h1></a></li>
-	<li><a href="#more-about-scc0"><h1>More about SCC0</h1></a></li>
-	<li><a href="#references"><h1>References</h1></a></li>
+	<li><a href="#list-of-smart-commons">List of Smart Commons</a></li>
+	<li><a href="#more-about-scc0">More about SCC0</a></li>
+	<li><a href="#references">References</a></li>
 </ol>
+		
 # What is the Smart Creative Commons Zero license (SCC0)?
 The governance of artificial intelligence (AI) is of paramount importance, and over the past 16 years, blockchain technology has demonstrated its exceptional capability in addressing the crises of centralized governance. Its decentralized governance model not only offers high levels of security and reliability but also exhibits remarkable efficiency. Based on this, we have reason to believe that all AI software should be upgraded to decentralized AI applications (dAIpps<a href="#r5"><sup>[5]</sup></a>) as soon as possible, to achieve a more transparent, secure, and efficient governance mechanism.
 
