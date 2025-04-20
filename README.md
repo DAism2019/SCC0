@@ -47,7 +47,7 @@
 
 # Donation
 
-**[Donate ETH directly to support us](https://daism.io/zh/donation)**
+**[Donate ETH to support us](https://daism.io/zh/donation)**
 
 ---
 
