@@ -13,20 +13,7 @@
 		</ul>
 	</li>
 	<li><a href="#motivation">Motivation</a></li>
-	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a>
-		<ul>
-			<li><a href="#license-name-and-version">License Name and Version</a></li>
-			<li><a href="#rejecting-interactions-with-private-applications">Rejecting Interactions with Private Applications</a></li>
-			<li><a href="#prohibition-of-private-token-issuance">Prohibition of Private Token Issuance</a></li>
-			<li><a href="#anonymity">Anonymity</a></li>
-			<li><a href="#no-rights-other-than-governance-by-the-public-fund">No Rights Other Than Governance by the Public Fund</a></li>
-			<li><a href="#no-liability">No Liability</a></li>
-			<li><a href="#source-code-audited-verified-and-published">Source code audited, verified and published</a></li>
-			<li><a href="#permanently-free">Permanently Free</a></li>
-			<li><a href="#governance-by-the-satoshi-uto-fund">Governance by the Satoshi UTO Fund</a></li>
-			<li><a href="#scc0-license-governance-logic">SCC0 License Governance Logic</a></li>
-		</ul>
-	</li>
+	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a></li>
 	<li><a href="#eip-ethereum-improvement-proposal">EIP (Ethereum Improvement Proposal)</a>
 		<ul>
 			<li><a href="#abstract">Abstract</a></li>
@@ -57,7 +44,15 @@
 	<li><a href="#more-about-scc0">More about SCC0</a></li>
 	<li><a href="#references">References</a></li>
 </ol>
-		
+
+# Donation
+
+**Donate ETH directly to our contract address**:
+
+0x9E84d3DEfC7c4D333620ff5aa61a900f6AD42CEA
+
+**Thank you for your support!**
+
 # What is the Smart Creative Commons Zero license (SCC0)?
 The governance of artificial intelligence (AI) is of paramount importance, and over the past 16 years, blockchain technology has demonstrated its exceptional capability in addressing the crises of centralized governance. Its decentralized governance model not only offers high levels of security and reliability but also exhibits remarkable efficiency. Based on this, we have reason to believe that all AI software should be upgraded to decentralized AI applications (dAIpps<a href="#r5"><sup>[5]</sup></a>) as soon as possible, to achieve a more transparent, secure, and efficient governance mechanism.
 
