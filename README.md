@@ -1,4 +1,6 @@
-<ul><li>(<a href="/blob/main/README-CN.md">中文版</a>)</li></ul>
+（<a href="/blob/main/README-CN.md">这是中文版</a>)
+
+# Table of contents
 <ol>
 	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0">What is the Smart Creative Commons Zero license (SCC0)?</a></li>
 	<li><a href="#background">Background
