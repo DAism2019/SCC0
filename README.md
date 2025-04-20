@@ -48,7 +48,9 @@
 # Donation
 
 **[Donate ETH directly to support us](https://daism.io/zh/donation)**
+
 ---
+
 # What is the Smart Creative Commons Zero license (SCC0)?
 The governance of artificial intelligence (AI) is of paramount importance, and over the past 16 years, blockchain technology has demonstrated its exceptional capability in addressing the crises of centralized governance. Its decentralized governance model not only offers high levels of security and reliability but also exhibits remarkable efficiency. Based on this, we have reason to believe that all AI software should be upgraded to decentralized AI applications (dAIpps<a href="#r5"><sup>[5]</sup></a>) as soon as possible, to achieve a more transparent, secure, and efficient governance mechanism.
 
