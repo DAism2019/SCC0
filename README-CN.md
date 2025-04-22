@@ -593,19 +593,24 @@ contract SmartCommons {
     /// @notice Address of the counterparty contract.
     address public counterparty;
     /// @notice Address of the SCC0Whitelist contract.
-    address public scc0WhitelistAddress = 0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52;
+    address public scc0WhitelistAddress;
 
     /// @notice Constructor to initialize the SmartCommons contract.
     /// @param _counterparty The address of the counterparty contract.
     /// @param _scc0WhitelistAddress The address of the SCC0Whitelist contract.
-    constructor(address _counterparty) {
+    constructor(address _counterparty, address _scc0WhitelistAddress) {
         counterparty = _counterparty;
+        scc0WhitelistAddress = _scc0WhitelistAddress;
     }
     /// @notice Internal function to check if a given address is whitelisted by the SCC0Whitelist contract.
     /// @param _addr The address to check.
     /// @return True if the address is whitelisted, otherwise false.
     function _checkSCC0Whitelist(address _addr) internal view returns (bool) {
-        return ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_addr);
+        // Temporarily use the “burn” address as a sentinel: if this special address is whitelisted,
+        // we know the SCC0 whitelist isn’t fully active yet and should allow all calls.
+        // Once the real whitelist is live, this address can be removed to enforce normal checks.
+        bool scc0IsEnable = ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(0x000000000000000000000000000000000000dEaD);
+        return (scc0IsEnable || ISCC0Whitelist(scc0WhitelistAddress).isWhitelisted(_addr));
     }
 
     /// @notice Modifier to restrict function access to only whitelisted addresses.
@@ -615,7 +620,7 @@ contract SmartCommons {
     }
 
     /// @notice Calls a method on the counterparty contract after verifying that the counterparty is whitelisted.
-    function callCounterparty() public {
+    function callCounterparty() public onlySCC0 {
  		// Insert  logic code here...
 
         // Ensure that the counterparty address is whitelisted.
