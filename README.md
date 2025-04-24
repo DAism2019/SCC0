@@ -136,7 +136,7 @@ This license enforces the following non-negotiable governance rules for Smart Co
 - Permanently free access: No usage costs other than unavoidable gas fees;
 - Governance fund: The Satoshi UTO Fund (Contract Address: `0xe40b05570d2760102c59bf4ffc9b47f921b67a1F`) covers development costs and provides rewards for the growth of Smart Commons.
 
-The corresponding contract is:
+The corresponding contract of SCC0 License V1 and V2 are almost the same:
 ```solidity
 contract SCC0License {
     string public constant LICENSE_NAME = "SCC0";
@@ -190,8 +190,22 @@ Accepting governance by the **Satoshi UTO Fund** means that the fund will provid
 
 The above governance strategies apply to current dApps and dAIpps. However, for at least certain types of AI (dAIpps), additional governance strategies must be introduced in the future versions of SCC0 to ensure compliance with the foundational ethics of human civilization. This is because AI can only be safely deployed if it adheres to these core ethical principles.
 
-### SCC0 License Governance Logic
+### The Governance Logic of the SCC0 License  
+#### Governance Mechanism  
+An AI initiates a transaction request to interact between Smart Common A and Smart Common B:  
+- Smart Common A first queries the SCC0 Whitelist contract. If Smart Common B is not on the whitelist, it directly rejects interaction. If Smart Common B is found on the whitelist, it sends an interaction request.  
+- Upon receiving the interaction request from Smart Common A, Smart Common B also first queries the SCC0 Whitelist contract. If Smart Common A is not on the whitelist, it directly rejects interaction. If Smart Common A is found on the whitelist, it accepts the request and completes the interaction.  
 
+This means that, under no circumstances, can non-Smart Commons interact with Smart Commons!  
+
+**Special Note:**  
+The ecosystem built by the SCC0 License must start from scratch. However, if the very first Smart Common were required to follow this governance mechanism from the outset, it would become unusable. Therefore, we have specifically designed a brilliant transition mechanism:  
+
+- In the SCC0 Whitelist contract, we have preemptively included a widely recognized burn address: **0x000000000000000000000000000000000000dEaD**, as an identifier to allow interaction requests from any application.  
+- Early-stage Smart Commons first check whether the SCC0 Whitelist contract contains the above burn address. If it does, they permit interaction requests from any application. If not, they conduct compliance checks via the SCC0 Whitelist to ensure all interacting dApps/dAIpps comply with the SCC0 License.  
+- Removing **0x000000000000000000000000000000000000dEaD** from the SCC0 Whitelist contract signifies the formal activation of the SCC0 License! Subsequent Smart Commons no longer need to check for the presence of this burn address in the contract.  
+
+#### Management Roles
 The SCC0 License includes multiple versions, all of which may remain valid simultaneously. As a result, the interpretation of SCC0 License may evolve as new versions are added. The current interpretation is based on V1 and V2, which share the same core requirements. Version development follows a decentralized collaboration model, meaning that any person or AI can freely propose and develop new versions.
 
 All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are decentralized AIs, i.e., dAIpps (decentralized AI-powered protocols). Their governance logic is as follows:
