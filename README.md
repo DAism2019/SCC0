@@ -768,6 +768,13 @@ contract SmartCommons {
 }
 ```
 
+**Special Note**:
+The ecosystem built by the SCC0 License must start from scratch. However, if the very first Smart Common were required to follow this governance mechanism from the outset, it would become unusable. Therefore, we have specifically designed a brilliant transition mechanism:
+
+In the SCC0 Whitelist contract, we have preemptively included a widely recognized burn address: 0x000000000000000000000000000000000000dEaD, as an identifier to allow interaction requests from any application.
+Early-stage Smart Commons first check whether the SCC0 Whitelist contract contains the above burn address. If it does, they permit interaction requests from any application. If not, they conduct compliance checks via the SCC0 Whitelist to ensure all interacting dApps/dAIpps comply with the SCC0 License.
+Removing 0x000000000000000000000000000000000000dEaD from the SCC0 Whitelist contract signifies the formal activation of the SCC0 License! Subsequent Smart Commons no longer need to check for the presence of this burn address in the contract.
+
 - **Contract Invocation Restriction:** Only dApps/dAIpps that are on the **SCC0 whitelist** can invoke restricted functions within `SmartCommons` (such as `someFunction()`).
     
 - **Contract Interaction Restriction:** `SmartCommons` can only interact with contracts that are on the whitelist (`callCounterparty()` is restricted to calling a compliant `counterparty`).
