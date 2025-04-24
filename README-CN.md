@@ -584,8 +584,10 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细奖励规则”的原因在于，我们既不能通过任何中心化的审查小组方法实施此类措施，也不能通过使用钱包地址的社区投票来确定奖励金额。后一种方法甚至更糟糕——它构成了一种伪去中心化的方法，只有自欺欺人者甚至骗子才会使用。我们预计未来一些 dAIpp 会接手这项工作，从估值到奖金管理。
 
 # 智能公器的合规执行
-**SCC0 License 启用前**
-这个合约使得智能公器既能在SCC0 License 启用前实际不受任何限制，与其它 dAIpp 或 dApp 交互，又能够SCC0 License 启用后，通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。执行机制的工作原理如下：
+请注意这个合约里面区分了两种情况，分别对应于SCC0 License启用前后。其目的是使得智能公器既能在SCC0 License 启用前实际不受任何限制，与其它 dAIpp 或 dApp 交互，又能够在 SCC0 License 启用后，通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。如果您还不明白，请看代码下方的**特别注意**。
+
+执行机制的工作原理如下：
+
 ```solidity
 // SPDX-License-Identifier: scc0
 pragma solidity ^0.8.20;
@@ -657,13 +659,12 @@ contract SmartCommons {
 }
 ```
 
-**SCC0 License 启用后**
-这个合约使得智能公器能够通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。执行机制的工作原理如下：
-```solidity
+**特别注意：**  
+SCC0 License 构建的生态，要从0开始，如果从第一个智能公器开始，就要求必须按其治理机制去执行，那么第一个智能公器就会成为一个无法使用的智能公器。因此我们特地设计了一种绝妙的过渡机制：
 
-
-
-```
+- 在白名单管理合约 SCC0 Whitelist contract 里，我们已经特地加入了一个被普遍使用的黑洞地址：0x000000000000000000000000000000000000dEaD，作为放行任何应用交互请求的标识。
+- 早期的智能公器首先检查 SCC0 Whitelist contract 里有否以上黑洞地址，如有，则放行任何应用的交互请求。如无，则通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。
+- 白名单管理合约 SCC0 Whitelist contract 里删除 0x000000000000000000000000000000000000dEaD 则意味着 SCC0 许可证正式被启用！之后的智能公器不需要再检查该合约里是否有以上黑洞地址。
 
 - **合约调用限制：** 只有在 **SCC0 白名单** 上的 dApps/dAIpps（即智能公器）才能调用 `SmartCommons` 内的受限函数 (`someFunction()`)。
 - **合约交互限制：** `SmartCommons` 只能调用白名单上的合约 (`callCounterparty()` 仅允许调用合规的 `counterparty`)。
