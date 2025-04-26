@@ -1,7 +1,7 @@
 ([English](https://github.com/DAism2019/SCC0/blob/main/README.md))
 # 目录
 
-# 什么是 Smart Creative Commons Zero 许可证 (SCC0 License)？
+- [什么是 Smart Creative Commons Zero 许可证 (SCC0 License)？](#%E4%BB%80%E4%B9%88%E6%98%AF-smart-creative-commons-zero-%E8%AE%B8%E5%8F%AF%E8%AF%81-scc0-license-1)
 - [背景](#背景)
   - [关于 dApp 和 dAIpp](#关于-dapp-和-daipp)
   - [代码即法律：智能合约简介](#代码即法律智能合约简介12)
@@ -26,6 +26,10 @@
 - [智能公器列表](#智能公器列表)
 - [有关 SCC0 的更多信息](#有关-scc0-的更多信息)
 - [参考文献](#参考文献)
+
+# 捐助
+[捐助 ETH 支持本项目](https://daism.io/zh/donation)
+
 
 # 什么是 Smart Creative Commons Zero 许可证 (SCC0 License)？
 人工智能（AI）的治理问题至关重要，而区块链技术在过去16年的发展中，已充分证明了其在解决中心化治理危机方面的卓越能力。其去中心化治理模式不仅具备高度的安全性和可靠性，还展现了显著的效率优势。基于此，我们有理由相信，任何 AI 软件都应尽快向去中心化 AI 应用（dAIpp<a href="#r5"><sup>[5]</sup></a>）的方向升级，以实现更透明、更安全、更高效的治理机制。
