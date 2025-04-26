@@ -31,18 +31,7 @@
 				</ul>
 			</li>			
 		</ul>
-	<li><a href="#eip-ethereum-improvement-proposal">EIP (Ethereum Improvement Proposal)</a>
-		<ul>
-			<li><a href="#abstract">Abstract</a></li>
-			<li><a href="#motivation">Motivation</a></li>
-			<li><a href="#specification">Specification</a></li>
-			<li><a href="#compliance-enforcement-in-smart-commons">Compliance Enforcement in Smart Commons</a></li>
-			<li><a href="#rationale">Rationale</a></li>
-			<li><a href="#backwards-compatibility">Backwards Compatibility</a></li>
-			<li><a href="#security-considerations">Security Considerations</a></li>
-			<li><a href="#copyright">Copyright</a></li>
-		</ul>
-	</li>
+	<li><a href="#ethereum-improvement-proposal-erc-7914">Ethereum Improvement Proposal: ERC-7914</a></li>
 	<li><a href="#list-of-smart-commons">List of Smart Commons</a></li>
 	<li><a href="#more-about-scc0">More about SCC0</a></li>
 	<li><a href="#references">References</a></li>
