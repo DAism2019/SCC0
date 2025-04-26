@@ -16,18 +16,18 @@
 	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a></li>
 		<ul>
 			<li><a href="#license-name-and-version">License Name and Version</a></li>
-			<li><a href="">Rejecting Interactions with Private Applications</a></li>
-			<li><a href="">Prohibition of Private Token Issuance</a></li>
-			<li><a href="">Anonymity</a></li>
-			<li><a href="">No Rights Other Than Governance by the Public Fund</a></li>
-			<li><a href="">No Liability</a></li>
-			<li><a href="">Source code audited, verified and published</a></li>
-			<li><a href="">Permanently Free</a></li>
-			<li><a href="">Governance by the Satoshi UTO Fund</a></li>
-			<li><a href="">The Governance Logic of the SCC0 License</a>
+			<li><a href="#rejecting-interactions-with-private-applications">Rejecting Interactions with Private Applications</a></li>
+			<li><a href="#prohibition-of-private-token-issuance">Prohibition of Private Token Issuance</a></li>
+			<li><a href="#anonymity">Anonymity</a></li>
+			<li><a href="#no-rights-other-than-governance-by-the-public-fund">No Rights Other Than Governance by the Public Fund</a></li>
+			<li><a href="#no-liability">No Liability</a></li>
+			<li><a href="#source-code-audited-verified-and-published">Source code audited, verified and published</a></li>
+			<li><a href="#permanently-free">Permanently Free</a></li>
+			<li><a href="#governance-by-the-satoshi-uto-fund">Governance by the Satoshi UTO Fund</a></li>
+			<li><a href="#the-governance-logic-of-the-scc0-license">The Governance Logic of the SCC0 License</a>
 				<ul>
-					<li><a href="">Governance Mechanism</a></li>
-					<li><a href="">Management Roles</a></li>
+					<li><a href="#governance-mechanism">Governance Mechanism</a></li>
+					<li><a href="#management-roles">Management Roles</a></li>
 				</ul>
 			</li>			
 		</ul>
