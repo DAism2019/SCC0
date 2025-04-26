@@ -1,31 +1,5 @@
 ([English](https://github.com/DAism2019/SCC0/blob/main/README.md))
-#目录
-1. [什么是 Smart Creative Commons Zero 许可证 (SCC0 License)？](#%E4%BB%80%E4%B9%88%E6%98%AF-smart-creative-commons-zero-%E8%AE%B8%E5%8F%AF%E8%AF%81-scc0-license)
-2. [背景](#%E8%83%8C%E6%99%AF)
-   - [关于 dApp 和 dAIpp](#%E5%85%B3%E4%BA%8E-dapp-%E5%92%8C-daipp)
-   - [代码即法律：智能合约简介](#%E4%BB%A3%E7%A0%81%E5%8D%B3%E6%B3%95%E5%BE%8B%E5%88%B6%E7%9B%B8%E4%BB%8B)
-   - [dApps/dAIpps 的匿名性](#dappsdaipps-%E7%9A%84%E5%8C%BF%E5%90%8D%E6%80%A7)
-   - [智能公器（Smart Commons）](#%E6%99%BA%E8%83%BD%E5%85%AC%E5%99%A8smart-commons)
-3. [动机](#%E5%8A%A8%E6%9C%BA)
-4. [Smart Creative Commons Zero License（SCC0 License）](#smart-creative-commons-zero-licensescc0-license)
-5. [附件：ERC-7914](#%E9%99%84%E4%BB%B6erc-7914)
-   - [摘要](#%E6%91%98%E8%A6%81)
-   - [动机](#%E5%8A%A8%E6%9C%BA-1)
-   - [技术规范](#%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83)
-        - [SCC0 License v1 和 v2 的合规合约](#scc0-license-v1-%E5%92%8C-v2-%E7%9A%84%E5%90%88%E8%A7%84%E5%90%88%E7%BA%A6)
-        - [SCC0 许可证版本管理合约](#scc0-%E8%AE%B8%E5%8F%AF%E8%AF%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%90%88%E7%BA%A6)
-        - [SCC0 白名单合约](#scc0-%E7%99%BD%E5%90%8D%E5%8D%95%E5%90%88%E7%BA%A6)
-        - [SCC0 V1 的附加治理和操作参数](#scc0-v1-%E7%9A%84%E9%99%84%E5%8A%A0%E6%B2%BB%E7%90%86%E5%92%8C%E6%93%8D%E4%BD%9C%E5%8F%82%E6%95%B0)
-        - [互操作性和链上验证](#%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7%E5%92%8C%E9%93%BE%E4%B8%8A%E9%AA%8C%E8%AF%81)
-        - [奖励分配机制](#%E5%A5%96%E5%8A%B1%E5%88%86%E9%85%8D%E6%9C%BA%E5%88%B6)
-    - [智能公器的合规执行](#%E6%99%BA%E8%83%BD%E5%85%AC%E5%99%A8%E7%9A%84%E5%90%88%E8%A7%84%E6%89%A7%E8%A1%8C)
-    - [基本原理](#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86)
-    - [向后兼容性](#%E5%90%91%E5%90%8E%E5%85%BC%E5%AE%B9%E6%80%A7)
-    - [安全注意事项](#%E5%AE%89%E5%85%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
-    - [版权](#%E7%89%88%E6%9D%83)
-6. [智能公器列表](#%E6%99%BA%E8%83%BD%E5%85%AC%E5%99%A8%E5%88%97%E8%A1%A8)
-7. [有关 SCC0 的更多信息](#%E6%9C%89%E5%85%B3-scc0-%E7%9A%84%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF)
-8. [参考文献](#%E5%8F%83%E8%80%83%E6%96%87%E7%8C%AE)
+
 
 # 什么是 Smart Creative Commons Zero 许可证 (SCC0 License)？
 人工智能（AI）的治理问题至关重要，而区块链技术在过去16年的发展中，已充分证明了其在解决中心化治理危机方面的卓越能力。其去中心化治理模式不仅具备高度的安全性和可靠性，还展现了显著的效率优势。基于此，我们有理由相信，任何 AI 软件都应尽快向去中心化 AI 应用（dAIpp<a href="#r5"><sup>[5]</sup></a>）的方向升级，以实现更透明、更安全、更高效的治理机制。
