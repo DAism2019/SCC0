@@ -7,7 +7,7 @@
    - [dApps/dAIpps 的匿名性](#dappsdaipps-%E7%9A%84%E5%8C%BF%E5%90%8D%E6%80%A7)
    - [智能公器（Smart Commons）](#%E6%99%BA%E8%83%BD%E5%85%AC%E5%99%A8smart-commons)
 3. [动机](#%E5%8A%A8%E6%9C%BA)
-4. [Smart Creative Commons Zero License（SCC0 License）](#smart-creative-commons-zeroscc0)
+4. [Smart Creative Commons Zero License（SCC0 License）](#smart-creative-commons-zero-licensescc0-license)
    - [智能公器的治理](#%E6%99%BA%E8%83%BD%E5%85%AC%E5%99%A8%E7%9A%84%E6%B2%BB%E7%90%86)
    - [许可名称和版本](#%E8%AE%B8%E5%8F%AF%E5%90%8D%E7%A7%B0%E5%92%8C%E7%89%88%E6%9C%AC)
    - [拒绝与私有应用交互](#%E6%8B%92%E7%BB%9D%E4%B8%8E%E7%A7%81%E6%9C%89%E5%BA%94%E7%94%A8%E4%BA%A4%E4%BA%92)
