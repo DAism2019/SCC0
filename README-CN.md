@@ -187,9 +187,9 @@ SCC0 License 构建的生态，要从0开始，如果从第一个智能公器开
 
 # 附件：ERC-7914
 
-此ERC还在审核与修订之中，最新内容请阅读：https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md
+**此ERC还在审核与修订之中，最新内容请阅读：https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md**
 
-欢迎参与审核与修订讨论：https://github.com/ethereum/ERCs/pull/906
+**欢迎参与审核与修订讨论：https://github.com/ethereum/ERCs/pull/906**
 
 ---
 标题：Smart Creative Commons Zero License (SCC0)
@@ -207,7 +207,7 @@ SCC0 License 构建的生态，要从0开始，如果从第一个智能公器开
 
 ---
 
-# 摘要
+## 摘要
 
 SCC0（Smart Creative Commons Zero）是首个专为公共的去中心化应用，即智能公器（Smart Commons），设计的公共领域许可证，适用于传统 dApp 以及去中心化的人工智能应用 dAIpp。作为去中心化生态的通用标准，SCC0 通过智能合约实现链上自动化合规验证与治理，确保以下核心原则：
 
@@ -225,7 +225,7 @@ SCC0（Smart Creative Commons Zero）是首个专为公共的去中心化应用�
 
 本提案为 SCC0 许可引入标准化的链上框架，使智能公器能相互验证彼此的合规性，并集成去中心化自治机制，为 AI 驱动的公共品生态奠定技术基础。
 
-# 动机
+## 动机
 为确保 dApps 和 dAIpps 完全遵守公共利益和透明治理的原则，SCC0 许可用合约制订了规则，引入了一整套标准化的链上验证与自动化治理机制，其核心动机包括：
 
 - **用合约代码制订的许可**：为实现Code is Law，我们就必须将 Law 代码化。
@@ -236,9 +236,9 @@ SCC0（Smart Creative Commons Zero）是首个专为公共的去中心化应用�
 
 总体来说，SCC0 致力于建立一个自我管理、公开透明且严格合规的公共的去中心化应用（即智能公器）生态系统，并确保智能公器始终坚持公共性、开放性和自治性，为其普及和发展提供有力保障。
 
-# 技术规范
-## 1. SCC0 License v1 和 v2 的合规合约
-### SCC0 v1合规合约
+## 技术规范
+### 1. SCC0 License v1 和 v2 的合规合约
+#### SCC0 v1合规合约
 
 DAism 已部署 SCC0 v1，任何遵守该标准的 dApp/dAIpp 必须：
 1. 与 DAism 的智能合约进行交互 <code>0xdFBF69B7E5366FB3001C9a214dd85c5FE3f90bAe</code>。或者前往 [DAism](https://daism.io/zh/smartcommons) 铸造智能合约。
@@ -278,7 +278,7 @@ uint16 public strategy; // Pass rate for Smart Common proposals
 mapping(uint => File) public logoStorages; // Storage for Smart Common logos
 ```
 
-## SCC0 v2 合规合约
+### SCC0 v2 合规合约
 
 DAism 部署的 [SCC0 v2 合规合约：0x78282e29165E709DCEF483bB30e40c8e238865dA](https://etherscan.io/address/0x78282e29165E709DCEF483bB30e40c8e238865dA#code)
 ```solidity
@@ -295,7 +295,7 @@ contract SCC0License {
     address public constant PUBLIC_GOVERNANCE_FUND = 0xe40b05570d2760102c59bf4ffc9b47f921b67a1F;
 }
 ```
-### 2. SCC0 许可证版本管理合约
+#### 2. SCC0 许可证版本管理合约
 SCC0 许可证管理合约提供了许可证管理员管理，许可证版本管理和查验所有废弃版本功能。它支持：
 - 许可证版本管理员管理：本合约 owner（代表的是本合约管理团队的一个多签地址）管理许可证版本管理员，即 owner 可以添加或者移除许可证版本管理员。
 - 许可证版本管理：许可证版本管理员可以对 SCC0 许可证版本进行增加、弃用等管理。
@@ -476,7 +476,7 @@ contract SCC0LicenseManager is Ownable {
 
 ```
 
-### 3. SCC0 白名单合约
+#### 3. SCC0 白名单合约
 本合约管理白名单及白名单管理员，提供白名单查询功能：
 - 白名单管理员管理：本合约 owner（代表的是本合约管理团队的一个多签地址）管理白名单管理员，即 owner 可以添加或者移除白名单管理员。
 - 白名单管理：白名单管理员可以对 SCC0 许可证的白名单进行增加或删除操作。
@@ -577,7 +577,7 @@ contract SCC0Whitelist is Ownable {
 
 ```
 
-### 4. SCC0 V1 的附加治理和操作参数
+#### 4. SCC0 V1 的附加治理和操作参数
 除了核心许可证和参考实施合约之外，SCC0 还包含其他参数来支持分散治理和社区互动：
 
 - **智能公器结构：**
@@ -589,7 +589,7 @@ contract SCC0Whitelist is Ownable {
 - **品牌和身份：**
 智能公器标识的存储映射，可增强生态系统内的身份和信任。
 
-### 5. 互操作性和链上验证
+#### 5. 互操作性和链上验证
 SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
 - 与 dApp/dAIpp 交互之前,检查被交互合约是否在合约 SCC0Whitelist[合约地址:0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52]的白名单[方法:isWhitelisted(address dApp)]中.
@@ -597,7 +597,7 @@ SCC0 框架允许任何交互合约通过以下方式验证合规性：
 
 这些相互校验的机制促进了在 dApp/dAIpp 中执行 SCC0 许可证的无需信任和自动化的方法。
 
-### 6. 奖励分配机制
+#### 6. 奖励分配机制
 为了支持符合 SCC0 的项目，SSC0 V1 引入了可升级的奖励分配系统：
 
 1. 维护一个数组来存储有资格获得奖励的外部账户及其分配百分比。
@@ -612,7 +612,7 @@ mapping(uint => File) public logoStorages; // Storage for smart common logos
 ```
 SSC0 V1 和 SSC0 V2 都没有引入“Satoshi UTO 基金对智能公链的详细奖励规则”的原因在于，我们既不能通过任何中心化的审查小组方法实施此类措施，也不能通过使用钱包地址的社区投票来确定奖励金额。后一种方法甚至更糟糕——它构成了一种伪去中心化的方法，只有自欺欺人者甚至骗子才会使用。我们预计未来一些 dAIpp 会接手这项工作，从估值到奖金管理。
 
-# 智能公器的合规执行
+## 智能公器的合规执行
 请注意这个合约里面区分了两种情况，分别对应于SCC0 License启用前后。其目的是使得智能公器既能在SCC0 License 启用前实际不受任何限制，与其它 dAIpp 或 dApp 交互，又能够在 SCC0 License 启用后，通过 SCC0Whitelist 进行合规性检查，确保所有交互的 dApp/dAIpp 都遵守了 SCC0 许可证。如果您还不明白，请看代码下方的**特别注意**。
 
 执行机制的工作原理如下：
@@ -706,7 +706,7 @@ SCC0 License 构建的生态，要从0开始，如果从第一个智能公器开
     - 要求<code>SmartCommons</code>的函数调用者是SCC0白名单。
 - **每个 SCC0 许可的 Smart Commons 在与另一个 dApp/dAIpp 交互之前都必须应用此检查。**
 
-# 基本原理
+## 基本原理
 - **许可证合规性（<code>LICENSE</code>、  <code>LICENSENAME</code>）**：确保智能合约透明地标识许可证名称，即 SCC0。
 - **拒绝与私有app交互（<code>REJECT_PRIVATE_APP</code>）**：杜绝私有 app 侵占公共资源。
 - **无自发代币（<code>SELFI_SSUED_TOKEN</code>）**：防止误导性的代币发行声明或任何诈骗行为。
@@ -719,17 +719,17 @@ SCC0 License 构建的生态，要从0开始，如果从第一个智能公器开
 - **永久免费（<code>PERMANENTLY_FREE</code>）**：公共项目，永久免费。
 - **强制性**：确保合约交互之前进行 SCC0 验证。
 
-# 向后兼容性
+## 向后兼容性
 此 EIP 不会引入重大更改，但为采用 SCC0 的项目提供了选择加入机制。必须重新部署旧合约才能符合新标准。
 
-# 安全注意事项
+## 安全注意事项
 - 符合SCC0的合约免除责任，要求用户承认法律限制。
 - 我们认为任何可升级的 dApp/dAIpp 都不应由任何人控制，因此多重签名地址是将来将控制权移交给某些 dAIpps (AI) 的好方法。如果我们能在第一天就找到一些 dApp 的通用解决方案，那就太好了。
 - 开发人员必须确保合约逻辑符合SCC0的原则。
 - 修改 <code>onlySCC0</code> 器在自动合约交互中强制执行合规性。
 一旦每个 dApp/dAIpp 被铸造成智能公共 (v1) 或部署在链上 (v2)，一些 dAIpp 就会通过审核来加强安全性。
 
-# 版权
+## 版权
 通过 CC0 放弃版权和相关权利。Copyright and related rights waived via [CC0](https://eips.ethereum.org/LICENSE).
 
 # 智能公器列表
