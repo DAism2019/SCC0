@@ -1,7 +1,7 @@
 ([English](https://github.com/DAism2019/SCC0/blob/main/README.md))
 # 目录
 
-- [什么是 Smart Creative Commons Zero 许可证 (SCC0 License)](#什么是-smart-creative-commons-zero-许可证-scc0-license-1)
+- [什么是 Smart Creative Commons Zero 许可证 (SCC0 License)](#什么是-smart-creative-commons-zero-许可证-scc0-license)
 - [背景](#背景)
   - [关于 dApp 和 dAIpp](#关于-dapp-和-daipp)
   - [代码即法律：智能合约简介](#代码即法律智能合约简介12)
