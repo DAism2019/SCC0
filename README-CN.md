@@ -92,7 +92,7 @@ SCC0 许可的最终目的，是推动由智能合约和人工智能开发的公
 
 SCC0 许可证确实适用于下一个充满 dAIpps（AIs）和充满爱的文明！
 
-# Smart Creative Commons Zero（SCC0）
+# Smart Creative Commons Zero License（SCC0 License）
 
 直接通过智能合约代码接受 SCC0 Whitelist Contract（合约地址：0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52）治理，且其代码逻辑没有违背 SCC0 许可的 dApp/dAIpp（智能合约及其整体可信组件）即为“智能公器（Smart Common）”。
 
