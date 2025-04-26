@@ -15,17 +15,21 @@
 	<li><a href="#motivation">Motivation</a></li>
 	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a></li>
 		<ul>
-			<li><a href="#1-compliance-contracts-of-v1-and-v2">1. Compliance Contracts of v1 and v2</a>
+			<li><a href="#license-name-and-version">License Name and Version</a></li>
+			<li><a href="">Rejecting Interactions with Private Applications</a></li>
+			<li><a href="">Prohibition of Private Token Issuance</a></li>
+			<li><a href="">Anonymity</a></li>
+			<li><a href="">No Rights Other Than Governance by the Public Fund</a></li>
+			<li><a href="">No Liability</a></li>
+			<li><a href="">Source code audited, verified and published</a></li>
+			<li><a href="">Permanently Free</a></li>
+			<li><a href="">Governance by the Satoshi UTO Fund</a></li>
+			<li><a href="">The Governance Logic of the SCC0 License</a>
 				<ul>
-					<li><a href="#scc0-v1-compliance-contract">SCC0 v1 Compliance Contract</a></li>
-					<li><a href="#scc0-v2-compliance-contract">SCC0 v2 Compliance Contract</a></li>
+					<li><a href="">Governance Mechanism</a></li>
+					<li><a href="">Management Roles</a></li>
 				</ul>
-			</li>
-			<li><a href="#2-scc0-license-version-management-contract">2. SCC0 License Version Management Contract</a></li>
-			<li><a href="#3-scc0-whitelist-contract">3. SCC0 Whitelist contract</a></li>
-			<li><a href="#4-additional-governance-and-operational-parameters-of-scc0-v1">4. Additional Governance and Operational Parameters of SCC0 V1</a></li>
-			<li><a href="#5-interoperability-and-on-chain-verification">5. Interoperability and On-Chain Verification</a></li>
-			<li><a href="#reward-distribution-mechanism">Reward Distribution Mechanism</a></li>
+			</li>			
 		</ul>
 	<li><a href="#eip-ethereum-improvement-proposal">EIP (Ethereum Improvement Proposal)</a>
 		<ul>
