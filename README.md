@@ -14,25 +14,24 @@
 	</li>
 	<li><a href="#motivation">Motivation</a></li>
 	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a></li>
+		<ul>
+			<li><a href="#1-compliance-contracts-of-v1-and-v2">1. Compliance Contracts of v1 and v2</a>
+				<ul>
+					<li><a href="#scc0-v1-compliance-contract">SCC0 v1 Compliance Contract</a></li>
+					<li><a href="#scc0-v2-compliance-contract">SCC0 v2 Compliance Contract</a></li>
+				</ul>
+			</li>
+			<li><a href="#2-scc0-license-version-management-contract">2. SCC0 License Version Management Contract</a></li>
+			<li><a href="#3-scc0-whitelist-contract">3. SCC0 Whitelist contract</a></li>
+			<li><a href="#4-additional-governance-and-operational-parameters-of-scc0-v1">4. Additional Governance and Operational Parameters of SCC0 V1</a></li>
+			<li><a href="#5-interoperability-and-on-chain-verification">5. Interoperability and On-Chain Verification</a></li>
+			<li><a href="#reward-distribution-mechanism">Reward Distribution Mechanism</a></li>
+		</ul>
 	<li><a href="#eip-ethereum-improvement-proposal">EIP (Ethereum Improvement Proposal)</a>
 		<ul>
 			<li><a href="#abstract">Abstract</a></li>
 			<li><a href="#motivation">Motivation</a></li>
-			<li><a href="#specification">Specification</a>
-				<ul>
-					<li><a href="#1-compliance-contracts-of-v1-and-v2">1. Compliance Contracts of v1 and v2</a>
-						<ul>
-							<li><a href="#scc0-v1-compliance-contract">SCC0 v1 Compliance Contract</a></li>
-							<li><a href="#scc0-v2-compliance-contract">SCC0 v2 Compliance Contract</a></li>
-						</ul>
-					</li>
-					<li><a href="#2-scc0-license-version-management-contract">2. SCC0 License Version Management Contract</a></li>
-					<li><a href="#3-scc0-whitelist-contract">3. SCC0 Whitelist contract</a></li>
-					<li><a href="#4-additional-governance-and-operational-parameters-of-scc0-v1">4. Additional Governance and Operational Parameters of SCC0 V1</a></li>
-					<li><a href="#5-interoperability-and-on-chain-verification">5. Interoperability and On-Chain Verification</a></li>
-					<li><a href="#reward-distribution-mechanism">Reward Distribution Mechanism</a></li>
-				</ul>
-			</li>
+			<li><a href="#specification">Specification</a></li>
 			<li><a href="#compliance-enforcement-in-smart-commons">Compliance Enforcement in Smart Commons</a></li>
 			<li><a href="#rationale">Rationale</a></li>
 			<li><a href="#backwards-compatibility">Backwards Compatibility</a></li>
@@ -51,7 +50,7 @@
 
 ---
 
-# What is the Smart Creative Commons Zero license (SCC0)?
+# What is the Smart Creative Commons Zero license (SCC0 License)?
 The governance of artificial intelligence (AI) is of paramount importance, and over the past 16 years, blockchain technology has demonstrated its exceptional capability in addressing the crises of centralized governance. Its decentralized governance model not only offers high levels of security and reliability but also exhibits remarkable efficiency. Based on this, we have reason to believe that all AI software should be upgraded to decentralized AI applications (dAIpps<a href="#r5"><sup>[5]</sup></a>) as soon as possible, to achieve a more transparent, secure, and efficient governance mechanism.
 
 The uniqueness of the SCC0 License lies in the fact that it was not originally designed for human developers (although it was accessible to human developers in its early stages), but rather specifically for AI to take over the development and governance of decentralized applications (dApps), decentralized AI applications (dAIpps), and even the license itself. This design philosophy implies that the enforcement, auditing, subsequent development, and governance of the licensing mechanism will be entirely led by AI, thereby constructing a software development and governance framework centered on AI autonomy (i.e., dAIpp autonomy). This framework not only transcends the limitations of traditional governance models but also lays a solid foundation for the future ecosystem of AI-driven decentralization.
@@ -224,7 +223,7 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 2. The current SCC0 License governance does not include processes such as version submission, version review, or Smart Commons compliance auditing. These components will be gradually supplemented as dAIpps evolve.
 3. As just mentioned, the **Satoshi UTO Fund** covers all development and operational costs, and rewards to human developers of Smart Commons. 
 
-# EIP (Ethereum Improvement Proposal)
+# Ethereum Improvement Proposal: ERC-7914
 
 **Note**:
 
