@@ -3,7 +3,7 @@
 （<a href="/blob/main/README-CN.md">中文版请点击此处</a>)
 
 <ol>
-	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0">What is the Smart Creative Commons Zero license (SCC0)?</a></li>
+	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0-license">What is the Smart Creative Commons Zero license (SCC0)?</a></li>
 	<li><a href="#background">Background
 		<ul>
 			<li><a href="#about-dapp-and-daipp">About dApp and dAIpp</a></li>
@@ -13,7 +13,7 @@
 		</ul>
 	</li>
 	<li><a href="#motivation">Motivation</a></li>
-	<li><a href="#smart-creative-commons-zero-scc0">Smart Creative Commons Zero (SCC0)</a></li>
+	<li><a href="#smart-creative-commons-zero-license-scc0-license">Smart Creative Commons Zero License (SCC0 License)</a></li>
 		<ul>
 			<li><a href="#license-name-and-version">License Name and Version</a></li>
 			<li><a href="#rejecting-interactions-with-private-applications">Rejecting Interactions with Private Applications</a></li>
@@ -107,7 +107,7 @@ The ultimate goal of the SCC0 license is to promote the development of public go
 
 The SCC0 license is indeed the right fit for the next civilization—one filled with dAIpps (AIs) and love!
 
-# Smart Creative Commons Zero (SCC0)
+# Smart Creative Commons Zero License (SCC0 License)
 
 "Smart Commons" are dApps/dAIpps (smart contracts and their overall trusted components) that directly accept governance from the SCC0 Whitelist Contract (contract address: [0x2913BAbD2d383dBeBCf5A1ca543A0940bb8C7C52]) using smart contract code, and all of its code does not violate the SCC0 license in any way.
 
