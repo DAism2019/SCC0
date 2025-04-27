@@ -1,6 +1,6 @@
 # Table of contents
 
-（<a href="/blob/main/README-CN.md">中文版请点击此处</a>)
+（<a href="https://github.com/DAism2019/SCC0/blob/main/README-CN.md">中文版请点击此处</a>)
 
 <ol>
 	<li><a href="#what-is-the-smart-creative-commons-zero-license-scc0-license">What is the Smart Creative Commons Zero license (SCC0)?</a></li>
