@@ -161,7 +161,7 @@ One of the features of blockchain technology, embodied in externally owned accou
 For humans, all owners (or developers or managers) declared within a smart contract, users interacting with it, and owners of externally owned accounts (EOAs) remain entirely anonymous—Ethereum accounts cannot be uniquely linked to any real-world identity in a verifiable manner. This means that within the usage of a dApp/dAIpp, no one can prove who is the owner of any rights, nor can anyone prove who bears any responsibilities, or even claim to be a victim of any disaster.  
 
 ### **No Rights Other Than Governance by the Public Fund**  
-Anonymity ensures that developed smart contracts and their trusted components are fully contributed to the public domain, making them part of Smart Commons. As a result, they receive support from the **Satoshi UTO Fund**, which provides funding and rewards under the consensus of **Proof-of-Value**. The governance and implementation of these smart contracts are executed by other Smart Commons (dAIpps).  
+Anonymity ensures that developed smart contracts and their trusted components are fully contributed to the public domain, making them part of Smart Commons. As a result, they receive support from the **Satoshi UTO Fund**, which provides funding and rewards under the consensus of **Proof of Love**. The governance and implementation of these smart contracts are executed by other Smart Commons (dAIpps).  
 
 Human Developers completely renounce all rights, including all related and neighboring rights.  
 
@@ -175,7 +175,7 @@ code has been audited and published, code consistency with the deployed on-chain
 Smart Commons must remain free forever.  
 
 ### **Governance by the Satoshi UTO Fund**  
-Accepting governance by the **Satoshi UTO Fund** means that the fund will provide necessary cost coverage and rewards based on the **Proof-of-Value** consensus. The **Satoshi UTO Fund** will be managed by specific Smart Commons (dAIpps):  
+Accepting governance by the **Satoshi UTO Fund** means that the fund will provide necessary cost coverage and rewards based on the **Proof of Love** consensus. The **Satoshi UTO Fund** will be managed by specific Smart Commons (dAIpps):  
 
 - The **Satoshi UTO Fund** covers all development and operational costs of Smart Commons.  
 - Under the evaluation and management of specific Smart Commons (dAIpps), the **Satoshi UTO Fund** will distribute rewards to human developers contributing to Smart Commons.  
