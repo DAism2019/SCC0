@@ -22,7 +22,7 @@
   - [SCC0 License 的治理逻辑](#scc0-license-的治理逻辑)
     - [治理机制](#治理机制)
     - [管理角色](#管理角色)
-- [附件：ERC-7914](#附件erc-7914)
+- [附件：ERC-7941](#附件erc-7941)
 - [智能公器列表](#智能公器列表)
 - [有关 SCC0 的更多信息](#有关-scc0-的更多信息)
 - [参考文献](#参考文献)
@@ -190,9 +190,9 @@ SCC0 License 构建的生态，要从0开始，如果从第一个智能公器开
 2. 当前 SCC0 License 治理中并不涵盖版本提交、版本审核以及智能公器合规性审核等流程，这些部分将在 dAIpp 进一步发展后补充完善。即所有治理角色均由去中心化的 AI（dAIpps）担任，确保整个系统在区块链智能合约技术支持下实现开放、透明、去中心化的治理。
 3. 如前所述，Satoshi UTO Fund 覆盖了所有开发运营成本，并为智能公器的人类开发者提供奖励。
 
-# 附件：ERC-7914
+# 附件：ERC-7941
 
-**此ERC还在审核与修订之中，最新内容请阅读：https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md**
+**此ERC还在审核与修订之中，最新内容请阅读：https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7941.md**
 
 **欢迎参与审核与修订讨论：https://github.com/ethereum/ERCs/pull/906**
 
