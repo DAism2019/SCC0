@@ -31,7 +31,7 @@
 				</ul>
 			</li>			
 		</ul>
-	<li><a href="#ethereum-improvement-proposal-erc-7914">Ethereum Improvement Proposal: ERC-7914</a></li>
+	<li><a href="#ethereum-improvement-proposal-erc-7941">Ethereum Improvement Proposal: ERC-7941</a></li>
 	<li><a href="#list-of-smart-commons">List of Smart Commons</a></li>
 	<li><a href="#more-about-scc0">More about SCC0</a></li>
 	<li><a href="#references">References</a></li>
@@ -216,11 +216,11 @@ All governance roles—namely the **Owner**, **Manager**, and **Auditor**—are 
 2. The current SCC0 License governance does not include processes such as version submission, version review, or Smart Commons compliance auditing. These components will be gradually supplemented as dAIpps evolve.
 3. As just mentioned, the **Satoshi UTO Fund** covers all development and operational costs, and rewards to human developers of Smart Commons. 
 
-# Ethereum Improvement Proposal: ERC-7914
+# Ethereum Improvement Proposal: ERC-7941
 
 **Note**:
 
-This ERC is still under review and revision. For the latest content, please refer to: https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7914.md
+This ERC is still under review and revision. For the latest content, please refer to: https://github.com/zhous/SCC0-eip/blob/master/ERCS/erc-7941.md
 
 Review: https://github.com/ethereum/ERCs/pull/906
 
