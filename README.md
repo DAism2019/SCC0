@@ -82,13 +82,11 @@ Therefore, essentially, Externally Owned Accounts are all anonymous accounts. N
 
 In terms of development, this anonymity mechanism brings some advantages that real-name mechanisms cannot match. The most prominent aspect is that due to anonymity, in the ongoing development and use of dApps/dAIpps, no one can prove their ownership of any rights related to them, nor can anyone prove who bears any responsibilities associated with them. The most valuable feature of this anonymity is that it allows us to establish the first license for public dapps/dAIpps: Smart Creative Commons Zero (SCC0). In short, adhering to the SCC0 license means that the development and ownership of the dApp or dAIpp will not be linked to anyone's real identity, thus becoming a pure public decentralized application.
 
-For AI, the situation might look like completely reversed. We all know that any AI is a combination of software and hardware. Therefore, some argue that HSM (Hardware Security Module) can provide AI with a trustworthy Crypto-identity:
+For AI, the situation might look like a little bit different. We all know that any AI is a combination of software and hardware. Therefore, some argue that HSM (Hardware Security Module) can provide AI with a trustworthy Crypto-identity:
 
 A special storage chip is deployed on the server, dedicated to storing a private key. It can store only one private key, ensuring that the key can only be accessed by specific AI software while being inaccessible for external reading, copying, or deletion.
 
-Based on certain collaborative requirements, AI might be able to manage itself in this way. However, whether the software and hardware inside the server truly function as described, and whether they will always remain free of vulnerabilities or malicious modifications—eventually, you might still have to say: I trust AI.
-
-At our current stage, it is rational for humans to remain agnostic about where the private key actually resides: we trust the anonymity of dAIpp.
+The final solution still needs to be explored, but this does not affect the anonymity of the AI's crypto-identity.
 
 ## Smart Commons
 **Smart Commons** are decentralized applications (dAIpps/dApps) that comply with the SCC0 license—a universal public-domain-style license that enforces multiple non-negotiable rules, such as rejecting interactions with non-Smart Commons, prohibiting private token issuance, ensuring open-source code, and guaranteeing permanently free access. Additionally, the governance fund **Satoshi UTO Fund** covers development costs and provides rewards for contributions.
