@@ -186,7 +186,7 @@ An AI initiates a transaction request to interact between Smart Common A and Sma
 - Smart Common A first queries the SCC0 Whitelist contract. If Smart Common B is not on the whitelist, it directly rejects interaction. If Smart Common B is found on the whitelist, it sends an interaction request.  
 - Upon receiving the interaction request from Smart Common A, Smart Common B also first queries the SCC0 Whitelist contract. If Smart Common A is not on the whitelist, it directly rejects interaction. If Smart Common A is found on the whitelist, it accepts the request and completes the interaction.  
 
-This means that, under no circumstances, can non-Smart Commons interact with Smart Commons!  
+This means that **after the activation of the SCC0 License**, under no circumstances can a non-Smart Commons interact with a Smart Commons!
 
 **Special Note:**  
 The ecosystem built by the SCC0 License must start from scratch. However, if the very first Smart Common were required to follow this governance mechanism from the outset, it would become unusable. Therefore, we have specifically designed a brilliant transition mechanism:  
